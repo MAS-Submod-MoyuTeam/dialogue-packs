@@ -1,0 +1,17 @@
+init -990 python:
+    store.mas_submod_utils.Submod(
+        author="P",
+        name="话题整合包",
+        description="包含了我个人自己汉化的话题.",
+        version='0.0.1'
+    )
+
+init -989 python:
+    if store.mas_submod_utils.isSubmodInstalled("Submod Updater Plugin"):
+        store.sup_utils.SubmodUpdater(
+            submod="话题整合包",
+            user_name="PencilMario",
+            repository_name="dialogue-packs",
+            update_dir="",
+            attachment_id=None
+        )
