@@ -14,7 +14,7 @@ label mas_ara:
             $_history_list.pop()
             menu:
                 "是的":
-                    m 1fubla "{size+=13}{b}你想让我说ara ara吗?!{/b}{/size}"
+                    m 1fubla "{size=+13}{b}你想让我说ara ara吗?!{/b}{/size}"
                     $_history_list.pop()
                     menu:
                         "YES":
