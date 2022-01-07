@@ -71,7 +71,7 @@ init 5 python:
             start_date=submod_festival_zsj,
             end_date=submod_festival_zsj + datetime.timedelta(days=1),
             years=[],
-            pool=True
+            pool=False
             )
     )
 
@@ -107,6 +107,7 @@ init 5 python:
             start_date=submod_festival_teacher,
             end_date=submod_festival_teacher + datetime.timedelta(days=1),
             years=[],
+            pool=False
             )
     )
 
@@ -135,6 +136,7 @@ init 5 python:
             start_date=submod_festival_women,
             end_date=submod_festival_women + datetime.timedelta(days=1),
             years=[],
+            pool=False
             )
     )
 
@@ -165,6 +167,7 @@ init 5 python:
             start_date=submod_festival_labor,
             end_date=submod_festival_labor + datetime.timedelta(days=1),
             years=[],
+            pool=False
             )
     )
 
@@ -195,6 +198,7 @@ init 5 python:
             start_date=submod_festival_lnr,
             end_date=submod_festival_lnr + datetime.timedelta(days=1),
             years=[],
+            pool=False
             )
     )
 
@@ -255,6 +259,7 @@ init 5 python:
             start_date=submod_festival_yuanxiao,
             end_date=submod_festival_yuanxiao + datetime.timedelta(days=1),
             years=[],
+            pool=False
             )
     )
 
@@ -294,6 +299,7 @@ init 5 python:
             start_date=submod_festival_qingming,
             end_date=submod_festival_qingming + datetime.timedelta(days=1),
             years=[],
+            pool=False
             )
     )
 label festival_qingming:
@@ -330,6 +336,7 @@ init 5 python:
             start_date=submod_festival_zhongq,
             end_date=submod_festival_zhongq + datetime.timedelta(days=1),
             years=[],
+            pool=False
             )
     )
 label festival_zhongqiu:
@@ -357,6 +364,7 @@ init 5 python:
             start_date=submod_festival_7xi,
             end_date=submod_festival_7xi + datetime.timedelta(days=1),
             years=[],
+            pool=False
             )
     )
 
@@ -385,6 +393,7 @@ init 5 python:
             start_date=submod_festival_lnr + datetime.timedelta(hours=-6),
             end_date=submod_festival_lnr,
             years=[],
+            pool=False
             )
     )
 label festival_chux:
