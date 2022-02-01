@@ -12,6 +12,6 @@
 |u/mayday-mayday|[>reddit](https://www.reddit.com/r/MASFandom/comments/rvp5c4/another_small_background_project_id_been_working/)|`我要去为你的现实做些什么`| TK|
 
 ------------
-###更新记录
+### 更新记录
 `V1.1.0`
 >更新子模组"节日拓展"(festival) - Sir.P TK 莫秋纱
