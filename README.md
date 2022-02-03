@@ -17,5 +17,3 @@
 `V1.3.0`
 >新话题`UnexplainedYeet - 我要告诉你一些事情`
 
-`V1.2.0`
->更新子模组"节日拓展"(festival) - Sir.P TK 莫秋纱
