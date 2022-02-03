@@ -7,11 +7,13 @@
 
 |作者 | 源链接|话题 |汉化|
 |-------------| --------------| ------------- | ------------------ |
-|u/ThePersonYou_Hate| /|/ |  P TK |
+|ThePersonYou_Hate| /|/ |  P TK |
 | Sir.P TK 莫秋纱 | /|`节日拓展` |
-|u/mayday-mayday|[>reddit](https://www.reddit.com/r/MASFandom/comments/rvp5c4/another_small_background_project_id_been_working/)|`我要去为你的现实做些什么`| TK|
+|mayday-mayday|[>reddit](https://www.reddit.com/r/MASFandom/comments/rvp5c4/another_small_background_project_id_been_working/)|`我要去为你的现实做些什么`| TK|
+|UnexplainedYeet|[>reddit](https://www.reddit.com/user/UnexplainedYeet)|`我要告诉你一些事情`|TK|
 
 ------------
-### 更新记录
-`V1.2.0`
->更新子模组"节日拓展"(festival) - Sir.P TK 莫秋纱
+###更新记录
+`V1.3.0`
+>新话题`UnexplainedYeet - 我要告诉你一些事情`
+
