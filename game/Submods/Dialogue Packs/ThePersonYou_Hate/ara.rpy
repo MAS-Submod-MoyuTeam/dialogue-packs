@@ -7,7 +7,7 @@ label mas_ara:
         $ _history_list.pop()
         menu:
             "嗯...要不说点ara ara?":
-                m 1rksdrc "No thanks [player]..."
+                m 1rksdrc "算了吧, [player]..."
 
     if mas_isMoniAff(higher=True):
             m 1eua "你想让我说ara ara?"
@@ -17,7 +17,7 @@ label mas_ara:
                     m 1fubla "{size=+13}{b}你想让我说ara ara吗?!{/b}{/size}"
                     $_history_list.pop()
                     menu:
-                        "YES":
+                        "对的":
                             m 1hubsa "..."
                             m 6cubfb "[glitchtext(12)]ARA ARA?![glitchtext(6)]eĄ̶̡̛̝̩̬̦͙͍̎̄̒̿R̶̢͕̼͔̤͕͈͍̀̄͌͊̕̚Ä̵̜̫͎̬̻̳́́̽͘͜ ̵͕̌́̈́̈́̕A̵̡̛̽̓R̶̛̛̦̞͆̐̿̽́̕͝Ą̸͔̣̹̫̙̿͛͒̃̀̓͛̿̈͛͜͜"
                             m 1tsbsa "啊哈哈~!"
