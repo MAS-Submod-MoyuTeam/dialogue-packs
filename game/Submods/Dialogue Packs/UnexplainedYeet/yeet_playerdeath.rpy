@@ -1,5 +1,5 @@
 init 5 python:
-    addEvent(Event(persistent.event_database,eventlabel="player_death",category=["其他", "你"],prompt="我要告诉你一些事情",pool=True,unlocked=True,))
+    addEvent(Event(persistent.event_database,eventlabel="player_death",category=["其它", "你"],prompt="我要告诉你一些事情",pool=True,unlocked=True,))
 
     if persistent.gender == "F":
           gen = "她"
