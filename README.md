@@ -11,6 +11,7 @@
 | Sir.P TK 莫秋纱 | /|`节日拓展` |
 |mayday-mayday|[>reddit](https://www.reddit.com/r/MASFandom/comments/rvp5c4/another_small_background_project_id_been_working/)|`我要去为你的现实做些什么`| TK|
 |UnexplainedYeet|[>reddit](https://www.reddit.com/user/UnexplainedYeet)|`我要告诉你一些事情`|TK|
+|星光 TK Sir.Pe|/|国际象棋教学|/|
 
 ------------
 ###更新记录
