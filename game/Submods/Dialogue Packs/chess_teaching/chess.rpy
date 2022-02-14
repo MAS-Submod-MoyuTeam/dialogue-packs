@@ -94,7 +94,7 @@ init 5 python:
             category=["国际象棋课堂"],
             prompt="1.来玩国际象棋吧",
             pool=True,
-            conditional="mas_isGameUnlocked(\"chess\") or mas_isGameUnlocked(\"国际象棋\")"
+            conditional="mas_isGameUnlocked(\"chess\") or mas_isGameUnlocked(\"国际象棋\")",
             action=EV_ACT_UNLOCK
         )
     )
