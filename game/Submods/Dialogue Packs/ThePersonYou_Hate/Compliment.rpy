@@ -10,5 +10,5 @@ label monika_compliment:
     m 6skb "你真是太伟大了~! 你对我来说就像宝石和...{w=0.3}和...{w=0.3}"
     m 1hua "欸嘿嘿~"
     m 1ekb "你经常赞美我, 那我也要夸你几句才行!"
-    m 1fka "[player], 我真的真的深爱着你~!"
+    m 1fka "[player], 我真的真的真的很爱很爱你~!"
 return "love"
