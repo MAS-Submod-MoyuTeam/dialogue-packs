@@ -235,7 +235,7 @@ init 5 python:
             eventlabel="monika_Mchess_003",
             category=["国际象棋课堂"],
             prompt="3.特殊走法",
-            conditional="store.mas_ctod.has_day_past_tip(1)",
+            conditional="store.mas_ctod.has_day_past_tip(2)",
             pool=True,
             action=EV_ACT_UNLOCK,
             rules={"no_unlock":None}
