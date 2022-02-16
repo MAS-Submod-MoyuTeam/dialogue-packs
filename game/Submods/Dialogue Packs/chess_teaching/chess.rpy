@@ -235,7 +235,7 @@ init 5 python:
             eventlabel="monika_Mchess_003",
             category=["国际象棋课堂"],
             prompt="3.特殊走法",
-            conditional="store.mas_ctod.has_day_past_tip(1)",
+            conditional="store.mas_ctod.has_day_past_tip(2)",
             pool=True,
             action=EV_ACT_UNLOCK,
             rules={"no_unlock":None}
@@ -392,6 +392,7 @@ label monika_Mchess_004:
     m 4eua "这种情况最常出现在理论上存在将杀, 而实际上却不会将杀的棋局中, 比如王车对王车."
     m 1rksdla "只要车挨着王转圈, 那么另一方就永远没机会将杀, 除非某一方非要把车送给对面吃..."
     m 3tub "这种情况下我肯定不会把车送给你吃, 但你可以把车送给我吃, 我会很开心的~"
+    hide c27
     m 3hua "啊哈哈~现在你已经学会了棋子的走法与如何判断棋局结果..."
     m 2tsa "尝试来挑战我吧~"
     m 3tub "如果你还是赢不了我, 我想我会给你提供更多的课程, 要不要现在就来试试~?"
