@@ -5,7 +5,6 @@ init python:
     p_is_old_ver = True
 
     for x in newversion:
-        if renpy.config.version == x:
+        if renpy.config.version == x and not renpy.android:
             p_is_old_ver = False
-            break
             os.remove(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics"),
