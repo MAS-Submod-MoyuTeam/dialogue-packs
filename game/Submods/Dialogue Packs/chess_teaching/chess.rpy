@@ -26,6 +26,41 @@ image c24 = "Submods/Dialogue Packs/chess_teaching/images/24.jpg"
 image c25 = "Submods/Dialogue Packs/chess_teaching/images/25.jpg"
 image c26 = "Submods/Dialogue Packs/chess_teaching/images/26.jpg"
 image c27 = "Submods/Dialogue Packs/chess_teaching/images/27.jpg"
+image cb0 = "Submods/Dialogue Packs/chess_teaching/images/B0.jpg"
+image cb1 = "Submods/Dialogue Packs/chess_teaching/images/B1.jpg"
+image cb2 = "Submods/Dialogue Packs/chess_teaching/images/B2.jpg"
+image cb3 = "Submods/Dialogue Packs/chess_teaching/images/B3.jpg"
+image cb4 = "Submods/Dialogue Packs/chess_teaching/images/B4.jpg"
+image cb51 = "Submods/Dialogue Packs/chess_teaching/images/B5.1.jpg"
+image cb5 = "Submods/Dialogue Packs/chess_teaching/images/B5.jpg"
+image cb6 = "Submods/Dialogue Packs/chess_teaching/images/B6.jpg"
+image cb7 = "Submods/Dialogue Packs/chess_teaching/images/B7.jpg"
+image cb8 = "Submods/Dialogue Packs/chess_teaching/images/B8.jpg"
+image cb9 = "Submods/Dialogue Packs/chess_teaching/images/B9.jpg"
+image cb10 = "Submods/Dialogue Packs/chess_teaching/images/B10.jpg"
+image cb11 = "Submods/Dialogue Packs/chess_teaching/images/B11.jpg"
+image cb12 = "Submods/Dialogue Packs/chess_teaching/images/B12.jpg"
+image cb13 = "Submods/Dialogue Packs/chess_teaching/images/B13.jpg"
+image cb14 = "Submods/Dialogue Packs/chess_teaching/images/B14.jpg"
+image cb15 = "Submods/Dialogue Packs/chess_teaching/images/B15.jpg"
+image cb16 = "Submods/Dialogue Packs/chess_teaching/images/B16.jpg"
+image cb17 = "Submods/Dialogue Packs/chess_teaching/images/B17.jpg"
+image cb18 = "Submods/Dialogue Packs/chess_teaching/images/B18.jpg"
+image cb19 = "Submods/Dialogue Packs/chess_teaching/images/B19.jpg"
+image cb20 = "Submods/Dialogue Packs/chess_teaching/images/B20.jpg"
+image cb21 = "Submods/Dialogue Packs/chess_teaching/images/B21.jpg"
+image cb22 = "Submods/Dialogue Packs/chess_teaching/images/B22.jpg"
+image cb23 = "Submods/Dialogue Packs/chess_teaching/images/B23.jpg"
+image cb24 = "Submods/Dialogue Packs/chess_teaching/images/B24.jpg"
+image cb25 = "Submods/Dialogue Packs/chess_teaching/images/B25.jpg"
+image cb26 = "Submods/Dialogue Packs/chess_teaching/images/B26.jpg"
+image cb27 = "Submods/Dialogue Packs/chess_teaching/images/B27.jpg"
+image cb28 = "Submods/Dialogue Packs/chess_teaching/images/B28.jpg"
+image cb29 = "Submods/Dialogue Packs/chess_teaching/images/B29.jpg"
+image cb30 = "Submods/Dialogue Packs/chess_teaching/images/B30.jpg"
+image cb31 = "Submods/Dialogue Packs/chess_teaching/images/B31.jpg"
+image cb32 = "Submods/Dialogue Packs/chess_teaching/images/B32.jpg"
+image cb33 = "Submods/Dialogue Packs/chess_teaching/images/B33.jpg"
 
 label ch0_start:
     show c1:
@@ -91,7 +126,7 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="monika_Mchess_001",
-            category=["国际象棋课堂"],
+            category=["国际象棋"],
             prompt="1.来玩国际象棋吧",
             pool=True,
             conditional="mas_isGameUnlocked(\"chess\") or mas_isGameUnlocked(\"国际象棋\")",
@@ -139,7 +174,7 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="monika_Mchess_002",
-            category=["国际象棋课堂"],
+            category=["国际象棋"],
             prompt="2.棋子的移动",
             conditional="store.mas_ctod.has_day_past_tip(1)",
             pool=True,
@@ -233,7 +268,7 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="monika_Mchess_003",
-            category=["国际象棋课堂"],
+            category=["国际象棋"],
             prompt="3.特殊走法",
             conditional="store.mas_ctod.has_day_past_tip(2)",
             pool=True,
@@ -322,7 +357,7 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="monika_Mchess_004",
-            category=["国际象棋课堂"],
+            category=["国际象棋"],
             prompt="4.胜负与和棋",
             conditional="store.mas_ctod.has_day_past_tip(3)",
             pool=True,
@@ -404,7 +439,7 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="monika_Mchess_005",
-            category=["国际象棋课堂"],
+            category=["国际象棋"],
             prompt="5.参考网站",
             conditional="store.mas_ctod.has_day_past_tip(4)",
             pool=True,
@@ -436,6 +471,365 @@ label monika_Mchess_005:
 return "love"
 
 
+init 5 python:
+    addEvent(
+        Event(
+            persistent.event_database,
+            eventlabel="monika_Mchess_006",
+            category=["国际象棋"],
+            prompt="6.子力价值",
+            conditional="store.mas_ctod.has_day_past_tip(5)",
+            pool=True,
+            action=EV_ACT_UNLOCK,
+            rules={"no_unlock":None}
+        )
+    )
+
+label monika_Mchess_006:
+    m 1hub "嗨, 亲爱的[player]~"
+    m 3hua "好久不见, 欢迎继续收听莫妮卡的国际象棋课堂~"
+    m 2rksdla "啊哈哈...也没有很久啦~"
+    m 3eub "今天我们来谈一谈棋子的价值."
+    m 4euc "当我准备攻击一个受到保护的棋子时, 你一定会衡量它的价值, 然后再决定与我换子还是让它逃走..."
+    m 3eua "实际上, 在国际象棋中每一个棋子的价值都可以量化, 记住这些数值能让你在面临攻击威胁时快速做出判断."
+    m 4eub "兵是最弱小的棋子, 所以我们首先将兵的子力定义为1."
+    m 3eua "在这个前提下, 马的子力大约是3, 象和马相当, 同样是3."
+    m 4eub "车的子力大约为5, 而后的子力约为9, 所以一后换两车总的来说是略赚的."
+    m 1wuc "国王不能参与交换, 所以棋子价值为无限大!"
+    m 3eub "如果想单独衡量国王的强度, 那么它的子力大约为3, 强度与马、象基本相同."
+    m 2eua "你应该已经注意到了, 我在定义子力的时候用到了'约'."
+    m 4eub "实际上棋子子力是会随着局面而变化的."
+    m 7eub "大多数情况下, 象的重要性要比马高一点点, 所以用马换象一般不需要思考盈亏~"
+    m 3wuc "而车在开局与中局并不够强, 到后期却与双马或马象相当!"
+    m 4wud "兵与车相同, 当游戏进行到残局, 一个即将升变的兵的价值有时远高于一个马或一个象!"
+    m 3eub "后有些特殊, 在开局与中局, 后一旦放手进攻很容易将杀对方的王."
+    m 4rksdlb "因此, 如果你在游戏前期用后交换了我两个车, 估计你离被将死已经不远了, 啊哈哈..."
+    m 3eua "所以, 限制后最好的方法就是用后进行等价交换."
+    m 4euc "亲爱的[player], 我再次提醒你, 强大的力量总是伴随着风险, 只有王后才能打败王后."
+    m 7eub "最后还有一个小知识点, 马与象被称为轻子, 而车与后被称为重子."
+    m 3nua "下节课我们将会用到这个知识点~"
+    m 3hub "感谢倾听~"
+return
+
+init 5 python:
+    addEvent(
+        Event(
+            persistent.event_database,
+            eventlabel="monika_Mchess_007",
+            category=["国际象棋"],
+            prompt="7.重子将杀",
+            conditional="store.mas_ctod.has_day_past_tip(6)",
+            pool=True,
+            action=EV_ACT_UNLOCK,
+            rules={"no_unlock":None}
+        )
+    )
+
+label monika_Mchess_007:
+    m 3eub "嗨, 亲爱的[player], 你有没有遇到过这样一种情况?"
+    m 4rksdla "明明把我的棋子都吃完了, 但却还是将不死我, 甚至喜提和棋..."
+    m 1hksdlb "啊哈哈..."
+    extend 3nub "在国际象棋中, 将杀是需要一些技巧的, 轻子与重子分别有不同的将杀策略, 我们今天先来聊一聊重子将杀~"
+    m 4eua "重子、也就是车与后, 可以在仅剩一个子力的时候实现将杀."
+    m 3eub "能否在王的配合下单杀对方也是重子与轻子最重要的区别."
+    m 7eua "重子杀王分为两种情况:一个重子与多个重子."
+    m 3euc "一个重子, 也就是单车或单后的话, 只能与王配合完成将杀."
+    m 3efo "一定要记住不去移动国王是不可能赢的!"
+    m 4euc "而将杀形式也很固定, 依靠底线限制我的国王的行动完成将杀."
+    show monika at t22
+    show cb0 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 7eub "因此你首先要做的就是把我的国王逼到底线, 最简单的方法就是让你的车或者后与国王并肩向我靠近." #图B0:并肩逼退
+    m 2eua "这样我的王就只能后退了." #图B0:并肩逼退
+    hide cb0
+    show cb1 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 7eub "单车想杀王只有一种情况, 就是如图所示的底线闷杀, 最后一步一定是在双方国王面对面之后, 车前进到底线将杀." #图B1:单车底线将杀
+    m 4eua "而单后稍稍简单一些, 只要在对方王被我方王逼退到底线之后用后抱住它就行了."
+    hide cb1
+    show cb2 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 3rub "可以这样." #图B2:单后抱腰杀
+    hide cb2
+    show cb3 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 2lua "也可以这样." #图B3:单后角落杀
+    hide cb3
+    show cb4 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4eub "当然, 后也可以像车一样底线闷杀." #图B4:单后闷杀
+    m 3eua "如果有多个重子的话, 将杀实际上更为简单."
+    hide cb4
+    show cb5 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 3eub "最常见的就是双车杀王." #图B5:双车杀王
+    hide cb5
+    show cb51 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4eua "因为一个车能完全控制一行或一列, 两个车交替前进就可以把我的王逼到底线完成将杀." #图B5.1:双车杀王进一步
+    m 7nua "这应该是最简单的一种将杀方法了, 所以我建议你多练习一下它~" 
+    hide cb51
+    show cb6 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4hksdlb "不过一定要注意, 不要在交替前进时被我的国王吃掉, 就像这样..." #图B6:双车杀王失误
+    m 3hksdlb "那样你只能乖乖地去单车杀王了..."
+    m 3eub "双后或者车后杀王都可以参考双车杀王."
+    m 4efd "不过一旦后参与将杀, 一定要小心逼和!"
+    m 3hksdla "啊哈哈...我是不是提过好多次这个, 因为后实在太容易逼和了..."
+    m 2eka "虽然我也很喜欢看着可爱的你辛辛苦苦大半天喜提和棋, 但我还是希望你能赢下这场对局."
+    m 3nub "对于初学者而言将杀是第一个要跨越的难关, 我相信你一定能掌握它的~"
+    hide cb6
+    show monika at t11
+    m 3hub "感谢倾听~"
+return
+
+init 5 python:
+    addEvent(
+        Event(
+            persistent.event_database,
+            eventlabel="monika_Mchess_008",
+            category=["国际象棋"],
+            prompt="8.轻子残局",
+            conditional="store.mas_ctod.has_day_past_tip(7)",
+            pool=True,
+            action=EV_ACT_UNLOCK,
+            rules={"no_unlock":None}
+        )
+    )
+
+label monika_Mchess_008:
+    m 3nub "嗨亲爱的[player], 让我们继续残局教程吧~"
+    m 4eua "在之前我们谈到了重子将杀, 只要在残局中你还拥有重子, 无论另外拥有几个轻子, 理论上都可以把我将死."
+    m 7eud "但只有轻子的话就不一定了."
+    m 4euc "首先, 单马或者单象是不可能完成将杀的, 出现这种情况我会直接判和."
+    m 2efd "不可能就是不可能, 我真的没有骗你!"
+    show monika at t22
+    show cb7 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 3eub "其次, 双马将杀只存在于理论当中, 你唯一的机会是这种情况下我故意往角落里走." #图B7:双马杀王
+    hide cb7
+    show cb8 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4wuc "但只要我反方向移动, 你就不可能将死我!" #图B8:双马杀王失败
+    m 2ttb "放心, 这种情况我是不会配合你演出的, 但你或许可以躲在角落里瑟瑟发抖~" #图B8:双马杀王失败
+    hide cb8
+    show monika at t11
+    m 3eua "双象杀王分为两种情况, 两个同色象同样杀不死王."
+    m 4wuc "甚至连理论将杀的机会都没有!"
+    m 3eub "不过拥有同色象只会出现在一种情况里, 那就是兵的升变."
+    m 4wud "所以你升变象的时候一定要注意落脚颜色!"
+    m 7kub "而两个异色象可以完成杀王, 其要点是双象与王手拉手推进, 直到将对方的王逼到角落里."
+    show monika at t22
+    show cb9 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4eua "双象杀王的最终图形有几种, 其中一个是这样, 总之你只要引导局面朝向这样就行了." #图B9:双象杀王
+    m 3eud "最后一种情况就是马象杀王了, 马象可以完成将杀, 但过程非常复杂..."
+    hide cb9
+    show cb10 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4rub "你只需要记住:只有将我的王逼退到与你的象同颜色的角落中才可以完成将杀, 就比如这样." #图10:马象杀王
+    m 2wuc "马象杀王可以看作国际象棋初学者的入门考试, 极限情况下马象需要走48步才可以将死对方的王!"
+    m 3eub "在最近两节课中我们聊到了重子与轻子的将杀, 你应该已经发觉到我还未提及一个非常重要的残局类型."
+    m 4hub "那就是王兵残局."
+    m 2rsc "事实上没有兵参与的残局非常少见, 与之相对, 兵想要在后期发挥威力也意味着需要更加精确的操作!"
+    m 3kub "下次课程中我会和你聊聊不同兵组成的形态与王兵残局的具体应对方式~"
+    hide cb10
+    show monika at t11
+    m 3hub "感谢倾听~"
+return
+
+init 5 python:
+    addEvent(
+        Event(
+            persistent.event_database,
+            eventlabel="monika_Mchess_009",
+            category=["国际象棋"],
+            prompt="9.兵型与王兵残局",
+            conditional="store.mas_ctod.has_day_past_tip(8)",
+            pool=True,
+            action=EV_ACT_UNLOCK,
+            rules={"no_unlock":None}
+        )
+    )
+
+label monika_Mchess_009:
+    m 3hub "嗨, [player], 今天我们来聊聊王兵残局~"
+    m 3eub "在了解王兵残局之前, 你需要知道每一个兵的具体名称与复数兵组成的形态称谓."
+    show monika at t22
+    show cb11 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4eua "八个兵根据其位置的不同都有对应的称谓, 一种叫法是开局位于哪一列就称其为某列兵, 比如位于A列的兵就是A列兵." #图B11:初始兵
+    m 3eub "另一种称呼方式就是根据兵后方的棋子对兵赋予称谓, 王前面的兵就叫王翼兵, 后前面的就叫后翼兵, 现在你能理解所谓的'后翼弃兵'了吧?" #图B11:初始兵
+    hide cb11
+    show cb12 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 7eua "随着棋局的进行, 兵的位置也会有一些变化, 比如因前进一格或两格抵达不同的行." #图B12 :初始兵前进
+    hide cb12
+    show cb13 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4rub "还比如A列兵会因为吃子走到B列." #图B13:吃兵换列
+    m 2eua "兵在改变位置之后就会与其他兵组成新的'兵型'."
+    hide cb13
+    show cb14 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 3rub "第一种兵型就是连兵, 连兵是指两个以及以上、处在相邻列的兵." #图B14:连兵
+    m 3eua "连兵是最好的兵型, 兵之间可以互相保护、交替前进, 无论是进攻与防守都可以发挥出作用." #图B14:连兵
+    hide cb14
+    show cb15 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4eub "第二种是叠兵, 所谓叠兵就是指两个以及以上的兵因为吃子, 走到了同一列上." #图B15:叠兵
+    hide cb15
+    show cb16 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 2rksdla "相对于连兵, 叠兵可以控制更多的格子, 但是叠兵弱点非常明显, 既会被车从头吃到尾, 也会被象回首掏..." #图B16:车象攻击叠兵
+    hide cb16
+    show cb17 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 3eub "而且前方的兵阻挡了后方的兵的前进道路, 总的来说叠兵是一种非常普通的兵型." #图B17:叠兵被阻挡"
+    hide cb17
+    show cb18 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4eua "第三种是孤兵, 也就是相邻行列都没有兵的兵型." #图B18:孤兵
+    hide cb18
+    show cb19 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 3eub "孤兵是最弱的兵型, 它控制的格子很少而且容易遭受攻击, 实战中出现孤兵的话, 我的建议是尽快做子力交换." #图B18:孤兵
+    hide cb19   
+    show cb20 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4eub "最后还有一种重要的兵型, 通路兵." #图B19:通路兵
+    m 2eua "当一个兵的同行与邻行都没有敌方兵, 那它就是一个通路兵." #图B19:通路兵
+    m 3wub "通路兵与以上三种兵型可以同时存在, 但意义却大得多!"
+    hide cb19
+    show cb20 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 3kua "因为没有兵可以阻止对方通路兵的前进与升变, 所以通路兵往往可以牵制至少一个更有价值的棋子~" #图B20:通路兵牵制
+    m 4eub "很多残局的关键就是阻止通路兵的前进与升变."
+    m 4kub "你现在已经知道了兵型, 现在我来告诉你一些王兵残局的要点~"
+    hide cb20
+    show cb21 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 7eua "第一, 位于边线的孤兵价值最低, 所以当你像这样只有两个孤兵的时候, 建议你去保护更加靠近中心的那个, 因为你的王可以绕着它转圈圈." #图B21:双孤兵
+    hide cb21
+    show cb22 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 2eub "第二, 时刻注意连兵的位置, 不要贪图升变速度让连兵走成两个孤兵, 那样它们都会死." #图B22:连兵变孤兵
+    hide cb22
+    show cb23 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 3eua "第三, 当你决定让某一个通路兵升变时, 一定~一定~要控制升变格, 这样至少能换掉对面一个棋子!" #图B23:控制升变格
+    hide cb23
+    show cb24 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4efb "最后, 如果没有其他棋子能控制升变格, 请果断让王站在兵的前面, 有时候, 你需要的仅仅是一点勇气!" #图B24:王在兵前
+    hide cb24
+    show monika at t11
+    m 3hub "感谢倾听~"
+return
+
+init 5 python:
+    addEvent(
+        Event(
+            persistent.event_database,
+            eventlabel="monika_Mchess_010",
+            category=["国际象棋"],
+            prompt="10.棋谱记录方法",
+            conditional="store.mas_ctod.has_day_past_tip(9)",
+            pool=True,
+            action=EV_ACT_UNLOCK,
+            rules={"no_unlock":None}
+        )
+    )
+
+label monika_Mchess_010:
+    m 1rua "亲爱的[player], 现在你已经学会了行棋与将杀..."
+    m 2eub "在进一步学习战术技巧与开局之前, 我想你有必要了解一下如何记录一场对局."
+    m 3eua "为了方便复盘与分析, 很久之前国际象棋棋手们就发明了一整套棋谱记录方式."
+    m 7eub "首先, 请回想一下棋子的英文名, 在棋谱中用棋子英文名首字母代表它."
+    m 4eua "王是K, 后是Q, 车是R, 马是N而象是B, 为了简化记录方式, 兵一般不用代号, 只标示前进位置."
+    show monika at t22
+    show cb25 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 3eub "我在之前已经告诉了你棋盘上每个格子的名称, 你看, 像这样一般的王翼兵开局, 就记录为e4." #图B25:e4
+    hide cb25
+    show cb26 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 2eua "之后我跳马, 就记为Nc6, 我们这一步的完整记录方式就是'1.e4 Nc6', 意思是白棋第一回合王翼兵前进两格, 黑棋第一回合跳马到c6." #图B26:Nc6
+    m 3nub "记得每一回合都要在双方走法之前记录回合数哦~"
+    hide cb26
+    show cb27 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4eua "假如吃子, 那就在棋子与位置间加上一个'x', 比如这样就是Rxc3, 不用记录吃了什么, 因为那里有什么前面一定说过." #图B27:Rxc3
+    hide cb27
+    show cb28 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4eub "假如将军了, 就在位置后面加上一个'+', 比如这样就是Qf3+." #图B28:Qf3+
+    hide cb28
+    show cb29 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 3eua "假如将死了那就在位置后面加一个'#', 比如这样就是Qg7#." #图B29:Qg7#
+    m 3eub "特殊走法同样有对应的记录方式, 王车易位长易位的时候, 这一步记为O-O-O, 短易位则记为O-O."
+    m 4eua "兵升变时, 则在位置后面加上'=某', 这个某, 就是兵升变的棋子的代号."
+    hide cb29
+    show cb30 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 3rub "比如这样, 就是'b8=Q',值得注意的是, 假如升变的同时还将军了, 那么将军的'+'号要放在升变代号后面." #图B30:b8=Q
+    m 2rta "[player]你有没有一个疑问, 明明很多棋子有好几个, 假如它们都能走到一个位置的时候,要怎么记录?"
+    hide cb30
+    show cb31 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 3eub "这种时候需要在在棋子代号后面加上位置代号, 比如这种情况就是Khf1, 意思是h行的车走到了f1." #图B31:Khf1
+    m 3eua "假如是同列的车, 则把字母代号换成数字代号就行了, 反正总有一个坐标是不一样的."
+    hide cb31
+    show cb32 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 4eub "最后, 兵在吃子的时候, 要加一个代表它的编号, 这个编号就是它在移动之前的列编号, 比如这样就是cxd3, 意思是c列上的兵吃掉了d3上的子." #图B32:cxd3
+    hide cb32
+    show cb33 zorder 13 with dissolve:
+        size(512,512)
+        pos(0,0)
+    m 3eua "不要在意叠兵, 因为两个叠兵能攻击到的位置一定是不一样的." #图33:叠兵攻击范围
+    m 3nub "以上就是棋谱记录方法, 请在好好记住它们之后开始我们的战术课程吧~"
+    m 3hub "感谢倾听~"
+return
+
+
+    
 
 
 
@@ -444,6 +838,6 @@ return "love"
 
 
 
-
+    
 
 
