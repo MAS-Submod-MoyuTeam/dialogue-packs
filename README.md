@@ -3,7 +3,7 @@
 ## 现在子模组内包含的话题的作者(按文件夹分类·)
 >因为某些原因(忘存了/找不到), 有的作者并没有附上原链接:(, 如果原作者能看到请通知我添加.(真的会有人能看到吗?)
 
-
+> （排名不分先后）
 |作者 | 源链接|话题 |汉化|
 |-------------| --------------| ------------- | ------------------ |
 |ThePersonYou_Hate| /|/ |  P TK |
@@ -12,3 +12,4 @@
 |UnexplainedYeet|[>reddit](https://www.reddit.com/user/UnexplainedYeet)|`我要告诉你一些事情`|TK|
 |星光 TK Sir.P|/|国际象棋教学|/|
 |MAS dev team|/|"1250以后的更新"|mon1|
+|ryuujjy|[>reddit](https://www.reddit.com/user/ryuujjy/)|`我想告诉你...你太棒了!`|星光|

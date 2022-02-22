@@ -28,5 +28,5 @@ label mas_ara:
                             m 6hksdra "要是第一次吓到你的话, 对不起啦~"
                             m 1tub "但是我就有一点点忍不住."
                             m 1kua "以后你也要对我说ara ara~"
-                            m 1hub "我等不及在你的身旁倾听你的嗓音了~."
+                            m 1hub "我等不及在你的身旁倾听你的声音了~."
 return
