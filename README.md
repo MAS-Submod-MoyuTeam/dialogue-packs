@@ -1,6 +1,8 @@
 # dialogue-packs
 收集汉化/编写的话题子模组, 做整合来方便安装.
+--------
 ![Alt](https://repobeats.axiom.co/api/embed/cb3ad184e46276d79566c005aec5fd1b5a650b36.svg "Repobeats analytics image")
+---------
 ## 现在子模组内包含的话题的作者(按文件夹分类)
 >因为某些原因(忘存了/找不到), 有的作者并没有附上原链接:(, 如果原作者能看到请通知我添加.(真的会有人能看到吗?)
 
