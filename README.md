@@ -18,3 +18,6 @@
 |mkam23-Maya|[>reddit](https://www.reddit.com/user/mkam23-Maya/)|`眼镜和隐形眼镜`|星光|
 
 >** 以上作者和汉化者的排名不分先后 **
+
+## 对话投稿
+>请移步QQ群411131842或者发起pr/issue
