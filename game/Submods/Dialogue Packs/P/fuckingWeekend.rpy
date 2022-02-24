@@ -1,5 +1,5 @@
 init 5 python:
-    from datetime import datetime, date
+    import datetime
     subDayOfWeek = datetime.now().weekday()
     addEvent(
         Event(
