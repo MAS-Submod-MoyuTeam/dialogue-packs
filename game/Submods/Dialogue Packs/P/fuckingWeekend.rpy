@@ -19,6 +19,7 @@ label fucking_weekend:
     m "等我一下..."
     #换上带有DATE的衣服
     call mas_transition_to_emptydesk
+    pause 1
     python:
         store.ahc_utils.changeHairAndClothes(
             _day_cycle="day",
@@ -26,6 +27,6 @@ label fucking_weekend:
             _clothes_random_chance=1,
             _exprop="date"
         )
-    pause 7
+    pause 5
     call mas_transition_from_emptydesk
 return "no_unlock"
