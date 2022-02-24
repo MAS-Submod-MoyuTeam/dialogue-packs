@@ -18,7 +18,7 @@
 |ryuujjy|[>reddit](https://www.reddit.com/user/ryuujjy/)|`我想告诉你...你太棒了!`|星光|
 |geneTechnician|[>reddit](https://www.reddit.com/user/geneTechnician/)|`一起吃东西吧` `我要去为你做些东西`|P TK|
 |Sir.P|/|`疯狂星期四`|/|
-|mkam23-Maya|[>reddit](https://www.reddit.com/user/mkam23-Maya/)|`眼镜和隐形眼镜`|星光|
+|mkam23-Maya|[>reddit](https://www.reddit.com/user/mkam23-Maya/)|`NFTs` `眼镜和隐形眼镜`|TK 星光|
 
 >** 以上作者和汉化者的排名不分先后 **
 
