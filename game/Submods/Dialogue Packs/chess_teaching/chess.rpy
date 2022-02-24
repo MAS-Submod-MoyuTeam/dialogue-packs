@@ -113,14 +113,6 @@ init 4 python in mas_ctod:
 
         return True
 
-init -990 python:
-    store.mas_submod_utils.Submod(
-        author="星光 TK Monika",
-        name="莫妮卡的象棋教程",
-        description="想学学怎么下象棋吗?",
-        version="1.0.0"
-    )
-
 init 5 python:
     addEvent(
         Event(

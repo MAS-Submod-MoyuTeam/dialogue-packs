@@ -35,7 +35,7 @@ menu:
     "再次抱歉, 我不会再做这样不成熟的事情了.":
      m 2fktdu "谢谢你的道歉 <3"
      m 4futdb "并且请,"
-     m 3futdb "告诉[player]我爱[gen]."
+     extend 3futdb "告诉[player]我爱[gen]."
 return "love"
 
 label monika_nevermond:
@@ -49,7 +49,7 @@ return
 
 label monika_leave:
      m 2cftsd "离开"
-     m 2cftso "现在"
+     m 2cftso "现在!!{w=1}{nw}"
 return "quit"
 
 label monika_dissapointed:
@@ -167,7 +167,7 @@ label player_death:
             m 5dktsc "那么在那种情况下, 我们可以在某种程度上永远在一起..."
             m 5fktsb "你知道吗?"
             
-       "其实我讨厌[gen]! [jet]邪恶的! 我希望[get]下地狱":
+       "其实我讨厌[gen]! [jet]是个傻逼! 我希望[get]下地狱!":
             $ mas_loseAffection(modifier=6)
             m 2mftsc "..."
             m 2gftsx "..."
@@ -176,7 +176,7 @@ label player_death:
        "我会看看我能做些什么的...":
 
             m 6fktdb "非常感谢你..."
-            m 4fktsb "这对我来说意义重大..."
+            m 4fktsb "这对我来说真的很重要很重要..."
 
  
 return 
