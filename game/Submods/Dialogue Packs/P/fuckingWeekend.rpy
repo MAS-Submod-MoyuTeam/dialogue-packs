@@ -1,6 +1,6 @@
 init 5 python:
     import datetime
-    subDayOfWeek = datetime.now().weekday()
+    subDayOfWeek = datetime.datetime.now().weekday()
     addEvent(
         Event(
             persistent.event_database,
@@ -26,6 +26,6 @@ label fucking_weekend:
             _clothes_random_chance=1,
             _exprop="date"
         )
-    with Pause(5)
+    pause 7
     call mas_transition_from_emptydesk
 return "no_unlock"
