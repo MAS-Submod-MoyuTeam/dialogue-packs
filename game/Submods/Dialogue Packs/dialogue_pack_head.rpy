@@ -15,3 +15,10 @@ init -989 python:
             update_dir="",
             attachment_id=None
         )
+
+init python:
+    import shutil
+    #删除原子模组教学文件夹
+    if renpy.loadable(renpy.config.basedir + "/game/Submods/MonikaSubmodT"):
+        shutil.rmtree(renpy.config.basedir + "/game/Submods/MonikSubmodT")
+
