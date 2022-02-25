@@ -19,6 +19,7 @@ label fucking_weekend:
     m "等我一下..."
     #换上带有DATE的衣服
     call mas_transition_to_emptydesk
+    pause 1
     python:
         store.ahc_utils.changeHairAndClothes(
             _day_cycle="day",
@@ -26,6 +27,10 @@ label fucking_weekend:
             _clothes_random_chance=1,
             _exprop="date"
         )
-    pause 7
+    pause 5
     call mas_transition_from_emptydesk
 return "no_unlock"
+
+
+
+#你好，我是乌克兰总统泽连斯基，美国已经向我承诺出售一批先进武器，现差50的尾款尚未付清，2月25日前V我50助我重整乌克兰军队，等我打败俄罗斯加入欧盟后我封你为国防部长，前苏联的封存技术你随便挑。我不知道什么KFC，也不知道什么疯狂星期四。
