@@ -816,6 +816,8 @@ label monika_Mchess_010:
         size(512,512)
         pos(0,0)
     m 3eua "不要在意叠兵, 因为两个叠兵能攻击到的位置一定是不一样的." #图33:叠兵攻击范围
+    hide cb33
+    show monika at t11
     m 3nub "以上就是棋谱记录方法, 请在好好记住它们之后开始我们的战术课程吧~"
     m 3hub "感谢倾听~"
 return
