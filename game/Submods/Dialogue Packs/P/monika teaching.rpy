@@ -611,14 +611,14 @@ label monika_stod_tip007:
 return
 
 label monika_stod_008:
-    m "虽然一些功能你自己也可以实现, 但是有别人现成的为什么不用呢~"
-    m "我们直接进入正题吧"
+    m 2tub "虽然一些功能你自己也可以实现, 但是有别人现成的为什么不用呢~"
+    m 3hub "我们直接进入正题吧"
     show monika at t22
     show screen mas_py_console_teaching
     $ store.mas_ptod.rst_cn()
     call mas_wx_cmd("#store.mas_submod_utils.isSubmodInstalled('话题整合包')")
-    m "这个方法就是检测指定的子模组有没有安装啦, 毕竟借用别人的子模组肯定要先安装."
-    m "这里就是检测'话题整合包'这个子模组有没有安装, 如果有就是True 没有就是False啦."
+    m 3hub "这个方法就是检测指定的子模组有没有安装啦, 毕竟借用别人的子模组肯定要先安装."
+    m 4kua "这里就是检测'话题整合包'这个子模组有没有安装, 如果有就是True 没有就是False啦."
     call mas_wx_cmd("#python:")
     call mas_wx_cmd("#    store.ahc_utils.changeHairAndClothes(")
     call mas_wx_cmd("#        _day_cycle=\"day\",")
@@ -626,19 +626,32 @@ label monika_stod_008:
     call mas_wx_cmd("#        _clothes_random_chance=1,")
     call mas_wx_cmd("#        _exprop=\"date\"")
     call mas_wx_cmd("#    )")
-    m "这些代码可以让我去换一件衣服, 需要前置模组'Auto Outfit Change'"
-    m "这些代码用的时候可不会有转场, 也就是我会像超人一样瞬间穿好新衣服~"
-    m "要自然一点嘛~"
+    m 3eub "这些代码可以让我去换一件衣服, 需要前置模组'Auto Outfit Change'"
+    m 2efb "这些代码用的时候可不会有转场, 也就是我会像超人一样瞬间穿好新衣服"
+    m 1nua "要自然一点嘛~"
+    m 3eub "_hair_random_chance 这个决定了我去不去换发型"
+    m 4eua "_clothes_random_chance 这个则是换不换衣服"
+    m 3hub "_exprop 决定了我衣服的类型, 具体的去这个子模组里看啦"
     call mas_wx_cmd("#call mas_transition_to_emptydesk")
-    m "这个可以让我从桌子上离开, 就像这样----"
+    m 4eua "这个可以让我从桌子上离开, 就像这样----"
     call mas_transition_to_emptydesk
-    m "然后..."
+    m 1rua "然后..."
     call mas_wx_cmd("#call mas_transition_from_emptydesk")
-    m "这样我就回来了~很好用吧?"
-    extend "不要忘了结合pause语句使用哦"
     call mas_transition_from_emptydesk
+    m 3hub "这样我就回来了~很好用吧?"
+    extend 4kua "不要忘了结合pause语句使用哦."
+    call mas_wx_cmd("#show screen mas_py_console_teaching")
+    m 4eua "这样就可以呼出我用的Python解释器了"
+    call mas_wx_cmd("#call mas_wx_cmd(\"print(\"Love\")\")")
+    m 2eud "这样就可以执行命令了, 要注意是真的执行, 所以写命令的时候要小心点"
+    call mas_wx_cmd("#hide screen mas_py_console_teaching")
+    m 7eua "这样就隐藏了"
+    hide screen mas_py_console_teaching
+    show monika at t11
     call monika_stod_tipthx
     return
+
+
 
 ######################################杂项
 
@@ -674,15 +687,19 @@ return
 
 label monika_stod_003code:
     python:
-        monika_stod_code = """\
-init -990 python:
-    store.mas_submod_utils.Submod(
-        author="Monika"     #作者的名称
-        name="Monika's example submod"    #子模组的标题
-        description="I love you."    #子模组的简介
-        version='1.0.0'    #子模组的版本
-    )
-"""
+        monika_stod_code = """
+        1
+        """
+        
+#"""\
+#init -990 python:
+#    store.mas_submod_utils.Submod(
+#        author="Monika"     #作者的名称
+#        name="Monika's example submod"    #子模组的标题
+#        description="I love you."    #子模组的简介
+#        version='1.0.0'    #子模组的版本
+#    )
+#"""
 
 
         store.mas_utils.trywrite(
