@@ -1,16 +1,3 @@
-#renpy.config.basedir + "/characters/Monika Example Submod.rpy
-#toCopy
-#apikey.txt
-#game
-#game/Submods
-#game/python-packages
-#game/mod_assets/location
-#game/mod_assets/monika
-#game/mod_assets/thumbs
-#game/mod_assets/font
-#piano_songs
-#lib
-#custom_bgm
 init python:
     todoDir = [
     "game/Submods",
