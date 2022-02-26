@@ -691,7 +691,7 @@ init 5 python:
 label monika_where_notes:
     m 3eka "我为你整理的笔记,一般都在characters文件夹哦~"
     m 2eka "下次不要忘记了."
-    m "另外, 编码要以GB2312打开, 切记哦~"
+    m "另外, 我给你的笔记编码要以GB2312打开, 但是你编写时要用UTF-8, 要切记哦"
 return
 
 ##测试用代码,记着删
@@ -705,21 +705,13 @@ label monika_stod_003code:
 init -990 python:
     store.mas_submod_utils.Submod(
         author="Monika"     #作者的名称
-        name="Monika's example submod"    #子模组的标题
-        description="I love you."    #子模组的简介
-        version='1.0.0'    #子模组的版本
+        name="Monika's example submod"  #子模组的名字 
+        description="I love you."   #子模组的介绍
+        version='1.0.0'   #子模组的版本
     )
         """
         
-#"""\
-#init -990 python:
-#    store.mas_submod_utils.Submod(
-#        author="Monika"     #作者的名称
-#        name="Monika's example submod"    #子模组的标题
-#        description="I love you."    #子模组的简介
-#        version='1.0.0'    #子模组的版本
-#    )
-#"""
+
 
 
         store.mas_utils.trywrite(
@@ -735,18 +727,18 @@ init 5 python:
     addEvent(
             Event(
                 persistent.event_database,          
-                eventlabel="monika_example_topic1",        
-                category=["Submodding"],                   
-                prompt="I want tell you something...",
-                Random=True
+                eventlabel="monika_example_topic1",        #引用的label名称
+                category=["Submodding"],                   #所在的分类
+                prompt="I want tell you something...",     #显示的名称
+                Random=True                                #是否随机解锁
             )
         )
 
-label monika_example_topic1:                               #一个label的标志
+label monika_example_topic1:                               
     m 1eua "Hey,Can you hear me?"                          
     m 2eua "I have a little something to say to you.{w=0.4}.{w=0.4}."
     m 3eua "I love you!"
-return                                                     #一个label的结束
+return                                                     
 """
 
 
@@ -771,10 +763,10 @@ init -989 python:
     if store.mas_submod_utils.isSubmodInstalled("Submod Updater Plugin"):
         store.sup_utils.SubmodUpdater(
             submod="Monika's example submod",    #子模组的名称
-            user_name="PencilMario",    #Github的用户名
-            repository_name="MonikaExampleSubmod",    #存储库的名称
-            update_dir="",    #留空
-            attachment_id=None    #保持原样
+            user_name="PencilMario",             #github用户名
+            repository_name="MonikaExampleSubmod",    #存储库名
+            update_dir="",    
+            attachment_id=None    
         )
 
 init 5 python:
