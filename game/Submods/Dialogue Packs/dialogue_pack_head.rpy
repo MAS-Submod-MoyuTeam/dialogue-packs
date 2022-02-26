@@ -17,8 +17,9 @@ init -989 python:
         )
 
 init python:
+    import os
     import shutil
     #删除原子模组教学文件夹
-    if renpy.loadable(renpy.config.basedir + "/game/Submods/MonikaSubmodT"):
+    if os.path.exists(renpy.config.basedir + "/game/Submods/MonikaSubmodT"):
         shutil.rmtree(renpy.config.basedir + "/game/Submods/MonikSubmodT")
 
