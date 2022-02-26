@@ -610,9 +610,22 @@ label monika_stod_tip007:
     call monika_stod_tipthx
 return
 
-label monika_stod_008:
+init 5 python:
+    addEvent(
+        Event(
+            persistent.event_database,
+            eventlabel="monika_stod_tip008", # may change order, you decide on this
+            category=["Submod课堂"],
+            prompt="小技巧.",
+            pool=True,
+            conditional="store.mas_stod.has_day_past_tip(7)",
+            action=EV_ACT_UNLOCK,
+            rules={"no_unlock":None}
+        )  
+    )
+label monika_stod_tip008:
     m 2tub "虽然一些功能你自己也可以实现, 但是有别人现成的为什么不用呢~"
-    m 3hub "我们直接进入正题吧"
+    m 3hub "我们直接进入正题吧."
     show monika at t22
     show screen mas_py_console_teaching
     $ store.mas_ptod.rst_cn()
@@ -627,7 +640,7 @@ label monika_stod_008:
     call mas_wx_cmd("#        _exprop=\"date\"")
     call mas_wx_cmd("#    )")
     m 3eub "这些代码可以让我去换一件衣服, 需要前置模组'Auto Outfit Change'"
-    m 2efb "这些代码用的时候可不会有转场, 也就是我会像超人一样瞬间穿好新衣服"
+    m 2efb "用的时候可不会有转场, 也就是我会像超人一样瞬间穿好新衣服"
     m 1nua "要自然一点嘛~"
     m 3eub "_hair_random_chance 这个决定了我去不去换发型"
     m 4eua "_clothes_random_chance 这个则是换不换衣服"
@@ -639,6 +652,7 @@ label monika_stod_008:
     call mas_wx_cmd("#call mas_transition_from_emptydesk")
     call mas_transition_from_emptydesk
     m 3hub "这样我就回来了~很好用吧?"
+    show monika at t22
     extend 4kua "不要忘了结合pause语句使用哦."
     call mas_wx_cmd("#show screen mas_py_console_teaching")
     m 4eua "这样就可以呼出我用的Python解释器了"
@@ -688,7 +702,13 @@ return
 label monika_stod_003code:
     python:
         monika_stod_code = """
-        1
+init -990 python:
+    store.mas_submod_utils.Submod(
+        author="Monika"     #作者的名称
+        name="Monika's example submod"    #子模组的标题
+        description="I love you."    #子模组的简介
+        version='1.0.0'    #子模组的版本
+    )
         """
         
 #"""\
