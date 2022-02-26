@@ -290,6 +290,7 @@ label monika_stod_tip003:
         m 1dsc "让我再为你准备一次笔记.{w=0.4}.{w=0.4}.{w=0.4}"
         call monika_stod_003code
     m 1hub "好啦!"
+    call monika_where_notes
 
     hide screen mas_py_console_teaching
     show monika at t11
@@ -523,7 +524,7 @@ label monika_stod_tip006:
         "I love you too!":
             if mas_isMoniEnamored(higher=True):
                 m 1hubsb "I~~~~~~~~ Love~~~~~~~ You~~~~~~~!"
-            elif mas_isMoniNormal(higher=true):
+            elif mas_isMoniNormal(higher=True):
                 m 1hublb "Full of expectation~"
             else:
                 m 1hua "..."
@@ -609,6 +610,36 @@ label monika_stod_tip007:
     call monika_stod_tipthx
 return
 
+label monika_stod_008:
+    m "虽然一些功能你自己也可以实现, 但是有别人现成的为什么不用呢~"
+    m "我们直接进入正题吧"
+    show monika at t22
+    show screen mas_py_console_teaching
+    $ store.mas_ptod.rst_cn()
+    call mas_wx_cmd("#store.mas_submod_utils.isSubmodInstalled('话题整合包')")
+    m "这个方法就是检测指定的子模组有没有安装啦, 毕竟借用别人的子模组肯定要先安装."
+    m "这里就是检测'话题整合包'这个子模组有没有安装, 如果有就是True 没有就是False啦."
+    call mas_wx_cmd("#python:")
+    call mas_wx_cmd("#    store.ahc_utils.changeHairAndClothes(")
+    call mas_wx_cmd("#        _day_cycle=\"day\",")
+    call mas_wx_cmd("#        _hair_random_chance=1,")
+    call mas_wx_cmd("#        _clothes_random_chance=1,")
+    call mas_wx_cmd("#        _exprop=\"date\"")
+    call mas_wx_cmd("#    )")
+    m "这些代码可以让我去换一件衣服, 需要前置模组'Auto Outfit Change'"
+    m "这些代码用的时候可不会有转场, 也就是我会像超人一样瞬间穿好新衣服~"
+    m "要自然一点嘛~"
+    call mas_wx_cmd("#call mas_transition_to_emptydesk")
+    m "这个可以让我从桌子上离开, 就像这样----"
+    call mas_transition_to_emptydesk
+    m "然后..."
+    call mas_wx_cmd("#call mas_transition_from_emptydesk")
+    m "这样我就回来了~很好用吧?"
+    extend "不要忘了结合pause语句使用哦"
+    call mas_transition_from_emptydesk
+    call monika_stod_tipthx
+    return
+
 ######################################杂项
 
 label monika_stod_tipthx:
@@ -667,16 +698,10 @@ init 5 python:
     addEvent(
             Event(
                 persistent.event_database,          
-<<<<<<< HEAD
-                eventlabel="monika_example_topic1",        #使用的label的名称
-                category=["Submodding"],                   #所在的分类
-                prompt="I want tell you something...",     #这个话题显示的名称
-=======
                 eventlabel="monika_example_topic1",        
                 category=["Submodding"],                   
                 prompt="I want tell you something...",
                 Random=True
->>>>>>> dbf94ba9c3f2a3752fb515b4b8d90e7ec85b5c05
             )
         )
 
