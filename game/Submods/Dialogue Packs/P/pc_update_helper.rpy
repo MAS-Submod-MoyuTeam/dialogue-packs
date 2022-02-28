@@ -3,7 +3,14 @@ init python:
     "game/Submods",
     "game/python-packages",
     "game/mod_assets/location",
-    "game/mod_assets/monika",
+    "game/mod_assets/monika/a",
+    "game/mod_assets/monika/b",
+    "game/mod_assets/monika/c",
+    "game/mod_assets/monika/cg",
+    "game/mod_assets/monika/f",
+    "game/mod_assets/monika/h",
+    "game/mod_assets/monika/j",
+    "game/mod_assets/monika/t",
     "game/mod_assets/thumbs",
     "game/mod_assets/font",
     "piano_songs",
@@ -36,8 +43,9 @@ init 5 python:
                 eventlabel="sub_update_helper",        
                 category=["模组"],                   
                 prompt="准备一下更新吧(不稳定,切勿反复使用)",
-                pool=True,
-                unlocked=True
+                conditional="renpy.windows",
+                action=EV_ACT_UNLOCK,
+                pool=True
             )
         )
 
@@ -57,8 +65,9 @@ label copyfile:
             shutil.rmtree(renpy.config.basedir + "/characters/OldVersionFiles")
         renpy.pause(0.1)
         createFileBaseDir()
+        doingPerc = 0
         for lista in todoDir:
-            renpy.say(m,"正在复制文件夹{w=0.5}{nw}"+lista)
+            renpy.say(m,"[todoDir.index(lista)+1]/[len(todoDir)] - 正在复制文件夹:"+lista+"{fast}{nw}")
             copyOldDir(lista)
             
     return
