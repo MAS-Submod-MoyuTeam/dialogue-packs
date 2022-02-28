@@ -30,6 +30,7 @@ init 4 python in mas_stod:
     import store.evhand as evhand
 
     M_STOD = "monika_stod_tip{:0>3d}"
+    monika_stod_code = ""
     #STOD:Monika Submodding Tip of the Day
 
     def has_day_past_tip(tip_num):
@@ -692,7 +693,7 @@ label monika_where_notes:
     m 3eka "我为你整理的笔记,一般都在characters文件夹哦~"
     m 2eka "下次不要忘记了."
     m "另外, 我给你的笔记编码要以GB2312打开, 但是你编写时要用UTF-8, 要切记哦"
-return
+    return
 
 ##测试用代码,记着删
 
@@ -704,14 +705,12 @@ label monika_stod_003code:
         monika_stod_code = """
 init -990 python:
     store.mas_submod_utils.Submod(
-        author="Monika"     #作者的名称
-        name="Monika's example submod"  #子模组的名字 
-        description="I love you."   #子模组的介绍
-        version='1.0.0'   #子模组的版本
+        author=\"Monika\",
+        name=\"Monika\'s example submod\",
+        description=\"I love you.\",
+        version=\'1.0.0\'
     )
-        """
-        
-
+"""
 
 
         store.mas_utils.trywrite(
