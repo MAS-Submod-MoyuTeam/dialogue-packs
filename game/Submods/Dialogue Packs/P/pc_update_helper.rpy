@@ -51,11 +51,11 @@ init 5 python:
         )
 
 label sub_update_helper:
-    m "好的"
-    m "如果未响应, 这是正常情况, 因为在干活要稍微等一下..."
+    m 1eua "好的"
+    m 3eka "如果未响应, 这是正常情况, 因为在干活要稍微等一下..."
     call copyfile
-    m "搞定了. {w=0.3}文件都在character/OldVersionFiles文件夹里, 复制到新版本就好了."
-    m "不要复制到新版本的character了, 要去合并新版本game文件夹."
+    m 4eub "搞定了. {w=0.3}文件都在character/OldVersionFiles文件夹里, 复制到新版本就好了."
+    m 3eua "不要复制到新版本的character了, 要去合并新版本game文件夹."
 return
 
 label copyfile:
