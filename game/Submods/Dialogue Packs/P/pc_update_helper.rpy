@@ -33,7 +33,8 @@ init python:
         #复制文件
         cDir = renpy.config.basedir + "/" + dir
         tDir = subUBasedir + "/" + dir
-        shutil.copytree(cDir,tDir)
+        if os.path.exists(cDir):
+            shutil.copytree(cDir,tDir)
         return
 
 init 5 python:
@@ -67,7 +68,7 @@ label copyfile:
         createFileBaseDir()
         doingPerc = 0
         for lista in todoDir:
-            renpy.say(m,"[todoDir.index(lista)+1]/[len(todoDir)] - 正在复制文件夹:"+lista+"{fast}{nw}")
+            renpy.say(m,"[todoDir.index(lista)+1]/[len(todoDir)] | 正在复制文件夹:"+lista+"{fast}{nw}")
             copyOldDir(lista)
             
     return
