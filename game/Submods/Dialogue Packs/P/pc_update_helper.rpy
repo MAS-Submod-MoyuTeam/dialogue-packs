@@ -44,7 +44,7 @@ init 5 python:
                 eventlabel="sub_update_helper",        
                 category=["模组"],                   
                 prompt="准备一下更新吧(不稳定,切勿反复使用)",
-                conditional="renpy.windows",
+                conditional="not renpy.android",
                 action=EV_ACT_UNLOCK,
                 pool=True
             )
@@ -64,9 +64,9 @@ label copyfile:
         import shutil
         if os.path.exists(renpy.config.basedir + "/characters/OldVersionFiles"):
             shutil.rmtree(renpy.config.basedir + "/characters/OldVersionFiles")
+            os.removedirs(renpy.config.basedir + "/characters/OldVersionFiles")
         renpy.pause(0.1)
         createFileBaseDir()
-        doingPerc = 0
         for lista in todoDir:
             renpy.say(m,"[todoDir.index(lista)+1]/[len(todoDir)] | 正在复制文件夹:"+lista+"{fast}{nw}")
             copyOldDir(lista)

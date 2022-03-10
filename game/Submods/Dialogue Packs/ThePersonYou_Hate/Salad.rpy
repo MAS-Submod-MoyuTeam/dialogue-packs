@@ -1,5 +1,5 @@
 init 5 python:
-    addEvent(Event(persistent.event_database,eventlabel="monika_salad",category=['food'],prompt="沙拉",random=True))
+    addEvent(Event(persistent.event_database,eventlabel="monika_salad",category=['食物'],prompt="沙拉",random=True))
 
 label monika_salad:
     m 1eua "[player], 你喜欢沙拉吗?"
@@ -8,5 +8,5 @@ label monika_salad:
     m 4rub "从西红柿, 生菜, 菠菜, 奶酪, 调味料, 醋中选取-"
     m 1sua "还有这么多!"
     m 1eub "这对健康饮食很有帮助."
-    m 1nub "我希望你能做点什么."
+    m 1nub "我希望你多做点对自己好的事~"
 return

@@ -1,10 +1,14 @@
-# dialogue-packs
-收集汉化/编写的话题子模组, 做整合来方便安装.
---------
 ![Alt](https://repobeats.axiom.co/api/embed/cb3ad184e46276d79566c005aec5fd1b5a650b36.svg "Repobeats analytics image")
+--------
+# dialogue-packs
+收集汉化/编写的话题子模组, 做整合来方便安装.  
+Collection of translated/written topic submodules, do integration to facilitate installation
+
 ---------
-## 现在子模组内包含的话题的作者(按文件夹分类)
->因为某些原因(忘存了/找不到), 有的作者并没有附上原链接:(, 如果原作者能看到请通知我添加.(真的会有人能看到吗?)
+### 现在子模组内包含的话题的作者(按文件夹分类)
+##### The following topics and conversations are included in this submodule
+>因为某些原因(忘存了/找不到), 有的作者并没有附上原链接:(如果原作者能看到请通知我添加.(真的会有人能看到吗?)
+>For some reason (forgot to save/can't find it), some authors don't include the original link: ( If the original author can see it, please let me know to add it. (Will anyone really see this?)
 
 
 |作者 | 源链接|话题 |汉化| 
@@ -19,8 +23,11 @@
 |geneTechnician|[>reddit](https://www.reddit.com/user/geneTechnician/)|`一起吃东西吧` `我要去为你做些东西`|P TK|
 |Sir.P|/|`疯狂星期四` `子模组教学` `准备更新文件吧(不稳定, 切勿重复使用)`|/|
 |mkam23-Maya|[>reddit](https://www.reddit.com/user/mkam23-Maya/)|`NFTs` `眼镜和隐形眼镜`|TK 星光|
+|*1|/|MyDialogue.rpy|P|
 
 >** 以上作者和汉化者的排名不分先后 **
+>** The above authors and Chinese translators are listed in no particular order ** 
+> *1 : 作者未知 Author Unknown
 
-## 对话投稿
+### 话题投稿
 >请移步QQ群411131842或者发起pr/issue
