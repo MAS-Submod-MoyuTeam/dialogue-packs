@@ -24,9 +24,6 @@ init python:
     if os.path.exists(renpy.config.basedir + "/game/Submods/MonikaSubmodT"):
         shutil.rmtree(renpy.config.basedir + "/game/Submods/MonikSubmodT")
     dp_dirs = os.listdir(renpy.config.basedir + "/game/Submods/Dialogue Packs")
-    
-    #设置-话题更新
-    default persistent.submods_dp_enableUpdateHelper = True
 
     def dp_showstatus(setting):
         if setting:
@@ -34,7 +31,8 @@ init python:
         else:
             return ">禁用中"    
 
-
+#设置项 游戏更新
+default persistent.submods_dp_enableUpdateHelper = True
 
 screen dp_setting_pane():
     vbox:
@@ -164,8 +162,8 @@ screen dp_setting():
                         spacing 10
                         xmaximum 780
                         text "\"辅助更新\"话题"
-                        textbutton _("[dp_showstatus(persistent.submods_dp_enableUpdateHelper)]"):
-                            style "check"
+                        textbutton "[dp_showstatus(persistent.submods_dp_enableUpdateHelper)]":
+                            selected False
                             action NullAction()
                         
                     hbox:
@@ -188,7 +186,9 @@ screen dp_setting():
 
 label show_sub_update_helper:
     $ mas_showEVL("sub_update_helper", "EVE", unlock=True, _pool=True)
+    $ persistent.submods_dp_enableUpdateHelper = True
     return
 label hide_sub_update_helper:
     $ mas_hideEVL("sub_update_helper","EVE",lock=True,depool=True)
+    $ persistent.submods_dp_enableUpdateHelper = False
     return

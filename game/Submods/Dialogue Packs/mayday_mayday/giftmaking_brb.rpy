@@ -25,7 +25,7 @@ label giftmaking_brb:
     elif ev.shown_count == 2:
         m 1eublb "好的, [player]."
         m 1sublb "我等不及去看到你这次的作品了!"
-        m 3hsblb "只要确保你不要过度劳累， 好吗?"
+        m 3hsblb "只要确保你不要过度劳累,  好吗?"
         m 1hublb "好运~!"
 
     elif ev.shown_count == 4:

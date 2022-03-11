@@ -13,9 +13,9 @@ init 5 python:
     )
 
 label lovelyday:
-    m 1hub "{i}当我早晨起床，亲爱的~{/i}"
+    m 1hub "{i}当我早晨起床, 亲爱的~{/i}"
     m 1hua "{i}阳光刺痛眼睛~{/i}"
-    m 1rud "{i}事情毫无征兆，亲爱的~{/i}"
+    m 1rud "{i}事情毫无征兆, 亲爱的~{/i}"
     m 1rkd "{i}成为心头重负~{/i}"
     m 1subfb "{i}然后我看向你~{/i}"
     m 1hubfb "{i}世界变得美好~{/i}"
