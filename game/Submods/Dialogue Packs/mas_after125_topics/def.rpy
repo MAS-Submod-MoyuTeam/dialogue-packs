@@ -6,7 +6,7 @@ init python:
     p_is_old_ver = True
 
     for x in newversion:
-        if renpy.config.version == x and not renpy.android:
+        if renpy.config.version == x and not renpy.android and not persistent.submods_dp_enableNewVersionDialogueFromdp:
             p_is_old_ver = False
             if renpy.loadable(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics"):
                 shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics")

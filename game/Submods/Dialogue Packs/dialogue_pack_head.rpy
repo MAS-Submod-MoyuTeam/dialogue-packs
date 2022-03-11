@@ -31,8 +31,12 @@ init python:
         else:
             return ">禁用中"    
 
-#设置项 游戏更新
+##设置项
+
+#游戏更新
 default persistent.submods_dp_enableUpdateHelper = True
+#新版本对话删除检测 True启用
+default persistent.submods_dp_enableNewVersionDialogueFromdp = True
 
 screen dp_setting_pane():
     vbox:
@@ -176,6 +180,26 @@ screen dp_setting():
                             action Jump("hide_sub_update_helper")
                         textbutton _("?"):
                             action Show(screen = "dialog", message = "即话题“准备一下更新吧”.", ok_action = Hide("dialog"))
+                    
+                    hbox:
+                        xpos 20
+                        spacing 10
+                        xmaximum 780
+                        text "新版本话题解锁检测"
+                        textbutton "[dp_showstatus(persistent.submods_dp_enableNewVersionDialogueFromdp)]":
+                            selected False
+                            action NullAction()
+                        
+                    hbox:
+                        xpos 20
+                        spacing 10
+                        xmaximum 780
+                        textbutton _("启用"):
+                            action Jump("enableNewVersionDialogueFromdp")
+                        textbutton _("禁用"):
+                            action Jump("disableNewVersionDialogueFromdp")
+                        textbutton _("?"):
+                            action Show(screen = "dialog", message = "本模组会为0.12.5及以前版本提供新版本的话题.\n在0.12.6及以后本模组不会提供更新版本的话题.将会自动删除相关脚本文件.\n禁用后, 不再删除文件. 可能会导致意料之外的问题.\n如果已删除, 更新并禁用该选项可恢复文件\n该选项对手机版无效.", ok_action = Hide("dialog"))
 
           
             hbox:           
@@ -191,4 +215,11 @@ label show_sub_update_helper:
 label hide_sub_update_helper:
     $ mas_hideEVL("sub_update_helper","EVE",lock=True,depool=True)
     $ persistent.submods_dp_enableUpdateHelper = False
+    return
+
+label enableNewVersionDialogueFromdp:
+    $ persistent.submods_dp_enableNewVersionDialogueFromdp = True
+    return
+label disableNewVersionDialogueFromdp:
+    $ persistent.submods_dp_enableNewVersionDialogueFromdp = False
     return
