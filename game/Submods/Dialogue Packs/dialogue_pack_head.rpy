@@ -26,15 +26,13 @@ init python:
     dp_dirs = os.listdir(renpy.config.basedir + "/game/Submods/Dialogue Packs")
     
     #设置-话题更新
-    persistent.submods_dp_enableUpdateHelper = True
+    default persistent.submods_dp_enableUpdateHelper = True
 
-    def dp_topic_toggle(labelname,pers):
-        if pers == False:
-            mas_showEVL(labelname, "EVE", unlock=True, _pool=True)
-            pers = True
+    def dp_showstatus(setting):
+        if setting:
+            return ">启用中"
         else:
-            mas_hideEVL(labelname, "EVE", lock=True, depool=True)
-            pers = False
+            return ">禁用中"    
 
 
 
@@ -121,7 +119,7 @@ screen dp_manager():
 screen dp_setting():
     python:
         submods_screen_dp = store.renpy.get_screen("submods", "screens").scope["tooltip"]
-
+        
     key "noshift_T" action NullAction()
     key "noshift_t" action NullAction()
     key "noshift_M" action NullAction()
@@ -166,6 +164,10 @@ screen dp_setting():
                         spacing 10
                         xmaximum 780
                         text "\"辅助更新\"话题"
+                        textbutton _("[dp_showstatus(persistent.submods_dp_enableUpdateHelper)]"):
+                            style "check"
+                            action NullAction()
+                        
                     hbox:
                         xpos 20
                         spacing 10
