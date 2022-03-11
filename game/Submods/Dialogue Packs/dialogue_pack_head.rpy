@@ -35,7 +35,7 @@ init python:
 
 #游戏更新
 default persistent.submods_dp_enableUpdateHelper = True
-#新版本对话删除检测 True启用
+#新版本对话删除检测 默认启用
 default persistent.submods_dp_enableNewVersionDialogueFromdp = True
 
 screen dp_setting_pane():
@@ -199,7 +199,7 @@ screen dp_setting():
                         textbutton _("禁用"):
                             action Jump("disableNewVersionDialogueFromdp")
                         textbutton _("?"):
-                            action Show(screen = "dialog", message = "本模组会为0.12.5及以前版本提供新版本的话题.\n在0.12.6及以后本模组不会提供更新版本的话题.将会自动删除相关脚本文件.\n禁用后, 不再删除文件. 可能会导致意料之外的问题.\n如果已删除, 更新并禁用该选项可恢复文件\n该选项对手机版无效.", ok_action = Hide("dialog"))
+                            action Show(screen = "dialog", message = "本模组会为0.12.5及以前版本提供新版本的话题.\n在0.12.6及以后本模组不会提供更新版本的话题.将会自动删除相关脚本文件.\n禁用后, 不再检测并删除文件, 也不会重新恢复脚本文件. 可能会导致意料之外的问题.\n如果已删除, 更新子模组并禁用该选项可恢复文件\n该选项对手机版无效.", ok_action = Hide("dialog"))
 
           
             hbox:           
@@ -207,6 +207,10 @@ screen dp_setting():
                 spacing 100
                 textbutton "关闭":
                     action Hide("dp_setting")
+
+
+
+
 
 label show_sub_update_helper:
     $ mas_showEVL("sub_update_helper", "EVE", unlock=True, _pool=True)
