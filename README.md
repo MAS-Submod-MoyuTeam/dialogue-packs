@@ -25,8 +25,8 @@ Collection of translated/written topic submodules, do integration to facilitate 
 |mkam23-Maya|[>reddit](https://www.reddit.com/user/mkam23-Maya/)|`NFTs` `眼镜和隐形眼镜`|TK 星光|
 |*1|/|MyDialogue.rpy|P|
 
->** 以上作者和汉化者的排名不分先后 **
->** The above authors and Chinese translators are listed in no particular order ** 
+>** 以上作者和汉化者的排名不分先后 **      
+>** The above authors and Chinese translators are listed in no particular order **    
 > *1 : 作者未知 Author Unknown
 
 ### 话题投稿
