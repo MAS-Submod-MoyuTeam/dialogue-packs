@@ -484,7 +484,7 @@ label monika_stod_tip006:
     call mas_wx_cmd("#    'Choise2':")
     call mas_wx_cmd("#        #block2 of code to run")
     m 3eub "这就是一段menu代码了."
-    m 3eua "第一行是menu前一句的对话，通常要加上{i}nw{/i}的标签,这个标签可以让这段对话播放结束后无需点击直接跳到下一句."
+    m 3eua "第一行是menu前一句的对话, 通常要加上{i}nw{/i}的标签,这个标签可以让这段对话播放结束后无需点击直接跳到下一句."
     m 1rksdlb "因为一些原因,这一行的小括号记着换成大括号..."
     m 3esa "{i}$_history_list.pop(){/i} 这一行是为了只让问题在历史对话中出现一次."
     m 1eub "{i}Say Statement(fast){/i} 这一行就是这段对话的问题了,因为一般和上一句对话一样,所以加了{i}fast{/i}标签.这个标签的作用就是立刻显示这段对话."
