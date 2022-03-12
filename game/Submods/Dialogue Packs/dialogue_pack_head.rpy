@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/PencilMario/dialogue-packs/blob/main/README.md}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.10.1',
+        version='1.10.2',
         settings_pane="dp_setting_pane"
     )
 
@@ -22,7 +22,10 @@ init python:
     import shutil
     #删除原子模组教学文件夹
     if os.path.exists(renpy.config.basedir + "/game/Submods/MonikaSubmodT"):
-        shutil.rmtree(renpy.config.basedir + "/game/Submods/MonikSubmodT")
+        try:
+            shutil.rmtree(renpy.config.basedir + "/game/Submods/MonikSubmodT")
+        except:
+            raise Exception("delete submod MonikaSubmodT failed\n删除子模组MonikaSubmodT失败,  请手动删除文件夹后重启")
     dp_dirs = os.listdir(renpy.config.basedir + "/game/Submods/Dialogue Packs")
 
     def dp_showstatus(setting):
@@ -108,7 +111,6 @@ screen dp_manager():
                             spacing 10
                             xmaximum 780
                             textbutton "√ - 点击禁用"
-                            text "\t"
                             textbutton "查看简介"
 
                         
@@ -179,7 +181,7 @@ screen dp_setting():
                         textbutton _("禁用"):
                             action Jump("hide_sub_update_helper")
                         textbutton _("?"):
-                            action Show(screen = "dialog", message = "即话题“准备一下更新吧”.", ok_action = Hide("dialog"))
+                            action Show(screen = "dialog", message = "即话题“准备一下更新吧”.此功能面向于PC, 对手机无用.", ok_action = Hide("dialog"))
                     
                     hbox:
                         xpos 20
@@ -199,7 +201,7 @@ screen dp_setting():
                         textbutton _("禁用"):
                             action Jump("disableNewVersionDialogueFromdp")
                         textbutton _("?"):
-                            action Show(screen = "dialog", message = "本模组会为0.12.5及以前版本提供新版本的话题.\n在0.12.6及以后本模组不会提供更新版本的话题.将会自动删除相关脚本文件.\n禁用后, 不再检测并删除文件, 也不会重新恢复脚本文件. 可能会导致意料之外的问题.\n如果已删除, 更新子模组并禁用该选项可恢复文件\n该选项对手机版无效.", ok_action = Hide("dialog"))
+                            action Show(screen = "dialog", message = "本模组会为0.12.5及以前版本提供新版本的话题.\n在0.12.6及以后本模组将会自动删除相关脚本文件.\n禁用后, 不再检测并删除文件, 也不会重新恢复脚本文件. 可能会导致意料之外的问题.\n如果已删除, 禁用该选项且更新子模组可恢复文件.\n该选项对手机版无实际作用.", ok_action = Hide("dialog"))
 
           
             hbox:           

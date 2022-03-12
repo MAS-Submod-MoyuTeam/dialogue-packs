@@ -10,3 +10,4 @@ init python:
             p_is_old_ver = False
             if renpy.loadable(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics"):
                 shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics")
+                   
