@@ -79,7 +79,7 @@ init 5 python:
             persistent.event_database,
             eventlabel="lost_in_thought",
             category=["misc", "us"],
-            prompt="Lost in thought",
+            prompt="走神",
             random=True,
             )
         )
@@ -102,15 +102,15 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="lesbians",
-            category=["misc","literature"],
-            prompt="Sappho",
+            category=["杂项","文学"],
+            prompt="萨福",
             random=True,))
 
 
 label lesbians:
     m 4eub "让我们把两个有趣的事实放在一起, [mas_get_player_nickname()]!"
     m 4hub "一个同性恋的历史事实, 和一个诗歌事实! 文学社最喜欢的两件事."
-    m 3eub "历史上最伟大的诗人之一, 莱斯伯斯的萨福, 实际上诞生了我们今天与女性同性恋相关的词汇!"
+    m 3eub "历史上最伟大的诗人之一, 古希腊的萨福, 实际上诞生了我们今天与女性同性恋相关的词汇!"
     m 4eub "'Sapphic'和'Lesbian', 分别是--sapphic来自她自己的名字, Lesbian则来自她居住的岛屿."
     m 4rsa "她写了关于她的生活、她的经历和虚构的其他妇女的故事的诗歌."
     m 6ekd "可悲的是, 今天只找到了她作品的碎片."
@@ -163,8 +163,8 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="lgbt_opinion",
-            category=["life", "media", "society"],
-            prompt="Trans discrimination",
+            category=["生活", "媒体", "社会"],
+            prompt="变性人歧视",
             random=True,))
 
 label lgbt_opinion:

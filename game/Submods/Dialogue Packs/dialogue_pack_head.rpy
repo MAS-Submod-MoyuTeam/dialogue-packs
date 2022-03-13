@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/PencilMario/dialogue-packs/blob/main/README.md}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.10.3',
+        version='1.11.0',
         settings_pane="dp_setting_pane"
     )
 
@@ -23,7 +23,7 @@ init python:
     #删除原子模组教学文件夹
     if os.path.exists(renpy.config.basedir + "/game/Submods/MonikaSubmodT"):
         try:
-            shutil.rmtree(renpy.config.basedir + "/game/Submods/MonikSubmodT")
+            shutil.rmtree(renpy.config.basedir + "/game/Submods/MonikaSubmodT")
         except:
             raise Exception("delete submod MonikaSubmodT failed\n删除子模组MonikaSubmodT失败,  请手动删除文件夹后重启")
     dp_dirs = os.listdir(renpy.config.basedir + "/game/Submods/Dialogue Packs")
