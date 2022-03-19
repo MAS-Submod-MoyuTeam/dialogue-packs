@@ -393,7 +393,7 @@ label monika_stod_tip005:
     m 3eub "这段代码,主要可以改的位置只有{i}Event(){/i}内的一小部分,其他部分都不需要动."
     m 4eua "{i}persistent.event_database,{/i} 这一段也是不能动的."
     m 3eub "{i}eventlabel='monika_example_topic1',{/i} 这里就是我们上一节课使用的label标签了,如果是一般的话题,建议在起名的时候就在前面加上'monika_'"
-    m 1eua "{i}category=*1,{/i} 这一段指的是这段对话的分类,比如说{i}杂项{/i},{i}文学{/i}等等,如果你不写它,那这段对话会显示在主题类别的列表里."
+    m 1eua "{i}category=*1,{/i} 这一段指的是这段对话的分类,比如说{i}其他{/i},{i}文学{/i}等等,如果你不写它,那这段对话会显示在主题类别的列表里."
     m 1rksdlb "{b}*1{/b}:因为某些原因,这一串代码我打不出来...但是我在笔记里写了!你可以去看看."
     m 3eua "{i}prompt='I want tell you something...',{/i} 这里则是这段对话在{i}游戏里{/i}的名字,如果你不写它,那么对话的名字就是你的label标签名."
     m 3hua "以上代码所表示的含义是:'我会挑个时间和你讨论下{i}I want tell you something...{/i}这个话题.'"
@@ -666,9 +666,45 @@ label monika_stod_tip008:
     call monika_stod_tipthx
     return
 
+init 5 python:
+    addEvent(
+        Event(
+            persistent.event_database,
+            eventlabel="monika_stod_tip009", # may change order, you decide on this
+            category=["Submod课堂"],
+            prompt="Github模板.",
+            pool=True,
+            conditional="store.mas_stod.has_day_past_tip(8)",
+            action=EV_ACT_UNLOCK,
+            rules={"no_unlock":None}
+        )  
+    )
+
+label monika_stod_tip009:
+    m 1eua "我们之前讲过'游戏内更新'对吧, [player]?"
+    m 1gta "实际上, 我感觉我讲的不是那么的好..."
+    m 7esb "所以, 我直接为你制作了一个模板, 你只需要按照模板向里面套东西就可以了."
+    m 3nsb "听起来更简单对不对? 毕竟有现成的轮子总比现造好."
+    m 2eub "好了好了, 让我们进入正题."
+    m 7eua "首先先进入{a=https://github.com/PencilMario/MonikaExampleSubmod}{i}{u}模板库{/u}{/i}{/a}, 然后点击Use this template."
+    m 4eso "然后改掉仓库名(Repository name), 随便写写介绍(Description), 点击Create repository from template就ok. "
+    m 3fso "接下来, 修改我们的脚本文件, 位于{i}game/Submods/Monika's example submod/monika example submod.rpy{/i}"
+    m 1hsb "将第13行的name改成你的Github用户名, 第14行repository_name改为仓库名, 就ok了"
+    m 1luo "虽然这样就可以用了, 但是为了通用性, 我建议把文件夹'Monika's example submod'改一下名, 脚本文件也可以改, 这个看你."
+    m 7euo "不过网页端是不可以改名的, 为此我们要借助于VScode."
+    m 3eso "打开VScode, 在开始界面选择'克隆Git存储库', 或者按下Ctrl+Shift+G, 选择克隆存储库"
+    m 7esb "接下来填入你的仓库的链接, 就好了."
+    m 7gkd "不过, Git因为是国外的, 受到防火墙的限制, 可能会导致一些问题. 我建议是使用Steam++加速Github."
+    m 1eub "克隆完以后就可以在本地改东西了, 改文件夹什么都很方便."
+    m 3eub "改完以后, 按下Ctrl+Shift+G, 填入消息, 然后点击√来提交. "
+    extend "不要忘记同步更改哦~"
+    m 4nub "当你都写完后, 我们回到存储库网页里, 点击'Releases'来发布更新."
+    m 1hua "这样就搞定了~"
+    jump monika_stod_tipthx
+    return
 
 
-######################################杂项
+######################################其他
 
 label monika_stod_tipthx:
         m 1eua "这就是莫妮卡今天的Submod小教程了."
