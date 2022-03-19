@@ -33,6 +33,11 @@ init python:
             return ">启用中"
         else:
             return ">禁用中"    
+    dp_authors = """\
+    以下为作者和汉化者名单, 排名不分先后:\n
+    ThePersonYou_Hate,{a=https://www.reddit.com/user/mayday-mayjay/}mayday-mayday{/a},{a=https://www.reddit.com/user/UnexplainedYeet}UnexplainedYeet{/a},{a=https://www.reddit.com/user/ryuujjy/}ryuujjy{/a},{a=https://www.reddit.com/user/geneTechnician/}geneTechniman{/a},{a=https://www.reddit.com/user/mkam23-Maya/}mkam23-maya{/a},TK,Sir.P,星光,莫秋纱,DrakeTheDuelist,Mon-ika,AmyKawa,ddy\n
+    因为个人精力有限, 如果本子模组内有您的作品却没有注明您的名字, 请及时与{a=https://github.com/PencilMario/dialogue-packs}我{/a}告知.
+    """
 
 ##设置项
 
@@ -61,12 +66,8 @@ screen dp_setting_pane():
         textbutton ">特别感谢":
             ypos 1
             selected False
-            authors = """
-            以下为作者和汉化者名单, 排名不分先后:\n
-            ThePersonYou_Hate,{a=https://www.reddit.com/user/mayday-mayjay/}mayday-mayday{/a},{a=https://www.reddit.com/user/UnexplainedYeet}UnexplainedYeet{/a},{a=https://www.reddit.com/user/ryuujjy/}ryuujjy{/a},{a=https://www.reddit.com/user/geneTechnician/}geneTechniman{/a},{a=https://www.reddit.com/user/mkam23-Maya/}mkam23-maya{/a},TK,Sir.P,星光,莫秋纱,DrakeTheDuelist,Mon-ika,AmyKawa,ddy\n
-            因为个人精力有限, 如果本子模组内有您的作品却没有注明您的名字, 请及时与{a=https://github.com/PencilMario/dialogue-packs}我{/a}告知.
-            """
-            action Show(screen = "dialog", message = authors, ok_action = Hide("dialog"))
+            action Show(screen = "dialog", message = dp_authors, ok_action = Hide("dialog"))
+            
 screen dp_manager():
     key "noshift_T" action NullAction()
     key "noshift_t" action NullAction()

@@ -196,7 +196,7 @@ label monika_fnf:
 return
 
 init python:
-    addEvent(Event(persistent.event_database,eventlabel="monika_friendchat",category=["杂项"],prompt="我的一个朋友向你问好了!",pool=True,unlocked=True))
+    addEvent(Event(persistent.event_database,eventlabel="monika_friendchat",category=["其它"],prompt="我的一个朋友向你问好了!",pool=True,unlocked=True))
 
 label monika_friendchat:
 
@@ -239,7 +239,7 @@ label monika_friendchat:
 return
 
 init python:
-    addEvent(Event(persistent.event_database,eventlabel="monika_simonsays",category=["杂项","迷你小游戏"],prompt="你能和我一起玩'西蒙猜谜'游戏吗?",pool=True,unlocked=True))
+    addEvent(Event(persistent.event_database,eventlabel="monika_simonsays",category=["其它","迷你小游戏"],prompt="你能和我一起玩'西蒙猜谜'游戏吗?",pool=True,unlocked=True))
     import random
     import re
 
@@ -369,7 +369,7 @@ label monika_inappropriatephrase:
 return
 
 init python:
-    addEvent(Event(persistent.event_database,eventlabel="monika_musicalchairs",category=["杂项","迷你小游戏"],prompt="你能和我玩'抢椅子'吗?",pool=True,unlocked=True))
+    addEvent(Event(persistent.event_database,eventlabel="monika_musicalchairs",category=["其它","迷你小游戏"],prompt="你能和我玩'抢椅子'吗?",pool=True,unlocked=True))
     import random
     import time
 
@@ -509,7 +509,7 @@ return
 
 
 init python:
-    addEvent(Event(persistent.event_database,eventlabel="monika_rockpaperscissors",category=["杂项","小游戏"],prompt="你可以和我玩石头剪刀布吗?",pool=True,unlocked=True))
+    addEvent(Event(persistent.event_database,eventlabel="monika_rockpaperscissors",category=["其它","迷你小游戏"],prompt="你可以和我玩石头剪刀布吗?",pool=True,unlocked=True))
     import random
 
 label monika_rockpaperscissors:
@@ -521,7 +521,7 @@ label monika_rpcGame:
         yourchoice = ""
         rockfact = ""
         nicegood = ["很好","好"]
-        rfact = ["钻石也是岩石的一种! 事实上, 它实际上是这个星球上最坚硬的岩石.", "太空岩石降落在地球上! 来自外太空的物质居然能来到这里, 这真是太吸引人了.", "有三种类型的岩石. 沉积岩、火成岩和变质岩!","地球上最柔软的岩石被称为’滑石!".]
+        rfact = ["钻石也是岩石的一种! 事实上, 它实际上是这个星球上最坚硬的岩石.", "太空岩石降落在地球上! 来自外太空的物质居然能来到这里, 这真是太吸引人了.", "有三种类型的岩石. 沉积岩、火成岩和变质岩!","地球上最柔软的岩石被称为’滑石!"]
         def monikarockpap():
             rpcm = ["石头","布","剪刀"]
             return random.choice(rpcm)
@@ -550,8 +550,8 @@ label monika_rpcGame:
         m 2hub "哇! 我们都出了布!"
         m 7hub "我猜我们都很喜欢写诗, 是吧?"
         jump monika_rpcTie
-        pass1
-    elif monikachoice == "剪刀" and yourchoice == "布":1
+        pass
+    elif monikachoice == "剪刀" and yourchoice == "布":
         m "哦, 我出了剪刀而你出了布!"
         jump monika_rpcLoss
         pass
@@ -687,7 +687,7 @@ label monika_searchHistory:
 return
 
 init python:
-    addEvent(Event(persistent.event_database,eventlabel="monika_playerBullies",category=["杂项"],prompt="有人对我很刻薄.",pool=True,unlocked=True))
+    addEvent(Event(persistent.event_database,eventlabel="monika_playerBullies",category=["其它"],prompt="有人对我很刻薄.",pool=True,unlocked=True))
 
 label monika_playerBullies:
     python:
@@ -735,10 +735,10 @@ init python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="monika—friends",
+            eventlabel="monika_Friends",
             category=["DDLC","莫妮卡","社团成员"],
             prompt="其他人的自我意识",
-            conditional="seen_event('monika—regret')",
+            conditional="seen_event('monika_regret')",
             random=True
         )
     )
@@ -783,7 +783,7 @@ init python:
         Event(
             persistent.event_database,
             eventlabel="monika_ddto",
-            category=["misc","你的现实","游戏"],
+            category=["其它","你的现实","游戏"],
             prompt="Doki Doki Takeover",
             conditional="seen_event('monika_fnf')",
             random=True
@@ -874,7 +874,7 @@ label monika_conrad:
 return
 
 init python:
-    addEvent(Event(persistent.event_database,eventlabel="monika_screenrig",category=["ddlc","misc"],prompt="强迫选择",pool=True,unlocked=True))
+    addEvent(Event(persistent.event_database,eventlabel="monika_screenrig",category=["DDLC","其它"],prompt="强迫选择",pool=True,unlocked=True))
 
 label monika_screenrig:
     $ gltxt = glitchtext(30)
