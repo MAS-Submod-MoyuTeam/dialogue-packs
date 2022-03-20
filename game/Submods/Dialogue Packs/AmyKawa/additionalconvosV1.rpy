@@ -302,7 +302,7 @@ label monika_illlead:
 label monika_SStryagain:
     while not confirmmessage:
         show monika 1eub
-        $ yousayInitial = renpy.input("告诉我要说到句子",length=2000).strip()
+        $ yousayInitial = renpy.input("告诉我要说的句子",length=2000).strip()
         python:
             yousay = yousayInitial.lower()
             wordlist = yousay.split()                                                                                                                                                                                                                                                                                                                                                  
@@ -375,7 +375,7 @@ init python:
 
 label monika_musicalchairs:
     m 1hub "当然!"
-    m 3eub "准备好了就告诉我, 我就放音乐里了."
+    m 3eub "准备好了就告诉我, 我就放音乐了."
 label monika_mcgame:
     menu:
         "好了, 开始音乐吧!":

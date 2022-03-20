@@ -24,7 +24,7 @@ Collection of translated/written topic submodules, do integration to facilitate 
 |Sir.P|/|`疯狂星期四` `子模组教学` `准备更新文件吧`|/|
 |mkam23-Maya|[>reddit](https://www.reddit.com/user/mkam23-Maya/)|`NFTs` `眼镜和隐形眼镜`|TK 星光|
 |AmyKawa|[>reddit](https://www.reddit.com/user/AmyKawa/)|*Additional Conversations V1*|P TK|
-|DrakeTheDuelist|>Github|*Dreams and Nightmares*|Mon-ika ddy|
+|DrakeTheDuelist|[>Github](https://github.com/DrakeTheDuelist)|*Dreams and Nightmares*|Mon-ika ddy|
 |****1***|/|*MyDialogue.rpy*|P TK|
 
 >** 以上作者和汉化者的排名不分先后 **      
