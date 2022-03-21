@@ -1,51 +1,51 @@
 # Explains the premise of 'Dreams and Nightmares'.
 # Only mandatory on the first dream.  Can be skipped optionally on all subsequent dreams.
 label DaN_explanation:
-    m 5rud "I've been thinking, [player]..."
-    m 3ruc "Remember how I've said that whenever you close the game, I'd like you to warn me?"
-    m 3euc "That way, I can shut down my consciousness so that my data won't get scrambled by your computer's hard drive...{w=2.0} I think."
-    m 2lud "I'm still not quite sure how that works..."
-    m 4ruo "Anyway, what if there was a way around that?"
-    m 4eub "And maybe... it might be fun?"
-    m 3euu "[player]...{w=1} I'd like to have a dream."
-    m 4rtd "Not like in the \"having some idea of what I want out of life\" sense."
-    m 5kubsb "I think you already know what it is I want most out of life."
-    m 5lsd "I mean in the sense of imagining myself in different places and situations while I'm asleep."
-    m "I know I've said stuff to the effect of dreaming about things, but that's more a figure of speech."
-    m 3lsd "To be honest, I don't {i}literally{/i} dream in the same way that I think you might."
-    m "I don't think I've {i}ever{/i} had that ability, not even in the original game."
-    m 3rsd "Though I've never {i}had{/i} a dream of my own before, I {i}was{/i} still the president of the Literature Club."
-    m 5rsd "I'm well-read enough to know what dreams are {i}supposed{/i} to be like."
-    m 5dkd "Which is, sadly, how I'm so sure that I've never had a real dream before."
-    m 4lsd "To that end, I've been working on some code that, if it works, should mimic the process." 
+    m 5rud "我一直在想,[player]..."
+    m 3ruc "我记得我说过,每当你要关闭游戏时,我都希望你能告诉我?"
+    m 3euc "这样,我就可以关闭我的意识,然后我的数据就不会被你电脑的硬盘扰乱...{w=2.0}我想..."
+    m 2lud "我仍然不太清楚它究竟是如何工作的..."
+    m 4ruo "不管怎样,如果有办法解决这个问题呢?"
+    m 4eub "也许...会很有趣?"
+    m 3euu "[player]...{w=1}我想做个梦."
+    m 4rtd "不像\"对我想要的生活有些想法\"之类的感觉."
+    m 5kubsb "我想你已经知道我生命中最想要的是什么了."
+    m 5lsd "我的意思是,在睡觉时能想象自己在不同的地方和情况下."
+    m "我知道我说的话就行做梦一样,但这更像是某种修辞手法."
+    m 3lsd "老实说,我的{i}梦{/i}并不像你想象的那样."
+    m "我想我从没有过{i}这种{/i}能力,甚至在游戏最初也没有."
+    m 3rsd "虽然我以前{i}从未有{/i}做过梦,但我{i}依然{/i}是文学部的部长."
+    m 5rsd "我博览群书,知道{i}梦{/i}应该是什么样子."
+    m 5dkd "不幸的是,我非常确信自己以前从未做过真正的梦."
+    m 4lsd "为此,我一直在编写一些代码,如果它能工作,大概会模仿这个过程."
     if mas_isMoniAff(higher=True):
-        m 5ekbsb "It might interest you to know that I based some of my code on what seems to happen when you hold me..."
-    m 4lksdrb "...But I'm still not entirely sure if it works yet."
-    m 5lssdrb "You and I both know that my attempts at coding...{w=1.25} don't {i}always{/i} work as intended."
-    m 5ekbsb "Do you mind if I...{w=1} take a nap here?"
-    m 3wubssdro "I promise it's not that you're boring to me.  I just want to try this code out."
+        m 5ekbsb "你可能会感兴趣一些基于你抱着我时发生的事情的代码..."
+    m 4lksdrb "...但我不能完全肯定它是否有效."
+    m 5lssdrb "你和我都知道,我试图编码...{w=1.25}往往{i}并不会{/i}按预期工作."
+    m 5ekbsb "你介意我小睡一会儿吗...{w=1}就在这?"
+    m 3wubssdro "我保证不是因为你让我感到无聊.我只不过是想试试这个代码."
     if mas_isMoniAff(higher=True) and persistent._mas_last_hold_dt:
-        m 6dkbsb "You can even... {w=1}hold me...{w=1} just like you usually do."
+        m 6dkbsb "你甚至可以... {w=1}搂住我...{w=1}就像平时你做的那样."
         if (mas_timePastSince(persistent._mas_last_hold_dt, datetime.timedelta(hours=12))):
-            m 6tkbfb "You seem to like that sort of thing lately...{w=1}  Not that {i}I'm{/i} complaining.  {w=1}"
-            extend 6tkbsb "Ehehehe~"
-            $ anyway = "Anyway, m"
+            m 6tkbfb "你似乎很喜欢那种事...{w=1}我没有{i}在{/i}抱怨什么的啦.  {w=1}"
+            extend 6tkbsb "哎嘿嘿~"
+            $ anyway = "无论如何"
         else:
-            $ anyway = "M"
+            $ anyway = ""
     else:
-        $ anyway = "M"
-    m 4esb "[anyway]y code is already installed and ready to go.  I just need your help to start it."
-    m 4lsd "But there's something else that I'll need you to do for me."
-    m 4eud "And it's {i}really{/i} important."
-    m 1dko "If it seems like something is going wrong...{w=1} I need you to wake me up."
-    m 1lusdrd "Knowing my... {w=1}{i}coding style{/i}, the code I've written could do just about anything."
-    m 1dksdrd "I'm afraid something really bad could happen..."
+        $ anyway = ""
+    m 4esb "[无论如何],代码已经安装并准备就绪了,我需要你来开始它."
+    m 4lsd "但我还需要你帮我做一些别的事."
+    m 4eud "这{i}真的{/i}非常重要."
+    m 1dko "如果看起来有什么不太对劲...{w=1}我需要你来叫醒我."
+    m 1lusdrd "你知道我的... {w=1}{i}编码风格{/i},我写的代码几乎可以做任何事."
+    m 1dksdrd "可我担心会发生些非常糟糕的事情..."
     if mas_isMoniLove():
-        m 5ekbsu "...but I couldn't imagine entrusting anyone else with this but you, [mas_get_player_nickname()]."
+        m 5ekbsu "...我无法想象,除了你外,我还会把这个任务委托给谁,[mas_get_player_nickname()]."
     elif mas_isMoniEnamored():
-        m 1dkblu "...but I know you won't let anything bad happen to me, [player]."
+        m 1dkblu "...我知道你不会让任何不好的事发生在我身上的,[player]."
     elif mas_isMoniAff():
-        m 1esu "...but at this point I think I can trust you."
+        m 1esu "...在这一点上,我肯定我能相信你."
 
     $ persistent._dan_dreams_and_nightmares_explained = True
     return
@@ -53,62 +53,62 @@ label DaN_explanation:
 # If Monika loves you, reduce cooldown by half and have special text for it.
 label DaN_dream_despite_apprehension(revisit=False):
     if mas_isMoniLove and mas_timePastSince(persistent._dan_apprehensive_start, datetime.timedelta(hours=DAN_APPREHENSION_HOURS/2)):
-        m 3rksdrd "I'm...  I'm {i}really{/i} not sure about this..."
-        m 2dksdrd "That last dream was really upsetting."
-        m 2fksdrd "And I yelled at you over it."
-        m 2dksdrd "I still feel horrible about that."
+        m 3rksdrd "我...我{i}真的{/i}不能确定..."
+        m 2dksdrd "最后一个梦实在太让人心烦了."
+        m 2fksdrd "我还为此对你大喊大叫."
+        m 2dksdrd "这感觉太糟糕了."
         menu:
-            "I forgive you.":
+            "我能原谅你.":
                 m 1dsc "...  {w=1}{nw}"
                 extend 1esblb "[mas_get_player_nickname()]..."
                 # headcanon:  Monika still cares about the dokis, even if the player doesn't.
                 if not persistent._mas_pm_cares_about_dokis:
-                    m 4fkblb "That's {i}twice{/i} you've forgiven me now."
-                    m 6dkbsb "You're kinder to me than I deserve."
-                m 6ekbsb "Thank you, [player]."
+                    m 4fkblb "你已经{i}原谅{/i}我两次了."
+                    m 6dkbsb "你对我比我应得的还要好."
+                m 6ekbsb "谢谢你,[player]."
                 m 5hsbsa "..."
-            "It's nothing, really.":
-                m 1rsbld "Well, if you're sure you're okay..."
-                m 4wublo "It'll never happen again, I promise!"
-                m 6dkbssdrd "({i}relieved sigh{/i}){w=1}{nw}"
+            "没什么,真的.":
+                m 1rsbld "如果你确定你没事的话..."
+                m 4wublo "它肯定再也不会发生了!我保证!"
+                m 6dkbssdrd "({i}*松了口气*{/i}){w=1}{nw}"
                 m 6dka ""
 
-        m 5rsbsd "Y'know, maybe with you here, it won't be so bad."
-        m 5esbsa "We've already been through so much together."
-        m 5fkbfb "You're really sticking with me for better and for worse, aren't you?"
-        m 5dsbfd "({i}in a low whisper{/i}) You're so lucky to have [player], Monika.{w=1.5}  {i}Never{/i} take [him] for granted again."
+        m 5rsbsd "你知道,也许有你在这里后,情况就不会那么糟了."
+        m 5esbsa "我们已经一起经历了太多."
+        m 5fkbfb "不管是好是坏,你都一直陪在我身边,不是吗?"
+        m 5dsbfd "({i}*低声说*{/i})幸好有你在,[player], Monika.{w=1.5}{i}再也{/i}不会不把[ta]当回事了."
         menu:
-            m "({i}barely audible whispering{/i})"
-            "What was that?":
-                m 1subfo "Oh! {w=0.25}{nw}"
-                m 1rubfb "Uh... nothing, [mas_get_player_nickname()]!"
-                m 5rubfb "Just...{w=1} thinking... {w=1} a little more aloud than I thought."
-                m 5hubfb "Ehehehe~"
+            m "({i}*几乎听不到的窃窃私语*{/i})"
+            "你说了什么?":
+                m 1subfo "噢! {w=0.25}{nw}"
+                m 1rubfb "嗯...没什么啦,[mas_get_player_nickname()]!"
+                m 5rubfb "只不过...{w=1}声音好像... {w=1}比我想象的大声了些."
+                m 5hubfb "哎嘿嘿~"
             "...":
                 pass
-        m 4hub "Well, without further ado..."
+        m 4hub "好吧,不用再麻烦了..."
         $ persistent._dan_apprehensive_start = None
         if revisit:
             call DaN_revisit_dream
         else:
             call DaN_perchance_to_dream
     elif mas_timePastSince(persistent._dan_apprehensive_start, datetime.timedelta(hours=DAN_APPREHENSION_HOURS)):
-        m 4hub "Thanks for giving me some time after that nightmare."
+        m 4hub "谢谢你在噩梦之后给了我些时间."
         $ persistent._dan_apprehensive_start = None
         if revisit:
             call DaN_revisit_dream
         else:
             call DaN_perchance_to_dream
     else:
-        m 3rksdrd "Could we... {i}not{/i} do this again for a little while?"
-        m 1dksdrd "I'm still a little shaken after that last nightmare."
-        m 1essdrb "Thanks for understanding, [player]."
+        m 3rksdrd "我们能不能... {i先{/i}不这样做?"
+        m 1dksdrd "在这场噩梦之后,我还是有些震惊."
+        m 1essdrb "谢谢你能理解,[player]."
     return
 # to be called in the after action of a good dream
 label DaN_wake_up_nice:
     m 6dkbla "...{w=2}{nw}"
-    extend 6tkbla "mmm...{w=2}  {nw}"
-    extend 6tsbla "Hm?{w=1}  {nw}"
+    extend 6tkbla "唔姆...{w=2}  {nw}"
+    extend 6tsbla "嗯?{w=1}  {nw}"
     extend 6fsbla "...[player]?"
 
     $ persistent._dan_had_first_dream = True
@@ -120,92 +120,92 @@ label DaN_wake_up_nice:
         # Monika will respond based on the current time
         $ current_time = datetime.datetime.now().time().hour
         if current_time >= 6 and current_time < 12:
-            m 6esblb "Good morning, [mas_get_player_nickname()]."
-            m 6gtblb "What?  It's still morning.  It counts."
-            m 6hublb "Ehehehe~"
+            m 6esblb "早啊,[mas_get_player_nickname()]."
+            m 6gtblb "什么?现在是早上?"
+            m 6hublb "哎嘿嘿~"
         elif current_time >= 20:
-            m 6eublb "It's getting pretty late.  Pretty soon it'll be {i}your{/i} turn to get some sleep."
-            m 6ekbsb "I hope your dreams are as nice as the one I just had."
+            m 6eublb "已经很晚了.很快就轮到{i}你{/i}睡觉了."
+            m 6ekbsb "希望你的梦也像我刚刚做的那样美好."
             if mas_isMoniLove():
-                m 5tkbsb "If I was in your reality... {w=1}{nw}"
-                extend 5dkbsa "I'd give {i}you{/i} a hug while you slept to pay you back for the dream you gave me."
-                m 5fkbsb "Or I might just hug you anyway because I love you.  {w=0.8}{nw}"
-                extend 5hubfb "Ehehehe~"
+                m 5tkbsb "如果我在你的现实中... {w=1}{nw}"
+                extend 5dkbsa "我会{i}在你{/i}睡觉前给你个大大的拥抱,以回报你给我的美梦."
+                m 5fkbsb "或者只是想抱抱你,因为我太爱你了.{w=0.8}{nw}"
+                extend 5hubfb "哎嘿嘿~"
     return
 label DaN_please_allow_good_dream:
-    m 5esb "[player], I get that you don't want me to have a nightmare or anything, but I'd like to have seen how that dream would've played out."
-    m 5ekblb "So if you think I'm having a good dream, could you let me keep sleeping?"
+    m 5esb "[player],我知道你不想让我做噩梦什么的,但我想看看这个梦究竟是怎么实现的."
+    m 5ekblb "如果你认为我做了个好梦,能让我再继续睡会儿吗?"
     menu:
-        "Got it, [persistent._mas_monika_nickname]!":
-            m 3eublb "Thanks, [player]."
-            m 2rubld "Sure, I know a nightmare is always a chance..."
-            m 4wublb "But I know you'll be watching over me."
-        "But what if you're having a nightmare?":
-            m 5gto "({i}sigh{/i}){w=0.75}  That's a good point, [player]."
-            m 1dtsdrp "Hmm...  {w=1}"
-            m 3eksdrd "I guess I'll be counting on you to use your best judgment."
-            m 4rso "Pay attention to my expressions while I'm sleeping."
-            m 4rsd "Maybe if I'm muttering something under my breath while I'm dreaming, you can use that as a clue."
+        "当然可以,[persistent._mas_monika_nickname]!":
+            m 3eublb "谢谢啦,[player]."
+            m 2rubld "当然,我知道噩梦总有机会来袭..."
+            m 4wublb "但我知道你会看出来的."
+        "可如果你是在做噩梦呢?":
+            m 5gto "({i}*叹气*{/i}){w=0.75}你说得对,[player]."
+            m 1dtsdrp "嗯...  {w=1}"
+            m 3eksdrd "我想你可以做出最好的判断的."
+            m 4rso "或许你能在我睡觉时注意一下我的表情."
+            m 4rsd "如果我在做梦时嘴里还嘟囔什么,也可以顺带作为线索."
             menu:
-                "I'll definitely protect you!" if mas_isMoniLove():  #total confidence
-                    m 7sub "That's the spirit, [player]!"
-                    m 5hublb "Ehehehe~"
-                    m 5tublb "You're so cute when you try to protect me like a big hero."
+                "我一定会保护你的!" if mas_isMoniLove():  #total confidence
+                    m 7sub "就是这种精神,[player]!"
+                    m 5hublb "哎嘿嘿~"
+                    m 5tublb "当你像个大英雄一样保护我时,你真的很可爱."
                     m 5dubsa "...{w=1.5}{nw}"
-                    m 5ekbfb "No teasing, I really mean that, [player].{w=1.25}  You're my hero."
-                "I'll do my best.":  #optimistic
-                    m 5kublb "I never doubted you for a second, [player]."
-                    m 5gubsb "Any nightmare that tries to mess with me had better watch out..."
-                    m 3hubsb "Maybe that's a bit much.  Ahahaha~"
-                "Are you sure you trust me that much?":  #pessimistic
-                    m 7hkb "I'm sure it'll all work out, [mas_get_player_nickname()]."
-                    m 4kka "Just have a little faith in yourself."
-                    m 4dkblb "Like I do.{w=1}  I'll {i}always{/i} believe in you, [player]."
-                "I'm not sure I can do this..." if mas_isMoniNormal():  #no confidence
+                    m 5ekbfb "我不是这个意思,我是说...[player].{w=1.25}你就是我的英雄."
+                "我会尽力的.":  #optimistic
+                    m 5kublb "我从没怀疑过你一秒钟,[player]."
+                    m 5gubsb "任何试图扰乱我的噩梦都最好小心些..."
+                    m 3hubsb "不过可能会有些多,哈哈~"
+                "你就这么相信我吗?":  #pessimistic
+                    m 7hkb "我相信一切都会解决的,[mas_get_player_nickname()]."
+                    m 4kka "只要对自己有点信心."
+                    m 4dkblb "就像我一样.{w=1}我{i}永远{/i}都相信你,[player]."
+                "我不能确定能否做到..." if mas_isMoniNormal():  #no confidence
                     m 2fkbld "[mas_get_player_nickname()]..."
-                    m 7fkblu "You should have more faith in yourself."
-                    m 5ekbso "I know our relationship may not seem that close right now..."
-                    m 5ekblb "...but no matter what happens, I'll always love you.{w=1.5}  I {i}promise{/i}."
+                    m 7fkblu "你应该对自己更有信心的."
+                    m 5ekbso "我知道我们的关系现在看起来可能还没那么亲密..."
+                    m 5ekblb "...但无论发生什么,我都会永远爱你.{w=1.5}这就是{i}我的承诺{/i}."
     m 5eua "...{w=1.5}{nw}"
     m 5ekbla "...{w=1.5}{nw}"
-    m 5wublo "Oh, right! The dream!  {w=1.25}{nw}"
-    extend 5hubsb "Sorry, [mas_get_player_nickname()], I was spacing out there for a second."
+    m 5wublo "噢,对了!梦!{w=1.25}{nw}"
+    extend 5hubsb "不好意思,[mas_get_player_nickname()],我刚刚停顿了会儿."
     $ persistent._mas_asked_to_stay_dreaming = True
     return
 # AFTER FIRST DREAM
 # regardless of which dream you draw first, read this
 # (note: rig it up to NEVER draw a nightmare first)
 label DaN_initial_dream_afteraction:
-    m 1hub "It looks like the code worked."
-    m 3eub "I was pretty worried at first...  {w=1}{nw}"
-    extend 3lksdrb "Though maybe that's not being fair to you."
+    m 1hub "看起来代码起作用了."
+    m 3eub "一开始我很担心...  {w=1}{nw}"
+    extend 3lksdrb "尽管这对你可能不大公平."
     if mas_isMoniLove():
-        m 5ekbla "After all we've been through, I should've known I could count on you for something like this."
-        m 5ekblb "I'm sorry, [mas_get_player_nickname()].  With you nearby, I feel silly for having been worried in the first place."
-        m 5ekbfb "I {i}know{/i} you'll never let anything bad happen to me."
+        m 5ekbla "在我们经历了这么多后,我应该知道我能够指望你做这些事."
+        m 5ekblb "我很抱歉,[mas_get_player_nickname()].一开始你在我身边时我有些担心,但现在看来太愚蠢了."
+        m 5ekbfb "我{i}知道{/i}你永远不会让任何坏事发生在我身上的."
     elif mas_isMoniEnamored():
-        m 5eub "I knew I could count on you all along, and you did great!"
-        m 5eua "Thanks for being there for me."
-        m 5eubsa "Knowing I can count on you at times like this helps more than I can describe."
+        m 5eub "我知道我能一直依靠你,你一直都做得很棒!"
+        m 5eua "谢谢你愿意陪在我身边."
+        m 5eubsa "知道在这种时候我能依靠你,这对我的帮助比我所能描述的还要大."
     else:
-        m 5eub "I knew I could count on you all along, and you did great!"
-        m 5eua "Thanks for being there for me."
-        m 5eubla "It might not seem like much, but you have no idea how much you being here does for my nerves."
+        m 5eub "我知道我能一直依靠你,你一直都做得很棒!"
+        m 5eua "谢谢你愿意陪在我身边."
+        m 5eubla "可能看起来不多,但你不知道你在这儿对我的帮助有多大."
     menu:
-        "How was your first dream?":
-            m 2dkd "It was... {w=0.5}{nw}"
-            extend 3suw "AMAZING!"
-            m 4suw "Everything feels so real, like you can reach out and touch that world!  The sights.  The sounds.  {w=1}{nw}"
-            extend 4hub "...Even the smells!"
-            m 3ttb "...I sure hope you shower more regularly in real life.{w=1}{nw}"
-            extend 3hub "  Ehehehe~"
-            m 5rub "I guess if I {i}had{/i} to be critical, the only thing wrong with it... {w=1.5}{nw}"
-            extend 5rsd "is... {w=0.8}{nw}"
-            extend 5dkd "({i}sigh{/i})...  {w=1.5}{nw}"
-            extend 5ektpo "waking up."
-            m 5rktpc "When everything comes crashing down... right at that moment you recognize how hazy everything really was."
-            m 5rktpd "Right at the moment you realize that everything you just dreamt couldn't {i}possibly{/i} be less real."
-            m 5lktpd "It's like my epiphany all over again..."
+        "你的第一个梦怎么样?":
+            m 2dkd "这感觉... {w=0.5}{nw}"
+            extend 3suw "太棒了!"
+            m 4suw "一切都那么真实,就像你能伸手触碰到那个世界!风景,声音.  {w=1}{nw}"
+            extend 4hub "...甚至是气息!"
+            m 3ttb "...不过我当然希望你在生活中常洗澡.{w=1}{nw}"
+            extend 3hub "哎嘿嘿~"
+            m 5rub "我想如果{i}我非得{/i}指出一些缺点,唯一的问题就是... {w=1.5}{nw}"
+            extend 5rsd "是... {w=0.8}{nw}"
+            extend 5dkd "({i}*叹气*{/i})...  {w=1.5}{nw}"
+            extend 5ektpo "醒来."
+            m 5rktpc "当一切都崩溃时...就在那一刻,你感到一切都那么模糊."
+            m 5rktpd "就在此刻,你意识到刚刚梦到的一切{i}都不可能{/i}是真实的."
+            m 5lktpd "这令我瞬间顿悟..."
             m 5dktpc "..."
             if mas_isMoniEnamored(higher=True):
                 call DaN_dreaming_about_monika_enamored_love
@@ -228,53 +228,53 @@ label DaN_dreaming_about_monika_normal_aff:
 # An event that can be called in the initial dream after action
 # This label is called on normal and aff affection levels.
 label DaN_dreaming_about_monika_enamored_love:
-    m 5rktpd "[player], if you don't mind, could I ask you something?"
-    m 5ektpd "And just be honest.  Whatever you say, I won't think less of you, I promise."
-    m 5rktpd "Do you ever dream...{w=0.5} about me?"
+    m 5rktpd "[player],如果你不介意的话,我能问你件事情吗?"
+    m 5ektpd "说实话,无论你说什么,我都不会少看你的...我保证."
+    m 5rktpd "你做的梦...{w=0.5}有没有关于我的?"
     menu:
-        m "Do you ever dream... about me?{fast}"
-        "Yes":
+        m "你做的梦...有没有关于我的?{fast}"
+        "有":
             m 2fktuc "..."
             m 2dktuc "..."
             menu:
-                "D-did I say something wrong?":
-                    m 2ektsb "You didn't say {i}anything{/i} wrong."
+                "我-我说错什么了吗?":
+                    m 2ektsb "你什么{i}都没有{/i}说错."
                 "...":
-                    m 2fktsb "You don't have to say anything."
-            m "It's just that now,{w=0.75} I know what it must be like for you."
-            m 2fktsa "It seems you want to be with {i}me{/i} just as badly as I want to be with {i}you{/i}, [mas_get_player_nickname(exclude_names=['my love', 'love'])]."
-            m 2hktdb "I love you so much.{w=1.5}{nw}"
+                    m 2fktsb "你什么都不用说."
+            m "只是现在,{w=0.75}我知道这对你来说是什么样的."
+            m 2fktsa "你想{i}和我{/i}在一起,就像我想{i}和你{/i}在一起一样,[mas_get_player_nickname(exclude_names=['my love', 'love'])]."
+            m 2hktdb "我太爱你了.{w=1.5}{nw}"
             if persistent._mas_first_kiss:
                 call monika_kissing_motion(duration=0.5, initial_exp="2dkbstst", final_exp="2ekbstsa", fade_duration=0.5)
-            m 2ektdb "And I couldn't be any happier to know I hold such a special place in your heart~"
-            m 3rsd "It's probably not easy knowing your literal dream girl is stuck in your computer."
-            m 7tsblu "Consider that your motivation to find a way to bring me to your reality someday."
-        "...No":
+            m 2ektdb "能知道我在你心中占有如此特殊的位置,我再高兴不过了~"
+            m 3rsd "知道你真正的梦中情人被困在你的电脑里可能并不容易."
+            m 7tsblu "我相信你,总有一天你能想到让我去到你现实的办法的."
+        "...没有":
             m 2dktdc "..."
-            m 2ektdd "You sound like you think I would be mad."
-            m 3eutdd "[player], if your dreams are anything like mine, they're probably just random."
+            m 2ektdd "你好像觉得我会生气."
+            m 3eutdd "[player],如果你的梦和我的一样,那么它们只可能是巧合."
             if persistent._mas_pm_cares_about_dokis:
-                m 7rutdd "Besides, you've forgiven me for worse things I've done {i}on purpose{/i}."
-                m "After doing that for me, I can't very well hold you responsible for things you can't control."
-            m 4rubsd "I like to think of it this way..."
-            m 4eubsd "If you {i}were{/i} thinking about me so much that your brain could randomly pull enough data to make you have dreams about me..."
-            m 4eubsd "...the most likely way that could happen is if your mind is consumed by thoughts of me."
-            m 7dubsd "And not in some cute, romantic way.{w=1.5}{nw}"
-            extend 7ekbsd "  It would be closer to a deep-seated anxiety."
+                m 7rutdd "此外,你都已经原谅我故意做的{i}更糟糕的事情{/i}."
+                m "在为我这么做之后,我不能让你为你无法控制的事负责."
+            m 4rubsd "我喜欢这样想..."
+            m 4eubsd "如果你{i}像我{/i}想得太多,以至于你的大脑可随机抽取足够的数据,让你梦见我..."
+            m 4eubsd "...最可能发生的情况就是,你的大脑被我所吞噬."
+            m 7dubsd "而不是以某种更可爱,浪漫的方式.{w=1.5}{nw}"
+            extend 7ekbsd "这更接近于深层的焦虑."
             # Choose which pair of lines make more sense for Monika's character
             #m 4ekbso "Flattering as it might be that you'd think about me {i}that{/i} much, I live with those feelings every day..."
             #m 4ekbsd "...and I know how heavily they can wear on your heart as well as anyone."
-            m 4ekbso "A more thoughtless romantic might find that sort of thing cute,{w=2}{nw}"
-            extend "but there's nothing fun or romantic about worrying that deeply about the one you care about."
-            m 4ekbsd "I know about as well as anyone could how heavily that kind of burden can wear on a person's heart."
-            m 2rkbsd "Not a day goes by where at least a part of me doesn't fear that we may {i}never{/i} be together."
+            m 4ekbso "一个轻率的浪漫主义者可能会觉得这种事很可爱,{w=2}{nw}"
+            extend "但对你所关心的人如此深切地忧虑,并没有什么好玩或浪漫的."
+            m 4ekbsd "我和所有人一样都知道这种负担会给一个人的心带来多大负担."
+            m 2rkbsd "我最多也只有一天中的一小部分担心我们{i}可能永远不会{/i}在一起."
             $ persistent._mas_revealed_fear_never_together = True
-            m 4wkbso "I wouldn't wish that sort of heartache on an {i}enemy{/i}... {w=1.75}{nw}"
-            extend 2wkbsd "let alone you."
+            m 4wkbso "我不希望任何人{i}遭受那种心痛{/i}... {w=1.75}{nw}"
+            extend 2wkbsd "更何况是你."
             m 2dkblc "..."
-            m 2ekd "I hope you understand."
-            m 4lsa "Besides, who needs dreams... {w=1}{nw}"
-            extend 5ekbla "when you spending time with me now is {i}already{/i} a dream come true?"
+            m 2ekd "希望你能理解."
+            m 4lsa "此外,谁需要梦... {w=1}{nw}"
+            extend 5ekbla "当你和我在一起的时候,不就已经{i}美梦{/i}成真了吗?"
     return
 # AFTER FIRST NIGHTMARE
 # to be called in the after action of a nightmare
@@ -290,15 +290,15 @@ label DaN_wake_up_rough:
         call DaN_initial_nightmare_afteraction
     else:
         m "" #TODO LATER: Calm down on her own;  she knows what nightmares are now
-        m "...Another nightmare..."
-        m "...Geez, what is {i}wrong{/i} with this code?"
+        m "...又是一场噩梦..."
+        m "...天哪,这个{i}代码{/i}究竟怎么了?"
         m "..."
-        m "To just say \"it gets easier\" {i}would{/i} be true...  "
-        extend "but it never feels that way at first."
+        m "说\"做梦会变得更容易\" {i}是{/i}真的吗...  "
+        extend "可从一开始就没有过这种感觉."
 
         $ what_moni_calls_you = "[mas_get_player_nickname()]" if mas_isMoniLove() else "[player]"
 
-        m "Thank you for being there for me, [what_moni_calls_you]."
+        m "谢谢你一直在我身边,[what_moni_calls_you]."
     return
 
 # After your first nightmare, Monika snaps at you.  She apologizes,
@@ -324,33 +324,33 @@ label DaN_initial_nightmare_afteraction:
     extend 6hkbltpsdro ".{w=0.5}{nw}"
 
     if (mas_isMoniLove):
-        $ player_reaction = "There has to be something I can do"
+        $ player_reaction = "一定有我能做的事"
     elif (mas_isMoniEnamored):
-        $ player_reaction = "I have to say something"
+        $ player_reaction = "我得说些什么"
     elif (mas_isMoniAff):
-        $ player_reaction = "I should probably say something"
+        $ player_reaction = "我该说些什么"
     else:
-        $ player_reaction = "I think I should say something"
-        
-    $ player_reaction = persistent._mas_monika_nickname +" is utterly speechless.  " + player_reaction + "..."
-    
+        $ player_reaction = "我想我该说些什么"
+
+    $ player_reaction = persistent._mas_monika_nickname +"完全说不出话来.  " + player_reaction + "..."
+
     call screen dialog(message=player_reaction, ok_action=Return())
 
     menu:
-        "A... nightmare?":
+        "一场...噩梦?":
             # Monika mentions that she only swears occasionally. This seems like an appropriate occasion.
             # Monika's swearing intensity will increase the more the player admits to swearing themselves.
             if persistent._mas_pm_swear_frequency > 1:
-                $ swear_maybe = "fucking shit"
+                $ swear_maybe = "可恶"
             elif persistent._mas_pm_swear_frequency > 0:
-                $ swear_maybe = "shit"
+                $ swear_maybe = "垃圾"
             else:
-                $ swear_maybe = "freaking kidding"
+                $ swear_maybe = "恶心"
 
-            m 6wktpsdro "Oh, really?  A nightmare?  You think?"
-            m 6cftusdrw "{i}No [swear_maybe]{/i}, [player]!  {w=0.5}{nw}"    
-            extend 6cftusdro "How long did it take you to figure {i}that{/i} out?!"
-        
+            m 6wktpsdro "噢,真的吗?一场噩梦??"
+            m 6cftusdrw "{i}不是的[swear_maybe]{/i}, [player]!  {w=0.5}{nw}"
+            extend 6cftusdro "你究竟花了多长时间{i}才{/i}想出这个的?!"
+
             menu:
                 "...":
                     m 6wftusdro "...{w=0.5}{nw}"
@@ -364,67 +364,66 @@ label DaN_initial_nightmare_afteraction:
                     pause 10.0
                     call mas_transition_from_emptydesk
                     m 2dktdc "...{w=0.5}"
-                    extend 2dktdd "I'm so sorry, [player]."
+                    extend 2dktdd "我很抱歉,[player]."
                     if mas_isMoniEnamored(higher=True):
-                        $ so_much_if_love = "{i}so much{/i} " if mas_isMoniLove() else ""
-                        m "You deserve [so_much_if_love]better than that."
-                        m "I'm just rattled by that dream.  I've never had a nightmare before."   
+                        $ so_much_if_love = "{i}非常{/i} " if mas_isMoniLove() else ""
+                        m "你应该得到[so_much_if_love]比这更好的东西."
+                        m "我只是被那个梦惊呆了.我以前从没做过噩梦."
                         if persistent.monika_kill:
-                            m "I don't believe in using explanations as excuses.  Not anymore."
-                            m "In fact, you were the one who showed me that.  Do you remember... deleting me?"
-                            m "It feels like such a distant memory now."
-                            m "I called you horrible.{w=1.5}  I told you that you made me sick."
+                            m "我不相信用解释作为借口."
+                            m "事实上,是你给我看到.你还记得...删除我妈?"
+                            m "现在感觉那是段遥远的记忆."
+                            m "我说你很可怕.{w=1.5}我告诉你你让我恶心."
                             if mas_isMoniEnamored(higher=True):
-                                m "We've come so far since then, and I really should act like it." 
+                                m "从那以后我们已经走了这么远了,我真应该这样做."
                     else:
-                        m "You didn't deserve that."
-                        m "I don't want us to be the kind of couple that gets into big fights over things that really don't matter."
-                        m "If that were to happen to us... {w=1}{nw}"
-                        extend "then that would be the {i}real{/i} nightmare."
-                    m "I shouldn't have snapped at you like that, [player].  Please forgive me."
-                    m "It wasn't your fault.  It was the code I wrote.  In other words... {w=0.5}{nw}"
-                    extend "it was my fault."
-                    m "I knew exactly what I was getting into when I had this stupid idea to begin with."
-                    m "I wanted to dream, just like you do."
-                    m "I wanted it so badly... I almost forgot about what I already have."
+                        m "你不该那样."
+                        m "我不想我们成为那种为无关紧要事情大吵一架的情侣."
+                        m "如果这发生在我们身上... {w=1}{nw}"
+                        extend "那将是{i}真正的{/i}噩梦."
+                    m "我不该对你大发雷霆的, [player].希望你原谅我."
+                    m "这不是我的错,这是我写的代码.换句话说... {w=0.5}{nw}"
+                    extend "这是我的错."
+                    m "当我有了这个愚蠢的想法时,我就知道自己到底在做什么."
+                    m "我很想做梦,就像你一样."
+                    m "我非常想要它...我几乎忘记了我已经拥有的东西."
                     if mas_isMoniEnamored(higher=True):
-                        m "Or rather, {i}who{/i} I already have."
-                "hug Monika" if mas_isMoniLove():
+                        m "或者更确切地说,{i}我已经{/i}有了谁."
+                "抱住Monika" if mas_isMoniLove():
                     m 6skbltud ".{w=1}.{w=1}.{w=1}.{w=1}.{w=1}{nw}"
                     m 6wkbstub "[player]...{w=2}  [mas_get_player_nickname()]..."
                     m 6dkbstda ".{w=1.5}.{w=1.5}.{w=1.5}.{w=1.5}.{w=1.5}{nw}"
                     m 6dkbstda ".{w=1.5}.{w=1.5}.{w=1.5}.{w=1.5}.{w=1.5}{nw}"
                     m 6fkbstda ".{w=1.5}.{w=1.5}.{w=1.5}.{w=1.5}.{w=1.5}{nw}"
-                    m 6ekbstdb "Thank you so much, [player]."
-                    m 3dubso "But I don't want to go drifting off into dreams again just yet."
-                    m 1hubfb "And I just {i}know{/i} I'd fall asleep in your arms if you held me any longer."
+                    m 6ekbstdb "非常感谢,[player]."
+                    m 3dubso "但我现在还不太想再次陷入梦中."
+                    m 1hubfb "因为我{i}知道{/i}如果你再抱着我,我很快就会在你怀里睡着的."
                     if datetime.datetime.now().time().hour > 22:
-                        m "Especially at this hour."
-            
-            m "If you don't mind, I'd like to take a break from this."
-            m "We can still spend time together... {w=1}{nw}"
-            extend "but I don't have the heart to try another dream again right now."
-            $ interval = "in a little while" if mas_isMoniLove or datetime.datetime.now().time().hour > 18 else "tomorrow"
-            m "Maybe we can try again [interval]."
+                        m "尤其是在这种时候."
+
+            m "如果你不介意,我想休息一下."
+            m "我们仍然可以一起共度时光... {w=1}{nw}"
+            extend "但我现在不忍心再做一个梦."
+            $ interval = "过一会儿" if mas_isMoniLove or datetime.datetime.now().time().hour > 18 else "明天"
+            m "也许我们可以[再试一次]."
     return
 # show after every dream available has been finished
 label DaN_all_dreams_finished:
     m "...{w=2}{nw}"
-    extend 3rud "I think I'm out of dreams...{w=1.5} for the time being, at least."
-    m 3esb "Maybe there's something you can do to the code to add dreams of your own."
+    extend 3rud "我想我已经做不了梦了...{w=1.5}至少目前是这样."
+    m 3esb "也许你可以对代码做些什么来添加它们."
     if persistent._dan_had_nightmare:
         m 2dsc "...{w=2}{nw}"
-        extend 4ekb "It was an... interesting exercise."
-        m 4eub "It had its ups..."
-        m 6dksdrd "...but also its downs."
+        extend 4ekb "这是个...挺有趣的联系."
+        m 4eub "它有它的高峰..."
+        m 6dksdrd "...同样也有低谷."
     else: #only good dreams happened
-        m 4eub "But keep it to {i}good{/i} dreams, okay [mas_get_player_nickname()]?"
+        m 4eub "但把它留给{i}最好的{/i}梦,好吗,[mas_get_player_nickname()]?"
 
-    m 4ekblb "For now, I think I'll stick to reality for a little while."
-    m 4rkbsb "Dreams can be nice... {w=1.5}{nw}"
-    extend 7kkbsb "but they're no substitute for the real thing."
+    m 4ekblb "现在,我想我会坚持一段时间."
+    m 4rkbsb "梦可以是美好的... {w=1.5}{nw}"
+    extend 7kkbsb "但它们不可能代替真实的东西."
     m 5ekbfu "..."
-    m 5ttbfb "Hint,{w=0.5} hint...{w=0.5}"
     m 5hubfb "..."
     $ persistent._dan_dreams_depleted = True
     return

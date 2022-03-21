@@ -815,7 +815,7 @@ label monika_ddto:
 return
 
 init python:
-    addEvent(Event(persistent.event_database,eventlabel="monika_playerDeath",category=["monika"],prompt="在我离去之后你会做什么?",pool=True,unlocked=True))
+    addEvent(Event(persistent.event_database,eventlabel="monika_playerDeath",category=["monika"],prompt="在我过世之后你会怎么办?",pool=True,random=True))
 
 label monika_playerDeath:
     m 6ckc "..."
@@ -840,7 +840,7 @@ label monika_playerDeath:
     m "我知道在此之前你还有很长的路要走, 所以..{w=0.1}.{w=0.1}"
     extend 2ekbsu " 让我们一起度过美好的一生. 在它抵达终焉之前."
     m "我们将在生命终止前想出对策."
-    m "但现在,我们不必为此优心."
+    m "但现在,我们不必为此忧心."
     m 6fkbstua "我太爱你了, [player]. 感谢你所做的一切."
 return "love"
 
@@ -886,9 +886,7 @@ label monika_festivalchoice:
     python:
         madechoice = renpy.display_menu([("Natsuki.", "natsuki"), ("Yuri.", "yuri"), ("Monika.", "monika")], screen="rigged_choice")
     if madechoice != "monika":
-        $ style.say_dialogue = style.edited
-        m 2ctbsb "[gltxt]{nw}"
-        $ style.say_dialogue = style.normal
+        m 2ctbsb "[glitchtext(75)]{nw}"
         jump monika_festivalchoice
     else:
         m 5ekbfa "耶! 你选择了我!"
@@ -1010,7 +1008,7 @@ return
 
 
 init python:
-    addEvent(Event(persistent.event_database,eventlabel="monika_guesswho",category=["迷你游戏","社团成员"],prompt="你能和我一起玩'猜谜'吗?",pool=True,unlocked=True))
+    addEvent(Event(persistent.event_database,eventlabel="monika_guesswho",category=["迷你小游戏","社团成员"],prompt="你能和我一起玩'猜谜'吗?",pool=True,unlocked=True))
     import random
 
 label monika_guesswho:
