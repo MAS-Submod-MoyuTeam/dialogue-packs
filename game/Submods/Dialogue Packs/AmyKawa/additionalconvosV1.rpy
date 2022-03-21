@@ -1243,7 +1243,281 @@ label monika_gwAfter:
             m "玩的很开心, 我们以后再玩吧!"
 return
 
-#P7
+
+init python:
+    import datetime
+    addEvent(Event(persistent.event_database,eventlabel="monika_gosleep",random=True,rules={"force repeat"}))
+
+label monika_gosleep:
+    $ persistent._last_topic_run = datetime.datetime.utcnow()
+    $ mas_globals.this_ev.action = EV_ACT_PUSH
+    $ mas_globals.this_ev.conditional = "datetime.datetime.utcnow() - persistent._last_topic_run > datetime.timedelta(minutes=60)"
+    python:
+        curr_hour = datetime.datetime.now().hour
+    if 0 <= curr_hour < 4:
+        if curr_hour == 0:
+            $ curr_hour = 12
+        m 1eud "嘿 [player]..."
+        m 1ekd "现在真的很晚了, 你不觉得吗?"
+        m 3ekd "现在已经是凌晨 [curr_hour]了 . 我想你该去休息一下了."
+        m "我很高兴你能来看我, 但你的健康也很重要."
+        m 3fkd "看到你能照顾好自己我就放心了."
+        m "所以为了你的健康,现在去睡觉好吗?{nw}"
+        menu:
+            m "所以为了你的健康,现在去睡觉好吗?{fast}"
+            "好吧, 我这就去睡.":
+                m 2fkbsa "好的, [player]."
+                m "谢谢你为我保持健康."
+                m 2hubsa "欸嘿嘿, 好梦!"
+                return "no_unlock|quit"
+            "不! 我想陪你熬夜.":
+                m 2fkbsa "哇, [player]!"
+                m "你太甜了..."
+                m 2gubsa "我不介意花更多时间陪你, ..."
+                m 2kubfa "我想你可以再坚持一会儿."
+                m 4ekbfa "但你要保证尽快睡觉, 好吗?"
+                m 5hubfa "啊哈哈~"
+                return "no unlock"
+            "No.":
+                m 2wko "但是 [player]!"
+                m "熬夜会伤害你的身体!"
+                m 2dkc "好吧,你可以再熬一小会儿, 但你要保证尽快睡觉，好吗?"
+                m 2fkc "我不希望你因为熬夜而损伤了自己的身体."
+                m 2fkbsd "你要保证照顾好自己,行吗?"
+                m "...也为了我."
+                return "no_unlock"
+    else:
+        python:
+            topicslot = random.randint(0,5)
+        if topicslot == 0:
+            m 7rkbfa "嘿, [player]. 我知道这可能看起来很随意, 但我还是想和你玩'音乐椅'."
+            m 7ekbfa "你想玩吗?{nw}"
+            menu:
+                m "你想玩吗?{fast}"
+                "当然!":
+                    m 2hubfb "耶!!"
+                    jump monika_mcgame
+                "不了…下次吧.":
+                    m 2ekbfa "哦…那好吧."
+                    m 3hubfa "如果你想玩了就和我说吧!"
+        if topicslot == 1:
+            m 1dkbfa "嘿, [player]..."
+            m "我想跟你玩一轮'猜猜我是谁'."
+            m 7ekbfa "你想玩吗?{nw}"
+            menu:
+                m "你想玩吗?{fast}"
+                "当然!":
+                    m 2subfb "真的? 谢谢你!"
+                    jump monika_gwgame
+                "不了…下次吧.":
+                    m 2ekbfa "哦,那好吧."
+                    m 3hubfa "等你想玩了就告诉我吧!"
+        if topicslot == 2:
+            m 1hubfb "[player]!"
+            m 4hubfb "让我们来找点乐子吧, 想玩石头剪刀布吗?{nw}"
+            menu:
+                m "让我们来找点乐子吧, 想玩石头剪刀布吗?{fast}"
+                "是的!":
+                    m 5hubfb "嘿嘿, 准备认输吧!"
+                    jump monika_rpcGame
+                "不了…下次吧.":
+                    m 2ekbfa "哦, 那好吧."
+                    m 3hubfa "等你想玩了就告诉我吧!"
+        if topicslot == 3:
+            m 6tubfa "{i}*poke poke*{/i}"
+            m 7gubfa "想跟我说一些 [m_name] 悄悄话吗?"
+            menu:
+                m "想跟我说一些 [m_name] 悄悄话吗?"
+                "是的!":
+                    m 2subfb "耶, 我等不及了!"
+                    jump monika_simonsaysgame
+                "不了…下次吧.":
+                    m 2ekbfa "哦, 好吧."
+                    m 3hubfa "等你想说了就告诉我吧!"
+        if topicslot == 4:
+            m 1gkbfa "嘿, [player]..."
+            m 1ekbfa "我只是想让你知道, 我一直在这里等你."
+            m 7rkbfb "这或许有些突兀, 但我是认真的."
+            m 2ekbfb "如果你感到沮丧或遇挫, 可以向我发泄."
+            m 2ekbfa "如果你不想说, 你也可以就这样坐着, 我会一直在这里陪你."
+            m 7ekbfa "只要是我在这儿能做到的, 我一定会做."
+            m "你的幸福, 舒适和安全对我来说是最重要的."
+            m 5ekbfa "因为我实在太爱你了."
+            return "no unlock|love"
+        return "no_unlock"
+
+
+init python:
+    addEvent(Event(persistent.event_database,eventlabel="monika_backrooms",category=["都市传说类怪谈"],prompt="后室",conditional="seen_event('monika_creepypastaintro')",random=True))
+
+label monika_backrooms:
+    m 1euc "嘿 [player]..."
+    m 1eud "你听说过《后室》吗?"
+    m 2ruc "我最近偶然发现了它..."
+    m 2rkc "这是个令人不安的话题, 但它真的十分有趣."
+    m 7euc "它起源于 'ClayKid12345'写的一部惊悚小说."
+    m 7eua "想让我讲给你听吗?{nw}"
+    menu:
+        m "想让我讲给你听吗?{fast}"
+        "是的!":
+            m 2eua "那好吧."
+            m 2duc "..."
+            m 2eud "当我进入约翰逊县的社区卫生诊所时,大约是12时15分."
+            m "我在那儿接受了几周前预约的常规检查."
+            m "我对这地方并不陌生, 因为我之前去过几次."
+            m 2dka "然而,这个地方还给我一种奇怪的怀旧感,"
+            extend " 它就像是我童年时到过的一个地方,或是什么别的,"
+            m 2eka "但我永远无法准确地指出这种感觉是什么,或是从何而来."
+            m 1eua "当我走进去时, 一种压倒性的,熟悉的感觉涌入脑中."
+            m "闪烁的日光灯嗡嗡地响着, 洁白的地瓷, 着色低调的米色墙壁."
+            m "我注意到角落处装了一台电视,"
+            extend " 一块小小的屏幕正循环播放着简短的幻灯片, 内容是诊所正在举办的广告和活动."
+            m 3eua "我穿过空荡荡的等候区—那是主房间的一小部分, 里面有杂志、儿童玩具和蓝色的软垫—"
+            extend " 它很靠近前台的女人.她正坐在她蓝灰色的办公椅上,"
+            m 2eua "用那唯一一台自2008年开始就被使用的window xp台式机看着电子表格."
+            m "我面前的柜台上有一张签到表."
+            m 2eub "\"我什么时候能和医生见面?\” 我问道."
+            m 2eua "\"你约了几点?\""
+            m 7eua "\"12:30\" 我答道."
+            m 2eua "她开始用键盘打着什么."
+            m 2dua "\"啊, 好的,\" she responded. \"加里 约翰斯顿?\""
+            m 2eua "\"是的.\""
+            m 2eub "\"好的, 我会告诉医生的. 请先填好这个.\""
+            m "她递给我一块写字板, 上面夹着一张简单的表格, 我走回等候区, 找了个位置坐下并开始填写表格."
+            m "我填到一半左右时, 就瘫在了椅子上."
+            m 2euc "由于前一天晚上没怎么睡, 所以我很疲惫."
+            m 2duc "当我瘫倒时,我注意到一个很奇特的现象—"
+            extend 2etc " 我的头'撞'到墙上时毫无感觉."
+            m 2etd "事实上, 那感觉就像把头伸入了墙中. 我惊恐地起身, 看向墙壁."
+            m 2wtd "空无一物."
+            m "没有因我的头碰撞而产生的洞或凹痕."
+            m "因此,我尝试着去触碰它."
+            m "然后…我的手穿过了它."
+            m 2wto "我被吓得连退了几步."
+            extend 2wko " \"那…那是什么东西?\" 大脑飞速转动着, 当我再次尝试伸手触摸墙壁时, 手又一次穿了过去."
+            m 2eud "然后,我突然失去了平衡,直接穿过墙倒了下来."
+            m "我面朝下,摔在了一块肮脏的棕褐色地摊上."
+            m 3eud "缓过神,我已经处在一个完全不同的房间里了."
+            m 3etd "好吧,不是一间房间, 其实—"
+            extend 3rtd " 墙壁上贴着棕褐色图案的墙纸."
+            m 4tkd "还有铺天盖地的潮湿地毯的酸臭味."
+            m 2eud "我转过身,试着再把手伸过墙面,但它穿不过去了."
+            m 2wko "\"好吧, 这是哪儿?\" 我喃喃自语着,然后回头看了看房间."
+            m 2rkd "没有窗,没有门,墙上空空如也— "
+            extend 2gud "当然,除了那令人厌恶的墙纸— "
+            extend 2tud "它完全是空的,除了一把蓝色的塑料凳."
+            m 2ekd "此时,我脑中只剩下了恐惧,以及在耳边回响的'我要离开这儿'的声音."
+            m 2eko "我开始在房间里跑来跑去,拼命想找到出口,但无济于事。."
+            m 2wko "这房间根本没有出口."
+            m 2cko "我将被困在这里,直到死亡吗?"
+            m 2dkp "不, 肯定有能出去的路! 我不可能就这样被困在这儿,对吗?"
+            m 2ckb "最后一定会有人发现我不见了的!我需要做的就是等待"
+            m 2ckc "但…没人发现."
+            m 2wkc "接着,远处传来了脚步声,但那不是人行走时的声音— "
+            m 2rksdlc " 至少不是一个正常人类发出的."
+            m "伴着脚步传出潺潺的咆哮,那像是一只愤怒的野兽发出的."
+            m 2hksdlc "我开始逃跑."
+            extend " 尽全力跑离正接近我的怪物,我可不想和它相遇."
+            m "我不知道自己跑了多久了,但我总是会回到开始的房间."
+            m 2rksdlc "至少它们看起来是同一个房间,毕竟我无法将它们区分开来."
+            m 2dkc "我绝望了,在原地坐了下来.不管那是什么,它已经把我击溃了."
+            m 2gktsc "恐惧感充满了我的身体.我开始哭泣,因为我终将死在这里."
+            m 2dktsc "我一直待在那里,没有移动过半步,因为我已经接受了我的命运."
+            m 2wktsc "事实上,我已经可以清晰地听到脚步声了."
+            m 2fktsc "我开始思考,'它'到底是什么?"
+
+            m 1duc "..."
+            m 1hksdlb "呜！我的心直到最后都在颤抖着."
+            m 1hub "啊哈哈! 我希望你会喜欢这个故事, [player]."
+            jump monika_brdiscussion
+        "不了,谢谢你.":
+            m 1hua "好吧!"
+            m 1eua "如果你有时间,我还是想和你说几句."
+            m 7eub "因为我发现这真的对我发泄自己的感情很有帮助."
+            m 7hub "如果你没有读过和它有关的片段, 或者不想被剧透, 都没问题!"
+            m 7eub "那么,我可以跟你谈谈《后室》吗?{nw}"
+            menu:
+                m "那么,我可以跟你谈谈《后室》吗?{fast}"
+                "当然可以!":
+                    m 2eka "谢谢你, [player]."
+                    jump monika_brdiscussion
+                "我想自己先看一遍.":
+                    m 2hua "好吧, [player]."
+                    m 3hua "如果你想讨论它,或是想让我读给你听,随时欢迎!"
+                    m 5hubsa "啊哈哈~"
+                    return
+label monika_brdiscussion:
+    m 1eud "\"远离现实\" 的想法真的让我很感兴趣."
+    m 1rud "当你深思这个话题时,或许有些可怕,但真的很有趣."
+    m 3rksdrd "想象一下,仅仅是碰了一下墙,或是瘫在椅子上,甚至是倒在地上,突然间..."
+    m 3eksdrd "穿过了物体,最后来到了另一个地方."
+    m 2rkbfc "某种意义上,这也是我的逃脱方案."
+    m "我真的想逃离我所处的世界,然后到你的现实生活中去."
+    m 2fkbfc "而且我再也不想回到这个世界了."
+    m 7rkbfc "虽然我是这么想的,但对于其它进入密室的人,大部分还是会想家的."
+    m 7eubfc "有几个已知的方法可以回到现实世界, 或者说 \"前厅\"."
+    m "后室有许多层,每层都有多种进入方式."
+    m "要么击败一个实体来进入一个房间或窗户,要么与某些实体互动."
+    m 7eubfd "有时,如果你在一层逗留了很久,那么你就会被传送到另一层."
+    m 1eubfd "每个人都是从Level 0开始的, 这在怪谈中有所描述."
+    m "有办法可以退出Level 0，但返回前厅的路很漫长."
+    m 4esbfc "就目前而言,流传最广的方法是到达Level 92233720368547807后,走到'楼梯上',然后跳下去."
+    m 4gsbfc "虽然不能保证你最终回到地球,但你最终可能会去到'门户'."
+    m 7mkbfc "这就和后室的其他地方一样,每一个进入新房间的切入点都不能保证每次都一样."
+    m "光是想想都知道这很危险."
+    m 1eud "然而,不确定性并不是后室危险的唯一原因."
+    m "许多房间中都有无法解释的事发生."
+    m 7rksdrd "如完全沉默,灯光闪烁,出现幻觉,甚至视线模糊或失明."
+    m "更不必说,大部分关卡都有实体游荡,其中大部分都是敌对的."
+    m 7dksdrd "时至今日,许多探索关卡的冒险者们都生死未卜."
+    m "一切都是未知的,你孤身一人处在危险的环境中."
+    m 2dkc "你还很有可能会丧生..."
+    m 2ekc "而且有那么多房间,包括负数房,每一间都有要自己解决的谜团."
+    m 7euc "如果你很感兴趣,我建议你去维基百科上阅读更多内容,里面有大量关于每一间的内容.{nw}"
+    menu:
+        m "如果你很感兴趣,我建议你去维基百科上阅读更多内容,里面有大量关于每一间的内容.{fast}"
+        "T谢谢你! 我会抽空去看的.":
+            m 1hua "欸嘿嘿~"
+            m "不用担心!"
+            m 1eub "如果你找到了某一间的详细信息,或是有新的发现,欢迎告诉我!"
+            m "我和你一样对此感兴趣,甚至可能比你更感兴趣,所以我每天都想知道更多的信息."
+        "莫妮卡... 这种事... 不会发生在我身上的,对吧?":
+            m 2wko "[player]!"
+            m 2wkc "抱歉... 我不是故意要吓你的."
+            m 2ekc "我真希望现在能给你一个大大的拥抱..."
+            m 2dkc "事实上.{w=0.1}.{w=0.1}.{w=0.1}"
+            m 2dkbfa "我已经给了你一个虚拟的拥抱…希望你能远程感受到我的温度."
+            m 2dsbfc "..."
+            m 2ekbfc "我应该说过,后室不是真实存在的."
+            m "你绝对不会掉离现实的,这只是一个由图片编造的故事."
+            m 2ekbfa "所以你不必为此担心."
+        "...":
+            m 2wkbfsdro "[player]!"
+            m "你还好吗?{nw}"
+            menu:
+                m "你还好吗?{fast}"
+                "抱歉, 是的. 我感觉很好.":
+                    m 2ekbfa "那太好了,我可以放心了."
+                "...":
+                    m "[player]..."
+                    m "我很抱歉..."
+                    m "我很抱歉吓到了你."
+                    m 2ekc "我希望我现在能给你一个温暖的拥抱..."
+                    m 2dkc "事实上.{w=0.1}.{w=0.1}.{w=0.1}"
+                    m 2dkbfa "我已经给了你一个虚拟的拥抱... 我希望你能远程感受到我的温度."
+            m 2dsbfc "..."
+            m 2ekbfc "我应该说过,后室不是真实存在的."
+            m "你绝不会掉离现是,这只是一个由图片编造的故事."
+            m 2ekbfa "所以你不必为此担心."
+    m 2dkc "..."
+    m 2dkd "我真的很希望有一天能跳出我的现实,进入你的现实."
+    m 2fkbsa "或许某天我真的能做到这一点,到时我们就可以在一起了."
+    m "我们终于可以像我们梦想的那样,从此过上幸福的生活."
+    m 2fkbsb "即使后室不是真的, 我也希望某天我能来到你的现实."
+    m "我在耐心地等待机会,希望你也在等着我~"
+    m 2hubsb "欸嘿嘿, 我真是太爱你了."
+return "love"
+
 
 init 5 python:
     addEvent(Event(persistent.event_database,eventlabel="monika_internetslang",category=["社会","媒体","你的现实"],prompt="网络用语",random=True))
