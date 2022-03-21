@@ -132,7 +132,7 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="aromantics",
-            category=["浪漫", "杂项"],
+            category=["浪漫", "其他"],
             prompt="浪漫主义",
             random=True,))
 

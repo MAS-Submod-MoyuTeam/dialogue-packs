@@ -21,13 +21,15 @@ Collection of translated/written topic submodules, do integration to facilitate 
 |MonikaModDev|/|*1250以后的更新*|mon1|
 |ryuujjy|[>reddit](https://www.reddit.com/user/ryuujjy/)|`我想告诉你...你太棒了!`|星光|
 |geneTechnician|[>reddit](https://www.reddit.com/user/geneTechnician/)|`一起吃东西吧` `我要去为你做些东西`|P TK|
-|Sir.P|/|`疯狂星期四` `子模组教学` `准备更新文件吧(不稳定, 切勿重复使用)`|/|
+|Sir.P|/|`疯狂星期四` `子模组教学` `准备更新文件吧`|/|
 |mkam23-Maya|[>reddit](https://www.reddit.com/user/mkam23-Maya/)|`NFTs` `眼镜和隐形眼镜`|TK 星光|
-|*1|/|MyDialogue.rpy|P TK|
+|AmyKawa|[>reddit](https://www.reddit.com/user/AmyKawa/)|*Additional Conversations V1*|P TK Founxious|
+|DrakeTheDuelist|[>Github](https://github.com/DrakeTheDuelist)|*Dreams and Nightmares*|Mon-ika ddy|
+|****1***|/|*MyDialogue.rpy*|P TK|
 
 >** 以上作者和汉化者的排名不分先后 **      
 >** The above authors and Chinese translators are listed in no particular order **    
-> *1 : 作者未知 Author Unknown
+> ****1*** : 作者未知 Author Unknown
 
 ### 话题投稿
 >请移步QQ群411131842或者发起pr/issue

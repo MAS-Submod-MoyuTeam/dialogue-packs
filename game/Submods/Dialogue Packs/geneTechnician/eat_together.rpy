@@ -3,7 +3,7 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="eat_with_monika_notseen",
-            category=["你", "我们", "浪漫", "其他"],
+            category=["你", "我们", "浪漫", "其它"],
             prompt="一起去吃东西吧.",
             pool=True,
 

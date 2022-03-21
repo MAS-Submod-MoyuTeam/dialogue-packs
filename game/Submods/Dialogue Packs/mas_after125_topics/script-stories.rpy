@@ -3,7 +3,7 @@ init 5 python:
         Event(
             persistent._mas_story_database,
             eventlabel="mas_story_mindthegap",
-            prompt="Mind the Gap",
+            prompt="注意站台间隙",
             category=[mas_stories.TYPE_NORMAL],
             unlocked=True
         ),

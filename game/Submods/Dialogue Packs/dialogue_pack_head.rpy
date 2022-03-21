@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/PencilMario/dialogue-packs/blob/main/README.md}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.11.0',
+        version='1.12.0',
         settings_pane="dp_setting_pane"
     )
 
@@ -33,6 +33,11 @@ init python:
             return ">启用中"
         else:
             return ">禁用中"    
+    dp_authors = """\
+    以下为作者和汉化者名单, 排名不分先后:\n
+    ThePersonYou_Hate,{a=https://www.reddit.com/user/mayday-mayjay/}mayday-mayday{/a},{a=https://www.reddit.com/user/UnexplainedYeet}UnexplainedYeet{/a},{a=https://www.reddit.com/user/ryuujjy/}ryuujjy{/a},{a=https://www.reddit.com/user/geneTechnician/}geneTechniman{/a},{a=https://www.reddit.com/user/mkam23-Maya/}mkam23-maya{/a},TK,Sir.P,星光,莫秋纱,{a=https://github.com/DrakeTheDuelist}DrakeTheDuelist{/a},Mon-ika,{a=https://www.reddit.com/user/AmyKawa}AmyKawa{/a},ddy,Founxious\n
+    因为个人精力有限, 如果本子模组内有您的作品却没有注明您的名字, 请及时与{a=https://github.com/PencilMario/dialogue-packs}我{/a}告知.
+    """
 
 ##设置项
 
@@ -40,6 +45,8 @@ init python:
 default persistent.submods_dp_enableUpdateHelper = True
 #新版本对话删除检测 默认启用
 default persistent.submods_dp_enableNewVersionDialogueFromdp = True
+#在选项里显示游戏数据
+default persistent.submods_dp_gameStatus = False
 
 screen dp_setting_pane():
     vbox:
@@ -47,18 +54,23 @@ screen dp_setting_pane():
         xfill True
         style_prefix "check"
 
-
-        textbutton ">对话管理(开发中)":
-            ypos 1
-            selected False
-            action Show("dp_manager")
+        if persistent.submods_dp_gameStatus:
+            textbutton ">游戏统计":
+                ypos 1
+                selected False
+                action Show("dp_gameStatus")
         
         textbutton ">功能设置":
             ypos 1
             selected False
             action Show("dp_setting")
-
-screen dp_manager():
+        
+        textbutton ">特别感谢":
+            ypos 1
+            selected False
+            action Show(screen = "dialog", message = dp_authors, ok_action = Hide("dialog"))
+            
+screen dp_gameStatus():
     key "noshift_T" action NullAction()
     key "noshift_t" action NullAction()
     key "noshift_M" action NullAction()
@@ -72,7 +84,7 @@ screen dp_manager():
 
     zorder 200
 
-    style_prefix "confirm"
+    style_prefix "check"
     add mas_getTimeFile("gui/overlay/confirm.png")
 
     frame:
@@ -98,27 +110,66 @@ screen dp_manager():
                     yfill False
                     box_wrap False
 
-                    for dp_dir in dp_dirs:
-                        #if dp_dir == "dialogue_pack_head.rpy" or dp_dir == "dialogue_pack_head.rpyc":
-                        #    continue
+                    hbox:
+                        xpos 20
+                        spacing 10
+                        xmaximum 780
+                        text "Current Affection:[_mas_getAffection()]\n"
+                    hbox:
+                        xpos 20
+                        spacing 10
+                        xmaximum 780
+                        text "[mas_progressionDataDump()][mas_sessionDataDump()]"
+                        
+                    hbox:
+                        xpos 20
+                        spacing 10
+                        xmaximum 780
+                        text "Total Game Played:[store.mas_games._total_games_played()]"
+
+                    if not renpy.android:
                         hbox:
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            text "[dp_dir]"
+                            textbutton "Create full ev_dump.log":
+                                action Jump("create_evdump")
+                    
+                    if _mas_getAffection() <= 100:
                         hbox:
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            textbutton "√ - 点击禁用"
-                            textbutton "查看简介"
+                            textbutton "Unlock Hair Change (100+ Current Affection)"
+                    else:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            textbutton "Unlock Hair Change":
+                                action Jump("unlockHairChange")
+
+                    if _mas_getAffection() <= 100:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            textbutton "Unlock Clothes Change (100+ Current Affection)"
+                    else:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            textbutton "Unlock Clothes Change":
+                                action Jump("unlockClothesChange")
+
 
                         
             hbox:           
                 xalign 0.5
                 spacing 100
                 textbutton "关闭":
-                    action Hide("dp_manager")
+                    action Hide("dp_gameStatus")
 
 screen dp_setting():
     python:
@@ -203,6 +254,27 @@ screen dp_setting():
                         textbutton _("?"):
                             action Show(screen = "dialog", message = "本模组会为0.12.5及以前版本提供新版本的话题.\n在0.12.6及以后本模组将会自动删除相关脚本文件.\n禁用后, 不再检测并删除文件, 也不会重新恢复脚本文件. 可能会导致意料之外的问题.\n如果已删除, 禁用该选项且更新子模组可恢复文件.\n该选项对手机版无实际作用.", ok_action = Hide("dialog"))
 
+                    hbox:
+                        xpos 20
+                        spacing 10
+                        xmaximum 780
+                        text "游戏统计"
+                        textbutton "[dp_showstatus(persistent.submods_dp_gameStatus)]":
+                            selected False
+                            action NullAction()
+                        
+                    hbox:
+                        xpos 20
+                        spacing 10
+                        xmaximum 780
+                        textbutton _("启用"):
+                            action Jump("enableGameStatus")
+                        textbutton _("禁用"):
+                            action Jump("disableGameStatus")
+                        textbutton _("?"):
+                            action Show(screen = "dialog", message = "在本模组的设置项展示游戏统计", ok_action = Hide("dialog"))
+
+
           
             hbox:           
                 xalign 0.5
@@ -228,4 +300,24 @@ label enableNewVersionDialogueFromdp:
     return
 label disableNewVersionDialogueFromdp:
     $ persistent.submods_dp_enableNewVersionDialogueFromdp = False
+    return
+
+label enableGameStatus:
+    $ persistent.submods_dp_gameStatus = True
+    return
+label disableGameStatus:
+    $ persistent.submods_dp_gameStatus = False
+    return
+
+label create_evdump:
+    $ mas_unstableDataDump()
+    "OK"
+    return
+
+label unlockHairChange:
+    $ unlockEventLabel("monika_hair_select")
+    return
+
+label unlockHairChange:
+    $ unlockEventLabel("monika_clothes_select")
     return

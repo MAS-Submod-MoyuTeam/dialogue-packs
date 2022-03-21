@@ -102,7 +102,7 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="lesbians",
-            category=["杂项","文学"],
+            category=["其他","文学"],
             prompt="萨福",
             random=True,))
 
