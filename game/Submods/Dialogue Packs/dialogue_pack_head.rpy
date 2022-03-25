@@ -204,6 +204,12 @@ screen dp_gameStatus():
                             xmaximum 780
                             textbutton "Create full ev_dump.log":
                                 action Jump("create_evdump")
+                    else:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            textbutton "Create full ev_dump.log (unable - PE version)"
                     
                     if _mas_getAffection() <= 100:
                         hbox:

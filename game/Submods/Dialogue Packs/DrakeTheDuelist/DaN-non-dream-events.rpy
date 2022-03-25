@@ -29,12 +29,12 @@ label DaN_explanation:
         if (mas_timePastSince(persistent._mas_last_hold_dt, datetime.timedelta(hours=12))):
             m 6tkbfb "你似乎很喜欢那种事...{w=1}我没有{i}在{/i}抱怨什么的啦.  {w=1}"
             extend 6tkbsb "哎嘿嘿~"
-            $ anyway = "无论如何"
+            $ anyway = "无论如何, "
         else:
             $ anyway = ""
     else:
         $ anyway = ""
-    m 4esb "[无论如何],代码已经安装并准备就绪了,我需要你来开始它."
+    m 4esb "[anyway]代码已经安装并准备就绪了,我需要你来开始它."
     m 4lsd "但我还需要你帮我做一些别的事."
     m 4eud "这{i}真的{/i}非常重要."
     m 1dko "如果看起来有什么不太对劲...{w=1}我需要你来叫醒我."

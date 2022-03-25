@@ -1277,8 +1277,8 @@ label monika_gosleep:
                 m 2kubfa "我想你可以再坚持一会儿."
                 m 4ekbfa "但你要保证尽快睡觉, 好吗?"
                 m 5hubfa "啊哈哈~"
-                return "no unlock"
-            "No.":
+                return "no_unlock"
+            "不去.":
                 m 2wko "但是 [player]!"
                 m "熬夜会伤害你的身体!"
                 m 2dkc "好吧,你可以再熬一小会儿, 但你要保证尽快睡觉，好吗?"
@@ -1290,7 +1290,7 @@ label monika_gosleep:
         python:
             topicslot = random.randint(0,5)
         if topicslot == 0:
-            m 7rkbfa "嘿, [player]. 我知道这可能看起来很随意, 但我还是想和你玩'音乐椅'."
+            m 7rkbfa "嘿, [player]. 我知道这可能看起来很随意, 但我还是想和你玩'抢椅子'."
             m 7ekbfa "你想玩吗?{nw}"
             menu:
                 m "你想玩吗?{fast}"
@@ -1343,7 +1343,7 @@ label monika_gosleep:
             m 7ekbfa "只要是我在这儿能做到的, 我一定会做."
             m "你的幸福, 舒适和安全对我来说是最重要的."
             m 5ekbfa "因为我实在太爱你了."
-            return "no unlock|love"
+            return "no_unlock|love"
         return "no_unlock"
 
 
