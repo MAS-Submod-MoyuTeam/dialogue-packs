@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/PencilMario/dialogue-packs/blob/main/README.md}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.13.0',
+        version='1.13.1',
         settings_pane="dp_setting_pane"
     )
 
@@ -29,7 +29,7 @@ init python:
     #删除DaN子模组
     if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/DrakeTheDuelist") and not renpy.android:
         shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/DrakeTheDuelist")
-        
+
     def dp_showstatus(setting):
         if setting:
             return ">启用中"
