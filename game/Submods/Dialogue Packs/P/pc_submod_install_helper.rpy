@@ -90,7 +90,7 @@ init python:
             elif dirs == 'gui':
                 copy_dir(file_name + "/gui",renpy.config.basedir + "/game/gui")
             else:
-                if os.path.isfile(file_name + dirs):
+                if os.path.isfile(file_name + '/' + dirs):
                     continue#这是个文件，直接continue
                 if inseconddir:
                     #在子文件夹直接返回F
