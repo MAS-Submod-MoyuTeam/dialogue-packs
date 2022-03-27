@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/PencilMario/dialogue-packs/blob/main/README.md}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.12.0',
+        version='1.13.0',
         settings_pane="dp_setting_pane"
     )
 
@@ -21,13 +21,15 @@ init python:
     import os
     import shutil
     #删除原子模组教学文件夹
-    if os.path.exists(renpy.config.basedir + "/game/Submods/MonikaSubmodT"):
+    if os.path.exists(renpy.config.basedir + "/game/Submods/MonikaSubmodT") and not renpy.android:
         try:
             shutil.rmtree(renpy.config.basedir + "/game/Submods/MonikaSubmodT")
         except:
             raise Exception("delete submod MonikaSubmodT failed\n删除子模组MonikaSubmodT失败,  请手动删除文件夹后重启")
-    dp_dirs = os.listdir(renpy.config.basedir + "/game/Submods/Dialogue Packs")
-
+    #删除DaN子模组
+    if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/DrakeTheDuelist") and not renpy.android:
+        shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/DrakeTheDuelist")
+        
     def dp_showstatus(setting):
         if setting:
             return ">启用中"
@@ -38,6 +40,77 @@ init python:
     ThePersonYou_Hate,{a=https://www.reddit.com/user/mayday-mayjay/}mayday-mayday{/a},{a=https://www.reddit.com/user/UnexplainedYeet}UnexplainedYeet{/a},{a=https://www.reddit.com/user/ryuujjy/}ryuujjy{/a},{a=https://www.reddit.com/user/geneTechnician/}geneTechniman{/a},{a=https://www.reddit.com/user/mkam23-Maya/}mkam23-maya{/a},TK,Sir.P,星光,莫秋纱,{a=https://github.com/DrakeTheDuelist}DrakeTheDuelist{/a},Mon-ika,{a=https://www.reddit.com/user/AmyKawa}AmyKawa{/a},ddy,Founxious\n
     因为个人精力有限, 如果本子模组内有您的作品却没有注明您的名字, 请及时与{a=https://github.com/PencilMario/dialogue-packs}我{/a}告知.
     """
+    if renpy.android:
+        #为PE声明未包含的方法
+        def mas_progressionDataDump():
+            """
+            Dumps progression data as a string
+            """
+            return (
+                "Last XP rate reset: {0}\n"
+                "Hours spent today: {1}\n"
+                "XP to next level: {2}\n"
+                "Current level: {3}\n"
+                "Current xp rate: {4}\n"
+                "XP last granted: {5}\n\n"
+            ).format(
+                persistent._mas_xp_rst,
+                persistent._mas_xp_hrx,
+                persistent._mas_xp_tnl,
+                persistent._mas_xp_lvl,
+                mas_xp.xp_rate,
+                mas_xp.prev_grant,
+            )
+        def mas_sessionDataDump():
+            """
+            Dumps session data as a string
+            """
+            if persistent.sessions is None:
+                return "No session data found."
+    
+            # grab each data element
+            first_sesh = persistent.sessions.get("first_session", "N/A")
+            total_sesh = persistent.sessions.get("total_sessions", None)
+            curr_sesh_st = persistent.sessions.get("current_session_start", "N/A")
+            total_playtime = persistent.sessions.get("total_playtime", None)
+            last_sesh_ed = persistent.sessions.get("last_session_end", "N/A")
+    
+            if total_sesh and total_playtime is not None:
+                avg_sesh = total_playtime / total_sesh
+    
+            else:
+                avg_sesh = "N/A"
+    
+            # which ones do we actually have
+            def cts(sesh):
+                if sesh is None:
+                    return "N/A"
+    
+                return sesh
+    
+    
+            # assemble output
+            output = [
+                first_sesh,
+                cts(total_sesh),
+                cts(total_playtime),
+                avg_sesh,
+                curr_sesh_st,
+                last_sesh_ed
+            ]
+    
+            # NOTE: curr_sesh_st -> last session start because it gets updated
+            # during ch30
+            outstr = (
+                "First session: {0}\n" +
+                "Total sessions: {1}\n" +
+                "Total playtime: {2}\n" +
+                "Avg playtime per session: {3}\n" +
+                "Last session start: {4}\n" +
+                "Last session end: {5}\n\n"
+            )
+    
+            return outstr.format(*output)
 
 ##设置项
 
@@ -134,19 +207,25 @@ screen dp_gameStatus():
                             xmaximum 780
                             textbutton "Create full ev_dump.log":
                                 action Jump("create_evdump")
+                    else:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            textbutton "Create full ev_dump.log (unable - PE version)"
                     
                     if _mas_getAffection() <= 100:
                         hbox:
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            textbutton "Unlock Hair Change (100+ Current Affection)"
+                            textbutton "Jump hair change label (100+ Current Affection)"
                     else:
                         hbox:
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            textbutton "Unlock Hair Change":
+                            textbutton "Jump hair change label":
                                 action Jump("unlockHairChange")
 
                     if _mas_getAffection() <= 100:
@@ -154,13 +233,13 @@ screen dp_gameStatus():
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            textbutton "Unlock Clothes Change (100+ Current Affection)"
+                            textbutton "Jump clothes change label (100+ Current Affection)"
                     else:
                         hbox:
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            textbutton "Unlock Clothes Change":
+                            textbutton "Jumo clothes change label":
                                 action Jump("unlockClothesChange")
 
 
@@ -310,14 +389,17 @@ label disableGameStatus:
     return
 
 label create_evdump:
+    if renpy.android:
+        "Fail"
+        return
     $ mas_unstableDataDump()
     "OK"
     return
 
 label unlockHairChange:
-    $ unlockEventLabel("monika_hair_select")
+    jump monika_hair_select
     return
 
-label unlockHairChange:
-    $ unlockEventLabel("monika_clothes_select")
+label unlockClothesChange:
+    jump monika_clothes_select
     return

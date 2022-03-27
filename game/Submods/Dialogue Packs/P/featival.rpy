@@ -24,13 +24,12 @@ init python :
     qxid = Lunar.fromYmd(datetime.date.today().year,7,7)#七夕
     qxi = qxid.getSolar()
 
-    
 
     #添加日历
     calendar.addRepeatable("Arbor Day",_("植树节"),month=4,day=29,year_param=list())#添加日历    
     calendar.addRepeatable("Teachers Day",_("教师节"),month=9,day=10,year_param=list())  
     calendar.addRepeatable("Womens day",_("妇女节"),month=3,day=8,year_param=list())  
-    calendar.addRepeatable("Womens day",_("劳动节"),month=5,day=1,year_param=list())  
+    calendar.addRepeatable("Labor day",_("劳动节"),month=5,day=1,year_param=list())  
 
     calendar.addRepeatable("Lunar New Yearn",_("除夕"),month=chuxi.getMonth(),day=chuxi.getDay(),year_param=[int(chuxi.getYear())])  #去年除夕
     calendar.addRepeatable("Lunar New Year",_("春节"),month=lny.getMonth(),day=lny.getDay(),year_param=[int(lny.getYear())])  #今年春节
