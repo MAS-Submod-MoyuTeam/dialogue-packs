@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/PencilMario/dialogue-packs/blob/main/README.md}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.13.3',
+        version='1.14.0',
         settings_pane="dp_setting_pane"
     )
 
@@ -120,6 +120,8 @@ default persistent.submods_dp_enableUpdateHelper = True
 default persistent.submods_dp_enableNewVersionDialogueFromdp = True
 #在选项里显示游戏数据
 default persistent.submods_dp_gameStatus = False
+#云备份
+default persistent.submods_dp_CloudBackup = False
 
 screen dp_setting_pane():
     vbox:
@@ -142,6 +144,12 @@ screen dp_setting_pane():
             ypos 1
             selected False
             action Show(screen = "dialog", message = dp_authors, ok_action = Hide("dialog"))
+
+        if persistent.submods_dp_CloudBackup:
+            textbutton ">云端备份":
+                ypos 1
+                selected False
+                action Show("dp_cloudSetting")
             
 screen dp_gameStatus():
     key "noshift_T" action NullAction()
@@ -199,6 +207,11 @@ screen dp_gameStatus():
                         spacing 10
                         xmaximum 780
                         text "Total Game Played:[store.mas_games._total_games_played()]"
+                    hbox:
+                        xpos 20
+                        spacing 10
+                        xmaximum 780
+                        text "Last Cloud Backup:[persistent.CloudBackupLastTime[1]]"
 
                     if not renpy.android:
                         hbox:
@@ -242,6 +255,19 @@ screen dp_gameStatus():
                             textbutton "Jumo clothes change label":
                                 action Jump("unlockClothesChange")
 
+                    if not renpy.android:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            textbutton "Create all giftfile":
+                                action Jump("createAllGiftFile")
+                    else:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            textbutton "Create all giftfile(unable - PE version)"
 
                         
             hbox:           
@@ -353,6 +379,26 @@ screen dp_setting():
                         textbutton _("?"):
                             action Show(screen = "dialog", message = "在本模组的设置项展示游戏统计", ok_action = Hide("dialog"))
 
+                    hbox:
+                        xpos 20
+                        spacing 10
+                        xmaximum 780
+                        text "云备份"
+                        textbutton "[dp_showstatus(persistent.submods_dp_cloudBackup)]":
+                            selected False
+                            action NullAction()
+                        
+                    hbox:
+                        xpos 20
+                        spacing 10
+                        xmaximum 780
+                        textbutton _("启用"):
+                            action Jump("enableCloudBackup")
+                        textbutton _("禁用"):
+                            action Jump("disableCloudBackup")
+                        textbutton _("?"):
+                            action Show(screen = "dialog", message = "启用云同步即表示你允许本模组将存档文件上传至mas.backup.0721play.icu", ok_action = Hide("dialog"))
+
 
           
             hbox:           
@@ -381,6 +427,12 @@ label disableNewVersionDialogueFromdp:
     $ persistent.submods_dp_enableNewVersionDialogueFromdp = False
     return
 
+label enableCloudBackup:
+    $ persistent.submods_dp_CloudBackup = True
+    return
+label disableCloudBackup:
+    $ persistent.submods_dp_CloudBackup = False
+
 label enableGameStatus:
     $ persistent.submods_dp_gameStatus = True
     return
@@ -402,4 +454,9 @@ label unlockHairChange:
 
 label unlockClothesChange:
     jump monika_clothes_select
+    return
+
+label createAllGiftFile:
+    python:
+        check_json(renpy.config.basedir + "/game/mod_assets",None)
     return

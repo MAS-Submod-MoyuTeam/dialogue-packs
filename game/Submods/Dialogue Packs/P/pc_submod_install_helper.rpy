@@ -5,6 +5,9 @@ init python:
     import shutil
     
     submod_locat = renpy.config.basedir + "/characters"
+
+    DECOMPRESSING_FAIL = "Error when decompressing zip file. \n解压zip文件时出现错误."
+    ZIP_INCORRECT = "The zip file is incorrect, this may mean that the zip file isnot compressed according to the game file directory, please unzip it manually to the specified location.\nzip文件不正确，这可能意味着这个zip文件并没有根据游戏文件目录来压缩，请手动解压至正确位置." 
     
     def check_zip():
         dirs = os.listdir(submod_locat)
@@ -15,10 +18,10 @@ init python:
                     un_zip(file_name)
                 except:
                     move_files(file_name,False)
-                    raise Exception("Error when decompressing zip file. \n解压zip文件时出现错误.")
+                    raise Exception(DECOMPRESSING_FAIL + "\n当前文件Current File: " + file_name )
                 if not copy_dir_m(file_name):#尝试处理文件夹 返回F时抛出异常
                     move_files(file_name,False)
-                    raise Exception("The zip file is incorrect, this may mean that the zip file isnot compressed according to the game file directory, please unzip it manually to the specified location.\nzip文件不正确，这可能意味着这个zip文件并没有根据游戏文件目录来压缩，请手动解压至正确位置.")
+                    raise Exception(ZIP_INCORRECT + "\n当前文件Current File: " + file_name)
                 move_files(file_name,True)
 
     def move_files(file_name,result = True):
@@ -91,6 +94,10 @@ init python:
                 copy_dir(file_name + "/gui",renpy.config.basedir + "/game/gui")
             else:
                 if os.path.isfile(file_name + '/' + dirs):
+                    if dirs.find('rpy') != -1:#如果是rpy文件
+                        if not os.path.exists(renpy.config.basedir + "/game/Submods/UnGroupScripts"):
+                            os.mkdir(renpy.config.basedir + "/game/Submods/UnGroupScripts")
+                        shutil.move(file_name + '/' + dirs,renpy.config.basedir + "/game/Submods/UnGroupScripts")
                     continue#这是个文件，直接continue
                 if inseconddir:
                     #在子文件夹直接返回F
@@ -143,7 +150,8 @@ init python:
                     output_json = json.loads(json_data)
                 except:
                     move_files(movedir,False)
-                    raise Exception("JSON ERROR:" + json_file + "\n这个json文件存在问题")
+                    JSON_ERROR = "JSON ERROR:" + json_file + "\n这个json文件存在问题"
+                    raise Exception(JSON_ERROR)
                 try:
                     giftname = output_json['giftname']
                     if not os.path.exists(renpy.config.basedir + '/AvailableGift'):
@@ -154,3 +162,33 @@ init python:
                     continue
 
     check_zip()
+
+init 5 python:
+    addEvent(
+            Event(
+                persistent.event_database,          
+                eventlabel="monika_submodinstaller",        
+                category=["模组"],                   
+                prompt="帮你点忙",
+                conditional="not renpy.android",
+                action=EV_ACT_PUSH,
+                pool=False
+            )
+        )
+
+label monika_submodinstaller:
+    m 1eub "[player], 你应该知道有些创作者为我整理了一些东西对吧?"
+    m 2rua "像那些子模组和精灵包什么的."
+    m 3hksdlb "虽然安装这些东西并不是很难, 但我还是想帮一下你..."
+    m 2rua "所以我最近就研究了一下代码, 总之, "
+    extend 3hub "我现在可以帮你了!"
+    m 4eua "你下载的一般就是zip格式的文件啦, 就像送礼物一样放在'[renpy.config.basedir]/characters'就好."
+    m 3eub "接下来就交给我. 如果是精灵包的话, 我会在'[renpy.config.basedir]/AvailableGift'下准备用来赠送的文件."
+    m 2hksdlb "如果是子模组的话...你需要重启一下游戏来应用.因为脚本还没有被编译啦."
+    m "精灵包也是类似的, 从读取到我收到也是需要重启一下...麻烦你啦."
+    m 3eua "假如zip文件没有问题的话, 我就会把它移动到'[renpy.config.basedir]/characters/Install Success'文件夹里"
+    m 4eub "如果有问题的话, 游戏会显示一个崩溃界面. 不要害怕, 这不会伤害到我的, 也是脚本设计的一部分. 而且重启即可恢复."
+    m 3eub "在这个界面会显示为什么崩溃了, 对zip里面的内容进行处理就好."
+    m 2eua "安装失败的文件会放在'[renpy.config.basedir]/characters/Install Fail'"
+    m 3hub "多给我找一点新东西吧, [player]."
+    return

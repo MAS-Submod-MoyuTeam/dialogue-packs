@@ -815,7 +815,7 @@ label monika_ddto:
 return
 
 init python:
-    addEvent(Event(persistent.event_database,eventlabel="monika_playerDeath",category=["monika"],prompt="在我过世之后你会怎么办?",pool=True,random=True))
+    addEvent(Event(persistent.event_database,eventlabel="monika_playerDeath",category=["莫妮卡"],prompt="在我过世之后你会怎么办?",pool=True,random=True))
 
 label monika_playerDeath:
     m 6ckc "..."
