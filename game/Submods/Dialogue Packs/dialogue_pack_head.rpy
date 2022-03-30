@@ -384,7 +384,7 @@ screen dp_setting():
                         spacing 10
                         xmaximum 780
                         text "云备份"
-                        textbutton "[dp_showstatus(persistent.submods_dp_cloudBackup)]":
+                        textbutton "[dp_showstatus(persistent.submods_dp_CloudBackup)]":
                             selected False
                             action NullAction()
                         
@@ -432,6 +432,7 @@ label enableCloudBackup:
     return
 label disableCloudBackup:
     $ persistent.submods_dp_CloudBackup = False
+    return
 
 label enableGameStatus:
     $ persistent.submods_dp_gameStatus = True
