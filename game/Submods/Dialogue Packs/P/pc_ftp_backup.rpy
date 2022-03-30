@@ -77,9 +77,9 @@ init python:
             dataDir = "/storage/emulated/0/MAS/characters"
         try:
             downloadfile(ftp, save, dataDir + "\persistent")
-            renpy.show_screen("dp_message","下载成功",Hide("dp_message"))
+            renpy.show_screen("dp_message","存档已保存至[renpy.config.basedir]\character",Hide("dp_message"))
         except:
-            renpy.show_screen("dp_message","下载失败",Hide("dp_message"))
+            renpy.show_screen("dp_message","下载失败, 请检查输入名称.",Hide("dp_message"))
             return False
         ftp.quit()
         return True
