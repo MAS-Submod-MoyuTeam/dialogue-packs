@@ -192,26 +192,15 @@ screen dp_gameStatus():
                     box_wrap False
 
                     hbox:
-                        xpos 20
-                        spacing 10
-                        xmaximum 780
                         text "Current Affection:[_mas_getAffection()]\n"
                     hbox:
-                        xpos 20
-                        spacing 10
-                        xmaximum 780
                         text "[mas_progressionDataDump()][mas_sessionDataDump()]"
-                        
                     hbox:
-                        xpos 20
-                        spacing 10
-                        xmaximum 780
                         text "Total Game Played:[store.mas_games._total_games_played()]"
                     hbox:
-                        xpos 20
-                        spacing 10
-                        xmaximum 780
                         text "Last Cloud Backup:[persistent.CloudBackupLastTime[1]]"
+                    hbox:
+                        text "Check Cloud File:[checkSaveTime()]s"
 
                     if not renpy.android:
                         hbox:
@@ -408,6 +397,31 @@ screen dp_setting():
                     action Hide("dp_setting")
 
 
+screen dp_message(message, ok_action):
+    ## Ensure other screens do not get input while this screen is displayed.
+    zorder 225
+
+    style_prefix "confirm"
+
+    frame:
+        vbox:
+            ymaximum 300
+            xmaximum 800
+            xfill True
+            yfill False
+            spacing 5
+
+            label _(message):
+                style "confirm_prompt"
+                xalign 0.5
+
+            #input default "" value VariableInputValue("savefile") length 25
+
+            hbox:
+                xalign 0.5
+                spacing 100
+
+                textbutton _("OK") action ok_action
 
 
 

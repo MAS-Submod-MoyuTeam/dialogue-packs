@@ -1,3 +1,5 @@
+default persistent.CloudBackupLastTime = [None, None, None]
+
 init python:
     # -*- coding: utf-8 -*-
     from ftplib import FTP
@@ -6,8 +8,7 @@ init python:
     appdata = os.getenv("APPDATA")
     m_name = persistent._mas_monika_nickname
     p_name = persistent.playername
-    
-    persistent.CloudBackupLastTime = [None, None]
+    savefile = ""
 
     #连接ftp
     def ftpconnect(host,port, username, password):
@@ -34,7 +35,7 @@ init python:
         ftp.storbinary('STOR ' + remotepath, fp, bufsize)
         ftp.set_debuglevel(0)
         fp.close()
-    
+    #上传存档文件
     def uploadSave():
         ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
         if not renpy.android:
@@ -52,9 +53,11 @@ init python:
             pass
         ftp.rename("persistent", m_name + "_" + p_name)
         ftp.quit()
-        persistent.CloudBackupLastTime = [datetime.date.today(), datetime.datetime.today()]
+        #保存上传的时间
+        persistent.CloudBackupLastTime = [datetime.date.today(), datetime.datetime.today(), int(time.time())]
         return True
     
+    #下载存档文件
     def downloadSave():
         ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
         if not renpy.android:
@@ -65,17 +68,51 @@ init python:
         downloadfile(ftp, m_name + "_" + p_name, dataDir + "\persistent")
         ftp.quit()
         return True
-        
-    try:
-        if submods_dp_CloudBackup:
-            if datetime.date.today() != persistent.CloudBackupLastTime[0]:
-                uploadSave()       
-    except:
-        pass
+    
+    def downloadOneSave(save):
+        ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        if not renpy.android:
+            dataDir = renpy.config.basedir + "/characters"
+        else:
+            dataDir = "/storage/emulated/0/MAS/characters"
+        try:
+            downloadfile(ftp, save, dataDir + "\persistent")
+            renpy.show_screen("dp_message","下载成功",Hide("dp_message"))
+        except:
+            renpy.show_screen("dp_message","下载失败",Hide("dp_message"))
+            return False
+        ftp.quit()
+        return True
+
+    def checkSaveTime(debug = False):
+        ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        L = list(ftp.sendcmd('MDTM ' + m_name + "_" + p_name))
+        ftp.quit()
+        dir_t=L[4]+L[5]+L[6]+L[7]+'-'+L[8]+L[9]+'-'+L[10]+L[11]+' '+L[12]+L[13]+':'+L[14]+L[15]+':'+L[16]+L[17]
+        timeArray = time.strptime(dir_t, "%Y-%m-%d %H:%M:%S")
+        #转换为时间戳:
+        timeStamp = int(time.mktime(timeArray)) + 28790
+        atime=int(time.time())
+        #检查时间差距
+        timeD = timeStamp - persistent.CloudBackupLastTime[2]
+        if debug == True:
+            return dir_t
+        if timeD < 0:
+            timeD = 0 - timeD
+        return timeD
+
+    def FinishEnterSave():
+        downloadOneSave(savefile)
+        renpy.hide_screen("save_input")
+
+
+
+
 
 screen dp_cloudSetting():
     python:
         submods_screen_dp = store.renpy.get_screen("submods", "screens").scope["tooltip"]
+        _cst = checkSaveTime()
         
     key "noshift_T" action NullAction()
     key "noshift_t" action NullAction()
@@ -120,7 +157,34 @@ screen dp_cloudSetting():
                         xpos 20
                         spacing 10
                         xmaximum 780
-                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于[renpy.config.basedir]/characters文件夹.\n文件在服务器以'[m_name]_[player]'命名, 请注意是否和其他人重复:)"
+                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于[renpy.config.basedir]/characters文件夹.\n文件在服务器以'[m_name]_[player]'命名, 请注意是否和其他人重复:)\n自动备份导致的时间戳差距通常在40s左右, 取决于你游戏的启动时间."
+                    if _cst < 15:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            text "云端文件与本地记录时间戳差距<15s, 可以认为是同一个存档"
+                    elif _cst < 60:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            text "云端文件与本地记录时间戳差距小于1分钟, 有与他人重名的可能性"
+                    elif _cst < 180:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            text "{b}云端文件与本地记录时间戳差距为1~3分钟, 有与他人重名的可能性{/b}"
+                    else:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            text "{b}{color=#f00}警告:云端文件与本地记录时间戳差距为[checkSaveTime()]s, 有极高与他人重名的可能性!!{/color}{/b}"
+
+
+
                     hbox:
                         xpos 20
                         spacing 10
@@ -129,14 +193,42 @@ screen dp_cloudSetting():
                             action Function(uploadSave)
                         textbutton "下载备份":
                             action Function(downloadSave)
+                        textbutton "下载指定存档":
+                            action Show(screen="save_input", message="请输入存档名称, 格式为‘monika的名称_玩家的名称’, 严格区分大小写", ok_action=Function(FinishEnterSave))
 
-
-          
             hbox:           
                 xalign 0.5
                 spacing 100
                 textbutton "关闭":
                     action Hide("dp_cloudSetting")
+
+screen save_input(message, ok_action):
+    ## Ensure other screens do not get input while this screen is displayed.
+    modal True
+    zorder 225
+
+    style_prefix "confirm"
+
+    frame:
+        vbox:
+            ymaximum 300
+            xmaximum 800
+            xfill True
+            yfill False
+            spacing 5
+
+            label _(message):
+                style "confirm_prompt"
+                xalign 0.5
+
+            input default "" value VariableInputValue("savefile") length 25
+
+            hbox:
+                xalign 0.5
+                spacing 100
+
+                textbutton _("OK") action ok_action
+
 
 init -990 python:
     import os
@@ -144,7 +236,7 @@ init -990 python:
         store.mas_submod_utils.Submod(
             author="P",
             name="云端备份",
-            description="安装本模组, 即表示你接受将存档文件上传至mas.backup.0721play.icu.\n自动备份依赖于话题整合包(1.14+), 安装它来获取完整功能",
+            description="使用本模组的功能, 即表示你接受将存档文件上传至mas.backup.0721play.icu.\n自动备份依赖于话题整合包(1.14+), 安装它来获取完整功能",
             version='0.0.1',
             settings_pane="cloudBackup_settingpane"
         )
@@ -159,4 +251,4 @@ screen cloudBackup_settingpane():
                 ypos 1
                 selected False
                 action Show("dp_cloudSetting")
-    
+
