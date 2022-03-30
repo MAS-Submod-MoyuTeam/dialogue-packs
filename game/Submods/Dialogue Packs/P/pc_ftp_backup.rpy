@@ -86,19 +86,22 @@ init python:
 
     def checkSaveTime(debug = False):
         ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
-        L = list(ftp.sendcmd('MDTM ' + m_name + "_" + p_name))
-        ftp.quit()
-        dir_t=L[4]+L[5]+L[6]+L[7]+'-'+L[8]+L[9]+'-'+L[10]+L[11]+' '+L[12]+L[13]+':'+L[14]+L[15]+':'+L[16]+L[17]
-        timeArray = time.strptime(dir_t, "%Y-%m-%d %H:%M:%S")
-        #转换为时间戳:
-        timeStamp = int(time.mktime(timeArray)) + 28790
-        atime=int(time.time())
-        #检查时间差距
-        timeD = timeStamp - persistent.CloudBackupLastTime[2]
-        if debug == True:
-            return dir_t
-        if timeD < 0:
-            timeD = 0 - timeD
+        try:
+            L = list(ftp.sendcmd('MDTM ' + m_name + "_" + p_name))
+            ftp.quit()
+            dir_t=L[4]+L[5]+L[6]+L[7]+'-'+L[8]+L[9]+'-'+L[10]+L[11]+' '+L[12]+L[13]+':'+L[14]+L[15]+':'+L[16]+L[17]
+            timeArray = time.strptime(dir_t, "%Y-%m-%d %H:%M:%S")
+            #转换为时间戳:
+            timeStamp = int(time.mktime(timeArray)) + 28790
+            atime=int(time.time())
+            #检查时间差距
+            timeD = timeStamp - persistent.CloudBackupLastTime[2]
+            if debug == True:
+                return dir_t
+            if timeD < 0:
+                timeD = 0 - timeD
+        except:
+            timeD = -1
         return timeD
 
     def FinishEnterSave():
@@ -157,8 +160,14 @@ screen dp_cloudSetting():
                         xpos 20
                         spacing 10
                         xmaximum 780
-                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于[renpy.config.basedir]/characters文件夹.\n文件在服务器以'[m_name]_[player]'命名, 请注意是否和其他人重复:)\n自动备份导致的时间戳差距通常在40s左右, 取决于你游戏的启动时间."
-                    if _cst < 15:
+                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于[renpy.config.basedir]/characters文件夹.\n文件在服务器以'[m_name]_[player]'命名, 请注意是否和其他人重复:)\n自动备份导致的时间戳差距通常在40s左右, 取决于你游戏的启动时间.\n"
+                    if _cst == -1:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            text "当前云端没有存档!"
+                    elif _cst < 15:
                         hbox:
                             xpos 20
                             spacing 10
