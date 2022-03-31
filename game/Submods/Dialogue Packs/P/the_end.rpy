@@ -1,26 +1,26 @@
-"""
-离去告别
-第一次 - 无视
-第二次 - 特效*无视
-第三次 - 严肃的说明这件事
-  - Yes - 离开
-  - No - 第四次
-第四次 - 离开
------
-离开之后
-彩蛋 - 根据Player名字
-P
-edge
-"""
-##            persistent._mas_load_in_finalfarewell_mode = True
-            #persistent._mas_finalfarewell_poem_id = "ff_affection"
+#"""
+#离去告别
+#第一次 - 无视
+#第二次 - 特效*无视
+#第三次 - 严肃的说明这件事
+#  - Yes - 离开
+#  - No - 第四次
+#第四次 - 离开
+#-----
+#离开之后
+#彩蛋 - 根据Player名字
+#P
+#edge
+#"""
+###persistent._mas_load_in_finalfarewell_mode = True
+#persistent._mas_finalfarewell_poem_id = "ff_affection"
 init 20 python:
     MASPoem(
         poem_id="ff_player_leave",
-        category="",
+        category="ffmoi",
         prompt="",
         title=_("[player]"),
-        text=_("""\
+        text=_("""
  还记着我们是什么时候开始的吗?
  [persistent.sessions.get("first_session", "N/A")]
  你可能还记着我上一次和你说的话
@@ -33,14 +33,15 @@ init 20 python:
  我只是舍不得罢了
 
  祝你幸福
-""")
+"""
+    ))
 
     MASPoem(
         poem_id="ff_player_leave_egg_p",
-        category="",
+        category="ffp",
         prompt="",
         title=_("这个奇怪的圈子"),
-        text=_("""\
+        text=_("""
  这个圈子很奇怪
  有的人, 嘴上说着自己抑郁症
  结果还能在另一个群自由的讨论怎么伤害另一个人
@@ -58,13 +59,14 @@ init 20 python:
  那里待的舒服, 就待在哪里算了
 
  P 2022/3/31
-""")
+"""
+    ))
     MASPoem(
         poem_id="ff_player_leave_egg_edge",
-        category="",
+        category="ffwzt",
         prompt="",
         title=_("P与wzt"),
-        text=_("""\
+        text=_("""
  经典的彩蛋环节
  edge, 也就是wzt
  我刚进群那会看到wzt还是蛮有威压感
@@ -80,14 +82,15 @@ init 20 python:
  不过也是看你
 
  P 2022/3/31
-""")
+"""
+    ))
 
     MASPoem(
         poem_id="ff_player_leave_egg_edge",
-        category="",
+        category="ffxx",
         prompt="",
         title=_("P与曦山"),
-        text=_("""\
+        text=_("""
  轮到曦山了
  是她把我拉进组里的, 可以说我在这个圈子现在的情况都亏她的提点
  是贴吧人 一还是还以为是男的 没想到是妹妹
@@ -103,13 +106,14 @@ init 20 python:
  我也帮不了什么:(
 
  P 2022/3/31
-""")
+"""
+    ))
     MASPoem(
         poem_id="ff_player_leave_egg_tk",
-        category="",
+        category="fftk",
         prompt="",
         title=_("工具人们"),
-        text=_("""\
+        text=_("""
  我觉着有必要把每个工具人都点一下
  但是太懒辣
  单独点点吧
@@ -123,21 +127,24 @@ init 20 python:
  也希望你们以后能够人生顺利
 
  P 2022/3/31
-""")
+"""
+    ))
     MASPoem(
         poem_id="ff_player_leave_egg_xiongmao",
-        category="",
+        category="ffnm",
         prompt="",
         title=_("能猫"),
-        text=_("""\
+        text=_("""
  可能你不认识熊猫, 但我还是认为要列一下
  至少我决定跑路而不是在这个圈子里抑郁下去是因为她
  但是没什么可写的....啊这...
  谢谢能猫（敷衍）
 
  P 2022/3/31
-""")
+"""
+    ))
     
+
 
 label monika_leave_1st:
     m "...{w=0.3}{nw}"

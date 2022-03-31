@@ -386,7 +386,7 @@ screen dp_setting():
                         textbutton _("禁用"):
                             action Jump("disableCloudBackup")
                         textbutton _("?"):
-                            action Show(screen = "dialog", message = "启用云同步即表示你允许本模组将存档文件上传至mas.backup.0721play.icu", ok_action = Hide("dialog"))
+                            action Show(screen = "dialog", message = "启用云同步即表示你允许本模组将存档文件上传至mas.backup.0721play.icu\nPE无法链接至服务器", ok_action = Hide("dialog"))
 
 
           

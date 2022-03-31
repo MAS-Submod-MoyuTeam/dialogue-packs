@@ -37,7 +37,10 @@ init python:
         fp.close()
     #上传存档文件
     def uploadSave():
-        ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        try:
+            ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        except:
+            return False
         if not renpy.android:
             dataDir = os.getenv("APPDATA") + "\RenPy\Monika After Story"
         else:
@@ -59,7 +62,10 @@ init python:
     
     #下载存档文件
     def downloadSave():
-        ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        try:
+            ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        except:
+            return False
         if not renpy.android:
             dataDir = renpy.config.basedir + "/characters"
         else:
@@ -70,7 +76,10 @@ init python:
         return True
     
     def downloadOneSave(save):
-        ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        try:
+            ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        except:
+            renpy.show_screen("dp_message","服务器连接失败",Hide("dp_message"))
         if not renpy.android:
             dataDir = renpy.config.basedir + "/characters"
         else:
@@ -85,7 +94,10 @@ init python:
         return True
 
     def checkSaveTime(debug = False):
-        ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        try:
+            ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        except:
+            return timeD = -2
         try:
             L = list(ftp.sendcmd('MDTM ' + m_name + "_" + p_name))
             ftp.quit()
@@ -113,7 +125,8 @@ init python:
     ################
 
     if persistent.submods_dp_CloudBackup:
-        uploadSave()
+        if not renpy.android:
+            uploadSave()
 
 
 
@@ -166,6 +179,12 @@ screen dp_cloudSetting():
                         spacing 10
                         xmaximum 780
                         text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于[renpy.config.basedir]/characters文件夹.\n文件在服务器以'[m_name]_[player]'命名, 请注意是否和其他人重复:)\n自动备份导致的时间戳差距通常在40s左右, 取决于你游戏的启动时间.\n"
+                    if _cst == -2:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            text "服务器链接失败!"
                     if _cst == -1:
                         hbox:
                             xpos 20
@@ -248,7 +267,7 @@ init -990 python:
         store.mas_submod_utils.Submod(
             author="P",
             name="云端备份",
-            description="使用本模组的功能, 即表示你接受将存档文件上传至mas.backup.0721play.icu.\n自动备份依赖于话题整合包(1.14+), 安装它来获取完整功能",
+            description="使用本模组的功能, 即表示你接受将存档文件上传至mas.backup.0721play.icu.\n自动备份依赖于话题整合包(1.14+), 安装它来获取完整功能.",
             version='0.0.1',
             settings_pane="cloudBackup_settingpane"
         )
