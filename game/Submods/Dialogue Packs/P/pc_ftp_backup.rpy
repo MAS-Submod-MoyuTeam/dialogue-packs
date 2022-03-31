@@ -108,7 +108,12 @@ init python:
         downloadOneSave(savefile)
         renpy.hide_screen("save_input")
 
+    ################
+    #自动备份
+    ################
 
+    if persistent.submods_dp_CloudBackup:
+        uploadSave()
 
 
 
@@ -191,8 +196,6 @@ screen dp_cloudSetting():
                             spacing 10
                             xmaximum 780
                             text "{b}{color=#f00}警告:云端文件与本地记录时间戳差距为[checkSaveTime()]s, 有极高与他人重名的可能性!!{/color}{/b}"
-
-
 
                     hbox:
                         xpos 20
