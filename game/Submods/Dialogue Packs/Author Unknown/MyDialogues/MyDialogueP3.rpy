@@ -146,7 +146,7 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="monika_sexuality",
-            category=["其他", "莫妮卡", "浪漫"],
+            category=["其它", "莫妮卡", "浪漫"],
             prompt="莫妮卡的性取向?",
             random=True,))
 
@@ -182,7 +182,7 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="natsyuri",
-            category=["其他", "社团成员", "DDLC", "浪漫"],
+            category=["其它", "社团成员", "DDLC", "浪漫"],
             prompt="夏树和优里的关系",
             random=True,))
 

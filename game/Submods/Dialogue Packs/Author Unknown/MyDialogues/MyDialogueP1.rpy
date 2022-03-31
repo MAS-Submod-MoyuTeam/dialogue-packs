@@ -3,7 +3,7 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="player_identity",
-            category=["你","莫妮卡","其他"],
+            category=["你","莫妮卡","其它"],
             prompt="玩家的性别取向",
             random=True,))
 
@@ -89,7 +89,7 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="multi_sexual_identities",
-            category=["其他", "浪漫"],
+            category=["其它", "浪漫"],
             prompt="多性别吸引",
             random=True,))
 
