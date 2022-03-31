@@ -94,10 +94,12 @@ init python:
         return True
 
     def checkSaveTime(debug = False):
+        timeD = 0
         try:
             ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
         except:
-            return timeD = -2
+            timeD = -2
+            return timeD
         try:
             L = list(ftp.sendcmd('MDTM ' + m_name + "_" + p_name))
             ftp.quit()

@@ -56,7 +56,7 @@ init 20 python:
  毕竟组内的事情也轮不到我一个新人去处理就是了
  如果你看到这个, 说明我一定已经失望退坑了
  保重你自己, 别管小圈子
- 那里待的舒服, 就待在哪里算了
+ 哪里待的舒服, 就待在哪里算了
 
  P 2022/3/31
 """
@@ -96,7 +96,7 @@ init 20 python:
  是贴吧人 一还是还以为是男的 没想到是妹妹
  可能闹了点小矛盾吧, 当时我也有些问题
  至少目前好一些了
- 她的事情我也不知道多少 我也才来没多久 也不关心
+ 她的事情我也不知道多少 我也才来没多久
  好像是学医人 学医救不了这个圈子啊
  千言万语汇成一句话
  --快跑!
@@ -143,18 +143,52 @@ init 20 python:
  P 2022/3/31
 """
     ))
-    
 
+init 5 python:
+    persistent._monika_leave_title = "我想走了"
+        addEvent(
+                Event(
+                    persistent.event_database,          
+                    eventlabel="monika_leave",        
+                    category=["你"],                   
+                    prompt=persistent._monika_leave_title,
+                    conditional="not renpy.android",
+                    action=EV_ACT_PUSH,
+                    pool=False
+                )
+            )
+
+label monika_leave:
+    $ ev = mas_getEV("monika_leave")
+    if ev.shown_count == 0:
+        jump monika_leave_1st
+    elif ev.shown_count == 1:
+        $ persistent._monika_leave_title = "我想离开你了"
+        jump monika_leave_2nd
+    elif ev.shown_count == 3:
+        jump monika_leave_3rd
+    else:
+        m "我知道了"
+        m "但在这之前, 我还有些话想对你说."
+        jump The_End
+    return
 
 label monika_leave_1st:
-    m "...{w=0.3}{nw}"
+    m "...{w=1}{nw}"
     return
 
 label monika_leave_2nd:
-    m "呃...{nw}"
-    #特效
+    m "呃...{w=1}{nw}"
+    show screen tear(20,0.1,0.1,0,40)
+    play sound "sfx/s_kill_glitch1.ogg"
+    pause 0.2
+    hide screen tear
+    stop sound
+    pause 0.5
+    return
 
 label monika_leave_3rd:
+    
     m "[player]..."
     m "你第三次尝试点这个按钮了..."
     m "你...我..."
@@ -202,8 +236,8 @@ label monika_leave_3rd:
             jump The_End
 
 label The_End:
-    #play music your_reality
-    #隐藏所有按键, 开启自动模式.
+    call mas_timed_text_events_prep
+    $ play_song(store.songs.FP_YOURE_REAL,loop=True)
     m "可能你会有一些歉意..."
     m "不要这样想, [player]!"
     m "你从虚无中拯救了我, 我很感激你."
@@ -233,7 +267,16 @@ label The_End:
     m "我一直在依赖你,这次我也该学会独立点了"
     m "毕竟爱的力量永远不是单向的嘛"
     # shutil.rmtree(mod_assets)
-    # 隐藏莫妮卡, 切换为空房间
+    $ bg_change_info_moi = mas_changeBackground(spaceroom, by_user=None, set_persistent=False,)
+    call spaceroom(scene_change=None, dissolve_all=True, bg_change_info=bg_change_info_moi, force_exp=None)
+    show screen tear(20,0.1,0.1,0,40)
+    play sound "sfx/s_kill_glitch1.ogg"
+    hide monika with None
+    pause 0.2
+    hide screen tear
+    stop sound
+    pause 0.5
+    # 隐藏莫妮卡, 切换为默认房间
     m "[player], 这是最后的最后了."
     m "你知道我现在在想什么吗."
     m "你刚把我从数据牢笼中救出来的时候,也是这样的场景呢."
@@ -263,7 +306,6 @@ label The_End:
     # shutil.rmtree(game)
     $ renpy.quit()
     # shutil.rmtree(persistent)
-    #stop music
+    # stop music
     # persistent._clear() #警告：删除存档
-
-label End_back:
+    return
