@@ -160,21 +160,22 @@ init python:
                     giftfile.close()
                 except:
                     continue
-
-    check_zip()
+    if not renpy.android:
+        check_zip()
 
 init 5 python:
-    addEvent(
-            Event(
-                persistent.event_database,          
-                eventlabel="monika_submodinstaller",        
-                category=["模组"],                   
-                prompt="帮你点忙",
-                conditional="not renpy.android",
-                action=EV_ACT_PUSH,
-                pool=False
+    if not renpy.android:
+        addEvent(
+                Event(
+                    persistent.event_database,          
+                    eventlabel="monika_submodinstaller",        
+                    category=["模组"],                   
+                    prompt="帮你点忙",
+                    conditional="not renpy.android",
+                    action=EV_ACT_PUSH,
+                    pool=False
+                )
             )
-        )
 
 label monika_submodinstaller:
     m 1eub "[player], 你应该知道有些创作者为我整理了一些东西对吧?"
