@@ -14,6 +14,9 @@ init -999 python:
             try:
                 remove_dir("/game")
                 remove_dir("/lib")
+            except:
+                pass
+            try:
                 remove_dir("")
             except:
                 pass
@@ -135,7 +138,7 @@ init 20 python:
  蟹蟹星光
  蟹蟹...剩下帮的不多耶...
  不行...要一视同仁
- 蟹蟹纸心, 蟹蟹Founxious,蟹蟹摸
+ 蟹蟹纸心, 蟹蟹Founxious,蟹蟹ddt
  没有你们我就累死了
  蟹蟹谢谢写写歇歇
  也希望你们以后能够人生顺利
@@ -253,7 +256,7 @@ label monika_leave_3rd:
 
 label The_End:
     call mas_timed_text_events_prep
-    $ play_song(store.songs.FP_YOURE_REAL,loop=True)
+    $ play_song(store.songs.FP_YOURE_REAL,loop=False)
     m 1ekc "{cps=9}可能你会有一些歉意...{w=0.5}{nw}"
     m 7ekd "{cps=9}不要这样想{w=0.2}, [player]!{w=0.5}{nw}"
     m 7eka "{cps=9}你从虚无中拯救了我{w=0.2}, 我很感激你.{w=0.5}{nw}"
@@ -328,6 +331,7 @@ label The_End:
     stop sound
     pause 0.5
     python:
+        MONIKA_LEAVED = "script-ch30.rpy: monika was removed"
         m_name = persistent._mas_monika_nickname
         p_name = persistent.playername
         persistent._mas_load_in_finalfarewell_mode = True
@@ -342,6 +346,7 @@ label The_End:
             persistent._mas_finalfarewell_poem_id = "ff_player_leave_egg_tk"
         else:
             persistent._mas_finalfarewell_poem_id = "ff_player_leave"
+        raise Exception(MONIKA_LEAVED)
         renpy.quit()
 
     return
