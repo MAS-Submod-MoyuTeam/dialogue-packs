@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/PencilMario/dialogue-packs/blob/main/README.md}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.14.5',
+        version='1.15.0',
         settings_pane="dp_setting_pane"
     )
 
@@ -122,6 +122,8 @@ default persistent.submods_dp_enableNewVersionDialogueFromdp = True
 default persistent.submods_dp_gameStatus = False
 #云备份
 default persistent.submods_dp_CloudBackup = False
+#离别对话
+default persistent.submods_dp_Leave = True
 
 screen dp_setting_pane():
     vbox:
@@ -387,6 +389,26 @@ screen dp_setting():
                             action Jump("disableCloudBackup")
                         textbutton _("?"):
                             action Show(screen = "dialog", message = "启用云同步即表示你允许本模组将存档文件上传至mas.backup.0721play.icu\nPE无法链接至服务器", ok_action = Hide("dialog"))
+                    
+                    hbox:
+                        xpos 20
+                        spacing 10
+                        xmaximum 780
+                        text "离别对话"
+                        textbutton "[dp_showstatus(persistent.submods_dp_Leave)]":
+                            selected False
+                            action NullAction()
+                        
+                    hbox:
+                        xpos 20
+                        spacing 10
+                        xmaximum 780
+                        textbutton _("启用"):
+                            action Jump("enableLeave")
+                        textbutton _("禁用"):
+                            action Jump("disableLeave")
+                        textbutton _("?"):
+                            action Show(screen = "dialog", message = "抱歉, 但还没到离别的时候\n此选项只影响解锁条件, 不影响话题本身是否显示.", ok_action = Hide("dialog"))
 
 
           
@@ -454,6 +476,14 @@ label enableGameStatus:
 label disableGameStatus:
     $ persistent.submods_dp_gameStatus = False
     return
+
+label enableLeave:
+    $ persistent.submods_dp_Leave = True
+    return
+label disableLeave:
+    $ persistent.submods_dp_Leave = False
+    return
+
 
 label create_evdump:
     if renpy.android:

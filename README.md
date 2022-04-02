@@ -21,7 +21,7 @@ Collection of translated/written topic submodules, do integration to facilitate 
 |MonikaModDev|/|*1250以后的更新*|mon1|
 |ryuujjy|[>reddit](https://www.reddit.com/user/ryuujjy/)|`我想告诉你...你太棒了!`|星光|
 |geneTechnician|[>reddit](https://www.reddit.com/user/geneTechnician/)|`一起吃东西吧` `我要去为你做些东西`|P TK|
-|Sir.P|/|`疯狂星期四` `子模组教学` `准备更新文件吧` *pc_submod_install_helper.rpy* *pc_ftp_backup.rpy*|/|
+|Sir.P|/|`疯狂星期四` `子模组教学` `准备更新文件吧` *pc_submod_install_helper.rpy* *pc_ftp_backup.rpy* `最终道别`|/|
 |mkam23-Maya|[>reddit](https://www.reddit.com/user/mkam23-Maya/)|`NFTs` `眼镜和隐形眼镜`|TK 星光|
 |AmyKawa|[>reddit](https://www.reddit.com/user/AmyKawa/)|*Additional Conversations V1*|P TK Founxious|
 |****1***|/|*MyDialogue.rpy*|P TK|
