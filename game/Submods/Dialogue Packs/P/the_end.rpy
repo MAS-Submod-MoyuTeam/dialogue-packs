@@ -162,7 +162,7 @@ init 20 python:
     ))
 
 init 5 python:
-    $ persistent._monika_leave_title = "我想走了"
+    persistent._monika_leave_title = "我想走了"
     addEvent(
             Event(
                 persistent.event_database,          
