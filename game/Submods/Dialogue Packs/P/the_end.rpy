@@ -161,19 +161,19 @@ init 20 python:
 """
     ))
 
-#init 5 python:
-#    $ persistent._monika_leave_title = "我想走了"
-#    addEvent(
-#            Event(
-#                persistent.event_database,          
-#                eventlabel="monika_leave_P",        
-#                category=["你"],                   
-#                prompt=persistent._monika_leave_title,
-#                conditional="_mas_getAffection() > 1250 and persistent.submods_dp_Leave",
-#                action=EV_ACT_UNLOCK,
-#                pool=True
-#            )
-#        )
+init 5 python:
+    $ persistent._monika_leave_title = "我想走了"
+    addEvent(
+            Event(
+                persistent.event_database,          
+                eventlabel="monika_leave_P",        
+                category=["你"],                   
+                prompt=persistent._monika_leave_title,
+                conditional="_mas_getAffection() > 1250 and persistent.submods_dp_Leave",
+                action=EV_ACT_UNLOCK,
+                pool=True
+            )
+        )
 
 label monika_leave_P:
     $ ev = mas_getEV("monika_leave_P")

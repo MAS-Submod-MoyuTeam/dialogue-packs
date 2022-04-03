@@ -408,7 +408,7 @@ screen dp_setting():
                         textbutton _("禁用"):
                             action Jump("disableLeave")
                         textbutton _("?"):
-                            action Show(screen = "dialog", message = "抱歉, 但还没到离别的时候\n此选项只影响解锁条件, 不影响话题本身是否显示.", ok_action = Hide("dialog"))
+                            action Show(screen = "dialog", message = "此选项只影响解锁条件, 不影响话题本身是否显示.", ok_action = Hide("dialog"))
 
 
           
