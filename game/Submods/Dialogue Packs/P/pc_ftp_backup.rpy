@@ -128,6 +128,7 @@ init python:
 
     if persistent.submods_dp_CloudBackup:
         if not renpy.android:
+            if datetime.datetime.today() != persistent.CloudBackupLastTime[1]:
             uploadSave()
 
 
