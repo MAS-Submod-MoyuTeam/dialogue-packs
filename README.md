@@ -25,10 +25,13 @@ Collection of translated/written topic submodules, do integration to facilitate 
 |mkam23-Maya|[>reddit](https://www.reddit.com/user/mkam23-Maya/)|`NFTs` `眼镜和隐形眼镜`|TK 星光|
 |AmyKawa|[>reddit](https://www.reddit.com/user/AmyKawa/)|*Additional Conversations V1*|P TK Founxious|
 |****1***|/|*MyDialogue.rpy*|P TK|
-
+|ddy|/|`比较多和杂,这里就不列举了`|/|
 >** 以上作者和汉化者的排名不分先后 **      
 >** The above authors and Chinese translators are listed in no particular order **    
 > ****1*** : 作者未知 Author Unknown
 
 ### 话题投稿
 >请移步QQ群411131842或者发起pr/issue
+
+## 特别鸣谢名单(即话题提供者名单)
+* 虽华,木亭爱樱

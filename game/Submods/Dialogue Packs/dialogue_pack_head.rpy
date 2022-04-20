@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/PencilMario/dialogue-packs/blob/main/README.md}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.16.1',
+        version='1.16.4',
         settings_pane="dp_setting_pane"
     )
 
