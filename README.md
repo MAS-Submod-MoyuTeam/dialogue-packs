@@ -34,4 +34,4 @@ Collection of translated/written topic submodules, do integration to facilitate 
 >请移步QQ群411131842或者发起pr/issue
 
 ## 特别鸣谢名单(即话题提供者名单)
-|虽华,木亭爱樱|
+* 虽华,木亭爱樱
