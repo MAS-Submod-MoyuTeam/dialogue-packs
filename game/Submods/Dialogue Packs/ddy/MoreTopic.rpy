@@ -1,3 +1,5 @@
+default monika_YGO_lessons=False
+define persistent.monika_an_English_joke=False
 init 5 python:
     addEvent(
             Event(
@@ -8,16 +10,16 @@ init 5 python:
                 pool=True
             )
         )
-default monika_YGO_lessons=None
 label monika_YGO:
     m 1ftc "游戏王?嗯....我没听说过."
     m 1huc "等我上网冲浪一下."
     m 1huc "{w=0.7}.{w=0.7}.{w=0.7}."
     m 3esb "哦~这是一部以卡牌怪兽决斗和七件千年神器为主线的故事. "
     m 3etd "不过好像后续还有好多部?我不太清楚"
+    m "不管怎样,[player],你喜欢它吗?{fast}"
     $_history_list.pop()               
     menu:
-        "不管怎样,[player],你喜欢它吗?{fast}"
+        m "不管怎样,[player],你喜欢它吗?{fast}"
         "我喜欢":         
             m 2sso "哦!很高兴你告诉我我你喜欢它,{w=0.3}我以前从来都不知道.{w=0.1}"
             m 1nsa "谢谢你告诉我!"
@@ -255,7 +257,7 @@ init 5 python:
                 prompt="你能教教我游戏王怎么玩吗",
                 pool=True,
                 conditional="monika_YGO_lessons",
-                action=EV_ACT_PUSH
+                action=EV_ACT_POOL
             )
         )
 label monika_YGO_classes:
@@ -563,7 +565,6 @@ init 5 python:
                 random=True
             )
     )
-define persistent.monika_an_English_joke=False
 label monika_English_joke:
     m 3esa "Hey?[player]?"
     m 1hsa "I have something to tell you."
@@ -592,7 +593,7 @@ init 5 python:
                 prompt="莫妮卡的中文",
                 random=True,
                 conditional="persistent.monika_an_English_joke",
-                action=EV_ACT_QUEUE
+                action=EV_ACT_RANDOM
             )
     )
 label monika_Chinese:
@@ -636,3 +637,18 @@ label monika_Chinese:
 #    )
 label monika_some_interesting_words:
     m "嘿,[mas_get_player_nickname()]?"
+    m "我想知道你平常有搜集单词的习惯吗?"
+    m "你知道的,我可是文学部的部长耶?"
+    extend "所以我肯定会有留意这些的!"
+    m "啊哈哈,让我给你看看我\"珍藏\"的单词吧!"
+    m "不过,开始之前,我得和你解释一个概念"
+    m "那就是{i}自造词{/i}"
+    m "人们有时会一种感觉,语言无法准确表达出他们的意思.{nw}{w=0.7}"
+    if mas_isMoniHappy(higher=True):
+        extend "就像我对你的爱一样!"
+        extend "啊哈哈~"
+        m "咳嗯,话说回来..."
+    m "所以有时他们就会自己造一些词来会意."
+    m "为了使这些单词传播更为广泛,甚至变成真正的单词.有时会专门编一本词典."
+    m "比较著名的有《The Dictionary of Obscure Sorrows》."
+    m "我所收录的词也有很多出自这本词典!"
