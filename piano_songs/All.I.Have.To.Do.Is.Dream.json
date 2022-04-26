@@ -1,0 +1,577 @@
+{
+    "name":"All I Have To Do Is Dream",
+    "verse_list": [0, 5, 10, 15],
+	"win_label": "piano_adream_win",
+	"fc_label": "piano_def_fc",
+	"fail_label": "piano_def_fail",
+	"prac_label": "piano_def_prac",
+	"launch_label": "piano_adream_loaded",
+    "pnm_list": [
+        {
+            "text": "Dream.",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "F5",
+                "D5SH",
+                "A4SH",
+                "C5"
+            ],
+            "express": "1hub",
+            "postexpress": "1eua",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "Dream, dream, dream",
+            "style": "monika_credits_text",
+            "notes": [
+                "C6",
+                "C6",
+                "A5SH"
+            ],
+            "express": "1eub",
+            "postexpress": "1eua",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "Dream.",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "F5",
+                "D5SH",
+                "A4SH",
+                "C5"
+            ],
+            "express": "1dub",
+            "postexpress": "1eua",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "Dream, dream, dream",
+            "style": "monika_credits_text",
+            "notes": [
+                "C6",
+                "C6",
+                "A5SH"
+            ],
+            "express": "1sub",
+            "postexpress": "1eua",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "When I want you.",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5SH",
+                "G5",
+                "G5",
+                "G5"
+            ],
+            "express": "1ekbfb",
+            "postexpress": "1ekbfa",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "In my arms,",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5SH",
+                "G5SH",
+                "A5SH"
+            ],
+            "express": "2ekbfb",
+            "postexpress": "2ekbfa",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "When I want you.",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5SH",
+                "G5",
+                "G5",
+                "G5"
+            ],
+            "express": "2dkbfb",
+            "postexpress": "2dkbfa",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "And all your charms <3",
+            "style": "monika_credits_text",
+            "notes": [
+               "G5SH",
+               "G5SH",
+               "G5SH",
+               "A5SH"
+            ],
+            "express": "5dkbfb",
+            "postexpress": "5dkbfa",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "Whenever I want you,",
+            "style": "monika_credits_text",
+            "notes": [
+               "G5SH",
+               "G5",
+               "F5",
+               "G5",
+               "C6",
+               "G5",
+               "F5"
+            ],
+            "express": "2ekbfb",
+            "postexpress":"2ekbfa",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "all I have to do",
+            "style": "monika_credits_text",
+            "notes": [
+               "F5",
+               "F5",
+               "F5",
+               "F5",
+               "G5"
+            ],
+            "express": "3hugfb",
+            "postexpress": "3hubfa",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "is dream.",
+            "style": "monika_credits_text",
+            "notes": [
+               "F5",
+               "G5",
+               "F5",
+               "D5SH",
+               "A4SH",
+               "C5"
+            ],
+            "express": "1dubfb",
+            "postexpress": "1dkbfa",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "Dream, dream, dream",
+            "style": "monika_credits_text",
+            "notes": [
+               "C6",
+               "C6",
+               "A5SH"
+            ],
+            "express": "1dubfb",
+            "postexpress": "1dubfa",
+            "vis_timeout": 2.0,
+            "verse": 5
+        },
+        {
+            "text": "when I feel blue",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5SH",
+                "G5",
+                "G5",
+                "G5"
+            ],
+            "express": "2dkbfb",
+            "postexpress": "2dkbfa",
+            "vis_timeout": 2.0,
+            "verse": 5
+        },
+        {
+            "text": "in the night",
+            "style": "monika_credits_text",
+            "notes": [
+               "G5SH",
+               "G5SH",
+               "A5SH"
+            ],
+            "express": "2ekbfb",
+            "postexpress": "2ekbfa",
+            "vis_timeout": 2.0,
+            "verse": 5
+        },
+        {
+            "text": "and I need you",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5SH",
+                "G5",
+                "G5",
+                "G5"
+            ],
+            "express": "3hubfb",
+            "postexpress": "1hubfa",
+            "vis_timeout": 2.0,
+            "verse": 5
+        },
+        {
+            "text": "to hold me tight",
+            "style": "monika_credits_text",
+            "notes": [
+               "G5SH",
+               "G5SH",
+               "G5SH",
+               "A5SH"
+            ],
+            "express": "6dubfb",
+            "postexpress": "6dubfa",
+            "vis_timeout": 2.0,
+            "verse": 5
+        },
+        {
+            "text": "whenever I want you <3",
+            "style": "monika_credits_text",
+            "notes": [
+               "G5SH",
+               "G5",
+               "F5",
+               "G5",
+               "C6",
+               "G5",
+               "F5"
+            ],
+            "express": "1dubfb",
+            "postexpress": "1dubfa",
+            "vis_timeout": 2.0,
+            "verse": 5   
+        },
+        {
+            "text": "All I have to do",
+            "style": "monika_credits_text",
+            "notes": [
+               "F5",
+               "F5",
+               "F5",
+               "F5",
+               "G5"
+            ],
+            "express": "1dubfb",
+            "postexpress": "1dubfa",
+            "vis_timeout": 2.0,
+            "verse": 5
+        },
+        {
+            "text": "is dream.",
+            "style": "monika_credits_text",
+            "notes": [
+               "F5",
+               "G5",
+               "F5",
+               "D5SH",
+               "A4SH",
+               "C5"
+            ],
+            "express": "3subfb",
+            "postexpress": "1hubfa",
+            "vis_timeout": 2.0,
+            "verse": 5
+        },
+        {
+            "text": "Dream, dream, dream.",
+            "style": "monika_credits_text",
+            "notes": [
+                "C6",
+                "C6",
+                "A5SH"
+            ],
+            "express": "5hubfb",
+            "postexpress": "5hubfa",
+            "vis_timeout": 2.0,
+            "verse": 5
+        },
+        {
+            "text": "Dream.",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "F5",
+                "D5SH",
+                "A4SH",
+                "C5"
+            ],
+            "express": "5dubfb",
+            "postexpress": "5dubfa",
+            "vis_timeout": 2.0,
+            "verse": 5
+        },
+        {
+            "text": "I can make you mine~",
+            "style": "monika_credits_text",
+            "notes": [
+               "C6",
+               "C6",
+               "C6",
+               "C6",
+               "C6"
+            ],
+            "express": "5tubfb",
+            "postexpress": "5hubfa",
+            "vis_timeout": 2.0,
+            "verse": 10
+        },
+        {
+            "text": "Taste your lips of wine~",
+            "style": "monika_credits_text",
+            "notes": [
+               "A5SH",
+               "A5SH",
+               "A5SH",
+               "A5SH",
+               "A5SH"
+            ],
+            "express": "1tubfb",
+            "postexpress": "1tubfa",
+            "vis_timeout": 2.0,
+            "verse": 10
+        },
+        {
+            "text": "Anytime <3",
+            "style": "monika_credits_text",
+            "notes": [
+               "G5SH",
+               "G5SH",
+               "G5SH"
+            ],
+            "express": "4hubfb",
+            "postexpress": "4hubfa",
+            "vis_timeout": 2.0,
+            "verse": 10
+        },
+        {
+            "text": "Night or day.",
+            "style": "monika_credits_text",
+            "notes": [
+               "A5SH",
+               "G5SH",
+               "G5"
+            ],
+            "express": "2subfb",
+            "postexpress": "2hubfa",
+            "vis_timeout": 2.0,
+            "verse": 10
+        },
+        {
+            "text": "The only trouble is-",
+            "style": "monika_credits_text",
+            "notes": [
+               "A5SH",
+               "C6",
+               "C6",
+               "C6",
+               "C6",
+               "C6"
+            ],
+            "express": "4rksdlb",
+            "postexpress": "4rksdla",
+            "vis_timeout": 2.0,
+            "verse": 10
+        },
+        {
+            "text": "Gee whiz!",
+            "style": "monika_credits_text",
+            "notes": [
+               "E5",
+               "C5"
+            ],
+            "express": "1hksdrb",
+            "postexpress": "1hksdla",
+            "vis_timeout": 2.0,
+            "verse": 10
+        },
+        {
+            "text": "I'm dreaming my life away.",
+            "style": "monika_credits_text",
+            "notes": [
+               "B5",
+               "C6",
+               "C6",
+               "C6",
+               "C6",
+               "A5SH",
+               "A5",
+               "A5SH"
+            ],
+            "express": "1ekbfb",
+            "postexpress": "1ekbfa",
+            "vis_timeout": 2.0,
+            "verse": 10
+        },
+        {
+            "text": "I need you so,",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5SH",
+                "G5",
+                "G5",
+                "G5"
+            ],
+            "express": "5dkbfb",
+            "postexpress": "5dkbfa",
+            "vis_timeout": 2.0,
+            "verse": 15
+        },
+        {
+            "text": "That I could die.",
+            "style": "monika_credits_text",
+            "notes": [
+               "G5SH",
+               "G5SH",
+               "G5SH",
+               "A5SH"
+            ],
+            "express": "6rksdlc",
+            "postexpress": "1duc",
+            "vis_timeout": 2.0,
+            "verse": 15
+        },
+        {
+            "text": "I love you so,",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5SH",
+                "G5",
+                "G5",
+                "G5"
+            ],
+            "express": "1ekd",
+            "postexpress": "1ekbfa",
+            "vis_timeout": 2.0,
+            "verse": 15
+        },
+        {
+            "text": "And that is why",
+            "style": "monika_credits_text",
+            "notes": [
+               "G5SH",
+               "G5SH",
+               "G5SH",
+               "A5SH"
+            ],
+            "express": "3ekbfb",
+            "postexpress": "3ekbfa",
+            "vis_timeout": 2.0,
+            "verse": 15
+        },
+        {
+            "text": "Whenever I want you,",
+            "style": "monika_credits_text",
+            "notes": [
+               "G5SH",
+               "G5",
+               "F5",
+               "G5",
+               "C6",
+               "G5",
+               "F5"
+            ],
+            "express": "1hubfb",
+            "postexpress": "1hubfa",
+            "vis_timeout": 2.0,
+            "verse": 15
+        },
+        {
+            "text": "all I have to do",
+            "style": "monika_credits_text",
+            "notes": [
+               "F5",
+               "F5",
+               "F5",
+               "F5",
+               "G5"
+            ],
+            "express": "5eubfb",
+            "postexpress": "5hubfa",
+            "vis_timeout": 2.0,
+            "verse": 15
+        },
+        {
+            "text": "is dream.",
+            "style": "monika_credits_text",
+            "notes": [
+               "F5",
+               "G5",
+               "F5",
+               "D5SH",
+               "A4SH",
+               "C5"
+            ],
+            "express": "5hubfb",
+            "postexpress": "5hubfa",
+            "vis_timeout": 2.0,
+            "verse": 15
+        },
+        {
+            "text": "Dream, dream, dream,",
+            "style": "monika_credits_text",
+            "notes": [
+                "C6",
+                "C6",
+                "A5SH"
+            ],
+            "express": "5dubfb",
+            "postexpress": "5dubfa",
+            "vis_timeout": 2.0,
+            "verse": 15
+        },
+        {
+            "text": "dream.",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "F5",
+                "D5SH",
+                "A4SH",
+                "C5"
+            ],
+            "express": "5dubfb",
+            "postexpress": "5dubfa",
+            "vis_timeout": 2.0,
+            "verse": 15
+        },
+        {
+            "text": "Dream, dream, dream,",
+            "style": "monika_credits_text",
+            "notes": [
+                "C6",
+                "C6",
+                "A5SH"
+            ],
+            "express": "5dubfb",
+            "postexpress": "5dubfa",
+            "vis_timeout": 2.0,
+            "verse": 15
+        },
+        {
+            "text": "dream.",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "F5",
+                "D5SH",
+                "A4SH",
+                "C5"
+            ],
+            "express": "5dubfb",
+            "postexpress": "5dubfa",
+            "vis_timeout": 2.0,
+            "ev_timeout": 3.0,
+            "posttext": true
+        }
+    ]
+}

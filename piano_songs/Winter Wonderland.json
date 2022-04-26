@@ -1,0 +1,332 @@
+{
+    "name": "Winter Wonderland",
+    "verse_list": [0, 5, 10, 15],
+	"win_label":"piano_def_win",    
+    "fc_label" :"piano_def_fc",
+    "prac_label":"piano_def_prac",
+    "fail_label":"piano_def_fail",
+    "pnm_list": [
+        {
+            "_comment": "Verse 1",
+            "text": "Sleigh bells ring, are you listening?",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "C5",
+                "D5SH"
+            ],
+            "express": "1eub",
+            "postexpress": "1eua",
+            "verse": 0
+        },
+        {
+            "text": "In the lane, snow is glistening",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "C5SH",
+                "D5SH"
+            ],
+            "express": "1eub",
+            "postexpress": "1eua",
+            "verse": 0
+        },
+        {
+            "text": "A beautiful sight",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5SH",
+                "G5",
+                "G5",
+                "G5",
+                "F5"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 0
+        },
+        {
+            "text": "We're happy tonight",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "C5SH"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 0
+        },
+        {
+            "text": "Walking in a winter wonderland",
+            "style": "monika_credits_text",
+            "notes": [
+                "C5",
+                "C5",
+                "C5",
+                "C5",
+                "A4SH",
+                "A4SH",
+                "A4SH",
+                "A4SH",
+                "G4SH"
+            ],
+            "express": "1eub",
+            "postexpress": "1eua",
+            "verse": 0
+        },
+        {
+            "_comment": "Verse 2",
+            "text": "Gone away is the bluebird",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "C5",
+                "D5SH"
+            ],
+            "express": "1eub",
+            "postexpress": "1eua",
+            "verse": 5
+        },
+        {
+            "text": "Here to stay is the new bird",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "C5SH",
+                "D5SH"
+            ],
+            "express": "3eub",
+            "postexpress": "3eua",
+            "verse": 5
+        },
+        {
+            "text": "He sings a love song",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5SH",
+                "G5",
+                "G5",
+                "G5",
+                "F5"
+            ],
+            "express": "3hubfb",
+            "postexpress": "3hubfa",
+            "verse": 5
+        },
+        {
+            "text": "As we go along",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "C5SH"
+            ],
+            "express": "3hubfb",
+            "postexpress": "3hubfa",
+            "verse": 5
+        },
+        {
+            "text": "Walking in a winter wonderland",
+            "style": "monika_credits_text",
+            "notes": [
+                "C5",
+                "C5",
+                "C5",
+                "C5",
+                "A4SH",
+                "A4SH",
+                "A4SH",
+                "A4SH",
+                "G4SH"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 5
+        },
+        {
+            "_comment": "Bridge",
+            "text": "In the meadow, we can build a snowman",
+            "style": "monika_credits_text",
+            "notes": [
+                "G4",
+                "G4",
+                "E5",
+                "E5",
+                "A4",
+                "A4",
+                "F5",
+                "F5",
+                "E5",
+                "C5"
+            ],
+            "express": "3eub",
+            "postexpress": "3eua",
+            "verse": 10
+        },
+        {
+            "text": "Then pretend that he is Parson Brown",
+            "style": "monika_credits_text",
+            "notes": [
+                "G4",
+                "G4",
+                "E5",
+                "E5",
+                "A4",
+                "A4",
+                "F5",
+                "F5",
+                "E5"
+            ],
+            "express": "3eub",
+            "postexpress": "3eua",
+            "verse": 10
+        },
+        {
+            "text": "He'll say, 'Are you married?'",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4SH",
+                "A4SH",
+                "G5",
+                "G5",
+                "C5",
+                "C5"
+            ],
+            "express": "1eud",
+            "postexpress": "1euc",
+            "verse": 10
+        },
+        {
+            "text": "We'll say, 'No, man'",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5SH",
+                "G5SH",
+                "G5",
+                "D5SH"
+            ],
+            "express": "1eud",
+            "postexpress": "1eud",
+            "verse": 10
+        },
+        {
+            "text": "But you can do the job when you're in town",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5SH",
+                "G5",
+                "G5",
+                "C5",
+                "C5",
+                "F5",
+                "F5",
+                "A4SH",
+                "A4SH",
+                "D5SH"
+            ],
+            "express": "1hubfb",
+            "postexpress": "1hubfa",
+            "verse": 10
+        },
+        {
+            "_comment": "Verse 3",
+            "text": "Later on, we'll conspire",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "C5",
+                "D5SH"
+            ],
+            "express": "1eub",
+            "postexpress": "1eua",
+            "verse": 15
+        },
+        {
+            "text": "As we dream by the fire",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "C5SH",
+                "D5SH"
+            ],
+            "express": "6dubfb",
+            "postexpress": "6dubfa",
+            "verse": 15
+        },
+        {
+            "text": "To face unafraid",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5SH",
+                "G5",
+                "G5",
+                "G5",
+                "F5"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 15
+        },
+        {
+            "text": "The plans that we made",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5",
+                "D5SH",
+                "D5SH",
+                "D5SH",
+                "C5SH"
+            ],
+            "express": "1hubfb",
+            "postexpress": "1hubfa",
+            "verse": 15
+        },
+        {
+            "text": "Walking in a winter wonderland",
+            "style": "monika_credits_text",
+            "notes": [
+                "C5",
+                "C5",
+                "C5",
+                "C5",
+                "A4SH",
+                "A4SH",
+                "A4SH",
+                "A4SH",
+                "G4SH"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 15
+        }
+    ]
+}

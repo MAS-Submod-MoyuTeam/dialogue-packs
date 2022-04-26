@@ -1,0 +1,801 @@
+{
+    "name": "Doki Doki Forever",
+    "verse_list": [0,1,2,3,4,7,8,9,10,11,12,13],
+    "win_label": "jmcustom_ddf_win",
+    "fc_label": "jmcustom_common_complete",
+    "fail_label": "jmcustom_common_escape",
+    "prac_label": "jmcustom_common_almost",
+    "launch_label": "piano_ddf_loaded",
+	"end_wait":5,
+    "pnm_list": [
+        {
+            "_comment": "1hub/1hua: happy, eyes closed; 1ekd/1ekc: sad; 1eub/1eua: regular",
+            "_comment": "Verse one",
+            "text": "Hey, hey, my heart's beating when I'm hanging out with you",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "F5SH",
+                "D5",
+                "E5",
+                "E5",
+                "D5",
+                "E5",
+                "D5",
+                "E5",
+                "D5",
+                "E5",
+                "F5SH",
+                "B4"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 0
+        },
+        {
+            "text": "Why does my heart ache when I hear you feel the same way too?",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4",
+                "B4",
+                "D5",
+                "A5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "D5",
+                "E5",
+                "D5",
+                "E5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1ekd",
+            "postexpress": "1eka",
+            "verse": 0
+        },
+        {
+            "text": "Just like a sundae, it's sweet every time I teach you something new",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4",
+                "B4",
+                "D5",
+                "A5",
+                "F5SH",
+                "D5",
+                "E5",
+                "E5",
+                "D5",
+                "E5",
+                "D5",
+                "E5",
+                "D5",
+                "E5",
+                "F5SH",
+                "B4"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 0
+        },
+        {
+            "text": "Is this by chance or fate?",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4",
+                "A4",
+                "B4",
+                "D5",
+                "A5",
+                "F5SH"
+            ],
+            "express": "5hub",
+            "postexpress": "5hua",
+            "verse": 1
+        },
+        {
+            "text": "Whenever it's just me and you...",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "E5",
+                "D5",
+                "E5",
+                "D5",
+                "E5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "5eubfb",
+            "postexpress": "5eubfu",
+            "verse": 1
+        },
+        {
+            "_comment": "Pre-chorus",
+            "text": "When we touch, it'll never be enough",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "D5",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5",
+                "B4",
+                "B4",
+                "B4"
+            ],
+            "express": "1ekd",
+            "postexpress": "1eka",
+            "verse": 1
+        },
+        {
+            "text": "Is it way too much",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4",
+                "B4",
+                "D5",
+                "D5",
+                "D5"
+            ],
+            "express": "1ekd",
+            "postexpress": "1eka",
+            "verse": 2
+        },
+        {
+            "text": "if you had to choose just one of us?",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "D5",
+                "D5",
+                "E5",
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5",
+                "E5"
+            ],
+            "express": "3hub",
+            "postexpress": "3hua",
+            "verse": 2
+        },
+        {
+            "_comment": "Chorus",
+            "text": "Tell me, tell me please",
+            "style": "monika_credits_text",
+            "notes": [
+                "B5",
+                "A5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eua",
+            "verse": 2
+        },
+        {
+            "text": "Is this what I think or is it just me?",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "D5",
+                "E5",
+                "D5",
+                "B5",
+                "A5",
+                "F5SH",
+                "F5SH",
+                "A5",
+                "E5"
+            ],
+            "express": "3eub",
+            "postexpress": "3eua",
+            "verse": 3
+        },
+        {
+            "text": "Don't wake me up from this sweet little dream",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "B4",
+                "D5",
+                "E5",
+                "D5",
+                "B5",
+                "A5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 3
+        },
+        {
+            "text": "Where we'll be together forever",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "B4",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 3
+        },
+        {
+            "text": "We're never gonna be apart",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "E5",
+                "D5",
+                "B4",
+                "A4",
+                "B4",
+                "D5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eua",
+            "verse": 3
+        },
+        {
+            "text": "Will it be okay",
+            "style": "monika_credits_text",
+            "notes": [
+                "B5",
+                "A5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1ekd",
+            "postexpress": "1eka",
+            "verse": 3
+        },
+        {
+            "text": "If I express my love for you this way?",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "B4",
+                "D5",
+                "E5",
+                "D5",
+                "B5",
+                "A5",
+                "F5SH",
+                "A5",
+                "E5"
+            ],
+            "express": "1ekd",
+            "postexpress": "1eka",
+            "verse": 4
+        },
+        {
+            "text": "No matter what you do or what you say",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "B4",
+                "D5",
+                "E5",
+                "D5",
+                "B5",
+                "A5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eua",
+            "verse": 4
+        },
+        {
+            "text": "We'll be together forever",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 4
+        },
+        {
+            "text": "We're never gonna be apart",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "E5",
+                "D5",
+                "B4",
+                "A4",
+                "B4",
+                "D5",
+                "D5"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 4
+        },
+        {
+            "text": "We're never gonna be apart",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "E5",
+                "D5",
+                "B4",
+                "A4",
+                "B4",
+                "D5",
+                "D5"
+            ],
+            "express": "5hubfb",
+            "postexpress": "5hubfa",
+            "verse": 4
+        },
+        {
+            "_comment": "Verse two",
+            "text": "Hey, hey, when I'm next to you I don't know what to do",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "F5SH",
+                "D5",
+                "E5",
+                "E5",
+                "D5",
+                "E5",
+                "D5",
+                "E5",
+                "D5",
+                "E5",
+                "F5SH",
+                "B4"
+            ],
+            "express": "1ekbsb",
+            "postexpress": "1ekasb",
+            "verse": 4
+        },
+        {
+            "text": "Why does it feel so great when our eyes meet out of the blue?",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4",
+                "A4",
+                "B4",
+                "D5",
+                "A5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "E5",
+                "E5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "3hubsb",
+            "postexpress": "3huasb",
+            "verse": 7
+        },
+        {
+            "text": "I really love-",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4",
+                "A4",
+                "B4",
+                "D5"
+            ],
+            "express": "1ektdd",
+            "postexpress": "1ektda",
+            "verse": 7
+        },
+        {
+            "text": "-the way you write even when you don't have a clue",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "F5SH",
+                "D5",
+                "E5",
+                "E5",
+                "D5",
+                "E5",
+                "E5",
+                "D5",
+                "E5",
+                "F5SH",
+                "B4"
+            ],
+            "express": "1hubfb",
+            "postexpress": "1huafb",
+            "verse": 7
+        },
+        {
+            "text": "I wanna hear you say this love that I am feeling is true",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4",
+                "A4",
+                "B4",
+                "D5",
+                "A5",
+                "F5SH",
+                "D5",
+                "E5",
+                "D5",
+                "E5",
+                "D5",
+                "E5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1hubfb",
+            "postexpress": "5hubfa",
+            "verse": 7
+        },
+        {
+            "_comment": "Pre-chorus",
+            "text": "Tasty love, something I want more of",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "D5",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5",
+                "B4",
+                "B4",
+                "B4"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 7
+        },
+        {
+            "text": "Will it make the cut",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4",
+                "B4",
+                "D5",
+                "D5",
+                "D5"
+            ],
+            "express": "1ekd",
+            "postexpress": "1ekc",
+            "verse": 8,
+            "posttext": true
+        },
+        {
+            "text": "if you had to choose just one of us?",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "D5",
+                "D5",
+                "E5",
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5",
+                "E5"
+            ],
+            "express": "3hub",
+            "postexpress": "3hua",
+            "verse": 8
+        },
+        {
+            "_comment": "Chorus",
+            "text": "Shall I leave you be?",
+            "style": "monika_credits_text",
+            "notes": [
+                "B5",
+                "A5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1ekd",
+            "postexpress": "1eka",
+            "verse": 8
+        },
+        {
+            "text": "Is it love if I could set you free?",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "D5",
+                "E5",
+                "D5",
+                "B5",
+                "A5",
+                "F5SH",
+                "A5",
+                "E5"
+            ],
+            "express": "1ekd",
+            "postexpress": "1eka",
+            "verse": 9
+        },
+        {
+            "text": "But even if it's not reality",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "B4",
+                "D5",
+                "E5",
+                "D5",
+                "B5",
+                "A5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1ekd",
+            "postexpress": "1eka",
+            "verse": 9
+        },
+        {
+            "text": "Let's be together forever",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "5hub",
+            "postexpress": "5hua",
+            "verse": 9
+        },
+        {
+            "text": "We're never gonna be apart",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "E5",
+                "D5",
+                "B4",
+                "A4",
+                "B4",
+                "D5",
+                "D5"
+            ],
+            "express": "5hub",
+            "postexpress": "5hua",
+            "verse": 9
+        },
+        {
+            "text": "How can I convey",
+            "style": "monika_credits_text",
+            "notes": [
+                "B5",
+                "A5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1ekd",
+            "postexpress": "1eka",
+            "verse": 9
+        },
+        {
+            "text": "My love for you before they fly away?",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "B4",
+                "D5",
+                "E5",
+                "D5",
+                "B5",
+                "A5",
+                "F5SH",
+                "A5",
+                "E5"
+            ],
+            "express": "1ekd",
+            "postexpress": "1eka",
+            "verse": 10
+        },
+        {
+            "text": "I think about it all day, every day",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "B4",
+                "D5",
+                "E5",
+                "D5",
+                "B5",
+                "A5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eua",
+            "verse": 10
+        },
+        {
+            "text": "How we'll be together forever",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "B4",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 10
+        },
+        {
+            "text": "We're never gonna be apart",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "E5",
+                "D5",
+                "B4",
+                "A4",
+                "B4",
+                "D5",
+                "D5"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 10
+        },
+        {
+            "_comment": "Post-chorus",
+            "text": "One by one, they only fall apart",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "D5",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5",
+                "B4",
+                "B4",
+                "B4"
+            ],
+            "express": "6dkd",
+            "postexpress": "6dkc",
+            "verse": 10
+        },
+        {
+            "text": "Can it be undone?",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4",
+                "B4",
+                "D5",
+                "D5",
+                "D5"
+            ],
+            "express": "6ekd",
+            "postexpress": "6ekc",
+            "verse": 11
+        },
+        {
+            "text": "Why can't I just be the one for once?",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "D5",
+                "D5",
+                "E5",
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5",
+                "E5"
+            ],
+            "express": "1efd",
+            "postexpress": "1efc",
+            "verse": 11
+        },
+        {
+            "text": "We'll be together forever",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "5hub",
+            "postexpress": "5hua",
+            "verse": 12
+        },
+        {
+            "text": "We're never gonna be apart",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "E5",
+                "D5",
+                "B4",
+                "A4",
+                "B4",
+                "D5",
+                "D5"
+            ],
+            "express": "5hub",
+            "postexpress": "5hua",
+            "verse": 13
+        },
+        {
+            "text": "Maybe we'll never be together, but forever you'll be in my heart",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5",
+                "D5",
+                "F5SH",
+                "E5",
+                "D5",
+                "B4",
+                "A4",
+                "B4",
+                "D5",
+                "D5"
+            ],
+            "express": "1ektdd",
+            "postexpress": "1ektda",
+            "verse": 13
+        }
+    ]
+}
