@@ -1,0 +1,963 @@
+{
+    "name": "Welcome to Black Parade ",
+    "verse_list": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57],
+    "win_label":"piano_def_win",    
+    "fc_label" :"piano_def_fc",
+    "prac_label":"piano_def_prac",
+    "fail_label":"piano_def_fail",
+    "pnm_list": [
+        {
+            "text": "...",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "F5SH",
+                "B5",
+                "E5",
+                "D5",
+                "G5",
+                "C5",
+                "B4",
+                "E5",
+                "A4",
+                "D5"
+
+            ],
+            "express": "1duc",
+            "postexpress": "1duc",
+            "verse": 0
+        },
+        {
+            "text": "......",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "F5SH",
+                "B5",
+                "E5",
+                "D5",
+                "G5",
+                "C5",
+                "B4",
+                "E5",
+                "A4",
+                "D5"
+
+            ],
+            "express": "1duc",
+            "postexpress": "1duc",
+            "verse": 1
+        },
+        {
+            "text": "When I was",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "G5",
+                "D5"
+
+            ],
+            "express": "1euc",
+            "postexpress": "1euc",
+            "verse": 2
+        },
+        {
+            "text": "a young boy",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "F5SH",
+                "D5"
+
+            ],
+            "express": "1euc",
+            "postexpress": "1euc",
+            "verse": 3
+        },
+        {
+            "text": "my father",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "G5",
+                "D5"
+
+            ],
+            "express": "1euc",
+            "postexpress": "1euc",
+            "verse": 4
+        },
+        {
+            "text": "took me into the city",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "C5"
+
+            ],
+            "express": "1euc",
+            "postexpress": "1euc",
+            "verse": 5
+        },
+        {
+            "text": "to see a marching band.",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5",
+                "D5",
+                "C5",
+                "D5"
+
+            ],
+            "express": "1euc",
+            "postexpress": "1euc",
+            "verse": 6
+        },
+        {
+            "text": "He said:Son when",
+            "style": "monika_credits_text",
+            "notes": [
+                "C5",
+                "D5",
+                "G5",
+                "D5"
+
+            ],
+            "express": "1dkc",
+            "postexpress": "1dkc",
+            "verse": 7
+        },
+        {
+            "text": "you grow up",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "F5SH",
+                "D5"
+
+            ],
+            "express": "1dkc",
+            "postexpress": "1dkc",
+            "verse": 8
+        },
+        {
+            "text": "would you be",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "G5",
+                "D5"
+
+            ],
+            "express": "1dkc",
+            "postexpress": "1dkc",
+            "verse": 9
+        },
+        {
+            "text": "the savior of the broken?",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "C5"
+
+            ],
+            "express": "1dkc",
+            "postexpress": "1dkc",
+            "verse": 10
+        },
+        {
+            "text": "The beaten and the damned?",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5",
+                "D5",
+                "C5",
+                "D5"
+
+            ],
+            "express": "1dkc",
+            "postexpress": "1dkc",
+            "verse": 11
+        },
+        {
+            "text": "He said:Will you defeat them?",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "E5",
+                "G5",
+                "D5",
+                "F5SH",
+                "D5"
+
+            ],
+            "express": "1ekc",
+            "postexpress": "1ekc",
+            "verse": 12
+        },
+        {
+            "text": "Your demons? And all the non-believers?",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "G5",
+                "D5",
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "C5"
+
+            ],
+            "express": "1ekc",
+            "postexpress": "1ekc",
+            "verse": 13
+        },
+        {
+            "text": "The plans that they have made?",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5",
+                "D5",
+                "C5"
+
+            ],
+            "express": "1ekc",
+            "postexpress": "1ekc",
+            "verse": 14
+        },
+        {
+            "text": "Because one day, I'll leave you,",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "E5",
+                "G5",
+                "D5",
+                "G5",
+                "F5SH",
+                "D5"
+
+            ],
+            "express": "1fkc",
+            "postexpress": "1fkc",
+            "verse": 15
+        },
+        {
+            "text": "A phanthom to lead you in the summer,",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "G5",
+                "D5",
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "C5"
+
+            ],
+            "express": "1fkc",
+            "postexpress": "1fkc",
+            "verse": 16
+        },
+        {
+            "text": "to join the Black Parade.",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5",
+                "D5",
+                "C5"
+
+            ],
+            "express": "1fkc",
+            "postexpress": "1fkc",
+            "verse": 17
+        },
+        {
+            "text": "When I was a young boy",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "A5",
+                "G5",
+                "A5",
+                "A5",
+                "G5"
+
+
+            ],
+            "express": "1fkd",
+            "postexpress": "1fkd",
+            "verse": 18
+        },
+        {
+            "text": "my father took me into the city",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "A5",
+                "G5",
+                "A5",
+                "A5",
+                "G5",
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5"
+
+            ],
+            "express": "1fkd",
+            "postexpress": "1fkd",
+            "verse": 19
+        },
+        {
+            "text": "to see a marching band!",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "A5",
+                "G5",
+                "F5SH",
+                "G5",
+                "G5"
+
+            ],
+            "express": "1fkd",
+            "postexpress": "1fkd",
+            "verse": 20
+        },
+        {
+            "text": "He said:Son when you grow up",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "A5",
+                "A5",
+                "G5",
+                "A5",
+                "A5",
+                "G5"
+
+            ],
+            "express": "1fkd",
+            "postexpress": "1fkd",
+            "verse": 21
+        },
+        {
+            "text": "Would you be the savior of the broken?!",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "A5",
+                "G5",
+                "A5",
+                "A5",
+                "G5",
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5"
+
+            ],
+            "express": "1fkd",
+            "postexpress": "1fkd",
+            "verse": 22
+        },
+        {
+            "text": "The beaten and the damned?!",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "A5",
+                "G5",
+                "F5SH",
+                "G5",
+                "G5"
+
+            ],
+            "express": "1fkd",
+            "postexpress": "1fkd",
+            "verse": 23
+        },
+        {
+            "text": "We'll carry on",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "B5",
+                "F5SH",
+                "G5"
+        
+            ],
+            "express": "1eka",
+            "postexpress": "1eka",
+            "verse": 24
+        },
+        {
+            "text": "We'll carry on",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "B5",
+                "F5SH",
+                "G5"
+        
+            ],
+            "express": "1eka",
+            "postexpress": "1eka",
+            "verse": 25
+        },
+        {
+            "text": "And though you're dead and gone",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "B5",
+                "A5",
+                "G5",
+                "A5",
+                "G5"
+        
+            ],
+            "express": "1eka",
+            "postexpress": "1eka",
+            "verse": 26
+        },
+        {
+            "text": "believe me",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "G5",
+                "A5"
+        
+            ],
+            "express": "1eka",
+            "postexpress": "1eka",
+            "verse": 27
+        },
+        {
+            "text": "Your memory will carry on!",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "G5",
+                "A5",
+                "G5",
+                "A5",
+                "B5",
+                "F5SH",
+                "A5",
+                "G5"
+        
+            ],
+            "express": "1eka",
+            "postexpress": "1eka",
+            "verse": 28
+        },
+        {
+            "text": "Sometimes I get the feeling",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "D5",
+                "C5",
+                "B4",
+                "C5",
+                "B4",
+                "C5"
+        
+            ],
+            "express": "1dkb",
+            "postexpress": "1dkb",
+            "verse": 29
+        },
+        {
+            "text": "She's watching over me",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "D5",
+                "D5",
+                "E5",
+                "D5",
+                "G5"
+        
+            ],
+            "express": "1dkb",
+            "postexpress": "1dkb",
+            "verse": 30
+        },
+        {
+            "text": "And other times I feel like I should go",
+            "style": "monika_credits_text",
+            "notes": [
+                "C5",
+                "B4",
+                "C5",
+                "D5",
+                "E5",
+                "E5",
+                "D5",
+                "B4",
+                "A4"
+        
+            ],
+            "express": "1dkb",
+            "postexpress": "1dkb",
+            "verse": 31
+        },
+        {
+            "text": "And through it all, the rise and fall,",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "G5",
+                "G5",
+                "G5",
+                "D5",
+                "A5",
+                "G5",
+                "G5"
+        
+            ],
+            "express": "1dkb",
+            "postexpress": "1dkb",
+            "verse": 32
+        },
+        {
+            "text": "the bodies in the street.",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "G5",
+                "A5",
+                "G5",
+                "A5",
+                "G5",
+                "A5"
+        
+            ],
+            "express": "1dkb",
+            "postexpress": "1dkb",
+            "verse": 33
+        },
+        {
+            "text": "And when you're gone",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "G5",
+                "D5",
+                "D5"
+        
+            ],
+            "express": "1dkd",
+            "postexpress": "1dkd",
+            "verse": 34
+        },
+        {
+            "text": "We want you all to know!",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "E5",
+                "D5",
+                "G5",
+                "G5",
+                "F5SH"
+        
+            ],
+            "express": "1dkd",
+            "postexpress": "1dkd",
+            "verse": 35
+        },
+        {
+            "text": "We'll carry on!",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "B5",
+                "F5SH",
+                "G5"
+        
+            ],
+            "express": "1esd",
+            "postexpress": "1esd",
+            "verse": 36
+        },
+        {
+            "text": "We'll carry on!",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "B5",
+                "F5SH",
+                "G5"
+        
+            ],
+            "express": "1esd",
+            "postexpress": "1esd",
+            "verse": 37
+        },
+        {
+            "text": "And though you're dead and gone",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "B5",
+                "A5",
+                "G5",
+                "A5",
+                "G5"
+        
+            ],
+            "express": "1esd",
+            "postexpress": "1esd",
+            "verse": 38
+        },
+        {
+            "text": "believe me",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "G5",
+                "A5"
+        
+            ],
+            "express": "1esd",
+            "postexpress": "1esd",
+            "verse": 39
+        },
+        {
+            "text": "Your memory will carry on!",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "G5",
+                "A5",
+                "G5",
+                "A5",
+                "B5",
+                "F5SH",
+                "A5",
+                "G5"
+        
+            ],
+            "express": "1esd",
+            "postexpress": "1esd",
+            "verse": 40
+        },
+        {
+            "text": "We'll carry on!",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "B5",
+                "F5SH",
+                "G5"
+        
+            ],
+            "express": "1esd",
+            "postexpress": "1esd",
+            "verse": 41
+        },
+        {
+            "text": "And in my heart I can't contain it,",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "B5",
+                "A5",
+                "G5",
+                "A5",
+                "G5",
+                "A5",
+                "G5",
+                "A5"
+        
+            ],
+            "express": "1dsd",
+            "postexpress": "1dsd",
+            "verse": 42
+        },
+        {
+            "text": "the anthem won't explain it...",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "G5",
+                "A5",
+                "G5",
+                "A5",
+                "G5",
+                "A5"
+        
+            ],
+            "express": "1dsd",
+            "postexpress": "1dsd",
+            "verse": 43
+        },
+        {
+            "text": "A world that sends you reeling",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "D5",
+                "C5",
+                "B4",
+                "C5",
+                "B4",
+                "C5"
+        
+            ],
+            "express": "1ruc",
+            "postexpress": "1ruc",
+            "verse": 44
+        },
+        {
+            "text": "from decimated dreams.",
+            "style": "monika_credits_text",
+            "notes": [
+                "C5",
+                "D5",
+                "D5",
+                "E5",
+                "D5",
+                "G5"
+        
+            ],
+            "express": "1ruc",
+            "postexpress": "1ruc",
+            "verse": 45
+        },
+        {
+            "text": "Your misery and hate will kill us all!",
+            "style": "monika_credits_text",
+            "notes": [
+                "C5",
+                "B4",
+                "C5",
+                "D5",
+                "D5",
+                "E5",
+                "E5",
+                "D5",
+                "B4",
+                "A4"
+        
+            ],
+            "express": "1tuc",
+            "postexpress": "1tuc",
+            "verse": 46
+        },
+        {
+            "text": "So paint it black and take it back!",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "G5",
+                "G5",
+                "G5",
+                "D5",
+                "G5",
+                "A5",
+                "G5"
+        
+            ],
+            "express": "1eud",
+            "postexpress": "1eud",
+            "verse": 47
+        },
+        {
+            "text": "Let's shout it loud and clear!",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "G5",
+                "A5",
+                "G5",
+                "A5",
+                "G5"
+        
+            ],
+            "express": "1eud",
+            "postexpress": "1eud",
+            "verse": 48
+        },
+        {
+            "text": "Defiant to the end we hear the call!",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "G5",
+                "D5",
+                "D5",
+                "D5",
+                "E5",
+                "D5",
+                "G5",
+                "G5",
+                "F5SH"
+        
+            ],
+            "express": "1eud",
+            "postexpress": "1eud",
+            "verse": 49
+        },
+        {
+            "text": "To carry on!",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "B5",
+                "F5SH",
+                "G5"
+        
+            ],
+            "express": "1esd",
+            "postexpress": "1esd",
+            "verse": 50
+        },
+        {
+            "text": "We'll carry on!",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "B5",
+                "F5SH",
+                "G5"
+        
+            ],
+            "express": "1esd",
+            "postexpress": "1esd",
+            "verse": 51
+        },
+        {
+            "text": "And though you're dead and gone",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "B5",
+                "A5",
+                "G5",
+                "A5",
+                "G5"
+        
+            ],
+            "express": "1esd",
+            "postexpress": "1esd",
+            "verse": 52
+        },
+        {
+            "text": "believe me",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "G5",
+                "A5"
+        
+            ],
+            "express": "1esd",
+            "postexpress": "1esd",
+            "verse": 53
+        },
+        {
+            "text": "Your memory will carry on!",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "G5",
+                "A5",
+                "G5",
+                "A5",
+                "B5",
+                "F5SH",
+                "A5",
+                "G5"
+        
+            ],
+            "express": "1esd",
+            "postexpress": "1esd",
+            "verse": 54
+        },
+        {
+            "text": "We'll carry on!",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "B5",
+                "F5SH",
+                "G5"
+        
+            ],
+            "express": "1esd",
+            "postexpress": "1esd",
+            "verse": 55
+        },
+        {
+            "text": "And though you're broken and defeated",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "B5",
+                "A5",
+                "G5",
+                "A5",
+                "G5",
+                "A5",
+                "G5",
+                "A5"
+        
+            ],
+            "express": "1dkd",
+            "postexpress": "1dkd",
+            "verse": 56
+        },
+        {
+            "text": "Your weary widow marches...",
+            "style": "monika_credits_text",
+            "notes": [
+                "A5",
+                "G5",
+                "A5",
+                "G5",
+                "A5",
+                "B5",
+                "A5"
+        
+            ],
+            "express": "1dkd",
+            "postexpress": "1dkd",
+            "verse": 57
+        }
+
+    ]
+}

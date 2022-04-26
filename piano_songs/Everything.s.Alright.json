@@ -1,0 +1,478 @@
+{
+    "name": "Everything's Alright",
+    "verse_list": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
+    "win_label":"piano_tothemoon_win",    
+    "fc_label" :"jucustom_common_complete",
+    "prac_label":"piano_def_prac",
+    "fail_label":"piano_def_fail",
+    "launcl_label":"piano_tothemoon_loaded",
+    "pnm_list":[
+        {
+            "text": "Short Steps, deep breath",
+            "style": "monika_credits_text",
+            "notes": [
+                "C5",
+                "E5",
+                "C5",
+                "E5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 0
+        },
+        {
+            "text": "Everything's alright",
+            "style": "monika_credits_text",
+            "notes": [  
+                "E5",
+                "D5",
+                "E5",
+                "G5",
+                "E5",
+                "D5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 1
+        },
+        {
+            "text": "Chin up, I can't",
+            "style": "monika_credits_text",
+            "notes": [     
+                "C5",
+                "E5",
+                "C5",
+                "E5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 2
+        },
+        {
+            "text": "Step into the spotlight",
+            "style": "monika_credits_text",
+            "notes": [  
+                "E5",
+                "D5",
+                "E5",
+                "G5",
+                "E5",
+                "D5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 3
+        },
+        {
+            "text": "She said: I'm sad",
+            "style": "monika_credits_text",
+            "notes": [  
+                "F5",
+                "G5",
+                "E5",
+                "G5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 4
+        },
+        {
+            "text": "Somehow without any words",
+            "style": "monika_credits_text",
+            "notes": [  
+                "C5",
+                "D5",
+                "E5",
+                "C5",
+                "A4",
+                "C5",
+                "B4"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 5
+        },
+        {
+            "text": "I just stood there",
+            "style": "monika_credits_text",
+            "notes": [  
+                "F5",
+                "G5",
+                "E5",
+                "G5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 6
+        },
+        {
+            "text": "Searching for an answer.",
+            "style": "monika_credits_text",
+            "notes": [  
+                "C5",
+                "D5",
+                "E5",
+                "C5",
+                "A4",
+                "C5",
+                "B4"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 7
+        },
+        {
+            "text": "When this world is no more",
+            "style": "monika_credits_text",
+            "notes": [  
+                "C5",
+                "D5",
+                "E5",
+                "F5",
+                "G5",
+                "A5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 8
+        },
+        {
+            "text": "The moon is all we'll see",
+            "style": "monika_credits_text",
+            "notes": [  
+                "A5",
+                "A5",
+                "B5",
+                "C6",
+                "B5",
+                "A5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 9
+        },
+        {
+            "text": "I'll ask you to fly away with me",
+            "style": "monika_credits_text",
+            "notes": [  
+                "F5",
+                "E5",
+                "F5",
+                "E5",
+                "F5",
+                "E5",
+                "E5",
+                "D5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 10
+        },
+        {
+            "text": "Until the stars all fall down",
+            "style": "monika_credits_text",
+            "notes": [  
+                "C5",
+                "C5",
+                "D5",
+                "E5",
+                "F5",
+                "G5",
+                "A5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 11
+        },
+        {
+            "text": "They empty from the sky",
+            "style": "monika_credits_text",
+            "notes": [  
+                "A5",
+                "A5",
+                "B5",
+                "C6",
+                "B5",
+                "B5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 12
+        },
+        {
+            "text": "But I don't mind",
+            "style": "monika_credits_text",
+            "notes": [  
+                "G5",
+                "B5",
+                "A5",
+                "G5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 13
+        },
+        {
+            "text": "If you're with me, then everything's alright",
+            "style": "monika_credits_text",
+            "notes": [  
+                "F5",
+                "C6",
+                "B5",
+                "B5",
+                "G5",
+                "F5",
+                "A5",
+                "G5",
+                "F5",
+                "F5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 14
+         },
+         {
+            "text": "Why do my words",
+            "style": "monika_credits_text",
+            "notes": [
+                "C5",
+                "E5",
+                "C5",
+                "E5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 15
+        },
+        {
+            "text": "Always lose their meaning?",
+            "style": "monika_credits_text",
+            "notes": [  
+                "E5",
+                "D5",
+                "E5",
+                "G5",
+                "E5",
+                "D5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 16
+        },
+        {
+            "text": "What I feel, what I say",
+            "style": "monika_credits_text",
+            "notes": [     
+                "C5",
+                "E5",
+                "C5",
+                "E5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 17
+        },
+        {
+            "text": "There's such a rift between them",
+            "style": "monika_credits_text",
+            "notes": [  
+                "E5",
+                "D5",
+                "E5",
+                "G5",
+                "E5",
+                "D5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 18
+        },
+        {
+            "text": "He said: I'm can't",
+            "style": "monika_credits_text",
+            "notes": [  
+                "F5",
+                "G5",
+                "E5",
+                "G5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 19
+        },
+        {
+            "text": "Really seem to read you.",
+            "style": "monika_credits_text",
+            "notes": [  
+                "C5",
+                "D5",
+                "E5",
+                "C5",
+                "A4",
+                "C5",
+                "B4"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 20
+        },
+        {
+            "text": "I just stood there",
+            "style": "monika_credits_text",
+            "notes": [  
+                "F5",
+                "G5",
+                "E5",
+                "G5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 21
+        },
+        {
+            "text": "Never know what I should do",
+            "style": "monika_credits_text",
+            "notes": [  
+                "C5",
+                "D5",
+                "E5",
+                "C5",
+                "A4",
+                "C5",
+                "B4"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 22
+        },
+        {
+            "text": "When this world is no more",
+            "style": "monika_credits_text",
+            "notes": [  
+                "C5",
+                "D5",
+                "E5",
+                "F5",
+                "G5",
+                "A5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 23
+        },
+        {
+            "text": "The moon is all we'll see",
+            "style": "monika_credits_text",
+            "notes": [  
+                "A5",
+                "A5",
+                "B5",
+                "C6",
+                "B5",
+                "A5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 24
+        },
+        {
+            "text": "I'll ask you to fly away with me",
+            "style": "monika_credits_text",
+            "notes": [  
+                "F5",
+                "E5",
+                "F5",
+                "E5",
+                "F5",
+                "E5",
+                "E5",
+                "D5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 25
+        },
+        {
+            "text": "Until the stars all fall down",
+            "style": "monika_credits_text",
+            "notes": [  
+                "C5",
+                "C5",
+                "D5",
+                "E5",
+                "F5",
+                "G5",
+                "A5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 26
+        },
+        {
+            "text": "They empty from the sky",
+            "style": "monika_credits_text",
+            "notes": [  
+                "A5",
+                "A5",
+                "B5",
+                "C6",
+                "B5",
+                "B5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 27
+        },
+        {
+            "text": "But I don't mind",
+            "style": "monika_credits_text",
+            "notes": [  
+                "G5",
+                "B5",
+                "A5",
+                "G5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 28
+        },
+        {
+            "text": "If you're with me, then everything's alright",
+            "style": "monika_credits_text",
+            "notes": [  
+                "F5",
+                "C6",
+                "B5",
+                "B5",
+                "G5",
+                "F5",
+                "A5",
+                "G5",
+                "F5",
+                "F5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 29
+         },
+         {
+            "text": "If you're with me, then everything's alright",
+            "style": "monika_credits_text",
+            "notes": [  
+                "F5",
+                "C6",
+                "B5",
+                "B5",
+                "G5",
+                "F5",
+                "A5",
+                "G5",
+                "F5",
+                "F5"
+            ],
+            "express": "1hua",
+            "postexpress": "1hua",
+            "verse": 30
+         }
+    ]
+}

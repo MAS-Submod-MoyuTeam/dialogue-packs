@@ -1,0 +1,15 @@
+Note sheet:
+
+Y Y 6 R R E E
+2 E 2 E 2 E 2 Y 6 R
+W R 6
+Y Y 6 R R E E
+2 E 2 E 2 Y R
+6 6 6 6 R E T T T Y U
+R R R R E W E R E
+6 6 6 6 R E T T T Y U
+R R R R R E W E R E
+E R W 9 U 6 R E 2 U Y
+E R W 9 U 6 R E R E 2
+E R W 9 U 6 R E 2 R 6 Y
+Y U 9 O 9 U 6 Y U U Y

@@ -1,0 +1,113 @@
+{
+    "name":"Twinkle Twinkle Little Star",
+    "verse_list": [0],
+	"win_label":"piano_def_win",    
+    "fc_label" :"piano_def_fc",
+    "prac_label":"piano_def_prac",
+    "fail_label":"piano_def_fail",
+    "pnm_list": [
+        {
+            "text": "Twinkle, Twinkle, Little Star.",
+            "style": "monika_credits_text",
+            "notes": [
+                "C5",
+                "C5",
+                "G5",
+                "G5",
+                "A5",
+                "A5",
+                "G5"
+            ],
+            "express": "1hub",
+            "postexpress": "1eua",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "How I wonder what you are.",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5",
+                "F5",
+                "E5",
+                "E5",
+                "D5",
+                "D5",
+                "C5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eua",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "Up above the world so high,",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "G5",
+                "F5",
+                "F5",
+                "E5",
+                "E5",
+                "D5"
+            ],
+            "express": "1hub",
+            "postexpress": "1eua",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "Like a diamond in the sky.",
+            "style": "monika_credits_text",
+            "notes": [
+                "G5",
+                "G5",
+                "F5",
+                "F5",
+                "E5",
+                "E5",
+                "D5"
+            ],
+            "express": "1sub",
+            "postexpress": "1eua",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "Twinkle, Twinkle, Little Star.",
+            "style": "monika_credits_text",
+            "notes": [
+                "C5",
+                "C5",
+                "G5",
+                "G5",
+                "A5",
+                "A5",
+                "G5"
+            ],
+            "express": "1hub",
+            "postexpress": "1eua",
+            "vis_timeout": 2.0,
+            "verse": 0
+        },
+        {
+            "text": "How I wonder what you are.",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5",
+                "F5",
+                "E5",
+                "E5",
+                "D5",
+                "D5",
+                "C5"
+            ],
+            "express": "1hub",
+            "postexpress": "1eua",
+            "vis_timeout": 2.0,
+            "ev_timeout": 3.0,
+            "posttext": true
+        }
+    ]
+}

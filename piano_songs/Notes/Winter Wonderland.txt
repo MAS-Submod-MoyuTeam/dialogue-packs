@@ -1,0 +1,21 @@
+Notes:
+7 7 7 7 7 T 7
+7 7 7 7 7 6 7
+7 O O O I
+I 7 7 7 6
+T T T T 4 4 4 4 3
+7 7 7 7 7 T 7
+7 7 7 7 7 6 7
+7 O O O I
+I 7 7 7 6
+T T T T 4 4 4 4 3
+W W U U E E I I U T
+W W U U E E I I U
+4 4 O O T T
+0 0 O 7
+7 O O T T I I 4 4 7
+7 7 7 7 7 T 7
+7 7 7 7 7 6 7
+7 O O O I
+I 7 7 7 6
+T T T T 4 4 4 4 3

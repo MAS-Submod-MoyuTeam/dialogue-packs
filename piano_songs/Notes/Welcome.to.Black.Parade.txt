@@ -1,0 +1,66 @@
+Notes:
+O 9 [ U Y O T R U E Y
+O 9 [ U Y O T R U E Y
+
+Y O Y
+O 9 Y
+9 O Y
+9 O 9 U Y U T
+9 O 9 U Y T Y
+T Y O Y
+O 9 Y
+9 O Y
+9 O 9 U Y U T
+9 O 9 U Y T Y
+Y U O Y 9 Y
+9 O Y 9 O 9 U Y U T
+9 O 9 U Y T
+Y U O Y O 9 Y
+9 O Y 9 O 9 U Y U T
+9 O 9 U Y T
+
+P P O P P O
+P P O P P O 9 O 9 U
+P P O 9 O O
+P P P O P P O
+P P O P P O 9 O 9 U
+P P O 9 O O
+
+O[ 9 O
+Y [ 9 O
+O [ P O P O
+P O P
+P O P O P O P [ 9 P O
+
+Y Y T R T R T
+Y Y Y U Y O
+T R T Y U U Y R E
+Y O O O Y P O O
+P O P O P O P
+O O Y Y
+Y U Y O O 9
+
+O[ 9 O
+Y [ 9 O
+O [ P O P O
+P O P
+P O P O P O P [ 9 P O
+Y [ 9 O
+O [ P O P O P O P
+P O P O P O P
+
+Y Y T R T R T
+T Y Y U Y O
+T R T Y Y U U Y R E
+Y O O O Y O P O
+P O P O P O
+O O Y Y Y U Y O O 9
+
+O[ 9 O
+Y [ 9 O
+O [ P O P O
+P O P
+P O P O P O P [ 9 P O
+Y [ 9 O
+Y [ P O P O P O P
+P O P O P [ P
