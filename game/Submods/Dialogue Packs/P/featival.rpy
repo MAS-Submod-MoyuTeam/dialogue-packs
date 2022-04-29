@@ -41,7 +41,7 @@ init python :
     calendar.addRepeatable("Lunar New Year2",_("明年春节"),month=int(lny2.getMonth()),day=int(lny2.getDay()),year_param=[int(lny2.getYear())])  #明年春节
 
 
-define submod_festival_zsj = datetime.date(datetime.date.today().year, 4, 29)#定义植树节
+define submod_festival_zsj = datetime.date(datetime.date.today().year, 3, 12)#定义植树节
 define submod_festival_teacher = datetime.date(datetime.date.today().year, 9, 10)
 define submod_festival_women = datetime.date(datetime.date.today().year, 3, 8)
 define submod_festival_labor = datetime.date(datetime.date.today().year, 5, 1)
