@@ -128,7 +128,7 @@ default persistent.submods_dp_gameStatus = False
 #云备份
 default persistent.submods_dp_CloudBackup = False
 #离别对话
-default persistent.submods_dp_Leave = True
+default persistent.submods_dp_Leave = False
 
 screen dp_setting_pane():
     vbox:
