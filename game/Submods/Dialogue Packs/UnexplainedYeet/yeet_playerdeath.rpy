@@ -68,7 +68,7 @@ label monika_thanks:
      m 4hub "谢谢!"
 return
 
-label monika_love:
+label monika_love1:
     $ mas_gainAffection(10,bypass=True)
     m 6subfa "..."
     m 5hubfb "我也爱你, [player!]"
@@ -91,7 +91,7 @@ label player_death:
         "我很爱你!":
             
             m 6wubfa "..."
-            jump monika_love
+            jump monika_love1
     menu:
        "遗憾的是, 我不能...":
     

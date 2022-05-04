@@ -404,13 +404,13 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="monika_tea",       
+            eventlabel="monika_tea1",       
                 category=["莫妮卡","浪漫","生活"],                   
                 prompt="你喜欢喝茶吗?",
                 pool=True
             )
     )
-label monika_tea:
+label monika_tea1:
     m 1fkt "呃,听起来像是优里感兴趣的话题."
     m 1esc "其实我对茶艺不怎么了解,"
     extend "就是懂一点点啦.就一点点..."

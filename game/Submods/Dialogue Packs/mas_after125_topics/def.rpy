@@ -1,4 +1,4 @@
-init python:
+init -900 python:
     import os
     import shutil
     newversion=["0.12.6","0.12.7","0.12.8"]

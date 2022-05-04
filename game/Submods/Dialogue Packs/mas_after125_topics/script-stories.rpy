@@ -2,7 +2,7 @@ init 5 python:
     addEvent(
         Event(
             persistent._mas_story_database,
-            eventlabel="mas_story_mindthegap",
+            eventlabel="mas_story_mindthegap1",
             prompt="注意站台间隙",
             category=[mas_stories.TYPE_NORMAL],
             unlocked=True
@@ -10,7 +10,7 @@ init 5 python:
         code="STY"
     )
 
-label mas_story_mindthegap:
+label mas_story_mindthegap1:
     call mas_story_begin
     m 3eud "实际上, 这是一个发生在2013年英国伦敦的真实故事."
     m 2dkd "故事开始于一个叫玛格丽特.麦克拉姆的女人, 在火车的堤防站中间哭泣. "

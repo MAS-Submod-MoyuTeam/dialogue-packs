@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/PencilMario/dialogue-packs/blob/main/README.md}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.16.5',
+        version='1.17.0',
         settings_pane="dp_setting_pane"
     )
 
@@ -17,7 +17,7 @@ init -989 python:
             attachment_id=None
         )
 
-init python:
+init -900 python:
     import os
     import shutil
     #删除原子模组教学文件夹
@@ -31,6 +31,9 @@ init python:
     #删除DaN子模组
     if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/DrakeTheDuelist") and not renpy.android:
         shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/DrakeTheDuelist")
+    #删除原钢琴对话子模组
+    if os.path.exists(renpy.config.basedir + "/game/Submods/Custom Postpiano") and not renpy.android:
+        shutil.rmtree(renpy.config.basedir + "/game/Submods/Custom Postpiano")
 
     def dp_showstatus(setting):
         if setting:
@@ -39,7 +42,7 @@ init python:
             return ">禁用中"    
     dp_authors = """\
     以下为作者和汉化者名单, 排名不分先后:\n
-    ThePersonYou_Hate,{a=https://www.reddit.com/user/mayday-mayjay/}mayday-mayday{/a},{a=https://www.reddit.com/user/UnexplainedYeet}UnexplainedYeet{/a},{a=https://www.reddit.com/user/ryuujjy/}ryuujjy{/a},{a=https://www.reddit.com/user/geneTechnician/}geneTechniman{/a},{a=https://www.reddit.com/user/mkam23-Maya/}mkam23-maya{/a},TK,Sir.P,星光,莫秋纱,{a=https://github.com/DrakeTheDuelist}DrakeTheDuelist{/a},Mon-ika,{a=https://www.reddit.com/user/AmyKawa}AmyKawa{/a},ddy,Founxious\n
+    JmDemisana, ThePersonYou_Hate,{a=https://www.reddit.com/user/mayday-mayjay/}mayday-mayday{/a},{a=https://www.reddit.com/user/UnexplainedYeet}UnexplainedYeet{/a},{a=https://www.reddit.com/user/ryuujjy/}ryuujjy{/a},{a=https://www.reddit.com/user/geneTechnician/}geneTechniman{/a},{a=https://www.reddit.com/user/mkam23-Maya/}mkam23-maya{/a},TK,Sir.P,星光,莫秋纱,{a=https://github.com/DrakeTheDuelist}DrakeTheDuelist{/a},Mon-ika,{a=https://www.reddit.com/user/AmyKawa}AmyKawa{/a},ddy,Founxious\n
     因为个人精力有限, 如果本子模组内有您的作品却没有注明您的名字, 请及时与{a=https://github.com/PencilMario/dialogue-packs}我{/a}告知.
     """
     if renpy.android:
@@ -125,7 +128,7 @@ default persistent.submods_dp_gameStatus = False
 #云备份
 default persistent.submods_dp_CloudBackup = False
 #离别对话
-default persistent.submods_dp_Leave = True
+default persistent.submods_dp_Leave = False
 
 screen dp_setting_pane():
     vbox:
@@ -410,7 +413,7 @@ screen dp_setting():
                         textbutton _("禁用"):
                             action Jump("disableLeave")
                         textbutton _("?"):
-                            action Show(screen = "dialog", message = "此选项只影响解锁条件, 不影响话题本身是否显示.", ok_action = Hide("dialog"))
+                            action Show(screen = "dialog", message = "影响话题是否被初始化, 重启生效", ok_action = Hide("dialog"))
 
 
           

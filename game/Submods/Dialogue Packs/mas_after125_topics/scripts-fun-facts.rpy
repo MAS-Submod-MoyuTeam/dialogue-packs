@@ -2,12 +2,12 @@ init 5 python:
     addEvent(
         Event(
             persistent._mas_fun_facts_database,
-            eventlabel="mas_fun_fact_maplesyrup",
+            eventlabel="mas_fun_fact_maplesyrup1",
         ),
         code="FFF"
     )
 
-label mas_fun_fact_maplesyrup:
+label mas_fun_fact_maplesyrup1:
     m 3hksdlb "为你找到了又一个{w=0.2}{i}甜蜜的 {/i}{w=0.2}小知识..."
     m 1eua "每一种枫树都可以产生能制作枫糖浆的汁液, {w=0.1}{nw}"
     extend 1eud "但是商品枫糖浆通常来自糖枫树."

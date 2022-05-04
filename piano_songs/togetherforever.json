@@ -1,0 +1,249 @@
+{
+    "name": "Together Forever",
+    "win_label": "piano_def_win",
+    "fc_label": "piano_def_fc",
+    "fail_label": "piano_def_fail",
+    "prac_label": "piano_def_prac",
+    "end_wait": 5,
+    "verse_list": [0, 1, 2],
+    "pnm_list": [
+        {
+            "text": "If there`s anything you need",
+            "style": "monika_credits_text",
+            "notes": [
+			"D5",
+			"D5",
+			"C5SH",
+			"B4",
+			"B4",
+			"A4",
+			"A4"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 0
+
+        },
+        {
+            "text": "All you have to do is say",
+            "style": "monika_credits_text",
+            "notes": [
+            "F4SH",
+            "A4",
+			"F4SH",
+            "A4",
+			"F4SH",
+            "A4",
+			"F4SH",
+			"D5",
+			"C5SH",
+			"B4"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 0
+        },
+        {
+            "text": "You know you",
+            "style": "monika_credits_text",
+            "notes": [
+                "G4",
+                "B4",
+                "C5SH"
+            ],
+            "express": "1eub",
+            "postexpress": "1eua",
+            "verse": 0
+        },
+        {
+            "text": "Satisfy everything in me",
+            "style": "monika_credits_text",
+            "notes": [
+            "D5",
+			"D5",
+			"C5SH",
+			"B4",
+			"B4",
+			"A4",
+			"A4"
+            ],
+            "express": "2duo",
+            "postexpress": "2dua",
+            "verse": 0
+        },
+		{
+            "text": "We shouldn`t waste a sinlge day",
+            "style": "monika_credits_text",
+            "notes": [
+            "F4SH",
+            "A4",
+			"F4SH",
+            "A4",
+			"F4SH",
+			"D5",
+			"B4"
+            ],
+            "express": "2eub",
+            "postexpress": "2eua",
+            "verse": 0
+        },
+		{
+            "text": "So don't stop me falling, it's destiny calling",
+            "style": "monika_credits_text",
+            "notes": [
+            "C5SH",
+			"C5SH",
+			"C5SH",
+			"C5SH",
+			"B4",
+			"A4",
+			"C5",
+			"C5",
+			"C5",
+			"D5",
+			"E5"
+            ],
+            "express": "4eub",
+            "postexpress": "2eua",
+            "verse": 1
+        },
+		{
+            "text": "A power I just can`t deny",
+            "style": "monika_credits_text",
+            "notes": [
+            "B4",
+			"B4",
+			"B4",
+			"B4",
+			"A4",
+			"G4",
+			"A4",
+			"B4",
+			"A4"
+            ],
+            "express": "4lub",
+            "postexpress": "2lua",
+            "verse": 1
+        },
+		{
+            "text": "It`s never changing, can`t you hear me, I`m saying",
+            "style": "monika_credits_text",
+            "notes": [
+            "C5SH",
+			"C5SH",
+			"C5SH",
+			"C5SH",
+			"B4",
+			"A4",
+			"C5",
+			"C5",
+			"C5",
+			"D5",
+			"E5"
+            ],
+            "express": "1dub",
+            "postexpress": "1dua",
+            "verse": 1
+        },
+		{
+            "text": "I want you for the rest of my life",
+            "style": "monika_credits_text",
+            "notes": [
+            "B4",
+			"B4",
+			"B4",
+			"B4",
+			"B4",
+			"A4",
+			"G4",
+			"A4",
+			"B4",
+			"A4"
+            ],
+            "express": "1tsb",
+            "postexpress": "1tsa",
+            "verse": 1
+        },
+		{
+            "text": "Together forever and never to part",
+            "style": "monika_credits_text",
+            "notes": [
+            "A4",
+			"B4",
+			"G4",
+			"F5SH",
+			"E5",
+			"C5SH",
+			"B4",
+			"A4",
+			"F4SH",
+			"E5",
+			"D5"
+            ],
+            "express": "1hub",
+            "postexpress": "1hua",
+            "verse": 2
+        },
+		{
+            "text": "Together forever we two",
+            "style": "monika_credits_text",
+            "notes": [
+            "A4",
+			"B4",
+			"G4",
+			"F5SH",
+			"E5",
+			"C5SH",
+			"B4",
+			"A4",
+			"B4",
+			"A4",
+			"F4SH"
+            ],
+            "express": "3hub",
+            "postexpress": "1hua",
+            "verse": 2
+        },
+		{
+            "text": "And don`t you know I would move heaven and earth",
+            "style": "monika_credits_text",
+            "notes": [
+            "A4",
+			"B4",
+			"G4",
+			"F5SH",
+			"E5",
+			"C5SH",
+			"B4",
+			"A4",
+			"F4SH",
+			"B4",
+			"C5SH",
+			"D5"
+            ],
+            "express": "1ekb",
+            "postexpress": "1eka",
+            "verse": 2
+        },
+		{
+            "text": "To be together forever with you",
+            "style": "monika_credits_text",
+            "notes": [
+            "D5",
+			"E5",
+			"F5SH",
+			"G5",
+			"F5SH",
+			"E5",
+			"C5SH",
+			"D5",
+			"E5",
+			"E5",
+			"D5"
+            ],
+            "express": "1sub",
+            "postexpress": "1sua",
+            "verse": 2
+        }
+    ]
+}

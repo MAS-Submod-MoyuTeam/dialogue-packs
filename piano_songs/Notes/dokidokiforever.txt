@@ -1,0 +1,133 @@
+text: Hey,hey.my heart's beating when I'm hanging out with you,
+P 9 Y U U Y U Y U Y U 9 R
+
+text: Why does my heart ache when I hear you feel the same way too?,
+E R Y P 9 U Y U Y U Y U 9 U Y
+
+text: Just like a sundae,it's sweet every time I teach you something new
+E R Y P 9 Y U U Y U Y U Y U 9 R
+
+text: Is this by chance or fate?
+E E R Y P 9
+
+text: Whenever it's just me and you...
+Y U Y U Y U 9 U Y
+
+text: When we touch it'll never be enough
+Y Y Y 9 U Y R R R
+
+text: Is it way too much
+E R Y Y Y 
+
+text: if you had to choose just one of us?
+Y Y Y U 9 O 9 U U
+
+[Break]
+text: Tell me,tell me please
+[ P 9 U Y  
+
+text: Is this what I think or is it just me?
+R Y U Y [ P 9 9 P U
+
+text: Don't wake me up from this sweet little dream
+R R Y U Y [ P 9 U Y
+
+text: Where we'll be together forever
+R R Y 9 U Y 9 U Y
+
+text: We're never gonna be apart
+9 U Y R E R Y Y
+
+text: Will it be okay
+[ P 9 U Y
+
+text: If I express my love for you this way?
+R R Y U Y [ P 9 P U
+
+text: No matter what you do or what you say
+R R Y U Y [ P 9 U Y 
+
+text: We'll be together forever
+R Y 9 U Y 9 U Y 
+
+text: We're never gonna be apart
+9 U Y R E R Y Y 
+
+text: We're never gonna be apart
+9 U Y R E R Y Y ]
+
+[break]
+text: Hey hey when I'm next to you I don't know what to do
+P 9 Y U U Y U Y U Y U 9 R 
+
+text: Why does it feel so great when our eyes meet out of the blue?
+E E R Y P 9 U Y U U U 9 U Y ]
+ 
+text: I really love-
+E E R Y 
+
+text: -the way you write even when you don't have a clue
+P 9 Y U U Y U U Y U 9 R
+
+text: I wanna hear you say this love that I am feeling is true
+E E R Y P 9 Y U Y U Y U 9 U Y
+
+text: Tasty love something I want more of
+Y Y Y 9 U Y R R R 
+
+text: Will it make the cut
+E R Y Y Y
+
+text: if you had to choose just one of us?
+Y Y Y U 9 O 9 U U
+
+[break]
+text: Shall I leave you be?
+[ P 9 U Y
+
+text: Is it love if I could set you free?
+R Y U Y [ P 9 P U 
+
+text: But even if it's not reality
+R R Y U Y [ P 9 U Y
+
+text: Let's be together forever
+R Y 9 U Y 9 U Y
+
+text: We're never gonna be apart 
+9 U Y R E R Y Y 
+
+text: How can I convey
+[ P 9 U Y
+
+text: My love for you before they fly away?
+R R Y U Y [ P 9 P U 
+
+text: I think about it all day every day
+R R Y U Y [ P 9 U Y
+
+text: How we'll be together forever
+R R Y 9 U Y 9 U Y 
+
+text: We're never gonna be apart
+9 U Y R E R Y Y
+
+[break]
+text: One by one they only fall apart
+Y Y Y 9 U Y R R R
+
+text: Can it be undone?
+E R Y Y Y
+
+text: Why can't I just be the one for once?
+Y Y Y U 9 O 9 U U
+
+text: We'll be together forever
+R Y 9 U Y 9 U Y
+
+
+text: We're never gonna be apart
+9 U Y R E R Y Y
+
+text: Maybe we'll never be together but forever you'll be in my heart
+Y Y 9 U Y Y 9 U Y Y 9 U Y R E R Y Y

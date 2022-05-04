@@ -1,0 +1,693 @@
+{
+	"name": "Leaving on a Jet Plane",
+	"win_label": "jmcustom_common_complete",
+	"fc_label": "jmcustom_leavingonajetplane_perfect",
+	"fail_label": "jmcustom_common_escape",
+	"prac_label": "jmcustom_common_almost",
+	"launch_label": "jmcustom_leavingonajetplane_pre",
+	"end_wait": 5,
+	"verse_list": [0, 3, 6, 12, 15, 18, 24, 27, 30],
+	"pnm_list": [{
+			"text": "All my bags are packed, I'm ready to go",
+			"style": "monika_credits_text",
+			"notes": [
+				"G4",
+				"A4",
+				"C5",
+				"B4",
+				"G4",
+				"D5",
+				"E5",
+				"E5",
+				"G4",
+				"A4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 0,
+			"posttext": true
+		},
+		{
+			"text": "I'm standin' here outside your door",
+			"style": "monika_credits_text",
+			"notes": [
+				"G4",
+				"C5",
+				"B4",
+				"G4",
+				"D5",
+				"E5",
+				"G4",
+				"A4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 0,
+			"posttext": true
+		},
+		{
+			"text": "I hate to wake you up to say goodbye",
+			"style": "monika_credits_text",
+			"notes": [
+				"G4",
+				"C5",
+				"B4",
+				"A4",
+				"G4",
+				"C5",
+				"B4",
+				"A4",
+				"G4",
+				"A4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 0,
+			"posttext": true
+		},
+		{
+			"text": "But the dawn is breakin', it's early morn",
+			"style": "monika_credits_text",
+			"notes": [
+				"G4",
+				"A4",
+				"C5",
+				"B4",
+				"G4",
+				"D5",
+				"D5",
+				"E5",
+				"G4",
+				"A4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 3,
+			"posttext": true
+		},
+		{
+			"text": "The taxi's waitin', he's blowin' his horn",
+			"style": "monika_credits_text",
+			"notes": [
+				"G4",
+				"C5",
+				"B4",
+				"G4",
+				"D5",
+				"D5",
+				"E5",
+				"E5",
+				"G4",
+				"A4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 3,
+			"posttext": true
+		},
+		{
+			"text": "Already I'm so lonesome I could die",
+			"style": "monika_credits_text",
+			"notes": [
+				"G4",
+				"C5",
+				"B4",
+				"A4",
+				"G4",
+				"C5",
+				"B4",
+				"A4",
+				"G4",
+				"A4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 3,
+			"posttext": true
+		},
+		{
+			"text": "So kiss me and smile for me",
+			"style": "monika_credits_text",
+			"notes": [
+				"D5",
+				"D5",
+				"B4",
+				"D5",
+				"C5",
+				"B4",
+				"G4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 6,
+			"posttext": true
+		},
+		{
+			"text": "Tell me that you'll wait for me",
+			"style": "monika_credits_text",
+			"notes": [
+				"D5",
+				"C5",
+				"B4",
+				"D5",
+				"C5",
+				"B4",
+				"G4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 6,
+			"posttext": true
+		},
+		{
+			"text": "Hold me like you'll never let me go",
+			"style": "monika_credits_text",
+			"notes": [
+				"D5",
+				"C5",
+				"B4",
+				"D5",
+				"C5",
+				"B4",
+				"A4",
+				"G4",
+				"A4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 6,
+			"posttext": true
+		},
+		{
+			"text": "'Cause I'm leaving on a jet plane",
+			"style": "monika_credits_text",
+			"notes": [
+				"D5",
+				"D5",
+				"D5",
+				"G4",
+				"E5",
+				"D5",
+				"C5",
+				"D5"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 6,
+			"posttext": true
+		},
+		{
+			"text": "'I don't know when I'll be back again",
+			"style": "monika_credits_text",
+			"notes": [
+				"D5",
+				"B4",
+				"D5",
+				"C5",
+				"B4",
+				"G4",
+				"E5",
+				"D5"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 6,
+			"posttext": true
+		},
+		{
+			"text": "Oh, babe, I hate to go",
+			"style": "monika_credits_text",
+			"notes": [
+				"D5",
+				"C5",
+				"B4",
+				"A4",
+				"G4",
+				"A4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 6,
+			"posttext": true
+		},
+		{
+			"text": "There's so many times I've let you down",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5",
+				"C5",
+				"C5",
+				"B4",
+				"G4",
+				"D5",
+				"E5",
+				"E5",
+				"G4",
+				"A4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 12,
+			"posttext": true
+		},
+		{
+			"text": "So many times I've played around",
+			"style": "monika_credits_text",
+			"notes": [
+				"G4",
+				"C5",
+				"B4",
+				"G4",
+				"D5",
+				"E5",
+				"G4",
+				"A4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 12,
+			"posttext": true
+		},
+		{
+			"text": "I'll tell you now, they don't mean a thing",
+			"style": "monika_credits_text",
+			"notes": [
+				"G4",
+				"C5",
+				"B4",
+				"A4",
+				"G4",
+				"C5",
+				"B4",
+				"A4",
+				"G4",
+				"A4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 12,
+			"posttext": true
+		},
+		{
+			"text": "Every place I go, I think of you",
+			"style": "monika_credits_text",
+			"notes": [
+				"G4",
+				"A4",
+				"C5",
+				"B4",
+				"G4",
+				"D5",
+				"D5",
+				"E5",
+				"G4",
+				"A4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 15,
+			"posttext": true
+		},
+		{
+			"text": "Every song I sing, I sing for you",
+			"style": "monika_credits_text",
+			"notes": [
+				"G4",
+				"C5",
+				"B4",
+				"G4",
+				"D5",
+				"D5",
+				"E5",
+				"E5",
+				"G4",
+				"A4"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 15,
+			"posttext": true
+		},
+		{
+			"text": "When I come back I'll wear your wedding ring",
+			"style": "monika_credits_text",
+			"notes": [
+				"G4",
+				"C5",
+				"B4",
+				"A4",
+				"G4",
+				"C5",
+				"B4",
+				"A4",
+				"G4",
+				"A4"
+              ],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 15,
+				"posttext": true
+			},
+			{
+				"text": "So kiss me and smile for me",
+				"style": "monika_credits_text",
+				"notes": [
+					"D5",
+					"D5",
+					"B4",
+					"D5",
+					"C5",
+					"B4",
+					"G4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 18,
+				"posttext": true
+			},
+			{
+				"text": "Tell me that you'll wait for me",
+				"style": "monika_credits_text",
+				"notes": [
+					"D5",
+					"C5",
+					"B4",
+					"D5",
+					"C5",
+					"B4",
+					"G4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 18,
+				"posttext": true
+			},
+			{
+				"text": "Hold me like you'll never let me go",
+				"style": "monika_credits_text",
+				"notes": [
+					"D5",
+					"C5",
+					"B4",
+					"D5",
+					"C5",
+					"B4",
+					"A4",
+					"G4",
+					"A4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 18,
+				"posttext": true
+			},
+			{
+				"text": "'Cause I'm leaving on a jet plane",
+				"style": "monika_credits_text",
+				"notes": [
+					"D5",
+					"D5",
+					"D5",
+					"G4",
+					"E5",
+					"D5",
+					"C5",
+					"D5"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 18,
+				"posttext": true
+			},
+			{
+				"text": "'I don't know when I'll be back again",
+				"style": "monika_credits_text",
+				"notes": [
+					"D5",
+					"B4",
+					"D5",
+					"C5",
+					"B4",
+					"G4",
+					"E5",
+					"D5"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 18,
+				"posttext": true
+			},
+			{
+				"text": "Oh, babe, I hate to go",
+				"style": "monika_credits_text",
+				"notes": [
+					"D5",
+					"C5",
+					"B4",
+					"A4",
+					"G4",
+					"A4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 18,
+				"posttext": true
+			},
+			{
+				"text": "Now the time has come to leave you",
+				"style": "monika_credits_text",
+				"notes": [
+					"C5",
+					"C5",
+					"C5",
+					"B4",
+					"G4",
+					"D5",
+					"E5",
+					"E5",
+					"G4",
+					"A4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 24,
+				"posttext": true
+			},
+			{
+				"text": "One more time, oh, let me kiss you",
+				"style": "monika_credits_text",
+				"notes": [
+					"G4",
+					"C5",
+					"B4",
+					"G4",
+					"D5",
+					"D5",
+					"E5",
+					"E5",
+					"G4",
+					"A4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 24,
+				"posttext": true
+			},
+			{
+				"text": "And close your eyes and I'll be on my way",
+				"style": "monika_credits_text",
+				"notes": [
+					"G4",
+					"C5",
+					"B4",
+					"A4",
+					"G4",
+					"C5",
+					"B4",
+					"A4",
+					"G4",
+					"A4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 24,
+				"posttext": true
+			},
+			{
+				"text": "Dream about the days to come",
+				"style": "monika_credits_text",
+				"notes": [
+					"C5",
+					"B4",
+					"G4",
+					"D5",
+					"E5",
+					"G4",
+					"A4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 27,
+				"posttext": true
+			},
+			{
+				"text": "When I won't have to leave alone",
+				"style": "monika_credits_text",
+				"notes": [
+					"G4",
+					"C5",
+					"B4",
+					"G4",
+					"D5",
+					"E5",
+					"E5",
+					"G4",
+					"A4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 27,
+				"posttext": true
+			},
+			{
+				"text": "About the times that I won't have to say",
+				"style": "monika_credits_text",
+				"notes": [
+					"G4",
+					"C5",
+					"B4",
+					"A4",
+					"G4",
+					"C5",
+					"B4",
+					"A4",
+					"G4",
+					"A4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 27,
+				"posttext": true
+			},
+			{
+				"text": "Oh, kiss me and smile for me",
+				"style": "monika_credits_text",
+				"notes": [
+					"D5",
+					"D5",
+					"B4",
+					"D5",
+					"C5",
+					"B4",
+					"G4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 30,
+				"posttext": true
+			},
+			{
+				"text": "Tell me that you'll wait for me",
+				"style": "monika_credits_text",
+				"notes": [
+					"D5",
+					"C5",
+					"B4",
+					"D5",
+					"C5",
+					"B4",
+					"G4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 30,
+				"posttext": true
+			},
+			{
+				"text": "Hold me like you'll never let me go",
+				"style": "monika_credits_text",
+				"notes": [
+					"D5",
+					"C5",
+					"B4",
+					"D5",
+					"C5",
+					"B4",
+					"A4",
+					"G4",
+					"A4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 30,
+				"posttext": true
+			},
+			{
+				"text": "'Cause I'm leaving on a jet plane",
+				"style": "monika_credits_text",
+				"notes": [
+					"D5",
+					"D5",
+					"D5",
+					"G4",
+					"E5",
+					"D5",
+					"C5",
+					"D5"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 30,
+				"posttext": true
+			},
+			{
+				"text": "'I don't know when I'll be back again",
+				"style": "monika_credits_text",
+				"notes": [
+					"D5",
+					"B4",
+					"D5",
+					"C5",
+					"B4",
+					"G4",
+					"E5",
+					"D5"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 30,
+				"posttext": true
+			},
+			{
+				"text": "Oh, babe, I hate to go",
+				"style": "monika_credits_text",
+				"notes": [
+					"D5",
+					"C5",
+					"B4",
+					"A4",
+					"G4",
+					"A4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 30,
+				"posttext": true
+			},
+			{
+				"text": "I Hate to go...",
+				"style": "monika_credits_text",
+				"notes": [
+					"B4",
+					"A4",
+					"B4",
+					"A4",
+					"G4"
+				],
+				"express": "1hub",
+				"postexpress": "1hua",
+				"verse": 30,
+				"posttext": true
+			}
+		]
+	}

@@ -1,4 +1,5 @@
 init python:
+    install_completed = None
     import os
     import gzip
     import tarfile
@@ -8,28 +9,34 @@ init python:
 
     DECOMPRESSING_FAIL = "Error when decompressing zip file. \n解压zip文件时出现错误."
     ZIP_INCORRECT = "The zip file is incorrect, this may mean that the zip file isnot compressed according to the game file directory, please unzip it manually to the specified location.\nzip文件不正确，这可能意味着这个zip文件并没有根据游戏文件目录来压缩，请手动解压至正确位置." 
+    NO_HELP_UPDATER_ZIP = "Incompatible with zip files created by pc_update_helper.rpy\n不支持由‘辅助更新子模组’创建的压缩包"
     
     def check_zip():
         dirs = os.listdir(submod_locat)
         for file_name in dirs:
             if file_name.find('zip') != -1:
+                file_name_bak = file_name
                 file_name = submod_locat + "/" + file_name
+                if file_name.find('OldVersionFiles') != -1:
+                    move_files(file_name, False, file_name_bak)
+                    raise Exception(NO_HELP_UPDATER_ZIP)
                 try:
                     un_zip(file_name)
                 except:
-                    move_files(file_name,False)
+                    move_files(file_name, False, file_name_bak)
                     raise Exception(DECOMPRESSING_FAIL + "\n当前文件Current File: " + file_name )
                 if not copy_dir_m(file_name):#尝试处理文件夹 返回F时抛出异常
-                    move_files(file_name,False)
+                    move_files(file_name, False, file_name_bak)
                     raise Exception(ZIP_INCORRECT + "\n当前文件Current File: " + file_name)
-                move_files(file_name,True)
+                move_files(file_name, True, file_name_bak)
 
-    def move_files(file_name,result = True):
+    def move_files(file_name,result = True, name = ""):
         """
         结束后的文件处理
         vars:
-            file_name - 删除的文件夹
+            file_name - 移动的文件路径
             result - 执行结果
+            name - 文件名称
         """
         if result:
             dir = submod_locat + "/Install Success"
@@ -38,7 +45,9 @@ init python:
         if not os.path.exists(dir):
             os.mkdir(dir)
         shutil.rmtree(file_name + "_files")
-        shutil.move(file_name ,dir )
+        if os.path.exists(dir + "/" + name):
+            os.remove(dir + "/" + name)
+        shutil.move(file_name, dir)
 
     def un_zip(file_name):
         """
@@ -193,3 +202,35 @@ label monika_submodinstaller:
     m 2eua "安装失败的文件会放在'[renpy.config.basedir]/characters/Install Fail'"
     m 3hub "多给我找一点新东西吧, [player]."
     return
+
+init 5 python:
+    addEvent(
+        Event(
+            persistent.event_database,          
+            eventlabel="monika_submodinstaller_finish",        
+            category=["模组"],                   
+            prompt="帮你点忙",
+            conditional="install_completed != None and renpy.seen_label(monika_submodinstaller)",
+            action=EV_ACT_PUSH,
+            pool=False
+        )
+    )
+    
+label monika_submodinstaller_finish:
+    $ ev = mas_getEV("monika_submodinstaller_finish")
+    if ev.shown_count == 0:
+        m "对了, [player]..."
+        m "我准备的时候, 在characters文件夹发现了些压缩文件."
+        m "所以就尝试帮你安装好啦"
+    else:
+        m "又装新模组了吗, [player]?"
+        m "我已经帮你搞定啦~"
+    m "想现在就重启吗?{nw}"
+    menu:
+        "想现在就重启吗?{fast}"
+        "是的":
+            m "好的~"
+            return "quit|no_unlock"
+        "过一会吧":
+            m "也可以, 到时候跟我说就好."
+    return "no_unlock"

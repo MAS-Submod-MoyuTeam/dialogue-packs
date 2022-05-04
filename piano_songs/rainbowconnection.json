@@ -1,0 +1,540 @@
+{
+	"name": "Rainbow Connection",
+	"win_label": "jmcustom_common_complete",
+	"fc_label": "jmcustom_rainbowconnection_perfect",
+	"fail_label": "jmcustom_common_escape",
+	"prac_label": "jmcustom_common_almost",
+	"launch_label": "jmcustom_rainbowconnection_pre",
+	"end_wait": 5,
+	"verse_list": [0, 4,8, 12, 16, 18, 22, 26],
+	"pnm_list": [
+		{
+			"text": "Why are there so many songs about rainbows",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5",
+				"D5SH",
+				"G5SH",
+				"A5SH",
+				"C6",
+				"C6",
+				"C5SH",
+				"D5SH",
+				"G5SH",
+				"G5SH",
+				"A5SH"
+			],
+			"express": "1eub",
+			"postexpress": "1eub",
+			"verse": 0,
+			"posttext": true
+		},
+		{
+			"text": "And what's on the other side?",
+			"style": "monika_credits_text",
+			"notes": [
+				"A4SH",
+				"C5",
+				"D5SH",
+				"G5",
+				"G5SH",
+				"D5SH",
+				"F5"
+			],
+			"express": "1eub",
+			"postexpress": "1eua",
+			"verse": 0,
+			"posttext": true
+		},
+		{
+			"text": "Rainbows are visions, but only illusions",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5",
+				"D5SH",
+				"G5SH",
+				"A5SH",
+				"C6",
+				"C5",
+				"C5SH",
+				"D5SH",
+				"G5SH",
+				"G5SH",
+				"A5SH"
+			],
+			"express": "1eub",
+			"postexpress": "1eua",
+			"verse": 0,
+			"posttext": true
+		},
+		{
+			"text": "And rainbows have nothing to hide",
+			"style": "monika_credits_text",
+			"notes": [
+				"A4SH",
+				"C5",
+				"D5SH",
+				"G5",
+				"G5",
+				"G5SH",
+				"D5SH",
+				"F5"
+			],
+			"express": "1eub",
+			"postexpress": "1eua",
+			"verse": 0,
+			"posttext": true
+		},
+		{
+			"text": "So we've been told, and some choose to believe it",
+			"style": "monika_credits_text",
+			"notes": [
+				"F5",
+				"C6",
+				"F5",
+				"C6",
+				"F5",
+				"C6",
+				"F5",
+				"C6",
+				"F5",
+				"C6",
+				"F5"
+			],
+			"express": "1dub",
+			"postexpress": "1dua",
+			"verse": 4,
+			"posttext": true
+		},
+		{
+			"text": "I know they're wrong, wait and see",
+			"style": "monika_credits_text",
+			"notes": [
+				"F5",
+				"G5",
+				"G5",
+				"G5",
+				"A5SH",
+				"G5",
+				"D5SH",
+				"G5"
+			],
+			"express": "1eub",
+			"postexpress": "1eua",
+			"verse": 4,
+			"posttext": true
+		},
+		{
+			"text": "Someday we'll find it, the rainbow connection",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5SH",
+				"F5",
+				"G5SH",
+				"F5",
+				"G5",
+				"F5",
+				"D5SH",
+				"G5",
+				"A5SH",
+				"G5",
+				"A5"
+			],
+			"express": "1eub",
+			"postexpress": "1hua",
+			"verse": 4,
+			"posttext": true
+		},
+		{
+			"text": "The lovers, the dreamers, and me",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5",
+				"C5SH",
+				"F5",
+				"G5SH",
+				"C6",
+				"C6",
+				"A5SH",
+				"G5SH"
+			],
+			"express": "1hub",
+			"postexpress": "1hsb",
+			"verse": 4,
+			"posttext": true
+		},
+		{
+			"text": "Who said that every wish would be heard and answered",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5",
+				"D5SH",
+				"G5SH",
+				"A5SH",
+				"C6",
+				"C6",
+				"C5",
+				"C5SH",
+				"D5SH",
+				"G5SH",
+				"G5SH",
+				"A5SH"
+			],
+			"express": "1dub",
+			"postexpress": "1dub",
+			"verse": 8,
+			"posttext": true
+		},
+		{
+			"text": "When wished on the morning star?",
+			"style": "monika_credits_text",
+			"notes": [
+				"A4SH",
+				"C5",
+				"D5SH",
+				"G5",
+				"G5SH",
+				"D5SH",
+				"F5"
+			],
+			"express": "1dub",
+			"postexpress": "1dua",
+			"verse": 8,
+			"posttext": true
+		},
+		{
+			"text": "Somebody thought of that, and someone believed it",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5",
+				"D5SH",
+				"G5SH",
+				"A5SH",
+				"C6",
+				"C6",
+				"C5",
+				"C5SH",
+				"D5SH",
+				"G5SH",
+				"G5SH",
+				"A5SH"
+			],
+			"express": "1dkb",
+			"postexpress": "1dka",
+			"verse": 8,
+			"posttext": true
+		},
+		{
+			"text": "Look what it's done so far",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5",
+				"D5SH",
+				"G5",
+				"G5SH",
+				"D5SH",
+				"F5"
+			],
+			"express": "1dkd",
+			"postexpress": "1dkc",
+			"verse": 8,
+			"posttext": true
+		},
+		{
+			"text": "What's so amazing that keeps us stargazing",
+			"style": "monika_credits_text",
+			"notes": [
+				"F5",
+				"C6",
+				"F5",
+				"C6",
+				"F5",
+				"C6",
+				"F5",
+				"C6",
+				"F5",
+				"C6",
+				"F5"
+			],
+			"express": "1eub",
+			"postexpress": "1eua",
+			"verse": 12,
+			"posttext": true
+		},
+		{
+			"text": "And what do we think we might see?",
+			"style": "monika_credits_text",
+			"notes": [
+				"F5",
+				"G5",
+				"G5",
+				"G5",
+				"A5SH",
+				"G5",
+				"D5SH",
+				"G5"
+			],
+			"express": "1eub",
+			"postexpress": "1eua",
+			"verse": 12,
+			"posttext": true
+		},
+		{
+			"text": "Someday we'll find it, the rainbow connection",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5SH",
+				"F5",
+				"G5SH",
+				"F5",
+				"G5",
+				"F5",
+				"D5SH",
+				"G5",
+				"A5SH",
+				"G5",
+				"A5"
+			],
+			"express": "1eub",
+			"postexpress": "1eua",
+			"verse": 12,
+			"posttext": true
+		},
+		{
+			"text": "The lovers, the dreamers, and me",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5",
+				"C5SH",
+				"F5",
+				"G5SH",
+				"C6",
+				"C6",
+				"A5SH",
+				"G5SH"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 12,
+			"posttext": true
+		},
+		{
+			"text": "All of us under its spell",
+			"style": "monika_credits_text",
+			"notes": [
+				"A5SH",
+				"G5SH",
+				"A5SH",
+				"C6",
+				"A5SH",
+				"G5SH",
+				"D5SH"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 16,
+			"posttext": true
+		},
+		{
+			"text": "We know that it's probably magic",
+			"style": "monika_credits_text",
+			"notes": [
+				"D5SH",
+				"F5",
+				"G5",
+				"G5SH",
+				"D5SH",
+				"F5",
+				"G5SH",
+				"A5SH",
+				"B5"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 16,
+			"posttext": true
+		},
+		{
+			"text": "Have you been half asleep, and have you heard voices?",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5SH",
+				"E5",
+				"A5",
+				"B5",
+				"C6",
+				"C6",
+				"C5SH",
+				"D5",
+				"E5",
+				"A5",
+				"A5",
+				"B5"
+			],
+			"express": "1ekb",
+			"postexpress": "1eka",
+			"verse": 18,
+			"posttext": true
+		},
+		{
+			"text": "I've heard them calling my name",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5SH",
+				"E5",
+				"G5SH",
+				"G5SH",
+				"A5",
+				"E5",
+				"F5SH"
+			],
+			"express": "1esb",
+			"postexpress": "1esa",
+			"verse": 18,
+			"posttext": true
+		},
+		{
+			"text": "Is this the sweet sound that calls the young sailors?",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5SH",
+				"E5",
+				"A5",
+				"B5",
+				"C6",
+				"C5SH",
+				"D5",
+				"E5",
+				"A5",
+				"A5",
+				"B5"
+			],
+			"express": "1ekb",
+			"postexpress": "1eka",
+			"verse": 18,
+			"posttext": true
+		},
+		{
+			"text": "The voice might be one and the same?",
+			"style": "monika_credits_text",
+			"notes": [
+				"B4",
+				"C5",
+				"E5",
+				"G5SH",
+				"A5",
+				"A5",
+				"E5",
+				"F5SH"
+			],
+			"express": "1esb",
+			"postexpress": "1esa",
+			"verse": 18,
+			"posttext": true
+		},
+		{
+			"text": "I've heard it too many times to ignore it",
+			"style": "monika_credits_text",
+			"notes": [
+				"F5SH",
+				"C6",
+				"F5SH",
+				"C6",
+				"F5SH",
+				"C6",
+				"F5SH",
+				"C6",
+				"F5SH",
+				"C6",
+				"F5SH"
+			],
+			"express": "1eub",
+			"postexpress": "1eua",
+			"verse": 22,
+			"posttext": true
+		},
+		{
+			"text": "It's something that I'm supposed to be",
+			"style": "monika_credits_text",
+			"notes": [
+				"F5SH",
+				"G5SH",
+				"G5SH",
+				"G5SH",
+				"B5",
+				"G5SH",
+				"E5",
+				"G5SH"
+				
+			],
+			"express": "1eub",
+			"postexpress": "1eua",
+			"verse": 22,
+			"posttext": true
+		},
+		{
+			"text": "Someday we'll find it, the rainbow connection",
+			"style": "monika_credits_text",
+			"notes": [
+				"D5",
+				"F5SH",
+				"A5",
+				"F5SH",
+				"G5SH",
+				"F5SH",
+				"E5",
+				"G5SH",
+				"B5",
+				"G5SH",
+				"A5SH"
+			],
+			"express": "1eub",
+			"postexpress": "1eua",
+			"verse": 22,
+			"posttext": true
+		},
+		{
+			"text": "The lovers, the dreamers, and me",
+			"style": "monika_credits_text",
+			"notes": [
+				"C5SH",
+				"D5",
+				"F5SH",
+				"A5",
+				"C6",
+				"C6",
+				"B5",
+				"A5"
+			],
+			"express": "1hub",
+			"postexpress": "1hua",
+			"verse": 22,
+			"posttext": true
+		},
+		{
+			"text": "...",
+			"style": "monika_credits_text",
+			"notes": [
+				"B5",
+				"A5",
+				"B5",
+				"C6",
+				"B5",
+				"A5",
+				"E5",
+				"E5",
+				"F5SH",
+				"G5SH",
+				"A5",
+				"E5",
+				"A5",
+				"G5SH",
+				"A5"
+			],
+			"express": "1dua",
+			"postexpress": "1dua",
+			"verse": 26,
+			"posttext": true
+		}
+	]
+}

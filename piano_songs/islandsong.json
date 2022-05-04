@@ -1,0 +1,426 @@
+{
+    "name": "Island Song",
+    "end_wait": 5,
+    "win_label": "jmcustom_common_complete",
+    "fc_label": "jmcustom_islandsong_perfect",
+    "fail_label": "jmcustom_common_escape",
+    "prac_label": "jmcustom_common_almost",
+    "launch_label": "jmcustom_islandsong_pre",
+    "verse_list": [0],
+    "pnm_list": [
+        {
+            "text": "Come along with me",
+            "style": "monika_credits_text",
+            "notes": [
+                "F4SH",
+                "G4",
+                "A4",
+                "D5",
+                "B4"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "And the butterflies and bees",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "E5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "We can wonder through the forest",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "E5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "B4",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "And do so as we please",
+            "style": "monika_credits_text",
+            "notes": [
+                "G4",
+                "A4",
+                "D5",
+                "D5",
+                "F4SH",
+                "F4"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "Come along with me",
+            "style": "monika_credits_text",
+            "notes": [
+                "F4SH",
+                "G4",
+                "A4",
+                "D5",
+                "B4"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "To a cliff under a tree",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "E5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "We can gaze upon the water",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "E5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "B4",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "As an everlasting dream",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4",
+                "B4",
+                "D5",
+                "C5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "All of my collections",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "F5SH",
+                "F5SH",
+                "E5",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "I'll share them all with you",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4",
+                "B4",
+                "D5",
+                "D5",
+                "F4SH",
+                "F4SH"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "Maybe by next summer",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "We won't have changed our tunes",
+            "style": "monika_credits_text",
+            "notes": [
+                "G4",
+                "A4",
+                "D5",
+                "D5",
+                "F5SH",
+                "F5SH",
+                "E5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "We still want to be",
+            "style": "monika_credits_text",
+            "notes": [
+                "F4SH",
+                "G4",
+                "A4",
+                "D5",
+                "B4"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "With the butterflies and bees",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "E5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "Making up new numbers",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "B4",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "And living so merily",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4",
+                "B4",
+                "D5",
+                "D5",
+                "E5",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "All of my collections",
+            "style": "monika_credits_text",
+            "notes": [
+                "F5SH",
+                "F5SH",
+                "F5SH",
+                "E5",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "I'll share them all with you",
+            "style": "monika_credits_text",
+            "notes": [
+                "A4",
+                "B4",
+                "D5",
+                "D5",
+                "F4SH",
+                "F4SH"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "I'll be here for you always",
+            "style": "monika_credits_text",
+            "notes": [
+                "G4",
+                "F5SH",
+                "G5",
+                "F5SH",
+                "E5",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "And always be with you",
+            "style": "monika_credits_text",
+            "notes": [
+                "G4",
+                "A4",
+                "D5",
+                "D5",
+                "F5SH",
+                "F5SH",
+                "E5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "Come along with me",
+            "style": "monika_credits_text",
+            "notes": [
+                "F4SH",
+                "G4",
+                "A4",
+                "D5",
+                "B4"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "And the butterflies and bees",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "E5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "We can wonder through the forest",
+            "style": "monika_credits_text",
+            "notes": [
+                "D5",
+                "E5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "B4",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "And do so as we please",
+            "style": "monika_credits_text",
+            "notes": [
+                "E5",
+                "F5SH",
+                "E5",
+                "D5",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        },
+        {
+            "text": "Living so merily",
+            "style": "monika_credits_text",
+            "notes": [
+                "B4",
+                "D5",
+                "D5",
+                "C5SH",
+                "E5",
+                "D5"
+            ],
+            "express": "1eub",
+            "postexpress": "1eub",
+            "verse": 0,
+            "posttext": true
+        }
+    ]
+}
