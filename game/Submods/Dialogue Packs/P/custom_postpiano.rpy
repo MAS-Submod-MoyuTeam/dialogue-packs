@@ -332,7 +332,7 @@ label jmcustom_backtodecember_pre:
     m 1eub "当然,我会为你唱的,[player]."
     return
 
-label jmcustom_backtodecember_pre:
+label jmcustom_ddf_pre:
     m 1sua "哦!我知道这首歌!"
     m 1esb "这是粉丝们送给我们的歌."
     return

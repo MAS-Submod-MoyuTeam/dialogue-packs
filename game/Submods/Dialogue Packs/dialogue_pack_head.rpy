@@ -17,7 +17,7 @@ init -989 python:
             attachment_id=None
         )
 
-init python:
+init -900 python:
     import os
     import shutil
     #删除原子模组教学文件夹
@@ -413,7 +413,7 @@ screen dp_setting():
                         textbutton _("禁用"):
                             action Jump("disableLeave")
                         textbutton _("?"):
-                            action Show(screen = "dialog", message = "此选项只影响解锁条件, 不影响话题本身是否显示.", ok_action = Hide("dialog"))
+                            action Show(screen = "dialog", message = "影响话题是否被初始化, 重启生效", ok_action = Hide("dialog"))
 
 
           

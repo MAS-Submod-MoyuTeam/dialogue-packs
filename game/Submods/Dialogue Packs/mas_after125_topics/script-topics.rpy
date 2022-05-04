@@ -3,14 +3,14 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="monika_tragic_hero",
+            eventlabel="monika_tragic_hero1",
             category=['文学'],
             prompt="悲剧英雄",
             random=False
         )
     )
 
-label monika_tragic_hero:
+label monika_tragic_hero1:
     m 1rsd "嗯, [mas_get_player_nickname()], 我最近多想了一点悲剧主角的事情."
     m 3esc "...哈姆雷特也算一个, 我们讨论过了."
     m 3rtc "你想想啊...{w=0.3}我可以算个悲剧主角吗?"
@@ -30,16 +30,16 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="monika_utterson",
+            eventlabel="monika_utterson1",
             category=['文学'],
             prompt="化身博士",
             random=True
         )
     )
 
-label monika_utterson:
+label monika_utterson1:
     if persistent._mas_pm_read_jekyll_hyde:
-        call monika_jekyll_hyde
+        call monika_jekyll_hyde1
 
     else:
         m 1euc "那个, [player], 你有看过哥特式文学之类的吗?"
@@ -54,16 +54,16 @@ label monika_utterson:
         m "所以, 你有看过{i}化身博士{/i}吗?{nw}"
         "是的.":
             $ persistent._mas_pm_read_jekyll_hyde = True
-            call monika_jekyll_hyde
+            call monika_jekyll_hyde1
 
         "还没有.":
             $ persistent._mas_pm_read_jekyll_hyde = False
             m 3eub "好吧. 要是我们可以探讨一下了, 告诉我就好."
 
-    $ mas_protectedShowEVL("monika_hedonism","EVE", _random=True)
+    $ mas_protectedShowEVL("monika_hedonism1","EVE", _random=True)
     return "derandom"
 
-label monika_jekyll_hyde:
+label monika_jekyll_hyde1:
     m 3hub "哇, 你读了啊!"
     m 1euc "我见过很多种不同的解读."
     m 3eua "比如, 有些人觉得乌特森和杰基尔相爱了."
@@ -84,13 +84,13 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="monika_hedonism",
+            eventlabel="monika_hedonism1",
             category=['哲学'],
             prompt="享乐主义",
         )
     )
 
-label monika_hedonism:
+label monika_hedonism1:
     m 1euc "嗨, [mas_get_player_nickname()]. 记得我们聊过{i}化身博士{/i}吗?"
     m 1eud "嗯, 我在前面也提到过{i}道利-格雷的肖像{/i}."
     m 2eub "我说过建议你读的, 不过你没有也没关系. 我想谈谈它的中心思想...{w=0.3}享乐主义."
