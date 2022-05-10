@@ -28,6 +28,8 @@ init python:
                 if not copy_dir_m(file_name):#尝试处理文件夹 返回F时抛出异常
                     move_files(file_name, False, file_name_bak)
                     raise Exception(ZIP_INCORRECT + "\n当前文件Current File: " + file_name)
+                else:
+                    install_completed = True
                 move_files(file_name, True, file_name_bak)
 
     def move_files(file_name,result = True, name = ""):
