@@ -266,7 +266,7 @@ screen save_input(message, ok_action):
 
 init -990 python:
     import os
-    if not os.path.exists(renpy.config.basedir + "/game/Submods/dialogue_pack_head.rpy"):
+    if not os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/dialogue_pack_head.rpy"):
         store.mas_submod_utils.Submod(
             author="P",
             name="云端备份",
