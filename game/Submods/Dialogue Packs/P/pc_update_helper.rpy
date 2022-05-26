@@ -62,14 +62,7 @@ label sub_update_helper:
     m 1eua "好的"
     m 3eka "如果未响应, 这是正常情况, 因为在干活要稍微等一下..."
     m "你想让我为你打包一下文件吗?{nw}"
-    menu:
-        "你想让我为你打包一下文件吗?{fast}"
-        "是的":
-            m "好的."
-            $ create_zip = True
-        "不用了":
-            m "好吧"
-            $ create_zip = False
+    $ create_zip = False
     call copyfile
     m 4eub "搞定了. {w=0.3}文件都在character/OldVersionFiles文件夹里, 复制到新版本就好了."
     m 3eua "不要复制到新版本的character了, 要去合并新版本game文件夹."

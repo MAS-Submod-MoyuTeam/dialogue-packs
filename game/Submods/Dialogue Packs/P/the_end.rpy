@@ -215,7 +215,7 @@ label monika_leave_2nd:
     hide screen tear
     stop sound
     pause 0.5
-    m "没什么的话...请不要点这个按钮"
+    m "没什么的话...请{b}不要{/b}点这个按钮{w=2}"
     return
 
 label monika_leave_3rd:
@@ -358,6 +358,6 @@ label The_End:
         else:
             persistent._mas_finalfarewell_poem_id = "ff_player_leave"
         raise Exception(MONIKA_LEAVED)
-        renpy.quit()
+    $ renpy.quit()
 
     return
