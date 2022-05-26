@@ -1,3 +1,13 @@
+###################################
+# 警告
+# 你正在阅读源码版本
+# 对本rpy(the_end.rpy)进行剧透行为，将按照粉信处理
+# 在MAS群内公开将拉黑并踢出
+# 在其他群我不管 我也管不到
+# 自己考虑考虑要不要发
+###################################
+
+
 default persistent._p_removetree = 1
 default persistent._p_leave = False
 default persistent._monika_leave_title = "我想走了"
