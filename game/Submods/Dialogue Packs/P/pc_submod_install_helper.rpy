@@ -214,6 +214,7 @@ init 5 python:
             prompt="帮你点忙",
             conditional="install_completed != None and renpy.seen_label(monika_submodinstaller)",
             action=EV_ACT_PUSH,
+            rule={'force repeat':True},
             pool=False
         )
     )

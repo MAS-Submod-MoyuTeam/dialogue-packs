@@ -21,18 +21,18 @@ init -900 python:
     import os
     import shutil
     #删除原子模组教学文件夹
-    if os.path.exists(renpy.config.basedir + "/game/Submods/MonikaSubmodT") and not renpy.android:
+    if os.path.exists(renpy.config.basedir + "/game/Submods/MonikaSubmodT"):
         try:
             shutil.rmtree(renpy.config.basedir + "/game/Submods/MonikaSubmodT")
         except:
             raise Exception("delete submod MonikaSubmodT failed\n删除子模组MonikaSubmodT失败,  请手动删除文件夹后重启")
-    if os.path.exists(renpy.config.basedir + "/game/Submods/MoreTopic") and not renpy.android:
+    if os.path.exists(renpy.config.basedir + "/game/Submods/MoreTopic"):
         shutil.rmtree(renpy.config.basedir + "/game/Submods/MoreTopic")
     #删除DaN子模组
-    if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/DrakeTheDuelist") and not renpy.android:
+    if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/DrakeTheDuelist"):
         shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/DrakeTheDuelist")
     #删除原钢琴对话子模组
-    if os.path.exists(renpy.config.basedir + "/game/Submods/Custom Postpiano") and not renpy.android:
+    if os.path.exists(renpy.config.basedir + "/game/Submods/Custom Postpiano"):
         shutil.rmtree(renpy.config.basedir + "/game/Submods/Custom Postpiano")
 
     def dp_showstatus(setting):
