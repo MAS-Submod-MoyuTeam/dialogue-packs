@@ -248,18 +248,6 @@ label monika_windowsXP:
                     return "love"
 return
 
-init 5 python:
-    addEvent(
-        Event(
-            persistent.event_database,
-            eventlabel="monika_YGO_classes",       
-                category=["游戏"],                   
-                prompt="你能教教我游戏王怎么玩吗",
-                pool=True,
-                conditional="monika_YGO_lessons",
-                action=EV_ACT_POOL
-            )
-        )
 label monika_YGO_classes:
     m 1ekc "啊,你不会吗?"
     m 1esu "我没有指责的意思,只是.."
