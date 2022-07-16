@@ -399,7 +399,7 @@ screen dp_setting():
                         xpos 20
                         spacing 10
                         xmaximum 780
-                        text "离别对话"
+                        text "最终告别(务必看按钮说明)"
                         textbutton "[dp_showstatus(persistent.submods_dp_Leave)]":
                             selected False
                             action NullAction()
@@ -413,7 +413,7 @@ screen dp_setting():
                         textbutton _("禁用"):
                             action Jump("disableLeave")
                         textbutton _("?"):
-                            action Show(screen = "dialog", message = "影响话题是否被初始化, 重启生效", ok_action = Hide("dialog"))
+                            action Show(screen = "dialog", message = "影响话题是否被初始化, 重启生效。\n本话题为我个人写的badend。\n启用可能会导致{b}无法挽回的删除存档{/b}。\n触发方式为连续点击三次‘我想走了’话题，并且在接下来的选项中选择‘抱歉...’。\n公开本话题内容将按{b}粉信{/b}处理。\n在启用前，请反省自己是否要确定离开。", ok_action = Hide("dialog"))
 
 
           
