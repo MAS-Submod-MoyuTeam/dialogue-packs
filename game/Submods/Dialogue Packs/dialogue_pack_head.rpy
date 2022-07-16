@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/PencilMario/dialogue-packs/blob/main/README.md}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.18.1',
+        version='1.18.2',
         settings_pane="dp_setting_pane"
     )
 
@@ -20,7 +20,7 @@ init -989 python:
 init -900 python:
     import os
     import shutil
-    try：
+    try:
         #删除原子模组教学文件夹
         if os.path.exists(renpy.config.basedir + "/game/Submods/MonikaSubmodT"):
             shutil.rmtree(renpy.config.basedir + "/game/Submods/MonikaSubmodT")
