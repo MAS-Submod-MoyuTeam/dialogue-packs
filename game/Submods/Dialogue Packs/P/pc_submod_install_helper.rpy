@@ -204,20 +204,20 @@ label monika_submodinstaller:
     m 2eua "安装失败的文件会放在'[renpy.config.basedir]/characters/Install Fail'"
     m 3hub "多给我找一点新东西吧, [player]."
     return
-
-init 5 python:
-    addEvent(
-        Event(
-            persistent.event_database,          
-            eventlabel="monika_submodinstaller_finish",        
-            category=["模组"],                   
-            prompt="帮你点忙",
-            conditional="install_completed != None and renpy.seen_label(monika_submodinstaller)",
-            action=EV_ACT_PUSH,
-            rule={'force repeat':True},
-            pool=False
-        )
-    )
+#
+#init 5 python:
+#    addEvent(
+#        Event(
+#            persistent.event_database,          
+#            eventlabel="monika_submodinstaller_finish",        
+#            category=["模组"],                   
+#            prompt="帮你点忙",
+#            conditional="install_completed != None and renpy.seen_label(monika_submodinstaller)",
+#            action=EV_ACT_PUSH,
+#            rule={'force repeat':True},
+#            pool=False
+#        )
+#    )
     
 label monika_submodinstaller_finish:
     $ ev = mas_getEV("monika_submodinstaller_finish")
