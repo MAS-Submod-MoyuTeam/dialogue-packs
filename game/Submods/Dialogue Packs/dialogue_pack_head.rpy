@@ -203,38 +203,38 @@ screen dp_gameStatus():
                     hbox:
                         text "[mas_progressionDataDump()][mas_sessionDataDump()]"
                     hbox:
-                        text "Total Game Played:[store.mas_games._total_games_played()]"
+                        text "共计上限次数:[store.mas_games._total_games_played()]"
                     hbox:
-                        text "Last Cloud Backup:[persistent.CloudBackupLastTime[1]]"
+                        text "上次云端备份时间:[persistent.CloudBackupLastTime[1]]"
                     hbox:
-                        text "Check Cloud File:[checkSaveTime()]s"
+                        text "验证云端文件时间差:[checkSaveTime()]s"
 
                     if not renpy.android:
                         hbox:
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            textbutton "Create full ev_dump.log":
+                            textbutton "创建完整的 ev_dump.log":
                                 action Jump("create_evdump")
                     else:
                         hbox:
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            textbutton "Create full ev_dump.log (unable - PE version)"
+                            textbutton "创建完整的 ev_dump.log (不可用 - PE版本)"
                     
                     if _mas_getAffection() <= 100:
                         hbox:
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            textbutton "Jump hair change label (100+ Current Affection)"
+                            textbutton "打开发型切换界面 (需要 100+ 好感)"
                     else:
                         hbox:
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            textbutton "Jump hair change label":
+                            textbutton "打开发型切换界面":
                                 action Jump("unlockHairChange")
 
                     if _mas_getAffection() <= 100:
@@ -242,13 +242,13 @@ screen dp_gameStatus():
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            textbutton "Jump clothes change label (100+ Current Affection)"
+                            textbutton "打开衣服切换界面 (需要 100+ 好感)"
                     else:
                         hbox:
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            textbutton "Jumo clothes change label":
+                            textbutton "打开衣服切换界面":
                                 action Jump("unlockClothesChange")
 
                     if not renpy.android:
@@ -256,14 +256,14 @@ screen dp_gameStatus():
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            textbutton "Create all giftfile":
+                            textbutton "尝试创建所有礼物文件":
                                 action Jump("createAllGiftFile")
                     else:
                         hbox:
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            textbutton "Create all giftfile(unable - PE version)"
+                            textbutton "尝试创建所有礼物文件(不可用 - PE版本)"
 
                         
             hbox:           
