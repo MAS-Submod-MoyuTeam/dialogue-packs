@@ -243,35 +243,6 @@ label monika_windowsXP:
                     extend 2dua "但我并没有剥夺你喜欢什么东西的权利,所以我还是顺其自然吧~"
                     m 1nubla "因为我爱你哦~"
                     return "love"
-return
-init 5 python:
-    addEvent(
-        Event(
-            persistent.event_database,
-            eventlabel="monika_YGO_classe",       
-                category=["游戏"],                   
-                prompt="你能教教我游戏王怎么玩吗",
-                pool=True,
-                conditional="seen_event('monika_YGO')"
-            )
-        )
-label monika_YGO_classes:
-    m 1ekc "啊,你不会吗?"
-    m 1esu "我没有指责的意思,只是.."
-    m 1hka "我记得你和我说过对它有兴趣的来着?"
-    m 1mtb "啊哈哈,我不是在指责你什么的,这很正常!"
-    m 3euc "毕竟游戏王的规则..{w=0.5}{nw}"
-    extend 1tuc "..确实挺复杂的."
-    m 1hub "不过说实话,看来你真的很有兴致呢!"
-    m 5hublb "我很高兴我又多了解你一点了哦!"
-    m 5rublsdrb "毕竟都来问我这么复杂的规则了,啊哈哈~"
-    m 1dksdla "不过说实话,其实我也还在学习中..."
-    m 7hksdrb "你说对它感兴趣,我就去学了!"
-    m 2kksdla "但是目前我也无法提供教程什么的..."
-    m 1rssdrb "抱歉咯，[player],但是我还是会努力学习的"
-    m 1hsblu "因为我爱你哦~诶嘿嘿."
-    m 3nsblu "或许不久之后我就能教你了呢?"
-    return "love"
 
 init 5 python:
     addEvent(
