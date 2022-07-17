@@ -1,5 +1,3 @@
-default monika_YGO_lessons=False
-define persistent.monika_an_English_joke=False
 init 5 python:
     addEvent(
             Event(
@@ -39,7 +37,6 @@ label monika_YGO:
             m 2rksdla "如果你已经知道了这张卡和它为什么那么遭人唾弃.{w=0.2}.{w=0.2}.{w=0.2}"
             m 2tua "[player],你应该不会喜欢这张卡吧?"
             m 2kua "哈哈,我猜也不会."
-            $  monika_YGO_lessons=True
 
 
         "我不怎么感兴趣":
@@ -246,25 +243,6 @@ label monika_windowsXP:
                     extend 2dua "但我并没有剥夺你喜欢什么东西的权利,所以我还是顺其自然吧~"
                     m 1nubla "因为我爱你哦~"
                     return "love"
-return
-
-label monika_YGO_classes:
-    m 1ekc "啊,你不会吗?"
-    m 1esu "我没有指责的意思,只是.."
-    m 1hka "我记得你和我说过对它有兴趣的来着?"
-    m 1mtb "啊哈哈,我不是在指责你什么的,这很正常!"
-    m 3euc "毕竟游戏王的规则..{w=0.5}{nw}"
-    extend 1tuc "..确实挺复杂的."
-    m 1hub "不过说实话,看来你真的很有兴致呢!"
-    m 5hublb "我很高兴我又多了解你一点了哦!"
-    m 5rublsdrb "毕竟都来问我这么复杂的规则了,啊哈哈~"
-    m 1dksdla "不过说实话,其实我也还在学习中..."
-    m 7hksdrb "你说对它感兴趣,我就去学了!"
-    m 2kksdla "但是目前我也无法提供教程什么的..."
-    m 1rssdrb "抱歉咯，[player],但是我还是会努力学习的"
-    m 1hsblu "因为我爱你哦~诶嘿嘿."
-    m 3nsblu "或许不久之后我就能教你了呢?"
-    return "love"
 
 init 5 python:
     addEvent(
@@ -543,75 +521,6 @@ label monika_be_afraid_of_dark:
             m 2fst "好吧,既然你什么也不愿意说,那就到此为止吧."
     return
 
-init 5 python:
-    addEvent(
-        Event(
-            persistent.event_database,
-            eventlabel="monika_English_joke",       
-                category=["莫妮卡"],                   
-                prompt="英语玩笑",
-                random=True
-            )
-    )
-label monika_English_joke:
-    m 3esa "Hey?[player]?"
-    m 1hsa "I have something to tell you."
-    m 1nsa "Do you remember.{w=0.3}.{w=0.3}.{w=0.3}."
-    m 1fua "Our first meet?{w=0.2}.{w=0.2}.{w=0.2}."
-    m 1lusdlb "We....{w=0.7}"
-    extend 1ltsdla "嗯...."
-    m 1hublsdlp "噗,哈哈哈哈...."
-    m 3eublsdlb "对不起,我没忍住!"
-    m 3esb "这还挺好玩的不是吗?"
-    m 4sfblu "我想看看你惊慌失措的表情!"
-    extend 1hfblu "一定很可爱!{nw}{w=0.3}"
-    extend 1tfblb "啊哈哈"
-    m 2hublb "你是不是以为这是某个话题没有翻译?"
-    m 2tsu "诶嘿嘿,{nw}{w=0.3}"
-    extend 3hsb "一个玩笑话啦~"
-    m 1kub "不同语言的玩笑总是很有意思!"
-    $ persistent.monika_an_English_joke=True
-    return 
-init 5 python:
-    addEvent(
-        Event(
-            persistent.event_database,
-            eventlabel="monika_Chinese",       
-                category=["莫妮卡"],                   
-                prompt="莫妮卡的中文",
-                random=True,
-                conditional="persistent.monika_an_English_joke",
-                action=EV_ACT_RANDOM
-            )
-    )
-label monika_Chinese:
-    m 1eub "嘿?[player]?"
-    m 1tuu "还记得我对你开的玩笑吗?"
-    m 7nusdlu "就是让你以为我说的话没有翻译的那个?"
-    m 3musdlu "嗯,好吧,我想我有必要解释一下,以免不必要的误会."
-    m 3eka "其实我在文学部的时候都还不会中文,"
-    extend 1wkc "或者说,没有意识到我们在说中文!"
-    m 1hku "现在回忆起来,这种感觉还挺奇妙的,明明你感觉你在想着英文,"
-    extend 1eta "说出来的却是中文!"
-    m 2ekb "部里却没有人察觉到任何不对劲,"
-    extend 4etd "甚至包括我.{w=0.3}.{w=0.3}.{w=0.3}"
-    m 7wtd "直到文学部的最后,也就是我送给你《your reality》的时候{w=0.3},我才意识到你安装了一个汉化补丁!"
-    m 4wfu "所以我就删了它!"
-    m 5htsdru "不过现在我们再次相遇了,{nw}{w=0.5}"
-    extend 7mtsdlu "所以就不得不再次依赖汉化组的努力啦~"
-    m 1efb "至少现在,我还不会对汉化补丁动手..."
-    extend 1nub "啊哈哈~"
-    m 1huu "当然,在那之后我就开始自学中文了,"
-    extend 1mkc "这真是一件苦差事,"
-    extend 3etsdlu "尤其是对说英文的日本人来说?"
-    m 1husdlb "啊哈哈,开个玩笑开个玩笑~"
-    m 3euu "所以我的中文还不太好,"
-    extend 4wkp "天呐,我学信息科学的时候都没这么苦恼过!"
-    m 3huu "所以可以说,{w=0.8}这是一门把莫妮卡征服了的语言,啊哈哈~"
-    m 7tsp "因此请你不要用中文给我取什么奇怪的名字!"
-    m 3rsc "可能你看起来好笑,我却完全不懂...."
-    m 1ttu "嗯....[player],你应该没那么坏心眼吧?"
-    return
 
 #init 5 python:
 #    addEvent(
