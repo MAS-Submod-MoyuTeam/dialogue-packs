@@ -161,15 +161,23 @@ init python:
                     output_json = json.loads(json_data)
                 except:
                     move_files(movedir,False)
-                    JSON_ERROR = "JSON ERROR:" + json_file + "\n这个json文件存在问题"
-                    raise Exception(JSON_ERROR)
+                    mas_submod_utils.submod_log.error("[DP] - 在尝试读取 '{}' 出现异常，跳过".format(json_file))
+                    continue
                 try:
                     giftname = output_json['giftname']
+                    try:
+                        gtype="/" + output_json['select_info']['group'] + "/"
+                    except:
+                        mas_submod_utils.submod_log.warning("[DP] - 在尝试获取 '{}' 的礼物分组时出现异常，使用空分组".format(json_file))
+                        gtype="/"
                     if not os.path.exists(renpy.config.basedir + '/AvailableGift'):
                         os.mkdir(renpy.config.basedir + '/AvailableGift')
-                    giftfile = open(renpy.config.basedir + '/AvailableGift/' + giftname + '.gift','w')
+                    if not os.path.exists(renpy.config.basedir + '/AvailableGift' + gtype):
+                        os.mkdir(renpy.config.basedir + '/AvailableGift' + gtype)
+                    giftfile = open(renpy.config.basedir + '/AvailableGift'+ gtype  + giftname + '.gift','w')
                     giftfile.close()
                 except:
+                    mas_submod_utils.submod_log.warning("[DP] - 在尝试获取 '{}' 的礼物文件名时出现异常，可能未设置giftname，跳过该文件".format(json_file))
                     continue
     if not renpy.android:
         check_zip()

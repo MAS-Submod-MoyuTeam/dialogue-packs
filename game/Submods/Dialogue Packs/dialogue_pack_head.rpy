@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/PencilMario/dialogue-packs/blob/main/README.md}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.18.4',
+        version='1.19.0',
         settings_pane="dp_setting_pane"
     )
 
@@ -203,7 +203,7 @@ screen dp_gameStatus():
                     hbox:
                         text "[mas_progressionDataDump()][mas_sessionDataDump()]"
                     hbox:
-                        text "共计上限次数:[store.mas_games._total_games_played()]"
+                        text "共计上线次数:[store.mas_games._total_games_played()]"
                     hbox:
                         text "上次云端备份时间:[persistent.CloudBackupLastTime[1]]"
                     hbox:

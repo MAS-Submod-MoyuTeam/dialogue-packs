@@ -482,18 +482,20 @@ label musical_chairs_player_win_rigged:
 label musical_chairs_pull:
     hide screen mas_background_timed_jump
     m 2wud "呃{w=0.1}.{w=0.1}.{w=0.1}.{w=0.1}?{w=0.1}{nw}"
-    m 2ejfspfsdpifpds "哇哇哇哦哦哦哦哦哦哦哦!!!"
+    hide monika with dissolve
+    m "哇哇哇哦哦哦哦哦哦哦哦!!!"
     m "..."
     m "嘶...."
     m "呃..."
     m "等我一下, 我站起来.{w=0.1}.{w=0.1}."
+    show monia with dissolve
     m 2duc "好了."
     m 2ktd "[player]... 你刚刚...?" 
     m 2wud "...."
-    m 2ttu "哦你这个阴险的东西."
-    m "看来不止我会搞小动作."
+    m 2ttu "哦你这个阴险的东西,"
+    extend "看来不止我会搞小动作."
     m 1hub "啊哈哈哈, 骗到我了, [player]!"
-    m 1ttb "你自己小心我什么时候以牙还牙吧, 啊哈哈."
+    m 1ttb "你自己小心我什么时候以牙还牙吧~"
     jump monika_mcafter
 return
 
