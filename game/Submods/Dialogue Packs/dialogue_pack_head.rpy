@@ -265,6 +265,20 @@ screen dp_gameStatus():
                             xmaximum 780
                             textbutton "尝试创建所有礼物文件(不可用 - PE版本)"
 
+                    if not renpy.android:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            textbutton "尝试安装zip打包的扩展文件":
+                                action Function(check_zip)
+                    else:
+                        hbox:
+                            xpos 20
+                            spacing 10
+                            xmaximum 780
+                            textbutton "尝试安装zip打包的扩展文件(不可用 - PE版本)"
+
                         
             hbox:           
                 xalign 0.5

@@ -7,9 +7,9 @@ init python:
     
     submod_locat = renpy.config.basedir + "/characters"
 
-    DECOMPRESSING_FAIL = "Error when decompressing zip file. \n解压zip文件时出现错误."
-    ZIP_INCORRECT = "The zip file is incorrect, this may mean that the zip file isnot compressed according to the game file directory, please unzip it manually to the specified location.\nzip文件不正确，这可能意味着这个zip文件并没有根据游戏文件目录来压缩，请手动解压至正确位置." 
-    NO_HELP_UPDATER_ZIP = "Incompatible with zip files created by pc_update_helper.rpy\n不支持由‘辅助更新子模组’创建的压缩包"
+    DECOMPRESSING_FAIL = "解压zip文件时出现错误."
+    ZIP_INCORRECT = "zip文件不正确，这可能意味着这个zip文件并没有根据游戏文件目录来压缩，请手动解压至正确位置." 
+    NO_HELP_UPDATER_ZIP = "不支持由‘辅助更新子模组’创建的压缩包"
     
     def check_zip():
         dirs = os.listdir(submod_locat)
@@ -19,18 +19,23 @@ init python:
                 file_name = submod_locat + "/" + file_name
                 if file_name.find('OldVersionFiles') != -1:
                     move_files(file_name, False, file_name_bak)
-                    raise Exception(NO_HELP_UPDATER_ZIP)
+                    #raise Exception(NO_HELP_UPDATER_ZIP)
+                    mas_submod_utils.submod_log.error(NO_HELP_UPDATER_ZIP)
+                    continue
                 try:
                     un_zip(file_name)
                 except:
                     move_files(file_name, False, file_name_bak)
-                    raise Exception(DECOMPRESSING_FAIL + "\n当前文件Current File: " + file_name )
+                    mas_submod_utils.submod_log.error(DECOMPRESSING_FAIL + "\n处理出错的文件: " + file_name)
+                    continue
                 if not copy_dir_m(file_name):#尝试处理文件夹 返回F时抛出异常
                     move_files(file_name, False, file_name_bak)
-                    raise Exception(ZIP_INCORRECT + "\n当前文件Current File: " + file_name)
+                    mas_submod_utils.submod_log.error(ZIP_INCORRECT + "\n处理出错的文件: " + file_name)
+                    continue
                 else:
                     install_completed = True
                 move_files(file_name, True, file_name_bak)
+                mas_submod_utils.submod_log.info("安装zip文件完成："+ file_name)
 
     def move_files(file_name,result = True, name = ""):
         """
@@ -56,6 +61,7 @@ init python:
         解压文件
         """
         import zipfile
+        mas_submod_utils.submod_log.info("解压文件："+file_name)
         zip_file = zipfile.ZipFile(file_name)
         if os.path.isdir(file_name + "_files"):
             pass
@@ -72,6 +78,7 @@ init python:
             file_name - 处理的文件夹
             inseconddir - 是否进入了子文件夹
         """
+        mas_submod_utils.submod_log.info("开始复制文件：" + file_name)
         bak_file_name = None
         if inseconddir == False:
             file_name = file_name + "_files"
@@ -112,16 +119,19 @@ init python:
                     continue#这是个文件，直接continue
                 if inseconddir:
                     #在子文件夹直接返回F
+                    mas_submod_utils.submod_log.info("子文件夹处理结束")
                     return False
                 inseconddir = True
                 if not copy_dir_m(file_name + '/' + dirs,inseconddir = True):#说明子文件夹内也没有符合条件文件夹
                     return False
+        mas_submod_utils.submod_log.info("处理完成： "+file_name)
         return True
 
     def copy_dir(src_path, target_path):
         """
         复制文件 网上找的代码:))))))
         """
+        mas_submod_utils.submod_log.info("正在复制文件： "+src_path+" -> "+ target_path)
         if os.path.isdir(src_path) and os.path.isdir(target_path):        
             filelist_src = os.listdir(src_path)                            
             for file in filelist_src:
@@ -150,6 +160,7 @@ init python:
             movedir - 失败后删除的文件夹
         """
         if not os.path.exists(filename + "/monika/j"):
+            mas_submod_utils.submod_log.info("未找到{}的json文件夹，跳过检测礼物".format(file_name))
             return
         filename = filename + "/monika/j"
         files = os.listdir(filename)
@@ -204,11 +215,10 @@ label monika_submodinstaller:
     extend 3hub "我现在可以帮你了!"
     m 4eua "你下载的一般就是zip格式的文件啦, 就像送礼物一样放在'[renpy.config.basedir]/characters'就好."
     m 3eub "接下来就交给我. 如果是精灵包的话, 我会在'[renpy.config.basedir]/AvailableGift'下准备用来赠送的文件."
-    m 2hksdlb "如果是子模组的话...你需要重启一下游戏来应用.因为脚本还没有被编译啦."
-    m "精灵包也是类似的, 从读取到我收到也是需要重启一下...麻烦你啦."
+    m 2hksdlb "不过...你需要重启两次，第一次由我负责将文件放好位置，但这时候游戏已经加载玩成了，还需要一次重启来让游戏重新读取一次"
     m 3eua "假如zip文件没有问题的话, 我就会把它移动到'[renpy.config.basedir]/characters/Install Success'文件夹里"
-    m 4eub "如果有问题的话, 游戏会显示一个崩溃界面. 不要害怕, 这不会伤害到我的, 也是脚本设计的一部分. 而且重启即可恢复."
-    m 3eub "在这个界面会显示为什么崩溃了, 对zip里面的内容进行处理就好."
+    m 4eub "如果有问题的话, 我把一些有用的信息记录在submod_log里了，可以看一看."
+    #m 3eub "在这个界面会显示为什么崩溃了, 对zip里面的内容进行处理就好."
     m 2eua "安装失败的文件会放在'[renpy.config.basedir]/characters/Install Fail'"
     m 3hub "多给我找一点新东西吧, [player]."
     return
