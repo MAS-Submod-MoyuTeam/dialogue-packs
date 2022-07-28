@@ -8,7 +8,7 @@ init python:
     submod_locat = renpy.config.basedir + "/characters"
 
     DECOMPRESSING_FAIL = "解压zip文件时出现错误."
-    ZIP_INCORRECT = "zip文件不正确，这可能意味着这个zip文件并没有根据游戏文件目录来压缩，请手动解压至正确位置." 
+    ZIP_INCORRECT = "zip文件不正确，这可能意味着这个zip文件并没有根据游戏文件目录来压缩，或包含了非标准子模组所需要的文件夹，为防止出错，请手动解压至正确位置." 
     NO_HELP_UPDATER_ZIP = "不支持由‘辅助更新子模组’创建的压缩包"
     
     def check_zip():
@@ -26,16 +26,16 @@ init python:
                     un_zip(file_name)
                 except:
                     move_files(file_name, False, file_name_bak)
-                    mas_submod_utils.submod_log.error(DECOMPRESSING_FAIL + "\n处理出错的文件: " + file_name)
+                    mas_submod_utils.submod_log.error(DECOMPRESSING_FAIL + "\n处理出错的文件: '{}'".format(file_name))
                     continue
                 if not copy_dir_m(file_name):#尝试处理文件夹 返回F时抛出异常
                     move_files(file_name, False, file_name_bak)
-                    mas_submod_utils.submod_log.error(ZIP_INCORRECT + "\n处理出错的文件: " + file_name)
+                    mas_submod_utils.submod_log.error(ZIP_INCORRECT + "\n处理出错的文件:'{}'".format(file_name))
                     continue
                 else:
                     install_completed = True
                 move_files(file_name, True, file_name_bak)
-                mas_submod_utils.submod_log.info("安装zip文件完成："+ file_name)
+                mas_submod_utils.submod_log.info("安装zip文件完成：'{}'\n".format(file_name))
 
     def move_files(file_name,result = True, name = ""):
         """
@@ -61,7 +61,7 @@ init python:
         解压文件
         """
         import zipfile
-        mas_submod_utils.submod_log.info("解压文件："+file_name)
+        mas_submod_utils.submod_log.info("解压文件：'{}'".format(file_name))
         zip_file = zipfile.ZipFile(file_name)
         if os.path.isdir(file_name + "_files"):
             pass
@@ -78,7 +78,7 @@ init python:
             file_name - 处理的文件夹
             inseconddir - 是否进入了子文件夹
         """
-        mas_submod_utils.submod_log.info("开始复制文件：" + file_name)
+        mas_submod_utils.submod_log.info("开始复制文件：'{}'".format(file_name))
         bak_file_name = None
         if inseconddir == False:
             file_name = file_name + "_files"
@@ -116,6 +116,7 @@ init python:
                         if not os.path.exists(renpy.config.basedir + "/game/Submods/UnGroupScripts"):
                             os.mkdir(renpy.config.basedir + "/game/Submods/UnGroupScripts")
                         shutil.move(file_name + '/' + dirs,renpy.config.basedir + "/game/Submods/UnGroupScripts")
+                        mas_submod_utils.submod_log.info("'{}' 是个脚本文件，复制到 'Submods/UnGroupScripts'".format(file_name))
                     continue#这是个文件，直接continue
                 if inseconddir:
                     #在子文件夹直接返回F
@@ -124,14 +125,14 @@ init python:
                 inseconddir = True
                 if not copy_dir_m(file_name + '/' + dirs,inseconddir = True):#说明子文件夹内也没有符合条件文件夹
                     return False
-        mas_submod_utils.submod_log.info("处理完成： "+file_name)
+        mas_submod_utils.submod_log.info("处理完成： '{}'".format(file_name))
         return True
 
     def copy_dir(src_path, target_path):
         """
         复制文件 网上找的代码:))))))
         """
-        mas_submod_utils.submod_log.info("正在复制文件： "+src_path+" -> "+ target_path)
+        mas_submod_utils.submod_log.info("正在复制文件： '"+src_path+"' -> '"+ target_path+"'")
         if os.path.isdir(src_path) and os.path.isdir(target_path):        
             filelist_src = os.listdir(src_path)                            
             for file in filelist_src:
@@ -160,7 +161,7 @@ init python:
             movedir - 失败后删除的文件夹
         """
         if not os.path.exists(filename + "/monika/j"):
-            mas_submod_utils.submod_log.info("未找到{}的json文件夹，跳过检测礼物".format(file_name))
+            mas_submod_utils.submod_log.info("未找到 '{}' 的json文件夹，跳过检测礼物".format(filename))
             return
         filename = filename + "/monika/j"
         files = os.listdir(filename)

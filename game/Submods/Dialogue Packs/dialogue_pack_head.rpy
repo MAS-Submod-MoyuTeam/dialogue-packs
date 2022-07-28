@@ -159,6 +159,13 @@ screen dp_setting_pane():
                 action Show("dp_cloudSetting")
             
 screen dp_gameStatus():
+    python:
+        noum = persistent._mas_game_nou_wins['Monika']
+        noup = persistent._mas_game_nou_wins['Player']
+        chessw = persistent._mas_chess_stats['wins']
+        chessl = persistent._mas_chess_stats['losses']
+        chessd = persistent._mas_chess_stats['draws']
+        chessstat = "胜:{} 负:{} 平:{}".format(chessw, chessl, chessd)
     key "noshift_T" action NullAction()
     key "noshift_t" action NullAction()
     key "noshift_M" action NullAction()
@@ -203,9 +210,14 @@ screen dp_gameStatus():
                     hbox:
                         text "[mas_progressionDataDump()][mas_sessionDataDump()]"
                     hbox:
-                        text "共计上线次数:[store.mas_games._total_games_played()]"
+                        text "小游戏游玩次数:[store.mas_games._total_games_played()]"
                     hbox:
-                        text "上次云端备份时间:[persistent.CloudBackupLastTime[1]]"
+                        text "NOU战绩 - Monika:[noum] Player:[noup]"
+                    if not renpy.android:
+                        hbox:
+                            text "国际象棋战绩 [chessstat]"
+                    hbox:
+                        text "\n上次云端备份时间:[persistent.CloudBackupLastTime[1]]"
                     hbox:
                         text "验证云端文件时间差:[checkSaveTime()]s"
 
