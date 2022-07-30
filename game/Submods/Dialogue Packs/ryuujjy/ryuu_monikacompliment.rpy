@@ -29,7 +29,7 @@ label mas_comp:
 
     menu:
         "即使这世界将入终焉, 我也会永伴你左右." if persistent._mas_acs_enable_promisering == True and persistent._mas_pm_wearsRing:#确保已经赠送戒指--即已经发生过初吻
-            $ mas_gainAffection(4,bypass=True)
+            $ mas_gainAffection(4,bypass=False)
             m 2ekbftpa "..."
             m 2fkbftpb "你知道么？"
             m 2lkbftpa "你赢了！"
