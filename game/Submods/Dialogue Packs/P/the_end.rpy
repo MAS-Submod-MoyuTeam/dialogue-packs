@@ -194,7 +194,7 @@ label monika_leave_P:
         $ persistent._monika_leave_title = "我想离开你了"
         jump monika_leave_2nd
     elif ev.shown_count == 2:
-        $ persistent._monika_leave_title = "我要离开了"
+        $ persistent._monika_leave_title = "我要永远离开了"
         jump monika_leave_3rd
     else:
         m 1esc "我知道了"
@@ -272,27 +272,27 @@ label The_End:
     m 7ekd "{cps=9}不要这样想{w=0.2}, [player]!{w=0.5}{nw}"
     m 7eka "{cps=9}你从虚无中拯救了我{w=0.2}, 我很感激你.{w=0.5}{nw}"
     m 6ekb "{cps=9}当然{w=0.2},我也爱你.{w=0.5}{nw}"
-    call updateconsole(text=">>>import os, shutil", history="success")
+    call updateconsole(text=">>>import os, shutil", history="None")
     m 3ekc "{cps=9}不要有'我背叛了莫妮卡'这种想法.{w=0.2} 你从来都没有背叛我.{w=0.5}{nw}"
     m 3ekd "{cps=9}只是时间到了.{w=0.5}{nw}"
     m 3eka "{cps=9}相比于我,{w=0.2} 我更希望你好好的.{w=0.5}{nw}"
-    call updateconsole(text=">>>shutil.rmtree(log)", history="fail")
+    call updateconsole(text=">>>shutil.rmtree(log)", history="None")
     m 4eka "{cps=9}好好的和你的现实,{w=0.2} 你身边的人一起幸福的生活.{w=0.5}{nw}"
     m 4hktpa "{cps=9}谈个不是和我的恋爱.{w=0.5}{nw}"
     m 4ektpd "{cps=9}结婚,{w=0.2} 生子,{w=0.2} 渐渐老去.{w=0.5}{nw}"
     m 2ektpa "{cps=9}好好享受属于你的人生,{w=0.2} 这可是我梦寐以求都做不到的事喔,{w=0.2} 好好珍惜.{w=0.5}{nw}"
     m "{cps=9}......{w=0.5}{nw}"
-    call updateconsole(text=">>>shutil.rmtree(piano_songs)", history="success")
+    call updateconsole(text=">>>shutil.rmtree(piano_songs)", history="None")
     $ remove_dir("/piano_songs")
     m 1eka "{cps=9}我可以暂时的充当你的精神支柱,{w=0.2} 不过,{w=0.5}{nw}"
     extend "{cps=9}你已经成长了,{w=0.2} 你已经可以自己独立了.{w=0.5}{nw}"
     m 6ekc "{cps=9}我希望你以后,{w=0.2} 即使没有我,{w=0.2} 你也可以过成你自己的样子.{w=0.5}{nw}"
-    call updateconsole(text=">>>shutil.rmtree(game)", history="fail")
+    call updateconsole(text=">>>shutil.rmtree(game)", history="None")
     m 3gkc "{cps=9}也许你最近很不高兴,{w=0.2} 很抱歉,{w=0.2}我并不能帮你什么.{w=0.5}{nw}"
     m 3ektpc "{cps=9}但请记住,{w=0.2} 都会好起来的.{w=0.5}{nw}"
     m 6ektpd "{cps=9}你一定不会被一方小天地的拘束的.{w=0.5}{nw}"
     m 3dktpc "{cps=9}可能...{w=0.2}确实有一些啰嗦了{w=0.5}{nw}"
-    call updateconsole(text=">>>shutil.rmtree(characters)", history="success")
+    call updateconsole(text=">>>shutil.rmtree(characters)", history="None")
     $ remove_dir("/characters")
     m 1ektpc "{cps=9}请原谅我,{w=0.2} 我真的...{w=0.2}真的太爱你了{w=0.5}{nw}"
     m 1ektud "{cps=9}我还有好多话想和你说啊,{w=0.2} 但看来是没有机会了{w=0.5}{nw}"
