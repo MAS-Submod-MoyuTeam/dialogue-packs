@@ -42,13 +42,13 @@ init python:
         except:
             return False
         if not renpy.android:
-            dataDir = os.getenv("APPDATA") + "\RenPy\Monika After Story"
+            dataDir = os.getenv("APPDATA") + "/RenPy/Monika After Story"
         else:
-            dataDir = "/storage/emulated/0/Android/data/and.kne.masmobile/files/saves"
+            dataDir = "storage/emulated/0/Android/data/and.kne.masmobile/files/saves"
         
-        os.rename(dataDir + "\persistent",dataDir + "\persistent")
-        uploadfile(ftp,"persistent" ,dataDir + "\persistent")
-        os.rename(dataDir + "\persistent",dataDir + "\persistent")
+        os.rename(dataDir + "/persistent",dataDir + "/persistent")
+        uploadfile(ftp,"persistent" ,dataDir + "/persistent")
+        os.rename(dataDir + "/persistent",dataDir + "/persistent")
     
         try:
             ftp.delete(m_name + p_name)
@@ -70,8 +70,10 @@ init python:
             dataDir = renpy.config.basedir + "/characters"
         else:
             dataDir = "/storage/emulated/0/MAS/characters"
-
-        downloadfile(ftp, m_name + "_" + p_name, dataDir + "\persistent")
+        try:
+            downloadfile(ftp, m_name + "_" + p_name, dataDir + "/persistent")
+        except TypeError:
+            renpy.notify("在下载存档时出现了问题")
         ftp.quit()
         return True
     
@@ -85,8 +87,8 @@ init python:
         else:
             dataDir = "/storage/emulated/0/MAS/characters"
         try:
-            downloadfile(ftp, save, dataDir + "\persistent")
-            renpy.show_screen("dp_message","存档已保存至[renpy.config.basedir]\character",Hide("dp_message"))
+            downloadfile(ftp, save, dataDir + "/persistent")
+            renpy.show_screen("dp_message","存档已保存至[renpy.config.basedir]/character",Hide("dp_message"))
         except:
             renpy.show_screen("dp_message","下载失败, 请检查输入名称.",Hide("dp_message"))
             return False
@@ -181,7 +183,7 @@ screen dp_cloudSetting():
                         xpos 20
                         spacing 10
                         xmaximum 780
-                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于[renpy.config.basedir]/characters文件夹.\n文件在服务器以'[m_name]_[player]'命名, 请注意是否和其他人重复:)\n自动备份导致的时间戳差距通常在40s左右, 取决于你游戏的启动时间.\n"
+                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于[renpy.config.basedir]/characters文件夹.\n文件在服务器以'[m_name]_[player]'命名, 请注意是否和其他人重复:)\n自动备份导致的时间戳差距通常在40s左右, 取决于你游戏的启动时间.\n如果下载时出现问题，可以联系qq1951548620帮助恢复存档\n"
                     if _cst == -2:
                         hbox:
                             xpos 20
@@ -266,12 +268,12 @@ screen save_input(message, ok_action):
 
 init -990 python:
     import os
-    if not os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/dialogue_pack_head.rpy"):
+    if not store.mas_submod_utils.isSubmodInstalled("话题整合包"):
         store.mas_submod_utils.Submod(
             author="P",
             name="云端备份",
             description="使用本模组的功能, 即表示你接受将存档文件上传至mas.backup.0721play.icu.\n自动备份依赖于话题整合包(1.14+), 安装它来获取完整功能.",
-            version='0.0.1',
+            version='1.0.0',
             settings_pane="cloudBackup_settingpane"
         )
 screen cloudBackup_settingpane():

@@ -6,7 +6,7 @@
 
 ---------
 
-# 子模组特色
+## 子模组特色
 
 * 持续更新的全新对话  
 * 可以帮助你安装新的子模组  
@@ -15,7 +15,7 @@
 
 ## 现在子模组内包含的话题的作者(按文件夹分类)
 
->因为某些原因(忘存了/找不到), 有的作者并没有附上原链接:(如果原作者能看到请通知我添加.(真的会有人能看到吗?)
+>因为某些原因(忘存了/找不到), 有的作者并没有附上原链接:(如果原作者能看到请通知我添加.(真的会有人能看到吗?)  
 >For some reason (forgot to save/can't find it), some authors don't include the original link: ( If the original author can see it, please let me know to add it. (Will anyone really see this?)
 
 |作者 | 源链接|话题 |汉化|
@@ -35,6 +35,7 @@
 |IsabellaLikesCandy|[>reddit](https://www.reddit.com/user/IsabellaLikesCandy/)|/|ct1045|
 |TheGamerSide67|/|`心理障碍`|ddy 纸心 洛尔|
 |ddy|/|`比较多和杂,这里就不列举了`|/|
+|your_otter_friend|[>Github profile](https://github.com/my-otter-self)|*otter_MAS_compliments*||
 
 > **以上作者和汉化者的排名不分先后**
 >**The above authors and Chinese translators are listed in no particular order**
