@@ -37,8 +37,8 @@
 |ddy|/|`比较多和杂,这里就不列举了`|/|
 |your_otter_friend|[>Github profile](https://github.com/my-otter-self)|*otter_MAS_compliments*||
 
-> **以上作者和汉化者的排名不分先后**
->**The above authors and Chinese translators are listed in no particular order**
+> **以上作者和汉化者的排名不分先后**  
+>**The above authors and Chinese translators are listed in no particular order**  
 > ****1*** : 作者未知 Author Unknown
 
 ## 话题投稿
