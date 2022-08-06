@@ -55,7 +55,6 @@ init python:
         if os.path.exists(dir + "/" + name):
             os.remove(dir + "/" + name)
         shutil.move(file_name, dir)
-        mas_submod_utils.submod_log.info("删除解压文件：'{}'\n".format(file_name + "_files"))
 
     def un_zip(file_name):
         """
@@ -121,9 +120,8 @@ init python:
                     continue#这是个文件，直接continue
                 if inseconddir:
                     #在子文件夹直接返回F
-                    mas_submod_utils.submod_log.info("子文件夹处理结束，不再进入子文件夹的子文件夹，开始处理下一个文件夹")
-                    continue
-                    #return False
+                    mas_submod_utils.submod_log.info("子文件夹处理结束")
+                    return False
                 inseconddir = True
                 if not copy_dir_m(file_name + '/' + dirs,inseconddir = True):#说明子文件夹内也没有符合条件文件夹
                     return False
