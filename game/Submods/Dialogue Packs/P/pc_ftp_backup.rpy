@@ -44,11 +44,11 @@ init python:
         if not renpy.android:
             dataDir = os.getenv("APPDATA") + "/RenPy/Monika After Story"
         else:
-            dataDir = "storage/emulated/0/Android/data/and.kne.masmobile/files/saves"
+            dataDir = renpy.config.savedir
         
-        os.rename(dataDir + "/persistent",dataDir + "/persistent")
+        #os.rename(dataDir + "/persistent",dataDir + "/persistent")
         uploadfile(ftp,"persistent" ,dataDir + "/persistent")
-        os.rename(dataDir + "/persistent",dataDir + "/persistent")
+        #os.rename(dataDir + "/persistent",dataDir + "/persistent")
     
         try:
             ftp.delete(m_name + p_name)

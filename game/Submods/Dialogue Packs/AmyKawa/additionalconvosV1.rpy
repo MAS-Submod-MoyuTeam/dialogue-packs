@@ -488,7 +488,7 @@ label musical_chairs_pull:
     m "嘶...."
     m "呃..."
     m "等我一下, 我站起来.{w=0.1}.{w=0.1}."
-    show monia with dissolve at t11
+    show monika at t11 with dissolve
     m 2duc "好了."
     m 2ktd "[player]... 你刚刚...?" 
     m 2wud "...."

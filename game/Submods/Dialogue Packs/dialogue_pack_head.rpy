@@ -112,10 +112,19 @@ init -900 python:
                 "Total playtime: {2}\n" +
                 "Avg playtime per session: {3}\n" +
                 "Last session start: {4}\n" +
-                "Last session end: {5}\n\n"
+                "Last session end: {5}\n"
             )
     
             return outstr.format(*output)
+
+init python:
+    def con_check():
+        restr = ""
+        for _type in store.mas_consumables.consumable_map.iterkeys():
+            #print(_type)
+            for cons in store.mas_consumables.consumable_map[_type].itervalues():
+                restr = restr + "{}|{} - {}/MAX:150\n".format(cons.consumable_id, cons.disp_name, cons.getStock())
+        return restr
 
 ##设置项
 
@@ -166,6 +175,7 @@ screen dp_gameStatus():
         chessl = persistent._mas_chess_stats['losses']
         chessd = persistent._mas_chess_stats['draws']
         chessstat = "胜:{} 负:{} 平:{}".format(chessw, chessl, chessd)
+        cons = con_check()
     key "noshift_T" action NullAction()
     key "noshift_t" action NullAction()
     key "noshift_M" action NullAction()
@@ -209,6 +219,8 @@ screen dp_gameStatus():
                         text "Current Affection:[_mas_getAffection()]\n"
                     hbox:
                         text "[mas_progressionDataDump()][mas_sessionDataDump()]"
+                    hbox:
+                        text "[cons]"
                     hbox:
                         text "小游戏游玩次数:[store.mas_games._total_games_played()]"
                     hbox:
