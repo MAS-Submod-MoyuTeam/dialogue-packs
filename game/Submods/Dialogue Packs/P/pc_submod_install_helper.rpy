@@ -28,11 +28,24 @@ init python:
                     move_files(file_name, False, file_name_bak)
                     mas_submod_utils.submod_log.error(DECOMPRESSING_FAIL + "\n处理出错的文件: '{}'".format(file_name))
                     continue
-                if not copy_dir_m(file_name):#尝试处理文件夹 返回F时抛出异常
-                    move_files(file_name, False, file_name_bak)
-                    mas_submod_utils.submod_log.error(ZIP_INCORRECT + "\n处理出错的文件:'{}'".format(file_name))
-                    continue
-                else:
+                subfile = os.listdir(file_name+"_files")
+                for i in subfile:
+                    ifull = file_name + "_files" + "/" + i
+                    if copy_dir_m(i, ifull):
+                        # 处理成功
+                        continue
+                    else:
+                        # 处理名字不正常的文件
+                        # 进入文件夹后再遍历文件进行处理
+                        mas_submod_utils.submod_log.info("进入文件夹 '{}' 处理内部文件".format(ifull))
+                        subi = os.listdir(ifull)
+                        for subifile in subi:
+                            subifile_full = file_name + "_files" + "/" + i + "/" + subifile
+                            if copy_dir_m(subifile , subifile_full):
+                                continue
+                            else:
+                                # copy_dir_m会记录不符合标准的文件夹，我们只需要continue
+                                continue
                     install_completed = True
                 move_files(file_name, True, file_name_bak)
                 mas_submod_utils.submod_log.info("安装zip文件完成：'{}'\n".format(file_name))
@@ -51,7 +64,10 @@ init python:
             dir = submod_locat + "/Install Fail"
         if not os.path.exists(dir):
             os.mkdir(dir)
-        shutil.rmtree(file_name + "_files")
+        try:
+            shutil.rmtree(file_name + "_files")
+        except WindowsError as e:
+            mas_submod_utils.submod_log.info("移除zip文件时发生异常：'{}'\n".format(e))
         if os.path.exists(dir + "/" + name):
             os.remove(dir + "/" + name)
         shutil.move(file_name, dir)
@@ -71,62 +87,68 @@ init python:
             zip_file.extract(names,file_name + "_files/")
         zip_file.close()
 
-    def copy_dir_m(file_name,inseconddir = False):
+    def copy_dir_m(dirs, file_name):
         """
         处理文件夹
-        vars:
-            file_name - 处理的文件夹
-            inseconddir - 是否进入了子文件夹
+        in:
+            dirs - 文件夹,短名
+            file_name - 文件夹绝对路径
         """
-        mas_submod_utils.submod_log.info("开始复制文件：'{}'".format(file_name))
-        bak_file_name = None
-        if inseconddir == False:
-            file_name = file_name + "_files"
-            bak_file_name = file_name
-        files = os.listdir(file_name)
-        for dirs in files:
-            if dirs == 'game':
-                copy_dir(file_name + "/game" ,renpy.config.basedir + "/game")
-                if os.path.exists(file_name + "/game" + "/mod_assets"):
-                    #如果存在mod_assets 检查json
-                    check_json(file_name + "/game" + "/mod_assets",bak_file_name)
-            elif dirs == 'lib':
-                copy_dir(file_name + "/lib" ,renpy.config.basedir + "/lib")
-            elif dirs == 'log':
-                copy_dir(file_name + "/log" ,renpy.config.basedir + "/log")
-            elif dirs == 'piano_songs':
-                copy_dir(file_name + "/piano_songs" ,renpy.config.basedir + "/piano_songs")
-            elif dirs == 'custom_bgm':
-                copy_dir(file_name + "/custom_bgm" ,renpy.config.basedir + "/custom_bgm")
-            elif dirs == 'characters':
-                continue#什么都不做, 我不希望做一个一键解锁精灵包的东西--至少要手动移动文件.
-            #game下文件夹
-            elif dirs == 'Submods':
-                copy_dir(file_name + "/Submods",renpy.config.basedir + "/game/Submods")
-            elif dirs == 'mod_assets':
-                check_json(file_name + "/mod_assets",bak_file_name)
-                copy_dir(file_name + "/mod_assets",renpy.config.basedir + "/game/mod_assets")
-            elif dirs == 'python-packages':
-                copy_dir(file_name + "/python-packages",renpy.config.basedir + "/game/python-packages")
-            elif dirs == 'gui':
-                copy_dir(file_name + "/gui",renpy.config.basedir + "/game/gui")
-            else:
-                if os.path.isfile(file_name + '/' + dirs):
-                    if dirs.find('rpy') != -1:#如果是rpy文件
-                        if not os.path.exists(renpy.config.basedir + "/game/Submods/UnGroupScripts"):
-                            os.mkdir(renpy.config.basedir + "/game/Submods/UnGroupScripts")
-                        shutil.move(file_name + '/' + dirs,renpy.config.basedir + "/game/Submods/UnGroupScripts")
-                        mas_submod_utils.submod_log.info("'{}' 是个脚本文件，复制到 'Submods/UnGroupScripts'".format(file_name))
-                    continue#这是个文件，直接continue
-                if inseconddir:
-                    #在子文件夹直接返回F
-                    mas_submod_utils.submod_log.info("子文件夹处理结束")
-                    return False
-                inseconddir = True
-                if not copy_dir_m(file_name + '/' + dirs,inseconddir = True):#说明子文件夹内也没有符合条件文件夹
-                    return False
-        mas_submod_utils.submod_log.info("处理完成： '{}'".format(file_name))
-        return True
+        mas_submod_utils.submod_log.info("准备复制文件：'{}'".format(dirs))
+        #bak_file_name = 
+        #if inseconddir == False:
+        #files = os.listdir(file_name)
+        #for dirs in files:
+        if dirs == 'game':
+            check_json(file_name + "/mod_assets", None)
+            copy_dir(file_name ,renpy.config.basedir + "/game")
+            return True
+        elif dirs == 'lib':
+            copy_dir(file_name ,renpy.config.basedir + "/lib")
+            return True
+        elif dirs == 'log':
+            copy_dir(file_name ,renpy.config.basedir + "/log")
+            return True
+        elif dirs == 'piano_songs':
+            copy_dir(file_name ,renpy.config.basedir + "/piano_songs")
+            return True
+        elif dirs == 'custom_bgm':
+            copy_dir(file_name ,renpy.config.basedir + "/custom_bgm")
+            return True
+        elif dirs == 'characters':
+            mas_submod_utils.submod_log.info("忽略该文件夹: '{}'".format(dirs))
+            return True#什么都不做, 我不希望做一个一键解锁精灵包的东西--至少要手动移动文件.
+        elif dirs == 'gift':
+            mas_submod_utils.submod_log.info("忽略该文件夹: '{}'".format(dirs))
+            return True#什么都不做, 我不希望做一个一键解锁精灵包的东西--至少要手动移动文件.
+        elif dirs == 'gifts':
+            mas_submod_utils.submod_log.info("忽略该文件夹: '{}'".format(dirs))
+            return True#什么都不做, 我不希望做一个一键解锁精灵包的东西--至少要手动移动文件.
+        #game下文件夹
+        elif dirs == 'Submods':
+            copy_dir(file_name ,renpy.config.basedir + "/game/Submods")
+            return True
+        elif dirs == 'mod_assets':
+            check_json(file_name ,bak_file_name)
+            copy_dir(file_name ,renpy.config.basedir + "/game/mod_assets")
+            return True
+        elif dirs == 'python-packages':
+            copy_dir(file_name ,renpy.config.basedir + "/game/python-packages")
+            return True
+        elif dirs == 'gui':
+            copy_dir(file_name ,renpy.config.basedir + "/game/gui")
+            return True
+        else:
+            if os.path.isfile(file_name):
+                if file_name.find('rpy') != -1:#如果是rpy文件
+                    if not os.path.exists(renpy.config.basedir + "/game/Submods/UnGroupScripts"):
+                        os.mkdir(renpy.config.basedir + "/game/Submods/UnGroupScripts")
+                    shutil.move(file_name, renpy.config.basedir + "/game/Submods/UnGroupScripts")
+                    mas_submod_utils.submod_log.info("这是个脚本文件，复制到 'Submods/UnGroupScripts'：{}".format(file_name))
+                    return True
+        mas_submod_utils.submod_log.info("不符合任何常规子模组应有的文件夹： '{}'".format(file_name))
+        return False
+        
 
     def copy_dir(src_path, target_path):
         """
@@ -160,8 +182,9 @@ init python:
             filename - mod_assets文件夹
             movedir - 失败后删除的文件夹
         """
+        mas_submod_utils.submod_log.info("检测精灵包json文件：'{}'".format(filename))
         if not os.path.exists(filename + "/monika/j"):
-            mas_submod_utils.submod_log.info("未找到 '{}' 的json文件夹，跳过检测礼物".format(filename))
+            mas_submod_utils.submod_log.info("未找到的json文件夹，跳过检测礼物：{}".format(filename))
             return
         filename = filename + "/monika/j"
         files = os.listdir(filename)
@@ -172,7 +195,7 @@ init python:
                     json_data = open(json_file).read()
                     output_json = json.loads(json_data)
                 except:
-                    move_files(movedir,False)
+                    #move_files(movedir,False)
                     mas_submod_utils.submod_log.error("[DP] - 在尝试读取 '{}' 出现异常，跳过".format(json_file))
                     continue
                 try:

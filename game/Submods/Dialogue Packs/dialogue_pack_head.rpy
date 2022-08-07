@@ -32,6 +32,9 @@ init -900 python:
         #删除原钢琴对话子模组
         if os.path.exists(renpy.config.basedir + "/game/Submods/Custom Postpiano"):
             shutil.rmtree(renpy.config.basedir + "/game/Submods/Custom Postpiano")
+        #删除某个违规子模组
+        if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/UnexplainedYeet"):
+            shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/UnexplainedYeet")
     except:
         pass
 
