@@ -72,15 +72,18 @@ init python:
             dataDir = "/storage/emulated/0/MAS/characters"
         try:
             downloadfile(ftp, m_name + "_" + p_name, dataDir + "/persistent")
-        except TypeError:
+        except TypeError as e:
             renpy.notify("在下载存档时出现了问题")
+            mas_submod_utils.submod_log.info("云端存档下载失败：{}".format(e))
         ftp.quit()
+        renpy.notify("存档已保存至characters/persistent")
         return True
     
     def downloadOneSave(save):
         try:
             ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
-        except:
+        except Exception as e:
+            mas_submod_utils.submod_log.error("云端备份失败：{}".format(e))
             renpy.show_screen("dp_message","服务器连接失败",Hide("dp_message"))
         if not renpy.android:
             dataDir = renpy.config.basedir + "/characters"
@@ -129,10 +132,11 @@ init python:
     ################
 
     if persistent.submods_dp_CloudBackup:
-        if not renpy.android:
-            if datetime.datetime.today() != persistent.CloudBackupLastTime[1]:
-                uploadSave()
-
+        if datetime.datetime.today() != persistent.CloudBackupLastTime[1]:
+            mas_submod_utils.submod_log.info("话题包开始备份: 本地 '{}' -> 云端 '{}'".format(datetime.datetime.today(), persistent.CloudBackupLastTime[1]))
+            uploadSave()
+        else:
+            mas_submod_utils.submod_log.info("话题包今日已经备份过，本次不备份：'{}' ".format(persistent.CloudBackupLastTime[1]))
 
 
 screen dp_cloudSetting():

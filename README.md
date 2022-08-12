@@ -35,7 +35,7 @@
 |IsabellaLikesCandy|[>reddit](https://www.reddit.com/user/IsabellaLikesCandy/)|/|ct1045|
 |TheGamerSide67|/|`心理障碍`|ddy 纸心 洛尔|
 |ddy|/|`比较多和杂,这里就不列举了`|/|
-|your_otter_friend|[>Github](https://github.com/my-otter-self)|*otter_MAS_compliments*||
+|your_otter_friend|[>Github](https://github.com/my-otter-self)|*otter_MAS_compliments* *hydro*|终不似、少年游|
 
 > **以上作者和汉化者的排名不分先后**  
 >**The above authors and Chinese translators are listed in no particular order**  

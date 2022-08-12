@@ -61,7 +61,7 @@ init 5 python:
 label sub_update_helper:
     m 1eua "好的"
     m 3eka "如果未响应, 这是正常情况, 因为在干活要稍微等一下..."
-    m "你想让我为你打包一下文件吗?{nw}"
+    #m "你想让我为你打包一下文件吗?{nw}"
     $ create_zip = False
     call copyfile
     m 4eub "搞定了. {w=0.3}文件都在character/OldVersionFiles文件夹里, 复制到新版本就好了."
