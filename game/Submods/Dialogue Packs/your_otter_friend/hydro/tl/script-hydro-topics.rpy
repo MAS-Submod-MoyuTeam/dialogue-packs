@@ -1,5 +1,6 @@
 ﻿# TODO: Translation updated at 2022-08-06 07:22
 # 翻译：@终不似、少年游
+# 润色: @ddy
 
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:17
@@ -10,37 +11,37 @@ translate chinese hyMod_topic_intro_5a6cabcd:
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:18
 translate chinese hyMod_topic_intro_524988e0:
 
-    m 3lublb "饮水的重要性!"
+    m 3lublb "就是饮水的重要性!"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:19
 translate chinese hyMod_topic_intro_a83290a8:
 
-    m 1subla "每个人都知道尽可能多地喝水是非常重要的..."
+    m 1subla "没有哪个人不知道及时喝水有多么重要..."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:20
 translate chinese hyMod_topic_intro_0a7c3a38:
 
-    m 1eub "补充水分的一些好处包括更高的能量水平和健康的减肥."
+    m 1eub "补充水分可以帮助你减肥,或者摄入更多能量."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:21
 translate chinese hyMod_topic_intro_baca899e:
 
-    m 1wuo "一些研究甚至支持饮用水可以帮助你的大脑和能量的想法!"
+    m 1wuo "一些研究甚至声称饮用水可以改善你的大脑和精神状态!"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:22
 translate chinese hyMod_topic_intro_82948e2d:
 
-    m 2rusdrc "如果你没有喝足够的水，头痛就会发生，你的情绪就会下降."
+    m 2rusdrc "如果你喝水不太够，可能会感觉有点头痛，而且更容易有负面情绪."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:23
 translate chinese hyMod_topic_intro_70a00ad8:
 
-    m 2wusdrd "我甚至不是在谈论它可能带来的大量健康问题!"
+    m 2wusdrd "我甚至还没说到因为缺水而导致的身体健康方面的问题!"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:24
 translate chinese hyMod_topic_intro_0d38e842:
 
-    m 7lusdrx "便秘，尿路感染，肾结石，皮肤问题..."
+    m 7lusdrx "比如便秘，尿路感染，肾结石，或者关于皮肤的毛病..."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:25
 translate chinese hyMod_topic_intro_1e82c6ac:
@@ -50,22 +51,22 @@ translate chinese hyMod_topic_intro_1e82c6ac:
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:26
 translate chinese hyMod_topic_intro_b7468ef2:
 
-    m 4ruc "但是没有人告诉你，你必须喝多少水取决于很多因素."
+    m 4ruc "不过你可能不知道，你要喝多少水其实取决于很多因素."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:27
 translate chinese hyMod_topic_intro_10aa03b7:
 
-    m 4wud "例如，你住在哪里，你的饮食，季节，环境和生活习惯."
+    m 4wud "例如，你所在地区，你的饮食，季节，环境和生活习惯都会影响."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:28
 translate chinese hyMod_topic_intro_1657ccaa:
 
-    m 1wubso "我说得太多了."
+    m 1wubso "哦!我好像说得太多了."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:29
 translate chinese hyMod_topic_intro_027c4c88:
 
-    m 1lkblu "我真正想告诉你的是，如果你想让我提醒你定期喝水，你可以告诉我."
+    m 1lkblu "其实我只是想说，如果你想让我提醒你定期喝水，你可以告诉我."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:30
 translate chinese hyMod_topic_intro_c5631270:
@@ -75,123 +76,122 @@ translate chinese hyMod_topic_intro_c5631270:
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:31
 translate chinese hyMod_topic_intro_311aa54c:
 
-    m 7ksbla "我只是想照顾你!"
+    m 7ksbla "我只是想多照顾照顾你!"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:32
 translate chinese hyMod_topic_intro_59459344:
 
-    m 5hsblb "等待下一个“莫妮卡今日健康小贴士”!"
+    m 5hsblb "更多内容请等待下一个“莫妮卡健康小贴士”!"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:49
 translate chinese hyMod_topic_tips_448471cf:
 
-    m 1suu "[player]! 这是你的“ Monika 今日健康小贴士”!"
+    m 1suu "[player]! 你的“莫妮卡健康小贴士”到了,注意签收哦!"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:50
 translate chinese hyMod_topic_tips_f6b4e91c:
 
-    m 1hub "今天的主题是如何喝足够的水!"
+    m 1hub "今天要说的是保证水分充足的小窍门!"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:51
 translate chinese hyMod_topic_tips_21e8550c:
 
-    m 4dub "我们已经讨论过多喝水的重要性，现在开始..."
+    m 4dub "我们已经说过常喝水的重要性，现在开始..."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:52
 translate chinese hyMod_topic_tips_a3426f8b:
 
-    m 4lua "第一个就是无论你走到哪里都要随身带着一个水瓶."
+    m 4lua "第一,就是无论你走到哪里都要随身带着一个水瓶."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:53
 translate chinese hyMod_topic_tips_5e495677:
 
-    m 2sua "也许买个可爱的会有帮助, [player]!"
+    m 2sua "也许买个印着可爱型的水杯有额外加成,[player]?"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:54
 translate chinese hyMod_topic_tips_1e9239f7:
 
-    m 3hub "如果你有水，你没有理由不喝它! 啊哈哈哈~"
+    m 3hub "谁会有理由拒绝用超级可爱的水杯喝水呢?啊哈哈哈~"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:55
 translate chinese hyMod_topic_tips_7d780c95:
 
-    m 3lub "第二个技巧是注意力集中在液体上."
+    m 3lub "第二,你可以仔细抉择要喝什么."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:56
 translate chinese hyMod_topic_tips_16d258a4:
 
-    m 3wua "你不需要喝白开水来满足你的水分需求."
+    m 3wua "其实没必要去多喝很多白开水来补水."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:57
 translate chinese hyMod_topic_tips_ee3dacdd:
 
-    m 4dub "例如，茶、牛奶和肉汤就足够了!"
+    m 4dub "平时如果有喝的例如茶、牛奶和肉汤也足够应付你的需求."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:58
 translate chinese hyMod_topic_tips_b526ff02:
 
-    m 4sua "你也可以通过挤入新鲜的柠檬汁或酸橙汁来增加水的味道."
+    m 4sua "你也可以通过加一些新鲜的柠檬汁或酸橙汁来让喝水这个过程变得更美妙."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:59
 translate chinese hyMod_topic_tips_8af40696:
 
-    m 2dua "第三条建议是不要喝含糖饮料."
+    m 2dua "第三，不要喝含糖饮料."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:60
 translate chinese hyMod_topic_tips_478a8d67:
 
-    m 2luc "虽然你可以从苏打水、果汁和酒精中获得液体，但是这些饮料的热量含量很高."
+    m 2luc "虽然你可以从苏打水、果汁和酒精中摄取水分，但是这些饮料的热量含量很高."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:61
 translate chinese hyMod_topic_tips_ad8b074e:
 
-    m 7wud "还有，出去吃饭的时候多喝水，而不是点别的饮料."
+    m 7wud "还有，出去吃饭的时候多喝水，而不是大点饮料."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:62
 translate chinese hyMod_topic_tips_503845db:
 
-    m 7kuu "你可以省下额外的钱，同时也可以减少食物的卡路里摄入量!"
+    m 7kuu "这样可以省下额外的钱，同时也可以减少食物的卡路里摄入量!"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:63
 translate chinese hyMod_topic_tips_c15ad830:
 
-    m 2rub "我的最后一个建议: 如果你正在努力锻炼，因此出了很多汗..."
-    m 2rub ""
+    m 2rub "最后一个建议: 如果你正在努力锻炼，并因此大汗淋漓..."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:64
 translate chinese hyMod_topic_tips_6f77ee26:
 
-    m 2dub "可以考虑喝一种含有电解质的运动饮料，以补充因出汗而流失的电解质."
+    m 2dub "可以考虑喝一种含有电解质的运动饮料，以补充因出汗所流失的电解质."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:65
 translate chinese hyMod_topic_tips_262507eb:
 
-    m 4hua "别忘了! 尽可能选择水还是很明智的."
+    m 4hua "别忘了!最好在平时能够随机应变."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:66
 translate chinese hyMod_topic_tips_f4268895:
 
-    m 3hub "我希望这些建议能帮到你, [player]!"
+    m 3hub "我希望这些建议能帮到你,[player]!"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:67
 translate chinese hyMod_topic_tips_bbd2abb1:
 
-    m 3sua "别忘了，我可以提醒你定期喝水!"
+    m 3sua "而且我会满足提醒你喝水的需要!"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:68
 translate chinese hyMod_topic_tips_b27557d9:
 
-    m 5tubsb "你可爱的女朋友会一直照顾你."
+    m 5tubsb "虽然你可爱的女朋友会一直照顾你."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:69
 translate chinese hyMod_topic_tips_3350faf6:
 
-    m 5fkbsa "但也要照顾好自己，好吗? "
+    m 5fkbsa "但也不能光靠我，好吗? "
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:70
 translate chinese hyMod_topic_tips_3cc98950:
 
-    # extend 5hsblb "啊哈哈哈~"
+     extend 5hsblb "啊哈哈哈~"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:71
 translate chinese hyMod_topic_tips_56945e9f:
@@ -201,12 +201,12 @@ translate chinese hyMod_topic_tips_56945e9f:
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:88
 translate chinese hyMod_topic_signs_680b5534:
 
-    m 1rusdld "[player], 你有没有注意到当你的身体出现问题的时候?"
+    m 1rusdld "[player], 你有没有发现自己身体出问题的时候的表现?"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:89
 translate chinese hyMod_topic_signs_b95b28b0:
 
-    m 1rusdlc "当我们需要什么的时候，我们的身体会尖叫，要求得到不存在的东西."
+    m 1rusdlc "当我们亏待自己的身体时，它就会直接表现出来，尖叫着要你补偿它."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:90
 translate chinese hyMod_topic_signs_507de884:
@@ -216,7 +216,7 @@ translate chinese hyMod_topic_signs_507de884:
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:91
 translate chinese hyMod_topic_signs_c1f3833c:
 
-    m 3duc "根据研究，其中一些是头痛和疲劳."
+    m 3duc "根据研究，主要是头痛和疲劳."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:92
 translate chinese hyMod_topic_signs_a3d8b5c1:
@@ -231,22 +231,22 @@ translate chinese hyMod_topic_signs_9dd89267:
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:94
 translate chinese hyMod_topic_signs_7641f65b:
 
-    m 4efb "最好是苍白清澈的尿液!"
+    m 4efb "最好的情况是苍白清澈的尿液!"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:95
 translate chinese hyMod_topic_signs_4866b2cc:
 
-    # extend 2rksdrb " ...真奇怪，哈哈哈~"
+     extend 2rksdrb " ...真奇怪，哈哈哈~"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:96
 translate chinese hyMod_topic_signs_228cc916:
 
-    m 2hksdrb "我只是想帮忙, [player]!"
+    m 2hksdrb "我只是想帮忙,[player],没什么别的意思!"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:97
 translate chinese hyMod_topic_signs_f6446a85:
 
-    m 5fksdrd "我很担心你的健康."
+    m 5fksdrd "因为我很担心你的健康."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:98
 translate chinese hyMod_topic_signs_e028b068:
@@ -256,12 +256,12 @@ translate chinese hyMod_topic_signs_e028b068:
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:99
 translate chinese hyMod_topic_signs_1c9c0aff:
 
-    m 4dub "如果你渴了，不要犹豫，喝点水."
+    m 4dub "如果你渴了，那就不要犹豫，喝点水."
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:100
 translate chinese hyMod_topic_signs_a2d02828:
 
-    m 4wua "如果你不渴，但是记住你已经有一段时间没有喝水了，一定要喝点水!"
+    m 4wua "如果你不渴，但是记住你已经有一段时间没有喝水了，一会最好还是要喝点水!"
 
 # game/Submods/MAS Hydration Submod/script-hydro-topics.rpy:101
 translate chinese hyMod_topic_signs_dd6cdf76:
