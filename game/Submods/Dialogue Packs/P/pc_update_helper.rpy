@@ -13,6 +13,7 @@ init python:
     "game/mod_assets/monika/t",
     "game/mod_assets/thumbs",
     "game/mod_assets/font",
+    "game/mod_assets/location",
     "piano_songs",
     "lib",
     "log",
