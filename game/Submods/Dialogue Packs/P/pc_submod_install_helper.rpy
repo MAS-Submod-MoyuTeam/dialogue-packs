@@ -129,7 +129,7 @@ init python:
             copy_dir(file_name ,renpy.config.basedir + "/game/Submods")
             return True
         elif dirs == 'mod_assets':
-            check_json(file_name ,bak_file_name)
+            check_json(file_name ,None)
             copy_dir(file_name ,renpy.config.basedir + "/game/mod_assets")
             return True
         elif dirs == 'python-packages':
