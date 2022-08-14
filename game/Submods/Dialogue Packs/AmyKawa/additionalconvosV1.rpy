@@ -1251,9 +1251,10 @@ label monika_gwAfter:
 return
 
 
-init python:
+init 5 python:
     import datetime
-    addEvent(Event(persistent.event_database,eventlabel="monika_gosleep",random=True,rules={"force repeat"}))
+    if mas_timePastSince(mas_getEVL_last_seen("monika_gosleep"), datetime.timedelta(days=5)):
+        addEvent(Event(persistent.event_database,eventlabel="monika_gosleep",random=True,rules={"force repeat"}))
 
 label monika_gosleep:
     $ persistent._last_topic_run = datetime.datetime.utcnow()

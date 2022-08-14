@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/MAS-Submod-MoyuTeam/dialogue-packs}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.20.1',
+        version='1.21.0',
         settings_pane="dp_setting_pane"
     )
 
@@ -228,9 +228,8 @@ screen dp_gameStatus():
                         text "小游戏游玩次数:[store.mas_games._total_games_played()]"
                     hbox:
                         text "NOU战绩 - Monika:[noum] Player:[noup]"
-                    if not renpy.android:
-                        hbox:
-                            text "国际象棋战绩 [chessstat]"
+                    hbox:
+                        text "国际象棋战绩 [chessstat]"
                     hbox:
                         text "\n上次云端备份时间:[persistent.CloudBackupLastTime[1]]"
                     hbox:
