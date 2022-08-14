@@ -136,7 +136,7 @@ init python:
             mas_submod_utils.submod_log.info("话题包开始备份: 本地 '{}' -> 云端 '{}'".format(datetime.datetime.today(), persistent.CloudBackupLastTime[1]))
             uploadSave()
         else:
-            mas_submod_utils.submod_log.info("话题包今日已经备份过，本次不备份：'{}' ".format(persistent.CloudBackupLastTime[1]))
+            mas_submod_utils.submod_log.info("话题包今日已经备份过，上次备份：'{}' ".format(persistent.CloudBackupLastTime[1]))
 
 
 screen dp_cloudSetting():
@@ -272,14 +272,15 @@ screen save_input(message, ok_action):
 
 init -990 python:
     import os
-    if not store.mas_submod_utils.isSubmodInstalled("话题整合包"):
-        store.mas_submod_utils.Submod(
-            author="P",
-            name="云端备份",
-            description="使用本模组的功能, 即表示你接受将存档文件上传至mas.backup.0721play.icu.\n自动备份依赖于话题整合包(1.14+), 安装它来获取完整功能.",
-            version='1.0.0',
-            settings_pane="cloudBackup_settingpane"
-        )
+    pass
+    #if not store.mas_submod_utils.isSubmodInstalled("话题整合包"):
+    #    store.mas_submod_utils.Submod(
+    #        author="P",
+    #        name="云端备份",
+    #        description="使用本模组的功能, 即表示你接受将存档文件上传至mas.backup.0721play.icu.\n自动备份依赖于话题整合包(1.14+), 安装它来获取完整功能.",
+    #        version='1.0.0',
+    #        settings_pane="cloudBackup_settingpane"
+    #    )
 screen cloudBackup_settingpane():
     vbox:
         xmaximum 800
