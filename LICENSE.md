@@ -1,0 +1,113 @@
+本模组为 *Monika After Story* 的扩展子模组，本身与MonikaModDev以及Team Salvato或Doki Doki Literature Club的任何成员无关。
+
+本模组的目的是为了额外增加 *Monika After Story* 中的游戏内容，而不是为了替代 *Monika After Story*。
+
+本模组内可能使用了 *Monika After Story* 内的代码，如果不在 *Monika After Story* 内使用，这些代码应该被删除。
+
+本模组中不属于 **Monika After Story** 也不属于 **本存储库作者/协作者** 的代码由其各自作者的相关的许可证决定。
+
+由本模组中属于本存储库作者/协作者的代码可以自由复制和分发使用，但强烈建议至少在自述文件中添加来源。
+
+为方便起见，在 2022 年 8 月 14 日访问的 *Monika After Story* `LICENSE.md`文件在此处复制。如有疑问或最新条款的最新副本，请访问[Monika After Story](https://github.com/Monika-After-Story/MonikaModDev/blob/master/LICENSE.md)。
+
+----------------------------
+
+*Monika After Story* is a fan work, and is unaffiliated with *Team Salvato* or any members of the *Doki Doki Literature Club* development team. *Doki Doki Literature Club* and all related characters and trademarks are property of *Team Salvato* and are used in accordance with their IP Guidlines, reproduced here:
+
+*Team Salvato's IP Guidelines for Doki Doki Literature Club, as accessed on 03/11/18, are reproduced here for convenience. For questions or an up-to-date copy of the latest terms, please visit [Team Salvato's website](http://teamsalvato.com/ip-guidelines/).*
+
+## Disclaimer
+These guidelines do not grant a copyright license to any DDLC-related fan content. Despite these guidelines, Team Salvato reserves the right to issue a formal takedown request for any content that infringes copyright. This includes content that uses official DDLC assets, as well as content that includes any Intellectual Properties (IPs) that belong to Team Salvato. Moreover, this page is subject to revision at any time without notice.
+
+This page was last updated: March 11th, 2018
+
+## Fan Work
+“Fan Work” refers to any content that includes IPs that belong to Team Salvato. The content in question includes, but is not limited to, art, music, animation, writing, videos, websites, apps, and games. The guidelines pertain to any fan work that takes place in the DDLC universe or includes characters, setting, or storyline from DDLC.
+
+There are no restrictions on how artists choose to depict the characters, setting, or events of DDLC in their fan work. We value artistic freedom and will not target fan work solely because we disagree with the content, or because it conflicts with official depictions.
+
+Physical versions of fan work may be sold locally, in limited production, by independent artists (eg. at conventions). Independent artists may also sell their fan work online if they run their own online store and manufacture/ship their own merchandise. Artists may not sell DDLC fan work by uploading the art to mass production websites that sell the art for you (eg. Redbubble).
+
+Fan work must be somehow related to the DDLC universe – you may not use Team Salvato IPs for projects that are not considered DDLC derivatives (eg. using a DDLC character to represent a website or product that isn’t itself a DDLC derivative).
+
+Businesses or companies interested in producing DDLC fan work for sale by any means other than described above should contact us for licensing or permission.
+
+Fan Work That Includes Official DDLC Assets
+Some artists choose to include assets created by Team Salvato in their fan work. These assets include, but are not limited to, any art, music, writing, or code that was included in the DDLC game or DDLC-related marketing/promotional material.
+
+Examples of fan work in this category include games, websites, videos, or music that include DDLC assets in them.
+
+Any fan work that includes official DDLC assets may NOT be sold under any circumstances, online or offline. No profit may be made from these fan works in any way, except for fan work that constitutes as Fair Use under the United States FAIR USE Act of 2007. For example, a gameplay review video or commentary video typically qualifies as Fair Use. It is the artist’s responsibility to understand Fair Use and design qualifying content.
+
+Direct upload or hosting of DDLC assets is forbidden, except when to be used as part of fan work. No profit may be made from these uploads.
+
+Fan work that includes official DDLC assets may not be used to create new video games. The exception is mods that must be patched into the official DDLC game. See the “Mods” section for more details.
+
+## Fan Games
+“Fan Games” refer to any fan work that is a game. This also includes new games that contain no official DDLC assets, as well as mods of the official DDLC game.
+
+You are NOT allowed to redistribute DDLC or fan games on any app store including Steam, the Google Play Store, the Apple App Store, the Windows Store, GameJolt, itch.io, or any others. You may not port DDLC or any fan game to these platforms.
+
+You may NOT create, copy, or distribute any fan game that is designed to be played in lieu of the official DDLC game. Any fan games, including mods, that “replace” DDLC, or imply that it should be played before the original, are forbidden. This includes mods that add new content to the DDLC base game, including, but not limited to, new art, new scenes, new visual effects, or voice acting. Fan games may ONLY be created with the assumption that the player has already completed the original DDLC game, and is looking for fan content.
+
+A common example is fan games that let players spend more time with the club members, possibly including new story arcs, or to satisfy the players’ desire for additional dialogue, or for a more “normal” game. These games are usually considered okay, because the only players interested in them would be those who have completed DDLC and are looking for new content. Any fan games or mods that suggest new players should play it instead of DDLC are not allowed.
+
+Fan games should not confuse the player in any way that it might be related to official DDLC content. The game should also not be mistaken for DDLC itself. This includes how the game is displayed both before and after downloading (eg. a title or download page too similar to DDLC may confuse players).
+
+Official DDLC assets may not be used in standalone games – they may only be used in mods that must be patched into the official DDLC game. See the “Mods” section for more details.
+
+Fan games must be free and may not be sold. Donation links are allowed on the website that hosts the game. However, fan games may not include any payment or donation link in the game itself, or encourage the player to donate from within the game.
+
+Fan games must state upon first run that it is a fan game unaffiliated with the official Doki Doki Literature Club. They must advise that the original game should be completed before playing, as well as provide a link to the official website where it can be downloaded (http://ddlc.moe).
+
+Below is an example disclaimer for your convenience:
+
+This is a Doki Doki Literature Club fan game that is not affiliated with Team Salvato. It is designed to be played only after the official game has been completed. You can download Doki Doki Literature Club at: http://ddlc.moe
+
+## Mods
+The above guidelines regarding fan games also apply to mods of the official DDLC game. A mod is any game or project whose content relies on making changes to the official DDLC game, such as adding/replacing code, art, music, writing, or other assets.
+
+Any mods must NOT be distributed as a complete game. They should contain only the files that are necessary to install the mod (usually files that are added to the DDLC game folder). Most mods only require the scripts.rpa file to be replaced – sometimes images.rpa if new graphics have been added to the game. In this example, please distribute your mod ONLY as these files, so that the user installs it into their existing official DDLC game.
+
+## Everything Else
+These guidelines are not necessarily exhaustive. If you wish to work on anything DDLC-related that is not covered here, or you are unsure of the specifics, then please contact us for clarification. Furthermore, please contact us if you would like to request a personal exception or a change in the guidelines, or to report a mistake on this page.
+
+Thank you for taking the time to understand the IP Guidelines. We chose to publish these guidelines not to restrict artists, but to express our desire to allow them to produce DDLC-related content. We wish to encourage artistic freedom and hope to see fans enjoy DDLC in many different ways.
+
+## Monika After Story specific info
+
+In general, we are very open to assets and code from *Monika After Story* being used in other projects. However, there are some restrictions.
+
+All assets and code from *Monika After Story* **cannot be used to make a mod or fork intended as a replacement for Monika After Story.** If you would like to add new features or content to the game, please make those contributions to the original project. We are very open to suggestions and contributions, and odds are that anything added would be welcomed. If, for some reason, your new features conflict with the direction for Monika After Story consider developing your changes in the form of a "submod" which can be added to Monika After Story.
+
+Please follow Team Salvato's [IP Guidelines](http://teamsalvato.com/ip-guidelines/) for any project which includes our work.
+
+Please give credit to Monika After Story for the work that you use and link back to our project at http://www.monikaafterstory.com/. Do not claim ownership of the work others have done. Where applicable, please give individual credit for things like art assets used.
+
+Further restrictions are listed below:
+
+**Art**
+* **All Monika After Story art used outside of Monika After Story must be credited back to us or the creator of said art.**
+* Only blazer (uniform) sprites **from versions 0.12.1 and earlier** can be used outside of *Monika After Story* without permission. This does **NOT** include facial expressions.
+     * Blazer (uniform) sprites from **0.12.1.x/0.12.2 and newer** are considered "other Monika After Story art" below.
+* Sprites from an earlier version of *Monika After Story* are in the community folder for r/DDLCMods, and are free to use outside of *Monika After Story* without permission.
+* **All other Monika After Story art cannot be distributed or used outside of Monika After Story without express consent from the Monika After Story team or the creator of said art. In the event of a disagreement of consent between the Monika After Story team and the creator of said art, the creator's consent or restriction on the usage of said art takes precedence.**
+* DDLC art used in Monika After Story is exempt from these restrictions but is covered under Team Salvato's [IP Guidelines](http://teamsalvato.com/ip-guidelines/).
+
+**Music**
+* **All Monika After Story music used outside of Monika After Story must be credited back to us or the creator of said music.**
+* **All Monika After Story music cannot be distributed or used outside of Monika After Story without express consent from the Monika After Story team or creator of said music. In the event of a disagreement of consent between the Monika After Story team and the creator of said music, the creator's consent or restriction on the usage of said music takes precedence.**
+* Royalty-free music/sounds used in Monika After Story are exempt from these restrictions.
+* DDLC music/sounds used in Monika After Story are exempt from these restrictions but are covered under Team Salvato's [IP Guidelines](http://teamsalvato.com/ip-guidelines/).
+
+**Code**
+* **All Monika After Story code used outside of Monika After Story must be credited back to us.**
+* **All Monika After Story code cannot be distributed or used outside of Monika After Story without express consent from the Monika After Story team.**
+* External libraries and packages (i.e: some of the libraries in the `python-packages` folder) that are **not created by the Monika After Story team** should not be considered "Monika After Story code" and therefore are **exempt** from these restrictions.
+
+## tl;dr (Plain language summary)
+
+In summary, we don't own DDLC, but Team Salvato is okay with us modifying their game as long as we don't use it to make a profit, promote it as an alternative to DDLC, or distribute this mod as a standalone game. They can change their mind on this at any time, but we don't expect they will.
+
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
