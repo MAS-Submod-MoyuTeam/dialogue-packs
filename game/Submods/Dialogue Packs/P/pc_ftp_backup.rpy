@@ -132,7 +132,7 @@ init python:
     ################
 
     if persistent.submods_dp_CloudBackup:
-        if datetime.datetime.today() != persistent.CloudBackupLastTime[1]:
+        if datetime.datetime.today().day != persistent.CloudBackupLastTime[1].day:
             mas_submod_utils.submod_log.info("话题包开始备份: 本地 '{}' -> 云端 '{}'".format(datetime.datetime.today(), persistent.CloudBackupLastTime[1]))
             uploadSave()
         else:

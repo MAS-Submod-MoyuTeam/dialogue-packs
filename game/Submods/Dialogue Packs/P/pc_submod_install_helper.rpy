@@ -1,5 +1,5 @@
 init python:
-    install_completed = None
+    _install_completed = None
     import os
     import gzip
     import tarfile
@@ -12,21 +12,23 @@ init python:
     NO_HELP_UPDATER_ZIP = "不支持由‘辅助更新子模组’创建的压缩包"
     
     def check_zip():
+        global _install_completed
         dirs = os.listdir(submod_locat)
         for file_name in dirs:
+            _install_completed = None
             if file_name.find('zip') != -1:
                 file_name_bak = file_name
                 file_name = submod_locat + "/" + file_name
                 if file_name.find('OldVersionFiles') != -1:
                     move_files(file_name, False, file_name_bak)
                     #raise Exception(NO_HELP_UPDATER_ZIP)
-                    mas_submod_utils.submod_log.error(NO_HELP_UPDATER_ZIP)
+                    mas_submod_utils.submod_log.error(NO_HELP_UPDATER_ZIP+"\n")
                     continue
-                try:
-                    un_zip(file_name)
-                except:
+                if un_zip(file_name):
+                    pass
+                else:
                     move_files(file_name, False, file_name_bak)
-                    mas_submod_utils.submod_log.error(DECOMPRESSING_FAIL + "\n处理出错的文件: '{}'".format(file_name))
+                    mas_submod_utils.submod_log.error(DECOMPRESSING_FAIL + "\n处理出错的文件: '{}'\n".format(file_name))
                     continue
                 subfile = os.listdir(file_name+"_files")
                 for i in subfile:
@@ -46,9 +48,14 @@ init python:
                             else:
                                 # copy_dir_m会记录不符合标准的文件夹，我们只需要continue
                                 continue
-                    install_completed = True
-                move_files(file_name, True, file_name_bak)
+                
+                if _install_completed is None:
+                    move_files(file_name, False, file_name_bak)
+                    mas_submod_utils.submod_log.error("这个mod可能没有正确安装: '{}'".format(file_name))
+                else:
+                    move_files(file_name, True, file_name_bak)
                 mas_submod_utils.submod_log.info("安装zip文件完成：'{}'\n".format(file_name))
+                
 
     def move_files(file_name,result = True, name = ""):
         """
@@ -79,13 +86,21 @@ init python:
         import zipfile
         mas_submod_utils.submod_log.info("解压文件：'{}'".format(file_name))
         zip_file = zipfile.ZipFile(file_name)
-        if os.path.isdir(file_name + "_files"):
-            pass
-        else:
-            os.mkdir(file_name + "_files")
-        for names in zip_file.namelist():
-            zip_file.extract(names,file_name + "_files/")
-        zip_file.close()
+        try:
+            if os.path.isdir(file_name + "_files"):
+                pass
+            else:
+                os.mkdir(file_name + "_files")
+            for names in zip_file.namelist():
+                zip_file.extract(names,file_name + "_files/")
+            zip_file.close()
+            return True
+        except Exception as e:
+            mas_submod_utils.submod_log.error("解压文件失败：'{}'".format(e))
+            zip_file.close()
+            return False
+
+
 
     def copy_dir_m(dirs, file_name):
         """
@@ -154,6 +169,7 @@ init python:
         """
         复制文件 网上找的代码:))))))
         """
+        global _install_completed
         mas_submod_utils.submod_log.info("正在复制文件： '"+src_path+"' -> '"+ target_path+"'")
         if os.path.isdir(src_path) and os.path.isdir(target_path):        
             filelist_src = os.listdir(src_path)                            
@@ -170,6 +186,7 @@ init python:
                         path1 = os.path.join(target_path, file)
                         with open(path1, 'wb') as write_stream:
                             write_stream.write(contents)
+            _install_completed = True
             return True    
         else:
             return False 
@@ -184,7 +201,7 @@ init python:
         """
         mas_submod_utils.submod_log.info("检测精灵包json文件：'{}'".format(filename))
         if not os.path.exists(filename + "/monika/j"):
-            mas_submod_utils.submod_log.info("未找到的json文件夹，跳过检测礼物：{}".format(filename))
+            mas_submod_utils.submod_log.info("未找到的json文件夹，跳过检测礼物：'{}'".format(filename))
             return
         filename = filename + "/monika/j"
         files = os.listdir(filename)
@@ -211,9 +228,9 @@ init python:
                         os.mkdir(renpy.config.basedir + '/AvailableGift' + gtype)
                     giftfile = open(renpy.config.basedir + '/AvailableGift'+ gtype  + giftname + '.gift','w')
                     giftfile.close()
-                    mas_submod_utils.submod_log.warning("生成了礼物文件：{}".format('AvailableGift'+ gtype  + giftname + '.gift'))
+                    mas_submod_utils.submod_log.info("生成了礼物文件：'{}'".format('AvailableGift'+ gtype  + giftname + '.gift'))
                 except:
-                    mas_submod_utils.submod_log.warning("在尝试获取礼物文件名时出现异常，可能未设置giftname，跳过该文件：{}".format(json_file))
+                    mas_submod_utils.submod_log.warning("在尝试获取礼物文件名时出现异常，可能未设置giftname，跳过该文件：'{}'".format(json_file))
                     continue
     if not renpy.android:
         check_zip()
@@ -255,7 +272,7 @@ label monika_submodinstaller:
 #            eventlabel="monika_submodinstaller_finish",        
 #            category=["模组"],                   
 #            prompt="帮你点忙",
-#            conditional="install_completed != None and renpy.seen_label(monika_submodinstaller)",
+#            conditional="_install_completed != None and renpy.seen_label(monika_submodinstaller)",
 #            action=EV_ACT_PUSH,
 #            rule={'force repeat':True},
 #            pool=False
