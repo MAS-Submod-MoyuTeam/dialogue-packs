@@ -4,6 +4,9 @@ init python:
     import gzip
     import tarfile
     import shutil
+
+    # 设置最多进入的子文件夹，默认为1，进入过深可能会导致脚本被错误的放在UnGroupScript
+    JOIN_DIR_MAX = 6
     
     submod_locat = renpy.config.basedir + "/characters"
 
@@ -40,14 +43,76 @@ init python:
                         # 处理名字不正常的文件
                         # 进入文件夹后再遍历文件进行处理
                         mas_submod_utils.submod_log.info("进入文件夹 '{}' 处理内部文件".format(ifull))
+                        if not os.path.isdir(ifull):
+                            mas_submod_utils.submod_log.info("不是文件夹 '{}' ".format(ifull))
+                            continue
                         subi = os.listdir(ifull)
                         for subifile in subi:
-                            subifile_full = file_name + "_files" + "/" + i + "/" + subifile
+                            subifile_full = ifull + "/" + subifile
                             if copy_dir_m(subifile , subifile_full):
                                 continue
                             else:
-                                # copy_dir_m会记录不符合标准的文件夹，我们只需要continue
-                                continue
+                                if 2<= JOIN_DIR_MAX:
+                                    mas_submod_utils.submod_log.info("2 - 进入文件夹 '{}' 处理内部文件".format(subifile_full))
+                                    if not os.path.isdir(subifile_full):
+                                        mas_submod_utils.submod_log.info("不是文件夹 '{}' ".format(subifile_full))
+                                        continue
+                                    subi2 = os.listdir(subifile_full)
+                                    for subifile in subi2:
+                                        subifile_full2 = subifile_full + "/" + subifile
+                                        if copy_dir_m(subifile , subifile_full2):
+                                            continue
+                                        else:
+                                            if 3<= JOIN_DIR_MAX:
+                                                mas_submod_utils.submod_log.info("3 - 进入文件夹 '{}' 处理内部文件".format(subifile_full2))
+                                                if not os.path.isdir(subifile_full2):
+                                                    mas_submod_utils.submod_log.info("不是文件夹 '{}' ".format(subifile_full2))
+                                                    continue
+                                                subi3 = os.listdir(subifile_full2)
+                                                for subifile in subi3:
+                                                    subifile_full3 = subifile_full2 + "/" + subifile
+                                                    if copy_dir_m(subifile , subifile_full3):
+                                                        continue
+                                                    else:
+                                                        if 4<= JOIN_DIR_MAX:
+                                                            mas_submod_utils.submod_log.info("4 - 进入文件夹 '{}' 处理内部文件".format(subifile_full3))
+                                                            if not os.path.isdir(subifile_full3):
+                                                                mas_submod_utils.submod_log.info("不是文件夹 '{}' ".format(subifile_full3))
+                                                                continue
+                                                            subi4 = os.listdir(subifile_full3)
+                                                            for subifile in subi4:
+                                                                subifile_full4 = subifile_full3 + "/" + subifile
+                                                                if copy_dir_m(subifile , subifile_full4):
+                                                                    continue
+                                                                else:
+                                                                    if 5<= JOIN_DIR_MAX:
+                                                                        mas_submod_utils.submod_log.info("5 - 进入文件夹 '{}' 处理内部文件".format(subifile_full4))
+                                                                        if not os.path.isdir(subifile_full4):
+                                                                            mas_submod_utils.submod_log.info("不是文件夹 '{}' ".format(subifile_full4))
+                                                                            continue
+                                                                        subi5 = os.listdir(subifile_full4)
+                                                                        for subifile in subi5:
+                                                                            subifile_full5 = subifile_full4 + "/" + subifile
+                                                                            if copy_dir_m(subifile , subifile_full5):
+                                                                                continue
+                                                                            else:
+                                                                                if 6 <= JOIN_DIR_MAX:
+                                                                                    mas_submod_utils.submod_log.info("6 - 进入文件夹 '{}' 处理内部文件".format(subifile_full5))
+                                                                                    if not os.path.isdir(subifile_full5):
+                                                                                        mas_submod_utils.submod_log.info("不是文件夹 '{}' ".format(subifile_full5))
+                                                                                        continue
+                                                                                    subi6 = os.listdir(subifile_full5)
+                                                                                    for subifile in subi6:
+                                                                                        subifile_full6 = subifile_full5 + "/" + subifile
+                                                                                        if copy_dir_m(subifile , subifile_full6):
+                                                                                            continue
+                                                                                        else:
+                                                                                            mas_submod_utils.submod_log.warning("达到最深深度6，不再继续处理")
+                                                                                            continue
+
+
+
+                                
                 
                 if _install_completed is None:
                     move_files(file_name, False, file_name_bak)
@@ -85,7 +150,10 @@ init python:
         """
         import zipfile
         mas_submod_utils.submod_log.info("解压文件：'{}'".format(file_name))
-        zip_file = zipfile.ZipFile(file_name)
+        try:
+            zip_file = zipfile.ZipFile(file_name)
+        except Exception as e:
+            mas_submod_utils.submod_log.error("解压文件失败：'{}'".format(e))
         try:
             if os.path.isdir(file_name + "_files"):
                 pass
@@ -159,7 +227,7 @@ init python:
                     if not os.path.exists(renpy.config.basedir + "/game/Submods/UnGroupScripts"):
                         os.mkdir(renpy.config.basedir + "/game/Submods/UnGroupScripts")
                     shutil.move(file_name, renpy.config.basedir + "/game/Submods/UnGroupScripts")
-                    mas_submod_utils.submod_log.info("这是个脚本文件，复制到 'Submods/UnGroupScripts'：{}".format(file_name))
+                    mas_submod_utils.submod_log.warning("这是个脚本文件，复制到 'Submods/UnGroupScripts'：{}".format(file_name))
                     return True
         mas_submod_utils.submod_log.info("不符合任何常规子模组应有的文件夹： '{}'".format(file_name))
         return False
