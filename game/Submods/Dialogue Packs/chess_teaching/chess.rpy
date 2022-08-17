@@ -122,7 +122,7 @@ init 5 python:
                 category=["国际象棋"],
                 prompt="1.来玩国际象棋吧",
                 pool=True,
-                conditional="renpy.seen_label('mas_unlock_chess')",
+                conditional="mas_isGameUnlocked('chess') or mas_isGameUnlocked('国际象棋')",
                 action=EV_ACT_UNLOCK
             )
         )

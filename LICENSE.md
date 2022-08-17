@@ -6,7 +6,7 @@
 
 本模组中不属于 **Monika After Story** 也不属于 **本存储库作者/协作者** 的代码由其各自作者的相关的许可证决定。
 
-由本模组中属于本存储库作者/协作者的代码可以自由复制和分发使用，但强烈建议至少在自述文件中添加来源。
+由本模组中属于本存储库作者/协作者的代码可以自由复制和分发修改使用，但强烈建议至少在自述文件中添加来源，对于代码的修改原作者不承担任何责任。
 
 为方便起见，在 2022 年 8 月 14 日访问的 *Monika After Story* `LICENSE.md`文件在此处复制。如有疑问或最新条款的最新副本，请访问[Monika After Story](https://github.com/Monika-After-Story/MonikaModDev/blob/master/LICENSE.md)。
 
