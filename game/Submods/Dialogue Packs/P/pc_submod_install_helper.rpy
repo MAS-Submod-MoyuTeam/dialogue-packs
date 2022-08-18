@@ -259,7 +259,7 @@ init python:
         else:
             return False 
 
-    def check_json(filename,movedir):
+    def check_json(filename,movedir=None):
         import json
         """
         用于检查json并生成gift文件
