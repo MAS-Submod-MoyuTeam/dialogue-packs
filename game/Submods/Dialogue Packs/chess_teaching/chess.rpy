@@ -114,18 +114,17 @@ init 4 python in mas_ctod:
         return True
 
 init 5 python:
-    if not renpy.android:
-        addEvent(
-            Event(
-                persistent.event_database,
-                eventlabel="monika_Mchess_001",
-                category=["国际象棋"],
-                prompt="1.来玩国际象棋吧",
-                pool=True,
-                conditional="mas_isGameUnlocked('chess') or mas_isGameUnlocked('国际象棋')",
-                action=EV_ACT_UNLOCK
-            )
+    addEvent(
+        Event(
+            persistent.event_database,
+            eventlabel="monika_Mchess_001",
+            category=["国际象棋"],
+            prompt="1.来玩国际象棋吧",
+            pool=True,
+            conditional="mas_isGameUnlocked('chess') or mas_isGameUnlocked('国际象棋')",
+            action=EV_ACT_UNLOCK
         )
+    )
 
 label monika_Mchess_001:
     m 1wuc "欸?"

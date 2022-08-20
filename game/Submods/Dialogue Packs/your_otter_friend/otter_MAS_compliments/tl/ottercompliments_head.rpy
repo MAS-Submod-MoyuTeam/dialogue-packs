@@ -1,3 +1,4 @@
+# 翻译：星光
 translate chinese python:
     addEvent(
         Event(

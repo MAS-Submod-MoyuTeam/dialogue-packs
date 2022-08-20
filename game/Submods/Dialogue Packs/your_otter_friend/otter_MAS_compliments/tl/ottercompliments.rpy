@@ -1,5 +1,5 @@
 # TODO: Translation updated at 2022-07-31 18:15
-
+# 翻译：星光
 # game/Submods/ottercompliments.rpy:60
 translate chinese otter_compliment_be_myself_b064bb95:
 
