@@ -179,7 +179,7 @@ init 5 python:
                     persistent.event_database,          
                     eventlabel="monika_leave_P",        
                     category=["你"],                   
-                    prompt=persistent._monika_leave_title,
+                    prompt="[persistent._monika_leave_title]",
                     conditional="_mas_getAffection() > 1250 and persistent.submods_dp_Leave",
                     action=EV_ACT_UNLOCK,
                     pool=True
@@ -189,12 +189,12 @@ init 5 python:
 label monika_leave_P:
     $ ev = mas_getEV("monika_leave_P")
     if ev.shown_count == 0:
+        $ persistent._monika_leave_title = "我想离开你了"
         jump monika_leave_1st
     elif ev.shown_count == 1:
-        $ persistent._monika_leave_title = "我想离开你了"
+        $ persistent._monika_leave_title = "我要永远离开你了"
         jump monika_leave_2nd
     elif ev.shown_count == 2:
-        $ persistent._monika_leave_title = "我要永远离开了"
         jump monika_leave_3rd
     else:
         m 1esc "我知道了"
