@@ -1,44 +1,47 @@
 init 5 python:
-    ev_rules = dict()
-    ev_rules.update(
-        MASGreetingRule.create_rule(
-            skip_visual=True,
-            random_chance=20,
-            override_type=True
+    if persistent.submods_dp_enableNewVersionDialogueFromdp:
+        ev_rules = dict()
+        ev_rules.update(
+            MASGreetingRule.create_rule(
+                skip_visual=True,
+                random_chance=20,
+                override_type=True
+            )
         )
-    )
-    ev_rules.update(
-        MASTimedeltaRepeatRule.create_rule(
-            datetime.timedelta(days=3)
+        ev_rules.update(
+            MASTimedeltaRepeatRule.create_rule(
+                datetime.timedelta(days=3)
+            )
         )
-    )
-    ev_rules.update(
-        MASSelectiveRepeatRule.create_rule(
-            hours=list(range(9, 20))
+        ev_rules.update(
+            MASSelectiveRepeatRule.create_rule(
+                hours=list(range(9, 20))
+            )
         )
-    )
 
-    addEvent(
-        Event(
-            persistent.greeting_database,
-            eventlabel="greeting_after_bath",
-            conditional=(
-                "mas_getAbsenceLength() >= datetime.timedelta(hours=6) "
-                "and not mas_isSpecialDay()"
+        addEvent(
+            Event(
+                persistent.greeting_database,
+                eventlabel="greeting_after_bath",
+                conditional=(
+                    "mas_getAbsenceLength() >= datetime.timedelta(hours=6) "
+                    "and not mas_isSpecialDay()"
+                ),
+                unlocked=True,
+                rules=ev_rules,
+                aff_range=(mas_aff.LOVE, None)
             ),
-            unlocked=True,
-            rules=ev_rules,
-            aff_range=(mas_aff.LOVE, None)
-        ),
-        code="GRE"
-    )
+            code="GRE"
+        )
 
-    del ev_rules
+        del ev_rules
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="mas_after_bath_cleanup", show_in_idle=True, rules={"skip alert": None}))
+    if persistent.submods_dp_enableNewVersionDialogueFromdp:
+        addEvent(Event(persistent.event_database, eventlabel="mas_after_bath_cleanup", show_in_idle=True, rules={"skip alert": None}))
 init 10 python:
-    config.label_overrides["greeting_after_bath"] = "greeting_after_bath_ov"
-    config.label_overrides["mas_after_bath_cleanup"] = "mas_after_bath_cleanup_ov"
+    if persistent.submods_dp_enableNewVersionDialogueFromdp:
+        config.label_overrides["greeting_after_bath"] = "greeting_after_bath_ov"
+        config.label_overrides["mas_after_bath_cleanup"] = "mas_after_bath_cleanup_ov"
 label greeting_after_bath_ov:
     python hide:
 
@@ -111,7 +114,7 @@ label greeting_after_bath_ov:
     return
 
 
-label mas_after_bath_cleanup:
+label mas_after_bath_cleanup_ov:
 
     if (
         not monika_chr.is_wearing_clothes_with_exprop(mas_sprites.EXP_C_WET)
