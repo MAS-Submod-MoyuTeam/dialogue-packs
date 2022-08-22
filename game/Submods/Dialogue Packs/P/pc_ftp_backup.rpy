@@ -133,7 +133,7 @@ init python:
 
     if persistent.submods_dp_CloudBackup:
         if datetime.datetime.today().day != persistent.CloudBackupLastTime[1].day:
-            mas_submod_utils.submod_log.info("话题包开始备份: 本地 '{}' -> 云端 '{}'".format(datetime.datetime.today(), persistent.CloudBackupLastTime[1]))
+            mas_submod_utils.submod_log.info("话题包开始备份: 本地 '{}' -> 上次备份 '{}'".format(datetime.datetime.today(), persistent.CloudBackupLastTime[1]))
             uploadSave()
         else:
             mas_submod_utils.submod_log.info("话题包今日已经备份过，上次备份：'{}' ".format(persistent.CloudBackupLastTime[1]))
@@ -223,7 +223,7 @@ screen dp_cloudSetting():
                             xpos 20
                             spacing 10
                             xmaximum 780
-                            text "{b}{color=#f00}警告:云端文件与本地记录时间戳差距为[checkSaveTime()]s, 有极高与他人重名的可能性!!{/color}{/b}"
+                            text "{b}{color=#f00}警告:云端文件与本地记录时间戳差距为[_cst]s, 有极高与他人重名的可能性!!{/color}{/b}"
 
                     hbox:
                         xpos 20
