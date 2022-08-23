@@ -1,3 +1,7 @@
+init -100 python in mas_sprites:
+    EXP_C_WET = "wet"
+    EXP_C_BRS = "bare-right-shoulder"
+    EXP_H_WET = "wet"
 init -2 python in mas_sprites:
     def _hair_wet_entry(_moni_chr, **kwargs):
         """
@@ -61,3 +65,17 @@ init -1 python:
         pose_arms=MASPoseArms({}, def_base=False)
     )
     store.mas_sprites.init_clothes(mas_clothes_bath_towel_white)
+
+    mas_acs_water_drops = MASAccessory(
+        "water_drops",
+        "water_drops",
+        MASPoseMap(
+            default="0",
+            p5="5"
+        ),
+        acs_type="water-drops",
+        priority=1,
+        stay_on_start=True,
+        rec_layer=MASMonika.MAB_ACS,
+    )
+    store.mas_sprites.init_acs(mas_acs_water_drops)

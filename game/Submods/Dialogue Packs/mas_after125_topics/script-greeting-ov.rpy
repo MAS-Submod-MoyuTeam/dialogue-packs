@@ -38,11 +38,7 @@ init 5 python:
 init 5 python:
     if persistent.submods_dp_enableNewVersionDialogueFromdp:
         addEvent(Event(persistent.event_database, eventlabel="mas_after_bath_cleanup", show_in_idle=True, rules={"skip alert": None}))
-init 10 python:
-    if persistent.submods_dp_enableNewVersionDialogueFromdp:
-        config.label_overrides["greeting_after_bath"] = "greeting_after_bath_ov"
-        config.label_overrides["mas_after_bath_cleanup"] = "mas_after_bath_cleanup_ov"
-label greeting_after_bath_ov:
+label greeting_after_bath:
     python hide:
 
         mas_RaiseShield_core()
@@ -114,7 +110,7 @@ label greeting_after_bath_ov:
     return
 
 
-label mas_after_bath_cleanup_ov:
+label mas_after_bath_cleanup:
 
     if (
         not monika_chr.is_wearing_clothes_with_exprop(mas_sprites.EXP_C_WET)
