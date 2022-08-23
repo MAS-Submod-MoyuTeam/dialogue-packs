@@ -35,8 +35,8 @@ init -900 python:
         #删除某个违规子模组
         if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/UnexplainedYeet"):
             shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/UnexplainedYeet")
-    except:
-        pass
+    except Exception as e:
+        store.mas_submod_utils.submod_log.error("删除旧版本遗留文件出错：{}".format(e))
 
     def dp_showstatus(setting):
         if setting:
@@ -133,7 +133,7 @@ init python:
 
 #游戏更新
 default persistent.submods_dp_enableUpdateHelper = True
-#新版本对话删除检测 默认启用
+#新版本对话 默认启用
 default persistent.submods_dp_enableNewVersionDialogueFromdp = True
 #在选项里显示游戏数据
 default persistent.submods_dp_gameStatus = False
