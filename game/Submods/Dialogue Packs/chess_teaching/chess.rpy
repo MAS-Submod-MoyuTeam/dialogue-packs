@@ -121,7 +121,7 @@ init 5 python:
             category=["国际象棋"],
             prompt="1.来玩国际象棋吧",
             pool=True,
-            conditional="mas_isGameUnlocked('chess') or mas_isGameUnlocked('国际象棋')",
+            conditional="store.mas_xp.level() >= 8 or store.mas_games._total_games_played() > 99",
             action=EV_ACT_UNLOCK
         )
     )
