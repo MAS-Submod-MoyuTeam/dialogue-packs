@@ -219,7 +219,7 @@ screen dp_gameStatus():
                     box_wrap False
 
                     hbox:
-                        text "Current Affection:[_mas_getAffection()]\n"
+                        text "好感值:[_mas_getAffection()]\n"
                     hbox:
                         text "[mas_progressionDataDump()][mas_sessionDataDump()]"
                     hbox:
@@ -393,7 +393,7 @@ screen dp_setting():
                         textbutton _("禁用"):
                             action Jump("disableNewVersionDialogueFromdp")
                         textbutton _("?"):
-                            action Show(screen = "dialog", message = "本模组会为0.12.5及以前版本提供新版本的话题.\n在0.12.6及以后本模组将会自动删除相关脚本文件.\n禁用后, 不再检测并删除文件, 也不会重新恢复脚本文件. 可能会导致意料之外的问题.\n如果已删除, 禁用该选项且更新子模组可恢复文件.\n该选项对手机版无实际作用.", ok_action = Hide("dialog"))
+                            action Show(screen = "dialog", message = "本模组会为0.12.5及以前版本提供新版本的话题.\n在0.12.6及以后本模组将会自动删除相关脚本文件.\n禁用后, 不再检测并删除文件, 也不会重新恢复脚本文件. 但因为代码设计，新版本对话并不一定会被加载.\n如果已删除, 禁用该选项且更新子模组可恢复文件.\n对于手机版，禁用该选项将导致新版本话题不被初始化", ok_action = Hide("dialog"))
 
                     hbox:
                         xpos 20
@@ -433,7 +433,7 @@ screen dp_setting():
                         textbutton _("禁用"):
                             action Jump("disableCloudBackup")
                         textbutton _("?"):
-                            action Show(screen = "dialog", message = "启用云同步即表示你允许本模组将存档文件上传至mas.backup.0721play.icu\nPE无法链接至服务器", ok_action = Hide("dialog"))
+                            action Show(screen = "dialog", message = "启用云同步即表示你允许本模组将存档文件上传至mas.backup.0721play.icu", ok_action = Hide("dialog"))
                     
                     hbox:
                         xpos 20

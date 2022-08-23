@@ -1,14 +1,15 @@
 init 5 python:
-    addEvent(
-        Event(
-            persistent._mas_story_database,
-            eventlabel="mas_story_mindthegap1",
-            prompt="注意站台间隙",
-            category=[mas_stories.TYPE_NORMAL],
-            unlocked=True
-        ),
-        code="STY"
-    )
+    if p_is_old_ver:
+        addEvent(
+            Event(
+                persistent._mas_story_database,
+                eventlabel="mas_story_mindthegap1",
+                prompt="注意站台间隙",
+                category=[mas_stories.TYPE_NORMAL],
+                unlocked=True
+            ),
+            code="STY"
+        )
 
 label mas_story_mindthegap1:
     call mas_story_begin

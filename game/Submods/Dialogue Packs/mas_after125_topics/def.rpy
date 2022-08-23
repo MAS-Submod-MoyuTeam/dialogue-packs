@@ -7,6 +7,7 @@ init -900 python:
 
     for x in newversion:
         if not persistent.submods_dp_enableNewVersionDialogueFromdp:
+            p_is_old_ver = False
             break
         if renpy.config.version == x and not renpy.android:
             p_is_old_ver = False

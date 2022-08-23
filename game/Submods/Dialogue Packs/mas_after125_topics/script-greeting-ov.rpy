@@ -1,5 +1,5 @@
 init 5 python:
-    if persistent.submods_dp_enableNewVersionDialogueFromdp:
+    if p_is_old_ver:
         ev_rules = dict()
         ev_rules.update(
             MASGreetingRule.create_rule(
@@ -36,7 +36,7 @@ init 5 python:
 
         del ev_rules
 init 5 python:
-    if persistent.submods_dp_enableNewVersionDialogueFromdp:
+    if p_is_old_ver:
         addEvent(Event(persistent.event_database, eventlabel="mas_after_bath_cleanup", show_in_idle=True, rules={"skip alert": None}))
 label greeting_after_bath:
     python hide:

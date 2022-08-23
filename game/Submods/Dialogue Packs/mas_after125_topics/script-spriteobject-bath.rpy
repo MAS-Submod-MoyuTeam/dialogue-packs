@@ -46,7 +46,8 @@ init -1 python:
         },
         entry_pp=store.mas_sprites._hair_wet_entry
     )
-    store.mas_sprites.init_hair(mas_hair_wet)
+    if p_is_old_ver:
+        store.mas_sprites.init_hair(mas_hair_wet)
 
     mas_clothes_bath_towel_white = MASClothes(
         "bath_towel_white",
@@ -64,7 +65,8 @@ init -1 python:
         exit_pp=store.mas_sprites._clothes_bath_towel_white_exit,
         pose_arms=MASPoseArms({}, def_base=False)
     )
-    store.mas_sprites.init_clothes(mas_clothes_bath_towel_white)
+    if p_is_old_ver:
+        store.mas_sprites.init_clothes(mas_clothes_bath_towel_white)
 
     mas_acs_water_drops = MASAccessory(
         "water_drops",
@@ -78,4 +80,5 @@ init -1 python:
         stay_on_start=True,
         rec_layer=MASMonika.MAB_ACS,
     )
-    store.mas_sprites.init_acs(mas_acs_water_drops)
+    if p_is_old_ver:
+        store.mas_sprites.init_acs(mas_acs_water_drops)

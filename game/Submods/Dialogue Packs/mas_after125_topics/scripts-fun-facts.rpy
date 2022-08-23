@@ -1,11 +1,12 @@
 init 5 python:
-    addEvent(
-        Event(
-            persistent._mas_fun_facts_database,
-            eventlabel="mas_fun_fact_maplesyrup1",
-        ),
-        code="FFF"
-    )
+    if p_is_old_ver:
+        addEvent(
+            Event(
+                persistent._mas_fun_facts_database,
+                eventlabel="mas_fun_fact_maplesyrup1",
+            ),
+            code="FFF"
+        )
 
 label mas_fun_fact_maplesyrup1:
     m 3hksdlb "为你找到了又一个{w=0.2}{i}甜蜜的 {/i}{w=0.2}小知识..."
