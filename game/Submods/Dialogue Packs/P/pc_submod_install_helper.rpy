@@ -154,6 +154,7 @@ init python:
             zip_file = zipfile.ZipFile(file_name)
         except Exception as e:
             mas_submod_utils.submod_log.error("解压文件失败：'{}'".format(e))
+            return False
         try:
             if os.path.isdir(file_name + "_files"):
                 pass
@@ -226,7 +227,7 @@ init python:
                 if file_name.find('rpy') != -1:#如果是rpy文件
                     if not os.path.exists(renpy.config.basedir + "/game/Submods/UnGroupScripts"):
                         os.mkdir(renpy.config.basedir + "/game/Submods/UnGroupScripts")
-                    shutil.move(file_name, renpy.config.basedir + "/game/Submods/UnGroupScripts")
+                    shutil.move(file_name, os.path.join(renpy.config.basedir + "/game/Submods/UnGroupScripts"))
                     mas_submod_utils.submod_log.warning("这是个脚本文件，复制到 'Submods/UnGroupScripts'：{}".format(file_name))
                     return True
         mas_submod_utils.submod_log.info("不符合任何常规子模组应有的文件夹： '{}'".format(file_name))
