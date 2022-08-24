@@ -132,11 +132,15 @@ init python:
     ################
 
     if persistent.submods_dp_CloudBackup:
-        if datetime.datetime.today().day != persistent.CloudBackupLastTime[1].day:
-            mas_submod_utils.submod_log.info("话题包开始备份: 本地 '{}' -> 上次备份 '{}'".format(datetime.datetime.today(), persistent.CloudBackupLastTime[1]))
+        try:
+            if datetime.datetime.today().day != persistent.CloudBackupLastTime[1].day:
+                mas_submod_utils.submod_log.info("话题包开始备份: 本地 '{}' -> 上次备份 '{}'".format(datetime.datetime.today(), persistent.CloudBackupLastTime[1]))
+                uploadSave()
+            else:
+                mas_submod_utils.submod_log.info("话题包今日已经备份过，上次备份：'{}' ".format(persistent.CloudBackupLastTime[1]))
+        except:
+            mas_submod_utils.submod_log.info("话题包可能从未备份过，进行备份：'{}'".format(datetime.datetime.today()))
             uploadSave()
-        else:
-            mas_submod_utils.submod_log.info("话题包今日已经备份过，上次备份：'{}' ".format(persistent.CloudBackupLastTime[1]))
 
 
 screen dp_cloudSetting():
@@ -187,7 +191,7 @@ screen dp_cloudSetting():
                         xpos 20
                         spacing 10
                         xmaximum 780
-                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于[renpy.config.basedir]/characters文件夹.\n文件在服务器以'[m_name]_[player]'命名, 请注意是否和其他人重复:)\n自动备份导致的时间戳差距通常在40s左右, 取决于你游戏的启动时间.\n如果下载时出现问题，可以联系qq1951548620帮助恢复存档\n"
+                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于characters文件夹.\n文件在服务器以'[m_name]_[player]'命名, 请注意是否和其他人重复:)\n自动备份导致的时间戳差距通常在40s左右, 取决于你游戏的启动时间.\n如果下载时出现问题，可以联系qq1951548620帮助恢复存档\n"
                     if _cst == -2:
                         hbox:
                             xpos 20
