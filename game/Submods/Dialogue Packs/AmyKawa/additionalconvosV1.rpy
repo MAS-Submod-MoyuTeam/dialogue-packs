@@ -1251,15 +1251,15 @@ label monika_gwAfter:
 return
 
 
-init 5 python:
-    import datetime
-    if mas_timePastSince(mas_getEVL_last_seen("monika_gosleep"), datetime.timedelta(days=5)):
-        addEvent(Event(persistent.event_database,eventlabel="monika_gosleep",random=True,rules={"force repeat"}))
-
+#init 5 python:
+#    import datetime
+#    if mas_timePastSince(mas_getEVL_last_seen("monika_gosleep"), datetime.timedelta(days=5)):
+#        addEvent(Event(persistent.event_database,eventlabel="monika_gosleep",random=True,rules={"force repeat"}))
+#
 label monika_gosleep:
     #$ persistent._last_topic_run = datetime.datetime.utcnow()
     #$ mas_globals.this_ev.action = EV_ACT_PUSH
-    #$ mas_globals.this_ev.conditional = "datetime.datetime.utcnow() - persistent._last_topic_run > datetime.timedelta(minutes=60)"
+    #$ mas_globals.this_ev.conditional = "mas_timePastSince(mas_getEVL_last_seen("monika_gosleep"), datetime.timedelta(days=5)"
     python:
         curr_hour = datetime.datetime.now().hour
     if 0 <= curr_hour < 4:
