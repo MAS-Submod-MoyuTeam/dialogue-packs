@@ -9,7 +9,7 @@ init 5 python:
         Event(
             persistent.event_database,
             eventlabel="otter_howareyou_BELLA",
-            category=["monika"],
+            category=["莫妮卡"],
             prompt="你今天怎么样, [m_name]?",
             pool=True,
             unlocked=True
