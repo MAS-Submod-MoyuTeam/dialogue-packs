@@ -134,7 +134,6 @@ init python:
 #游戏更新
 default persistent.submods_dp_enableUpdateHelper = True
 #新版本对话 默认启用
-default persistent.submods_dp_enableNewVersionDialogueFromdp = True
 #在选项里显示游戏数据
 default persistent.submods_dp_gameStatus = False
 #云备份
@@ -374,27 +373,7 @@ screen dp_setting():
                             action Jump("hide_sub_update_helper")
                         textbutton _("?"):
                             action Show(screen = "dialog", message = "即话题“准备一下更新吧”.此功能面向于PC, 对手机无用.", ok_action = Hide("dialog"))
-                    
-                    hbox:
-                        xpos 20
-                        spacing 10
-                        xmaximum 780
-                        text "新版本话题解锁检测"
-                        textbutton "[dp_showstatus(persistent.submods_dp_enableNewVersionDialogueFromdp)]":
-                            selected False
-                            action NullAction()
                         
-                    hbox:
-                        xpos 20
-                        spacing 10
-                        xmaximum 780
-                        textbutton _("启用"):
-                            action Jump("enableNewVersionDialogueFromdp")
-                        textbutton _("禁用"):
-                            action Jump("disableNewVersionDialogueFromdp")
-                        textbutton _("?"):
-                            action Show(screen = "dialog", message = "本模组会为0.12.5及以前版本提供新版本的话题.\n在0.12.6及以后本模组将会自动删除相关脚本文件.\n禁用后, 不再检测并删除文件, 也不会重新恢复脚本文件. 但因为代码设计，新版本对话并不一定会被加载.\n如果已删除, 禁用该选项且更新子模组可恢复文件.\n对于手机版，禁用该选项将导致新版本话题不被初始化", ok_action = Hide("dialog"))
-
                     hbox:
                         xpos 20
                         spacing 10
@@ -499,13 +478,6 @@ label show_sub_update_helper:
 label hide_sub_update_helper:
     $ mas_hideEVL("sub_update_helper","EVE",lock=True,depool=True)
     $ persistent.submods_dp_enableUpdateHelper = False
-    return
-
-label enableNewVersionDialogueFromdp:
-    $ persistent.submods_dp_enableNewVersionDialogueFromdp = True
-    return
-label disableNewVersionDialogueFromdp:
-    $ persistent.submods_dp_enableNewVersionDialogueFromdp = False
     return
 
 label enableCloudBackup:
