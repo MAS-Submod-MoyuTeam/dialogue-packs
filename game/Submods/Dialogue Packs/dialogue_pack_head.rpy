@@ -21,7 +21,7 @@ init -989 python:
 init -995 python:
     import os
     import shutil
-    DP_NEW_VERSION=[0, 12, 5]
+    DP_NEW_VERSION=['0', '12', '5']
     splitver = renpy.config.version.split('.')
     DP_CURR_VERSION = [splitver[0], splitver[1], splitver[2]]
     p_is_old_ver = store.mas_utils.compareVersionLists(DP_CURR_VERSION, DP_NEW_VERSION) == -1
@@ -53,6 +53,11 @@ init -900 python:
         #删除某个违规子模组
         if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/UnexplainedYeet"):
             shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/UnexplainedYeet")
+        # 删除旧def文件
+        if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics/def.rpy"):
+            shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics/def.rpy")
+        if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics/def.rpyc"):
+            shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics/def.rpyc")
     except Exception as e:
         store.mas_submod_utils.submod_log.error("删除旧版本遗留文件出错：{}".format(e))
 
