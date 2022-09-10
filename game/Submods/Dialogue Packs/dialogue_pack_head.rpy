@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/MAS-Submod-MoyuTeam/dialogue-packs}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.22.0',
+        version='1.22.1',
         settings_pane="dp_setting_pane"
     )
 
@@ -16,6 +16,24 @@ init -989 python:
             update_dir="",
             attachment_id=None
         )
+
+# 检测新版本 用于mas_after125_topics
+init -995 python:
+    import os
+    import shutil
+    DP_NEW_VERSION=[0, 12, 5]
+    splitver = renpy.config.version.split('.')
+    DP_CURR_VERSION = [splitver[0], splitver[1], splitver[2]]
+    p_is_old_ver = store.mas_utils.compareVersionLists(DP_CURR_VERSION, DP_NEW_VERSION) == -1
+    #-1 0 1
+
+    if not p_is_old_ver:
+        if renpy.loadable(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics"):
+            try:
+                shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics")
+                mas_submod_utils.submod_log.info("[DMR_C] 移除了新版本对话")
+            except:
+                mas_submod_utils.submod_log.info("[DMR_C] 移除新版本对话时发生异常")
 
 init -900 python:
     import os
