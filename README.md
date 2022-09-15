@@ -32,10 +32,9 @@
 |mkam23-Maya|[>reddit](https://www.reddit.com/user/mkam23-Maya/)|`NFTs` `眼镜和隐形眼镜`|TK 星光|
 |AmyKawa|[>reddit](https://www.reddit.com/user/AmyKawa/)|*Additional Conversations V1*|P TK Founxious|
 |****1***|/|*MyDialogue.rpy*|P TK|
-|IsabellaLikesCandy|[>reddit](https://www.reddit.com/user/IsabellaLikesCandy/)|/|ct1045|
 |TheGamerSide67|/|`心理障碍`|ddy 纸心 洛尔|
 |ddy|/|`比较多和杂,这里就不列举了`|/|
-|your_otter_friend|[>Github](https://github.com/my-otter-self)|*太多了不列啦*|终不似、少年游 星光|
+|your_otter_friend|[>Github](https://github.com/my-otter-self)|*太多了不列啦*|终不似、少年游 星光 LC|
 |LC|/|`jay的歌` `动漫话题包`|/|
 
 > **以上作者和汉化者的排名不分先后**  
