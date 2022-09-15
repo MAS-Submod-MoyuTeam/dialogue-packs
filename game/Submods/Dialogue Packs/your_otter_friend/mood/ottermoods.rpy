@@ -19,20 +19,19 @@
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠿⠷⣶⣶⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣴⣶⣶⠿⠿⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 #⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠁⠀⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 #⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-#
 
 #init -990 python in mas_submod_utils:
 #    Submod(
 #        author="Otter",
 #        name="Otter moods",
-#        description="增加'我感觉...'中的选项.",
+#        description="New 'I feel' options.",
 #        version="1.0.0",
 #        dependencies={},
 #        settings_pane=None,
 #        version_updates={
 #        }
 #    )
-
+#
 #init -989 python:
 #    if store.mas_submod_utils.isSubmodInstalled("Submod Updater Plugin"):
 #        store.sup_utils.SubmodUpdater(
@@ -45,13 +44,13 @@
 #                "README.md",
 #            )
 #        )
-
+#
 init 5 python:
     addEvent(
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_alone",
-            prompt="...孤独.",
+            prompt="...alone.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -77,7 +76,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_comfortable",
-            prompt="...舒适.",
+            prompt="...comfortable.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -90,8 +89,8 @@ label otter_mood_comfortable:
 $ _history_list.pop()
 menu:
     m "Tell me more about this comfort!{fast}"
-
-    "I feel comfortable with you, [m_name]":
+    
+    "I feel comfortable with you, [m_name].":
         m 1dubsa "..."
         m 4kubsb "Right back at you, [player]!"
         m 1dubsb "Spending time with you is the high point of my day."
@@ -119,7 +118,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_cryinghappiness",
-            prompt="...快要哭出来了,是因为开心哦.",
+            prompt="...like crying of happiness.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -170,7 +169,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database, 
             eventlabel="otter_mood_depressed_BELLA",
-            prompt="...有点郁闷.",
+            prompt="...depressed.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -196,7 +195,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_euphoric",
-            prompt="...很幸福.",
+            prompt="...euphoric.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -219,7 +218,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_hyperfixation",
-            prompt="...对一些东西很痴迷.",
+            prompt="...a hyperfixation.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -275,7 +274,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_inlove",
-            prompt="...恋爱了.",
+            prompt="...in love.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -289,13 +288,13 @@ $ _history_list.pop()
 menu:
     m "I don't want to sound cocky, but... are you in love with {i}me{/i}?{fast}"
     
-    "是的.":
+    "Yes":
         m 2hubfu "Ehehe, I knew it!"
         m 7hubfb "No need for the suspense then, [player]!"
         m 2tubfb "I loooooooove you!"
         m 2kubfa "And that love grows every second!"
     
-    "不是.":
+    "No":
         $ mas_loseAffection(ev_label="mas_apology_inlovemood")
         m 2rkc "Oh..."
         m 2tkd "I won't lie to you, [player]."
@@ -311,7 +310,7 @@ init 5 python:
         Event(
             persistent._mas_apology_database,
             eventlabel="mas_apology_inlovemood",
-            prompt="...因为我说和其他人恋爱了而不是你.",
+            prompt="...for saying I was in love with someone who is not you.",
             unlocked=False
         ),
         code="APL"
@@ -331,7 +330,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_loved",
-            prompt="...被爱着.",
+            prompt="...loved.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -352,7 +351,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_panicking",
-            prompt="...有点慌得不知所措.",
+            prompt="...like panicking.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -383,7 +382,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_scared_BELLA",
-            prompt="...好吓人.",
+            prompt="...scared.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -449,7 +448,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_empty",
-            prompt="...很空虚.",
+            prompt="...empty.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -478,7 +477,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_guilty",
-            prompt="...很愧疚.",
+            prompt="...guilty.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -501,7 +500,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_annoyed",
-            prompt="...很恼火.",
+            prompt="...annoyed.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -526,7 +525,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_worstperson",
-            prompt="...自己是最差劲的人了.",
+            prompt="...like the worst person.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -554,7 +553,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_insecure",
-            prompt="...不安全.",
+            prompt="...insecure.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
@@ -576,7 +575,7 @@ init 5 python:
         Event(
             persistent._mas_mood_database,
             eventlabel="otter_mood_safe",
-            prompt="...有一股安全感.",
+            prompt="...safe.",
             category=[store.mas_moods.TYPE_BAD],
             unlocked=True
         ),
