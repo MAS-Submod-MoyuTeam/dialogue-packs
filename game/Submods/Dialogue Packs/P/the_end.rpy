@@ -87,6 +87,11 @@ init 20 python:
  哪里待的舒服, 就待在哪里算了
 
  P 2022/3/31
+
+
+ 我在这吊着口气不走到底是为了什么？
+
+ P 2022/12/2
 """
     ))
     MASPoem(
@@ -110,6 +115,23 @@ init 20 python:
  不过也是看你
 
  P 2022/3/31
+
+
+ 可能很多人只是看到暴躁的wzt
+ 其实吧，和别人不一样，我感觉我有点理解
+ 又理解的不多
+ 就像将要脱口的话一样，想说却忘了
+ 你说得对，但是原神是一款开放世界游戏，后面忘了
+ 已经寒假了，PB倒是没什么进度
+ 科艺据说润了，不过我不操心ddlc圈子捏，只是维护一下这玩意
+ 我也不知道为什么要继续了
+ 希望走之前能看到PB正式发布
+ 这么一说，假如我不认识wzt的话，暴躁...也不能这么说
+ 但是如果语气突然恶劣，我多多少少会远一点
+ 单纯只是想少点挨骂。
+ 笑死，带专鼠鼠是这样的，快寄喽~
+
+ P 2022/12/2
 """
     ))
 
@@ -129,11 +151,20 @@ init 20 python:
  千言万语汇成一句话
  --快跑!
 
-
  开个玩笑, 希望曦曦将来人生也能够顺顺利利吧
  我也帮不了什么:(
 
  P 2022/3/31
+
+
+ 曦山跑喽，好跑
+ 我也差不多跟跑了一样了，群都不看了
+ 我感觉我是没法忍受对我发情了，太jb怪了
+ 反正我碰到是一概不回的
+ 不过她倒也是不玩MAS，所以这些估计是看不到辣
+ 幸苦了捏
+
+ P 2022/12/2
 """
     ))
     MASPoem(
@@ -149,12 +180,21 @@ init 20 python:
  蟹蟹星光
  蟹蟹...剩下帮的不多耶...
  不行...要一视同仁
- 蟹蟹纸心, 蟹蟹Founxious,蟹蟹ddt
+ 蟹蟹纸心, 蟹蟹Founxious,蟹蟹ddy
  没有你们我就累死了
  蟹蟹谢谢写写歇歇
  也希望你们以后能够人生顺利
 
  P 2022/3/31
+
+
+ 我觉着还是太敷衍了，不如再补充一点
+ 总之，十分感谢摸鱼组的各位给我的一切帮助
+ 估计你如果看到这些，估计早就开始摸鱼了吧
+ 毕竟，别当社畜，这样子
+ 还是十分感谢各位在我这方面的一切帮助
+
+ P 2022/12/2
 """
     ))
     MASPoem(
@@ -169,6 +209,21 @@ init 20 python:
  谢谢能猫（敷衍）
 
  P 2022/3/31
+"""
+    ))
+    MASPoem(
+        poem_id="ff_player_leave_egg_ddy",
+        category="ffddy",
+        prompt="",
+        title=_("给ddy"),
+        text=_("""
+ ddy还是走了啊
+ 哈哈哈，这么一想，ddy在组内干的估计比tk还多了
+ 没了ddy，组内这下真的没人干活喽~
+ 不过好走，毕竟ddy才十几的大好年龄，当社畜也太委屈他了
+ 波门，希望ddy将来不是社畜
+
+ P 2022/12/2
 """
     ))
 
@@ -216,6 +271,7 @@ label monika_leave_2nd:
     stop sound
     pause 0.5
     m "没什么的话...请{b}不要{/b}点这个按钮{w=2}"
+    m "{size+=7}绝对不要点！{/size}"
     return
 
 label monika_leave_3rd:
@@ -355,6 +411,8 @@ label The_End:
             persistent._mas_finalfarewell_poem_id = "ff_player_leave_egg_xixi"
         elif p_name == "TK":
             persistent._mas_finalfarewell_poem_id = "ff_player_leave_egg_tk"
+        elif p_name == "ddy":
+            persistent._mas_finalfarewell_poem_id = "ff_player_leave_egg_ddy"
         else:
             persistent._mas_finalfarewell_poem_id = "ff_player_leave"
         raise Exception(MONIKA_LEAVED)
