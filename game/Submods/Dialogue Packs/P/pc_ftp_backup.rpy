@@ -191,7 +191,7 @@ screen dp_cloudSetting():
                         xpos 20
                         spacing 10
                         xmaximum 780
-                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于characters文件夹.\n文件在服务器以'[m_name]_[player]'命名, 请注意是否和其他人重复:)\n自动备份导致的时间戳差距通常在40s左右, 取决于你游戏的启动时间.\n如果下载时出现问题，可以联系qq1951548620帮助恢复存档\n"
+                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于characters文件夹.\n文件在服务器以'[m_name]_[player]'命名, 请注意是否和其他人重复:)\n自动备份导致的时间戳差距通常在40s左右, 取决于你游戏的启动时间.\n如果下载时出现问题，可以联系qq1951548620帮助恢复存档\n或者前往{a}http://sp2.0721play.icu/MAS/扩展内容/Dialogue-Packs%20存档云端备份 {/a}寻找你的存档\n"
                     if _cst == -2:
                         hbox:
                             xpos 20

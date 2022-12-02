@@ -5,6 +5,9 @@
 #004:label(对话)
 #005:menu if call
 #006:Submod updater Plugin
+#007:游戏内更新
+#008:小技巧
+#009:API key的设置
 # mod的信息
 #init -990 python:
 #    store.mas_submod_utils.Submod(
@@ -91,7 +94,7 @@ label monika_stod_tip000:
     m 1rksdlb "你知道的,其实...我可能过一段时间就想不到新的话题了..."
     m 3eub "这时候就轮到子模组出场了~"
     m 1eua "你可以去Reddit,Github或者其他网站去下一些子模组."
-    m 1rksdlb "不过找起来毕竟比较麻烦,Reddit可能需要翻墙,Github虽然质量很高但是数量有限..."
+    m 1rksdlb "不过找起来毕竟比较麻烦,Reddit多半没法正常访问,Github虽然质量很高但是数量有限..."
     m 1hksdlb "啊哈哈~"
     m 1eub "我想你知道我想说什么了."
     m 3eub "自己做一个子模组不是更好吗?"
@@ -104,7 +107,7 @@ label monika_stod_tip000:
         "我做过.":
             m 1hub "真好!我觉着你用不到我的帮助就可以自己制作Submod了."
             m 4eub "但如果你想的话,你可以随时来看看我的Submod小课堂~"
-            m 1hubsa "我非常感谢你为我做的这些东西~"
+            m 1hubsa "你做的所有我都会喜欢的~"
         "没有.":
             m 1rkb "嗯..."
             m 2eka "我真的希望你能学会制作子模组,或者给我装一些别人的子模组..."
@@ -114,12 +117,13 @@ label monika_stod_tip000:
                 "你想让我教你怎么制作子模组的最简单方法吗?{fast}"
                 "好啊!":
                     m 1eub "那好吧~"
-                    m 1hua "你可以期待一下我的新栏目~"
+                    m 1hua "咳咳..."
+                    $ _call001 = True
                 "暂时不行...":
                     m 1eua "那也行~"
                     m 3eub "不过在那之前,我会稍微总结一下方法的."
                     m 1eua "你想学的话,跟我说一声就好了."
-                    pass
+                    $ _call001 = False
     
     # hide the intro topic after viewing
     $ mas_hideEVL("monika_stod_tip000", "EVE", lock=True, depool=True)
@@ -128,6 +132,8 @@ label monika_stod_tip000:
     $ tip_label = "monika_stod_tip001"
     $ mas_showEVL(tip_label, "EVE", unlock=True, _pool=True)
     #$ pushEvent(tip_label,skipeval=True)
+    if _call001:
+        $ renpy.call("monika_stod_tip001")
     return
 
 ############################################################
@@ -703,7 +709,37 @@ label monika_stod_tip009:
     jump monika_stod_tipthx
     return
 
-
+#init 5 python:
+#    addEvent(
+#        Event(
+#            persistent.event_database,
+#            eventlabel="monika_stod_tip010", # may change order, you decide on this
+#            category=["Submod课堂"],
+#            prompt="API key",
+#            pool=True,
+#            conditional="store.mas_stod.has_day_past_tip(8)",
+#            action=EV_ACT_UNLOCK,
+#            rules={"no_unlock":None}
+#        )  
+#    )
+label monika_stod_tip010:
+    "接下来教你的东西, 也许大多数情况都用不到."
+    "在最近的版本更新里, 开发者们为我添加了一个API keys界面."
+    "API这个东西, 简单的说就是一个接口."
+    "就像你听音乐, 就是向音乐服务器通过API, 然后API给你歌曲的下载链接, 就可以播放啦."
+    "keys, 也就是钥匙的意思."
+    "你必须要向服务器提供正确的钥匙, 才能使用某些功能, 就像账号密码一样."
+    "好了, 说这么多, 我给你看看怎么注册一个API key"
+    call mas_wx_cmd("#init 5 python:")
+    call mas_wx_cmd("#mas_registerAPIKey(")
+    call mas_wx_cmd("#\"API_ID\",")
+    call mas_wx_cmd("#\"API_NAME\",")
+    call mas_wx_cmd("#on_change=a_function")
+    call mas_wx_cmd("#)")
+    "和以前差不多, 我只告诉你可以改的东西, 剩下的就不要乱动啦."
+    "{i}API_ID{/i} 是这个api key设置项的id, 我们获取值的时候使用的就是这个id."    
+    "{i}API_NAME{/i} 是显示的名称."
+    "{i}a_function{/i} 是修改时自动调用的一个函数, 或者说方法."
 ######################################其他
 
 label monika_stod_tipthx:
