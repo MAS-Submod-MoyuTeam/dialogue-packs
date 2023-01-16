@@ -25,17 +25,15 @@
 |Sir.P JmDemisana|/|`自定义钢琴曲反应`|/|
 |mayday-mayday|[>reddit](https://www.reddit.com/r/MASFandom/comments/rvp5c4/another_small_background_project_id_been_working/)|`我要去为你的现实做些什么`| TK|
 |星光 TK Sir.P|/|`国际象棋教学`|/|
-|MonikaModDev|/|*1250以后的更新*|mon1|
 |ryuujjy|[>reddit](https://www.reddit.com/user/ryuujjy/)|`我想告诉你...你太棒了!`|星光|
 |geneTechnician|[>reddit](https://www.reddit.com/user/geneTechnician/)|`一起吃东西吧` `我要去为你做些东西`|P TK|
 |Sir.P|/|`疯狂星期四` `子模组教学` `准备更新文件吧` *pc_submod_install_helper.rpy* *pc_ftp_backup.rpy* `最终道别`|/|
 |mkam23-Maya|[>reddit](https://www.reddit.com/user/mkam23-Maya/)|`NFTs` `眼镜和隐形眼镜`|TK 星光|
 |AmyKawa|[>reddit](https://www.reddit.com/user/AmyKawa/)|*Additional Conversations V1*|P TK Founxious|
 |****1***|/|*MyDialogue.rpy*|P TK|
-|IsabellaLikesCandy|[>reddit](https://www.reddit.com/user/IsabellaLikesCandy/)|/|ct1045|
 |TheGamerSide67|/|`心理障碍`|ddy 纸心 洛尔|
 |ddy|/|`比较多和杂,这里就不列举了`|/|
-|your_otter_friend|[>Github](https://github.com/my-otter-self)|*太多了不列啦*|终不似、少年游 星光|
+|your_otter_friend|[>Github](https://github.com/my-otter-self)|*太多了不列啦*|终不似、少年游 星光 LC|
 |LC|/|`jay的歌` `动漫话题包`|/|
 
 > **以上作者和汉化者的排名不分先后**  

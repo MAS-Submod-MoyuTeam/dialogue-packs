@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/MAS-Submod-MoyuTeam/dialogue-packs}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.22.1',
+        version='1.24.0',
         settings_pane="dp_setting_pane"
     )
 
@@ -21,24 +21,21 @@ init -989 python:
 init -995 python:
     import os
     import shutil
-    DP_NEW_VERSION=[0, 12, 5]
+    DP_NEW_VERSION=['0', '12', '5']
     splitver = renpy.config.version.split('.')
     DP_CURR_VERSION = [splitver[0], splitver[1], splitver[2]]
     p_is_old_ver = store.mas_utils.compareVersionLists(DP_CURR_VERSION, DP_NEW_VERSION) == -1
     #-1 0 1
-
-    if not p_is_old_ver:
-        if renpy.loadable(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics"):
-            try:
-                shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics")
-                mas_submod_utils.submod_log.info("[DMR_C] 移除了新版本对话")
-            except:
-                mas_submod_utils.submod_log.info("[DMR_C] 移除新版本对话时发生异常")
-
 init -900 python:
     import os
     import shutil
     try:
+        # 删除125topics
+        if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics"):
+            shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics")
+        # 删除IsabellaLikesCandy
+        if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/IsabellaLikesCandy"):
+            shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/IsabellaLikesCandy")
         #删除原子模组教学文件夹
         if os.path.exists(renpy.config.basedir + "/game/Submods/MonikaSubmodT"):
             shutil.rmtree(renpy.config.basedir + "/game/Submods/MonikaSubmodT")
@@ -53,6 +50,11 @@ init -900 python:
         #删除某个违规子模组
         if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/UnexplainedYeet"):
             shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/UnexplainedYeet")
+        # 删除旧def文件
+        if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics/def.rpy"):
+            shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics/def.rpy")
+        if os.path.exists(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics/def.rpyc"):
+            shutil.rmtree(renpy.config.basedir + "/game/Submods/Dialogue Packs/mas_after125_topics/def.rpyc")
     except Exception as e:
         store.mas_submod_utils.submod_log.error("删除旧版本遗留文件出错：{}".format(e))
 
@@ -63,7 +65,7 @@ init -900 python:
             return ">禁用中"    
     dp_authors = """\
     以下为作者和汉化者名单, 排名不分先后:\n
-    LC,your-otter-friend, JmDemisana, ThePersonYou_Hate,{a=https://www.reddit.com/user/mayday-mayjay/}mayday-mayday{/a},{a=https://www.reddit.com/user/UnexplainedYeet}UnexplainedYeet{/a},{a=https://www.reddit.com/user/ryuujjy/}ryuujjy{/a},{a=https://www.reddit.com/user/geneTechnician/}geneTechniman{/a},{a=https://www.reddit.com/user/mkam23-Maya/}mkam23-maya{/a},TK,Sir.P,星光,莫秋纱,{a=https://github.com/DrakeTheDuelist}DrakeTheDuelist{/a},Mon-ika,{a=https://www.reddit.com/user/AmyKawa}AmyKawa{/a},ddy,Founxious\n
+    纸心, 终不似、少年游, LC, your-otter-friend, JmDemisana, ThePersonYou_Hate,{a=https://www.reddit.com/user/mayday-mayjay/}mayday-mayday{/a},{a=https://www.reddit.com/user/UnexplainedYeet}UnexplainedYeet{/a},{a=https://www.reddit.com/user/ryuujjy/}ryuujjy{/a},{a=https://www.reddit.com/user/geneTechnician/}geneTechniman{/a},{a=https://www.reddit.com/user/mkam23-Maya/}mkam23-maya{/a},TK,Sir.P,星光,莫秋纱,Mon-ika,{a=https://www.reddit.com/user/AmyKawa}AmyKawa{/a},ddy,Founxious\n
     因为个人精力有限, 如果本子模组内有您的作品却没有注明您的名字, 请及时与{a=https://github.com/PencilMario/dialogue-packs}我{/a}告知.
     """
     if p_is_old_ver:
