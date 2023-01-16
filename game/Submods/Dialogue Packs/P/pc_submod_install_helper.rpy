@@ -7,9 +7,9 @@ init python:
 
     # 设置最多进入的子文件夹，默认为1，进入过深可能会导致脚本被错误的放在UnGroupScript
     JOIN_DIR_MAX = 6
-    
-    submod_locat = renpy.config.basedir + "/characters"
-
+    dp_basedir = renpy.config.basedir if not renpy.android else: "/storage/emulated/0/Android/data/and.kns.masmobile/files"
+    submod_locat = dp_basedir + ("/ToInstallSubmods" if not renpy.android else "/characters")
+    os.mkdir(submod_locat)
     DECOMPRESSING_FAIL = "解压zip文件时出现错误."
     ZIP_INCORRECT = "zip文件不正确，这可能意味着这个zip文件并没有根据游戏文件目录来压缩，或包含了非标准子模组所需要的文件夹，为防止出错，请手动解压至正确位置." 
     NO_HELP_UPDATER_ZIP = "不支持由‘辅助更新子模组’创建的压缩包"
@@ -185,19 +185,19 @@ init python:
         #for dirs in files:
         if dirs == 'game':
             check_json(file_name + "/mod_assets", None)
-            copy_dir(file_name ,renpy.config.basedir + "/game")
+            copy_dir(file_name ,dp_basedir + "/game")
             return True
         elif dirs == 'lib':
-            copy_dir(file_name ,renpy.config.basedir + "/lib")
+            copy_dir(file_name ,dp_basedir + "/lib")
             return True
         elif dirs == 'log':
-            copy_dir(file_name ,renpy.config.basedir + "/log")
+            copy_dir(file_name ,dp_basedir + "/log")
             return True
         elif dirs == 'piano_songs':
-            copy_dir(file_name ,renpy.config.basedir + "/piano_songs")
+            copy_dir(file_name ,dp_basedir + "/piano_songs")
             return True
         elif dirs == 'custom_bgm':
-            copy_dir(file_name ,renpy.config.basedir + "/custom_bgm")
+            copy_dir(file_name ,dp_basedir + "/custom_bgm")
             return True
         elif dirs == 'characters':
             mas_submod_utils.submod_log.info("忽略该文件夹: '{}'".format(dirs))
@@ -210,24 +210,24 @@ init python:
             return True#什么都不做, 我不希望做一个一键解锁精灵包的东西--至少要手动移动文件.
         #game下文件夹
         elif dirs == 'Submods':
-            copy_dir(file_name ,renpy.config.basedir + "/game/Submods")
+            copy_dir(file_name ,dp_basedir + "/game/Submods")
             return True
         elif dirs == 'mod_assets':
             check_json(file_name ,None)
-            copy_dir(file_name ,renpy.config.basedir + "/game/mod_assets")
+            copy_dir(file_name ,dp_basedir + "/game/mod_assets")
             return True
         elif dirs == 'python-packages':
-            copy_dir(file_name ,renpy.config.basedir + "/game/python-packages")
+            copy_dir(file_name ,dp_basedir + "/game/python-packages")
             return True
         elif dirs == 'gui':
-            copy_dir(file_name ,renpy.config.basedir + "/game/gui")
+            copy_dir(file_name ,dp_basedir + "/game/gui")
             return True
         else:
             if os.path.isfile(file_name):
                 if file_name.find('rpy') != -1:#如果是rpy文件
-                    if not os.path.exists(renpy.config.basedir + "/game/Submods/UnGroupScripts"):
-                        os.mkdir(renpy.config.basedir + "/game/Submods/UnGroupScripts")
-                    shutil.move(file_name, os.path.join(renpy.config.basedir + "/game/Submods/UnGroupScripts"))
+                    if not os.path.exists(dp_basedir + "/game/Submods/UnGroupScripts"):
+                        os.mkdir(dp_basedir + "/game/Submods/UnGroupScripts")
+                    shutil.move(file_name, os.path.join(dp_basedir + "/game/Submods/UnGroupScripts"))
                     mas_submod_utils.submod_log.warning("这是个脚本文件，复制到 'Submods/UnGroupScripts'：{}".format(file_name))
                     return True
         mas_submod_utils.submod_log.info("不符合任何常规子模组应有的文件夹： '{}'".format(file_name))
@@ -291,11 +291,11 @@ init python:
                     except:
                         mas_submod_utils.submod_log.warning("在尝试获取的礼物分组时出现异常，使用空分组： '{}' ".format(json_file))
                         gtype="/"
-                    if not os.path.exists(renpy.config.basedir + '/AvailableGift'):
-                        os.mkdir(renpy.config.basedir + '/AvailableGift')
-                    if not os.path.exists(renpy.config.basedir + '/AvailableGift' + gtype):
-                        os.mkdir(renpy.config.basedir + '/AvailableGift' + gtype)
-                    giftfile = open(renpy.config.basedir + '/AvailableGift'+ gtype  + giftname + '.gift','w')
+                    if not os.path.exists(dp_basedir + '/AvailableGift'):
+                        os.mkdir(dp_basedir + '/AvailableGift')
+                    if not os.path.exists(dp_basedir + '/AvailableGift' + gtype):
+                        os.mkdir(dp_basedir + '/AvailableGift' + gtype)
+                    giftfile = open(dp_basedir + '/AvailableGift'+ gtype  + giftname + '.gift','w')
                     giftfile.close()
                     mas_submod_utils.submod_log.info("生成了礼物文件：'{}'".format('AvailableGift'+ gtype  + giftname + '.gift'))
                 except:
@@ -312,7 +312,6 @@ init 5 python:
                     eventlabel="monika_submodinstaller",        
                     category=["模组"],                   
                     prompt="帮你点忙",
-                    conditional="not renpy.android",
                     action=EV_ACT_PUSH,
                     pool=False
                 )
@@ -324,13 +323,13 @@ label monika_submodinstaller:
     m 3hksdlb "虽然安装这些东西并不是很难, 但我还是想帮一下你..."
     m 2rua "所以我最近就研究了一下代码, 总之, "
     extend 3hub "我现在可以帮你了!"
-    m 4eua "你下载的一般就是zip格式的文件啦, 就像送礼物一样放在'[renpy.config.basedir]/characters'就好."
-    m 3eub "接下来就交给我. 如果是精灵包的话, 我会在'[renpy.config.basedir]/AvailableGift'下准备用来赠送的文件."
+    m 4eua "你下载的一般就是zip格式的文件啦, 就像送礼物一样放在'[submod_locat]'就好."
+    m 3eub "接下来就交给我. 如果是精灵包的话, 我会在'[dp_basedir]/AvailableGift'下准备用来赠送的文件."
     m 2hksdlb "不过...你需要重启两次，第一次由我负责将文件放好位置，但这时候游戏已经加载玩成了，还需要一次重启来让游戏重新读取一次"
-    m 3eua "假如zip文件没有问题的话, 我就会把它移动到'[renpy.config.basedir]/characters/Install Success'文件夹里"
+    m 3eua "假如zip文件没有问题的话, 我就会把它移动到'[submod_locat]/Install Success'文件夹里"
     m 4eub "如果有问题的话, 我把一些有用的信息记录在submod_log里了，可以看一看."
     #m 3eub "在这个界面会显示为什么崩溃了, 对zip里面的内容进行处理就好."
-    m 2eua "安装失败的文件会放在'[renpy.config.basedir]/characters/Install Fail'"
+    m 2eua "安装失败的文件会放在'[submod_locat]/Install Fail'"
     m 3hub "多给我找一点新东西吧, [player]."
     return
 #
