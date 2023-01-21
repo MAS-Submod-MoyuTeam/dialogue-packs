@@ -7,7 +7,7 @@ init python :
     import datetime
     from lunar_python import Lunar
     
-    chuxid = Lunar.fromYmd(datetime.date.today().year-1,12,29)#去年除夕
+    chuxid = Lunar.fromYmd(datetime.date.today().year-1,12,30)#去年除夕
     chuxi = chuxid.getSolar()
     lnewyear = Lunar.fromYmd(datetime.date.today().year,1,1)#今年的春节
     lny = lnewyear.getSolar()

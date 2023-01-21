@@ -7,7 +7,7 @@ init python:
 
     # 设置最多进入的子文件夹，默认为1，进入过深可能会导致脚本被错误的放在UnGroupScript
     JOIN_DIR_MAX = 6
-    dp_basedir = renpy.config.basedir if not renpy.android else: "/storage/emulated/0/Android/data/and.kns.masmobile/files"
+    dp_basedir = renpy.config.basedir if not renpy.android else "/storage/emulated/0/Android/data/and.kns.masmobile/files"
     submod_locat = dp_basedir + ("/ToInstallSubmods" if not renpy.android else "/characters")
     os.mkdir(submod_locat)
     DECOMPRESSING_FAIL = "解压zip文件时出现错误."
