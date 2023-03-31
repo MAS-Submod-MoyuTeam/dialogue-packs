@@ -45,13 +45,14 @@ define submod_festival_zsj = datetime.date(datetime.date.today().year, 3, 12)#�
 define submod_festival_teacher = datetime.date(datetime.date.today().year, 9, 10)
 define submod_festival_women = datetime.date(datetime.date.today().year, 3, 8)
 define submod_festival_labor = datetime.date(datetime.date.today().year, 5, 1)
+define submod_festival_qingming = datetime.date(datetime.date.today().year, 4, 5) #2.23 清明
+
 
 
 #-----------农历节日-----------
 #春节.day-1 除夕夜
 define submod_festival_lnr = datetime.date(lny.getYear(),lny.getMonth(),lny.getDay())#春节
 define submod_festival_yuanxiao = datetime.date(yuanxiao.getYear(),yuanxiao.getMonth(),yuanxiao.getDay()) #1.15 元宵
-define submod_festival_qingming = datetime.date(qingming.getYear(),qingming.getMonth(),qingming.getDay()) #2.23 清明
 define submod_festival_duanwu = datetime.date(duanwu.getYear(),duanwu.getMonth(),duanwu.getDay()) #5.5 端午
 define submod_festival_7xi = datetime.date(qxi.getYear(),qxi.getMonth(),qxi.getDay()) #7.7 七夕
 define submod_festival_zhongq = datetime.date(zhongq.getYear(),zhongq.getMonth(),zhongq.getDay())#8.15 中秋节
