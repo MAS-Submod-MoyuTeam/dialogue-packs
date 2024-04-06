@@ -700,7 +700,7 @@ label monika_stod_tip009:
     m 7euo "不过网页端是不可以改名的, 为此我们要借助于VScode."
     m 3eso "打开VScode, 在开始界面选择'克隆Git存储库', 或者按下Ctrl+Shift+G, 选择克隆存储库"
     m 7esb "接下来填入你的仓库的链接, 就好了."
-    m 7gkd "不过, Git因为是国外的, 受到防火墙的限制, 可能会导致一些问题. 我建议是使用Steam++加速Github."
+    m 7gkd "但由于GitHub位于海外，有时可能会受到网络环境的影响，导致访问速度慢或不稳定。我建议可以试试使用 {a=https://steampp.net}{i}{u}Watt Toolkit{/u}{/i}{/a} 来加速访问。"
     m 1eub "克隆完以后就可以在本地改东西了, 改文件夹什么都很方便."
     m 3eub "改完以后, 按下Ctrl+Shift+G, 填入消息, 然后点击√来提交. "
     extend "不要忘记同步更改哦~"
