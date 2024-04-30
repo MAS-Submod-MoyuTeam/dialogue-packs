@@ -1,15 +1,50 @@
-default persistent.CloudBackupLastTime = [None, None, None]
+
+default persistent.CloudBackupLastTime = [None] * 3
+default persistent.CloudBackupUsingSlot = 0
 
 init python:
+    import uuid, base64
+    if persistent._CloudBackupUUID is None:
+        persistent._CloudBackupUUID = uuid.uuid1()
     # -*- coding: utf-8 -*-
     from ftplib import FTP
     import time,tarfile,os,sys,datetime
     import zipfile
     appdata = os.getenv("APPDATA")
-    m_name = persistent._mas_monika_nickname
-    p_name = persistent.playername
-    savefile = ""
+    newuuid = ""
+    m_name = ""
+    p_name = ""
 
+    def setName():
+        m_name = persistent._mas_monika_nickname
+        p_name = persistent.playername
+        if (m_name, p_name) != persistent._CloudBackupUsedName:
+            persistent._CloudBackupUsedName = (m_name, p_name)
+    def nameChanged():
+        return (persistent._mas_monika_nickname, persistent.playername) != persistent._CloudBackupUsedName
+
+    setName()
+    if persistent._CloudBackupUsedName is None:
+        persistent._CloudBackupUsedName = (m_name, p_name)
+
+    def encodeBase64(uuid_str):
+        # 移除 UUID 中的横杠
+        uuid_str = uuid_str.replace('-', '')
+        # 将 UUID 转换为字节
+        uuid_bytes = uuid.UUID(uuid_str).bytes
+        # 使用 base64 编码
+        uuid_base64 = base64.urlsafe_b64encode(uuid_bytes)
+        # 去除末尾的等号
+        return uuid_base64.decode('utf-8').rstrip('=')
+    def decodeBase64(short_uuid):
+        # 补全末尾的等号
+        short_uuid += '=' * (4 - len(short_uuid) % 4)
+        # 解码 base64
+        uuid_bytes = base64.urlsafe_b64decode(short_uuid)
+        # 转换为 UUID 对象
+        return uuid.UUID(bytes=uuid_bytes)
+    def getSaveName(base64, slot):
+        return "{}_{}_{}_{}".format(base64, persistent._CloudBackupUsedName[0], persistent._CloudBackupUsedName[1], slot)
     #连接ftp
     def ftpconnect(host,port, username, password):
         ftp = FTP()
@@ -35,8 +70,25 @@ init python:
         ftp.storbinary('STOR ' + remotepath, fp, bufsize)
         ftp.set_debuglevel(0)
         fp.close()
+
+    #删除存档文件
+    def delSave(slot = persistent.CloudBackupUsingSlot):
+        fname = getSaveName(encodeBase64(str(persistent._CloudBackupUUID)), persistent.CloudBackupUsingSlot)
+        try:
+            ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        except:
+            return False
+        try:
+            ftp.delete(fname)
+        except Exception as e:
+            pass
+        #保存上传的时间
+        persistent.CloudBackupLastTime[slot] = None
+        return True
+
     #上传存档文件
     def uploadSave():
+        fname = getSaveName(encodeBase64(str(persistent._CloudBackupUUID)), persistent.CloudBackupUsingSlot)
         try:
             ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
         except:
@@ -51,81 +103,75 @@ init python:
         #os.rename(dataDir + "/persistent",dataDir + "/persistent")
     
         try:
-            ftp.delete(m_name + p_name)
+            ftp.delete(fname)
         except Exception as e:
             pass
-        ftp.rename("persistent", m_name + "_" + p_name)
+        ftp.rename("persistent", fname)
         ftp.quit()
         #保存上传的时间
-        persistent.CloudBackupLastTime = [datetime.date.today(), datetime.datetime.today(), int(time.time())]
+        persistent.CloudBackupLastTime[persistent.CloudBackupUsingSlot] = datetime.datetime.today()
         return True
     
     #下载存档文件
-    def downloadSave():
-        try:
-            ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
-        except:
-            return False
-        if not renpy.android:
-            dataDir = renpy.config.basedir + "/characters"
-        else:
-            dataDir = "/storage/emulated/0/MAS/characters"
-        try:
-            downloadfile(ftp, m_name + "_" + p_name, dataDir + "/persistent")
-        except TypeError as e:
-            renpy.notify("在下载存档时出现了问题")
-            mas_submod_utils.submod_log.info("云端存档下载失败：{}".format(e))
-        ftp.quit()
-        renpy.notify("存档已保存至characters/persistent")
-        return True
-    
-    def downloadOneSave(save):
+    def downloadSave(slot):
+        fname = getSaveName(encodeBase64(str(persistent._CloudBackupUUID)), slot)
         try:
             ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
         except Exception as e:
-            mas_submod_utils.submod_log.error("云端备份失败：{}".format(e))
-            renpy.show_screen("dp_message","服务器连接失败",Hide("dp_message"))
+            renpy.show_screen("dp_message","下载存档时出现了问题.{}".format(e),Hide("dp_message"))
+            mas_submod_utils.submod_log.error("云端存档下载失败：{}".format(e))
         if not renpy.android:
             dataDir = renpy.config.basedir + "/characters"
         else:
             dataDir = "/storage/emulated/0/MAS/characters"
         try:
-            downloadfile(ftp, save, dataDir + "/persistent")
-            renpy.show_screen("dp_message","存档已保存至[renpy.config.basedir]/character",Hide("dp_message"))
-        except:
-            renpy.show_screen("dp_message","下载失败, 请检查输入名称.",Hide("dp_message"))
-            return False
+            downloadfile(ftp, fname, dataDir + "/persistent")
+        except Exception as e:
+            renpy.show_screen("dp_message","下载存档时出现了问题.{}".format(e),Hide("dp_message"))
+            mas_submod_utils.submod_log.error("云端存档下载失败：{}".format(e))
         ftp.quit()
+        renpy.show_screen("dp_message","存档已保存至[renpy.config.basedir]/character",Hide("dp_message"))
         return True
-
-    def checkSaveTime(debug = False):
-        timeD = 0
+    
+    def getCloudSaveTime(afile):
         try:
             ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
         except:
-            timeD = -2
-            return timeD
+            return 0, False
         try:
-            L = list(ftp.sendcmd('MDTM ' + m_name + "_" + p_name))
+            L = list(ftp.sendcmd('MDTM ' + afile))
             ftp.quit()
             dir_t=L[4]+L[5]+L[6]+L[7]+'-'+L[8]+L[9]+'-'+L[10]+L[11]+' '+L[12]+L[13]+':'+L[14]+L[15]+':'+L[16]+L[17]
             timeArray = time.strptime(dir_t, "%Y-%m-%d %H:%M:%S")
             #转换为时间戳:
             timeStamp = int(time.mktime(timeArray)) + 28790
-            atime=int(time.time())
-            #检查时间差距
-            timeD = timeStamp - persistent.CloudBackupLastTime[2]
-            if debug == True:
-                return dir_t
-            if timeD < 0:
-                timeD = 0 - timeD
-        except:
-            timeD = -1
-        return timeD
+            return timeStamp, str(datetime.datetime.fromtimestamp(timeStamp))
+        except Exception as e:
+            mas_submod_utils.submod_log.error("云端备份查询时间失败：{}".format(e))
+            return 0, False
 
-    def FinishEnterSave():
-        downloadOneSave(savefile)
+
+    def checkSaveTime(slot = persistent.CloudBackupUsingSlot):
+        file = getSaveName(encodeBase64(str(persistent._CloudBackupUUID)), slot)
+        return getCloudSaveTime(file)[1]
+    def FinishEnterSave(slot = 999):
+        if slot in range(0, 3):
+            downloadSave(slot)
         renpy.hide_screen("save_input")
+
+    def FinishUUIDSet():
+        try:
+            if len(store.newuuid) < 32:
+                renpy.notify("uuid的长度不正确")
+                raise("UUID的长度不正确")
+            store.newuuid = uuid.UUID(store.newuuid)
+            persistent._CloudBackupUUID = store.newuuid
+            renpy.show_screen("dp_message","UUID设置成功",Hide("dp_message"))
+        except Exception as e:
+            mas_submod_utils.submod_log.info("UUID设置失败:" + str(e))
+            renpy.show_screen("dp_message","UUID设置失败，请检查log以获取详细信息.",Hide("dp_message"))
+        renpy.hide_screen("uuid_save_input")
+
 
     ################
     #自动备份
@@ -133,20 +179,23 @@ init python:
 
     if persistent.submods_dp_CloudBackup:
         try:
-            if datetime.datetime.today().day != persistent.CloudBackupLastTime[1].day:
-                mas_submod_utils.submod_log.info("话题包开始备份: 本地 '{}' -> 上次备份 '{}'".format(datetime.datetime.today(), persistent.CloudBackupLastTime[1]))
+            if datetime.datetime.today().day != persistent.CloudBackupLastTime[persistent.CloudBackupUsingSlot].day:
+                mas_submod_utils.submod_log.info("存档开始云端备份: 上次备份 '{}'".format(persistent.CloudBackupLastTime[persistent.CloudBackupUsingSlot]))
+                persistent.CloudBackupUsingSlot = persistent.CloudBackupUsingSlot + 1 if persistent.CloudBackupUsingSlot + 1 <= 3 - 1 else 0
+                mas_submod_utils.submod_log.info("使用槽位: {}".format(persistent.CloudBackupUsingSlot))
                 uploadSave()
             else:
-                mas_submod_utils.submod_log.info("话题包今日已经备份过，上次备份：'{}' ".format(persistent.CloudBackupLastTime[1]))
+                mas_submod_utils.submod_log.info("云端存档今日已经备份过，上次备份：'{}' ".format(persistent.CloudBackupLastTime[persistent.CloudBackupUsingSlot]))
         except:
-            mas_submod_utils.submod_log.info("话题包可能从未备份过，进行备份：'{}'".format(datetime.datetime.today()))
+            mas_submod_utils.submod_log.info("云端存档可能从未备份过，进行备份：'{}'".format(datetime.datetime.today()))
+            mas_submod_utils.submod_log.info("使用槽位: {}".format(persistent.CloudBackupUsingSlot))
             uploadSave()
 
 
 screen dp_cloudSetting():
     python:
         submods_screen_dp = store.renpy.get_screen("submods", "screens").scope["tooltip"]
-        _cst = checkSaveTime()
+        sfilename = getSaveName(encodeBase64(str(persistent._CloudBackupUUID)), "槽位")
         
     key "noshift_T" action NullAction()
     key "noshift_t" action NullAction()
@@ -191,54 +240,23 @@ screen dp_cloudSetting():
                         xpos 20
                         spacing 10
                         xmaximum 780
-                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于characters文件夹.\n文件在服务器以'[m_name]_[player]'命名, 请注意是否和其他人重复:)\n自动备份导致的时间戳差距通常在40s左右, 取决于你游戏的启动时间.\n如果下载时出现问题，可以联系qq1951548620帮助恢复存档\n或者前往{a=http://sp2.0721play.icu/MAS/扩展内容/Dialogue-Packs%20存档云端备份}我的网盘{/a}寻找你的存档\n"
-                    if _cst == -2:
-                        hbox:
-                            xpos 20
-                            spacing 10
-                            xmaximum 780
-                            text "服务器链接失败!"
-                    if _cst == -1:
-                        hbox:
-                            xpos 20
-                            spacing 10
-                            xmaximum 780
-                            text "当前云端没有存档!"
-                    elif _cst < 15:
-                        hbox:
-                            xpos 20
-                            spacing 10
-                            xmaximum 780
-                            text "云端文件与本地记录时间戳差距<15s, 可以认为是同一个存档"
-                    elif _cst < 60:
-                        hbox:
-                            xpos 20
-                            spacing 10
-                            xmaximum 780
-                            text "云端文件与本地记录时间戳差距小于1分钟, 有与他人重名的可能性"
-                    elif _cst < 180:
-                        hbox:
-                            xpos 20
-                            spacing 10
-                            xmaximum 780
-                            text "{b}云端文件与本地记录时间戳差距为1~3分钟, 有与他人重名的可能性{/b}"
-                    else:
-                        hbox:
-                            xpos 20
-                            spacing 10
-                            xmaximum 780
-                            text "{b}{color=#f00}警告:云端文件与本地记录时间戳差距为[_cst]s, 有极高与他人重名的可能性!!{/color}{/b}"
+                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于characters文件夹.\n文件在服务器以'[sfilename]'命名\n如果下载时出现问题，可以联系qq1951548620帮助恢复存档\n云端有三个槽位 0/1/2"
+                    hbox:
+                        xpos 20
+                        spacing 10
+                        xmaximum 780
+                        text "\nUUID: [persistent._CloudBackupUUID]\n牢记此id以用于在其他客户端进行使用"
 
                     hbox:
                         xpos 20
                         spacing 10
                         xmaximum 780
-                        textbutton "立刻备份":
+                        textbutton "立刻备份至槽位[persistent.CloudBackupUsingSlot]":
                             action Function(uploadSave)
                         textbutton "下载备份":
-                            action Function(downloadSave)
-                        textbutton "下载指定存档":
-                            action Show(screen="save_input", message="请输入存档名称, 格式为‘monika的名称_玩家的名称’, 严格区分大小写", ok_action=Function(FinishEnterSave))
+                            action Show(screen="save_input", message="请选择要下载的槽位", ok_action=Function(FinishEnterSave))
+                        textbutton "设置UUID":
+                            action Show(screen="uuid_save_input", message="请输入UUID, 格式为‘00010203-0405-0607-0809-0a0b0c0d0e0f’, 连字符可省略", ok_action=Function(FinishUUIDSet))
 
             hbox:           
                 xalign 0.5
@@ -247,6 +265,60 @@ screen dp_cloudSetting():
                     action Hide("dp_cloudSetting")
 
 screen save_input(message, ok_action):
+    ## Ensure other screens do not get input while this screen is displayed.
+    modal True
+    zorder 225
+    python:
+        tm0 = checkSaveTime(0)
+        tm1 = checkSaveTime(1)
+        tm2 = checkSaveTime(2)
+    style_prefix "confirm"
+
+    frame:
+        vbox:
+            ymaximum 300
+            xmaximum 800
+            xfill True
+            yfill False
+            spacing 5
+
+            hbox:
+                label _(message):
+                    style "confirm_prompt"
+                    xalign 0.5
+
+            hbox:
+                if tm0:
+                    textbutton "槽位0":
+                        action Function(FinishEnterSave, 0)
+
+                    label "[tm0]"
+                else:
+                    textbutton "槽位未使用"
+            hbox:
+                if tm1:
+                    textbutton "槽位1":
+                        action Function(FinishEnterSave, 1)
+                    
+                    label "[tm1]"
+                else:
+                    textbutton "槽位未使用"
+            hbox:
+                if tm2:
+                    textbutton "槽位2":
+                        action Function(FinishEnterSave, 2)
+                    
+                    label "[tm2]"
+                else:
+                    textbutton "槽位未使用"
+
+            hbox:
+                xalign 0.5
+                spacing 100
+
+                textbutton _("OK") action ok_action
+
+screen uuid_save_input(message, ok_action):
     ## Ensure other screens do not get input while this screen is displayed.
     modal True
     zorder 225
@@ -265,7 +337,7 @@ screen save_input(message, ok_action):
                 style "confirm_prompt"
                 xalign 0.5
 
-            input default "" value VariableInputValue("savefile") length 25
+            input default "[persistent._CloudBackupUUID]" value VariableInputValue("newuuid") length 40
 
             hbox:
                 xalign 0.5
@@ -273,18 +345,26 @@ screen save_input(message, ok_action):
 
                 textbutton _("OK") action ok_action
 
+init 990 python:
+    def CheckNameChanged():
+        if nameChanged():
+            for i in range(0, 3):
+                delSave(i)
+            setName()
+            uploadSave()
+            mas_submod_utils.submod_log.info("检测到名称修改，删除原先所有存档")
 
-init -990 python:
-    import os
-    pass
-    #if not store.mas_submod_utils.isSubmodInstalled("话题整合包"):
-    #    store.mas_submod_utils.Submod(
-    #        author="P",
-    #        name="云端备份",
-    #        description="使用本模组的功能, 即表示你接受将存档文件上传至mas.backup.0721play.icu.\n自动备份依赖于话题整合包(1.14+), 安装它来获取完整功能.",
-    #        version='1.0.0',
-    #        settings_pane="cloudBackup_settingpane"
-    #    )
+    store.mas_submod_utils.registerFunction('ch30_loop', CheckNameChanged)
+
+label monika_changename_dpov:
+    call mas_player_name_enter_name_loop ("你想让我怎么称呼你呢?")
+    call monika_changename_finish
+    return
+label monika_changename_finish:
+    return
+label monika_affection_nickname_dpov:
+    call monika_affection_nickname
+    
 screen cloudBackup_settingpane():
     vbox:
         xmaximum 800

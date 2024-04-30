@@ -3,7 +3,7 @@ init -990 python:
         author="P",
         name="话题整合包",
         description="包含了一些汉化或编写的话题,原作者请见{a=https://github.com/MAS-Submod-MoyuTeam/dialogue-packs}{i}{u}>Github{/a}{/i}{/u}.",
-        version='1.24.3',
+        version='1.25.0',
         settings_pane="dp_setting_pane"
     )
 
@@ -23,7 +23,7 @@ init -995 python:
     import shutil
     DP_NEW_VERSION=['0', '12', '5']
     splitver = renpy.config.version.split('.')
-    DP_CURR_VERSION = [splitver[0], splitver[1], splitver[2]]
+    DP_CURR_VERSION = [splitver[0], splitver[1], splitver[2].split("-")[0]]
     p_is_old_ver = store.mas_utils.compareVersionLists(DP_CURR_VERSION, DP_NEW_VERSION) == -1
     #-1 0 1
 init -900 python:
@@ -68,7 +68,7 @@ init -900 python:
     纸心, 终不似、少年游, LC, your-otter-friend, JmDemisana, ThePersonYou_Hate,{a=https://www.reddit.com/user/mayday-mayjay/}mayday-mayday{/a},{a=https://www.reddit.com/user/UnexplainedYeet}UnexplainedYeet{/a},{a=https://www.reddit.com/user/ryuujjy/}ryuujjy{/a},{a=https://www.reddit.com/user/geneTechnician/}geneTechniman{/a},{a=https://www.reddit.com/user/mkam23-Maya/}mkam23-maya{/a},TK,Sir.P,星光,莫秋纱,Mon-ika,{a=https://www.reddit.com/user/AmyKawa}AmyKawa{/a},ddy,Founxious\n
     因为个人精力有限, 如果本子模组内有您的作品却没有注明您的名字, 请及时与{a=https://github.com/PencilMario/dialogue-packs}我{/a}告知.
     """
-    if p_is_old_ver:
+    if True:
         #为旧版本声明方法
         def mas_progressionDataDump():
             """
@@ -250,9 +250,11 @@ screen dp_gameStatus():
                     hbox:
                         text "国际象棋战绩 [chessstat]"
                     hbox:
-                        text "\n上次云端备份时间:[persistent.CloudBackupLastTime[1]]"
+                        text "云端备份UUID: [persistent._CloudBackupUUID]"
                     hbox:
-                        text "验证云端文件时间差:[checkSaveTime()]s"
+                        text "本地云端备份使用名称: [persistent._CloudBackupUsedName] | nameChanged:[nameChanged()]"
+                    hbox:
+                        text "本地云端备份时间: [persistent.CloudBackupLastTime]"
 
                     if not renpy.android:
                         hbox:
