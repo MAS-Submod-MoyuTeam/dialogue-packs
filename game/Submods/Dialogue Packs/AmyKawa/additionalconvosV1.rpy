@@ -517,10 +517,7 @@ init python:
 
 label monika_rockpaperscissors:
     m 1eka "好啊! 我们来玩吧."
-    if mas_submod_utils.isSubmodInstalled('Extra Plus') and mas_isMoniNormal(higher=True) :
-        call minigame_psr
-    else:
-        call monika_rpcGame
+    call monika_rpcGame
 label monika_rpcGame:
     m 1dsc "我考虑一下我的选择.{w=0.1}.{w=0.1}."
     python:
