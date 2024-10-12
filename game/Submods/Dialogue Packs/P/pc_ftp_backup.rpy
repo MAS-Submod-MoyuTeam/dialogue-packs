@@ -4,6 +4,8 @@ default persistent.CloudBackupUsingSlot = 0
 
 init python:
     import uuid, base64
+    if isinstance(persistent._CloudBackupUUID, uuid.UUID):
+        persistent._CloudBackupUUID = str(persistent._CloudBackupUUID)
     if persistent._CloudBackupUUID is None:
         persistent._CloudBackupUUID = str(uuid.uuid1())
     # -*- coding: utf-8 -*-
