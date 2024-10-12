@@ -5,7 +5,7 @@ default persistent.CloudBackupUsingSlot = 0
 init python:
     import uuid, base64
     if persistent._CloudBackupUUID is None:
-        persistent._CloudBackupUUID = uuid.uuid1()
+        persistent._CloudBackupUUID = str(uuid.uuid1())
     # -*- coding: utf-8 -*-
     from ftplib import FTP
     import time,tarfile,os,sys,datetime
@@ -165,7 +165,7 @@ init python:
                 renpy.notify("uuid的长度不正确")
                 raise("UUID的长度不正确")
             store.newuuid = uuid.UUID(store.newuuid)
-            persistent._CloudBackupUUID = store.newuuid
+            persistent._CloudBackupUUID = str(store.newuuid)
             renpy.show_screen("dp_message","UUID设置成功",Hide("dp_message"))
         except Exception as e:
             mas_submod_utils.submod_log.info("UUID设置失败:" + str(e))
