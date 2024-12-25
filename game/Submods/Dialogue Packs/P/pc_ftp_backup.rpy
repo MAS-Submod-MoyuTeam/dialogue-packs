@@ -178,20 +178,23 @@ init python:
     ################
     #自动备份
     ################
-
-    if persistent.submods_dp_CloudBackup:
-        try:
-            if datetime.datetime.today().day != persistent.CloudBackupLastTime[persistent.CloudBackupUsingSlot].day:
-                mas_submod_utils.submod_log.info("存档开始云端备份: 上次备份 '{}'".format(persistent.CloudBackupLastTime[persistent.CloudBackupUsingSlot]))
-                persistent.CloudBackupUsingSlot = persistent.CloudBackupUsingSlot + 1 if persistent.CloudBackupUsingSlot + 1 <= 3 - 1 else 0
+    try:
+        if persistent.submods_dp_CloudBackup:
+            try:
+                if datetime.datetime.today().day != persistent.CloudBackupLastTime[persistent.CloudBackupUsingSlot].day:
+                    mas_submod_utils.submod_log.info("存档开始云端备份: 上次备份 '{}'".format(persistent.CloudBackupLastTime[persistent.CloudBackupUsingSlot]))
+                    persistent.CloudBackupUsingSlot = persistent.CloudBackupUsingSlot + 1 if persistent.CloudBackupUsingSlot + 1 <= 3 - 1 else 0
+                    mas_submod_utils.submod_log.info("使用槽位: {}".format(persistent.CloudBackupUsingSlot))
+                    uploadSave()
+                else:
+                    mas_submod_utils.submod_log.info("云端存档今日已经备份过，上次备份：'{}' ".format(persistent.CloudBackupLastTime[persistent.CloudBackupUsingSlot]))
+            except:
+                mas_submod_utils.submod_log.info("云端存档可能从未备份过，进行备份：'{}'".format(datetime.datetime.today()))
                 mas_submod_utils.submod_log.info("使用槽位: {}".format(persistent.CloudBackupUsingSlot))
                 uploadSave()
-            else:
-                mas_submod_utils.submod_log.info("云端存档今日已经备份过，上次备份：'{}' ".format(persistent.CloudBackupLastTime[persistent.CloudBackupUsingSlot]))
-        except:
-            mas_submod_utils.submod_log.info("云端存档可能从未备份过，进行备份：'{}'".format(datetime.datetime.today()))
-            mas_submod_utils.submod_log.info("使用槽位: {}".format(persistent.CloudBackupUsingSlot))
-            uploadSave()
+    except Exception as e:
+        import traceback
+        mas_submod_utils.submod_log.error("云端存档自动备份失败：{}".format(traceback.format_exc()))
 
 
 screen dp_cloudSetting():
