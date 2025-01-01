@@ -7,8 +7,14 @@ init python :
     import datetime
     from lunar_python import Lunar
     
-    chuxid = Lunar.fromYmd(datetime.date.today().year-1,12,30)#去年除夕
-    chuxi = chuxid.getSolar()
+    chuxicheck = Lunar.fromYmd(datetime.date.today().year,12,1)#去年除夕
+    c = chuxicheck.getSolar()
+    if c.isLeapYear()
+        chuxid = Lunar.fromYmd(datetime.date.today().year-1,12,29)#去年除夕
+        chuxi = chuxid.getSolar()
+    else:
+        chuxid = Lunar.fromYmd(datetime.date.today().year,1,1)#去年除夕
+        chuxi = chuxid.getSolar()
     lnewyear = Lunar.fromYmd(datetime.date.today().year,1,1)#今年的春节
     lny = lnewyear.getSolar()
     lnewyear2 = Lunar.fromYmd(int(datetime.date.today().year)+1,1,1)#明年的春节
