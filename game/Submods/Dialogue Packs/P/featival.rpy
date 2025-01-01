@@ -9,7 +9,7 @@ init python :
     
     chuxicheck = Lunar.fromYmd(datetime.date.today().year,12,1)#去年除夕
     c = chuxicheck.getSolar()
-    if c.isLeapYear()
+    if c.isLeapYear():
         chuxid = Lunar.fromYmd(datetime.date.today().year-1,12,29)#去年除夕
         chuxi = chuxid.getSolar()
     else:
