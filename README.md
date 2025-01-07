@@ -30,7 +30,6 @@
 |Sir.P|/|`疯狂星期四` `子模组教学` `准备更新文件吧` *pc_submod_install_helper.rpy* *pc_ftp_backup.rpy* `最终道别`|/|
 |mkam23-Maya|[>reddit](https://www.reddit.com/user/mkam23-Maya/)|`NFTs` `眼镜和隐形眼镜`|TK 星光|
 |AmyKawa|[>reddit](https://www.reddit.com/user/AmyKawa/)|*Additional Conversations V1*|P TK Founxious|
-|****1***|/|*MyDialogue.rpy*|P TK|
 |TheGamerSide67|/|`心理障碍`|ddy 纸心 洛尔|
 |ddy|/|`比较多和杂,这里就不列举了`|/|
 |your_otter_friend|[>Github](https://github.com/my-otter-self)|*太多了不列啦*|终不似、少年游 星光 LC|
@@ -38,7 +37,6 @@
 
 > **以上作者和汉化者的排名不分先后**  
 >**The above authors and Chinese translators are listed in no particular order**  
-> ****1*** : 作者未知 Author Unknown
 
 ## 话题投稿
 
