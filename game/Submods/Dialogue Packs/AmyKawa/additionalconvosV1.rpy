@@ -1,6 +1,6 @@
 
 
-init python:
+init 5 python:
     addEvent(Event(persistent.event_database,eventlabel="monika_blueskies",category=["ddlc"],prompt="Blue Skies Mod",random=True))
 
 label monika_blueskies:
