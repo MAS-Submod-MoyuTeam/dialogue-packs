@@ -2,6 +2,7 @@
 
 init 5 python:
     addEvent(Event(persistent.event_database,eventlabel="monika_blueskies",category=["ddlc"],prompt="Blue Skies Mod",random=True))
+init offset = 5
 
 label monika_blueskies:
     m 1eua "你还记得我说过的错过学园祭的事情吗?[mas_get_player_nickname()]?"
