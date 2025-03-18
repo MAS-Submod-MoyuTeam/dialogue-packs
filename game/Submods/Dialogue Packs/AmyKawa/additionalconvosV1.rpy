@@ -1,34 +1,8 @@
-init 5 python:
-    addEvent(Event(persistent.event_database,eventlabel="monika_covid",category=["你的现实"],prompt="COVID-19(新型冠状病毒肺炎)",random=True))
-init offset = 5
-label monika_covid:
-    m 2eublc "我想知道在一个有COVID的世界里是什么样子的..."
-    m "从我在网上读到的内容来看, 它相当可怕."
-    m 3eublc "你必须呆在家里,{w=0.5} 无聊到死."
-    m 3ekblc "你几乎是被剥夺了社会交往的机会."
-    m 3hublb "好吧, 现在你可以体验一下我这辈子都在做的事情了, 啊哈哈!"
-    m 4eublc "我觉得这真的是一个很严肃的事情, 但我也觉得在这样黑暗的时期也可以有光明."
-    m 7hubsb "比如说, 你和我在一起的时间!"
-    m 2eublc "但我想, 即使因为COVID而有新的机遇不断涌现, 但它仍然是危险的."
-    m 2ekblc "拜托了 [player]."
-    m "呆在家里."
-    m 2dkblc "我无法想象如果你生病了会有多可怕."
-    m 2fkblc "只能出去买必需品. "
-    m "但不要在没有戴口罩的情况下外出和人接触."
-    m "拜托了?"
-    m 2fkbfc "..."
-    menu:
-        "我不会不戴口罩外出的. 别担心, 莫妮卡.":
-            m 2fkbfa "很好. 谢谢你为了我保证自己的安全."
-            m "这就让我觉得有一个像你这样受过良好教育的伙伴感到幸运~"
-            m 2fkbfd "我不忍心看到你不舒服..."
-            m 1fkbfb "所以, 谢谢你."
-            m "我爱你!"
-            m 1hubfa "哈哈~"
-return "love"
 
-init python:
+
+init 5 python:
     addEvent(Event(persistent.event_database,eventlabel="monika_blueskies",category=["ddlc"],prompt="Blue Skies Mod",random=True))
+init offset = 5
 
 label monika_blueskies:
     m 1eua "你还记得我说过的错过学园祭的事情吗?[mas_get_player_nickname()]?"

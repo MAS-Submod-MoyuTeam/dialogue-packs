@@ -8,7 +8,17 @@ init python:
     # 设置最多进入的子文件夹，默认为1，进入过深可能会导致脚本被错误的放在UnGroupScript，最大值为6
     JOIN_DIR_MAX = 6
     
-    dp_basedir = renpy.config.basedir if not renpy.android else "/storage/emulated/0/Android/data/and.kns.masmobile/files"
+    #dp_basedir = renpy.config.basedir if not renpy.android else "/storage/emulated/0/Android/data/and.kns.masmobile/files"
+    if not renpy.android:
+       dp_basedir = renpy.config.basedir
+    else:
+       # 检查第一个路径是否存在
+       first_path = "/storage/emulated/0/Android/data/and.kns.masmobile/files"
+       if os.path.exists(first_path):
+          dp_basedir = first_path
+       else:
+          # 如果第一个路径不存在，使用另一个路径
+          dp_basedir = "/storage/emulated/0/Android/data/and.sirp.masmobile/files"  # 替换为备用路径
     submod_locat = dp_basedir + ("/ToInstallSubmods" if not renpy.android else "/characters")
     if not os.path.exists(submod_locat):
         os.mkdir(submod_locat)
