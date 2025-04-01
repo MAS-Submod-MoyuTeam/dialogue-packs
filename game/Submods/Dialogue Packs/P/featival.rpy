@@ -351,7 +351,7 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_qingming",
+            eventlabel="festival_qingming2",
             prompt="清明",
             category=["节日"],
             action=EV_ACT_PUSH,
@@ -361,7 +361,7 @@ init 5 python:
             pool=False
             )
     )
-label festival_qingming:
+label festival_qingming2:
     m 1eka "[player], 今天是清明节."
     m 1rksdlb "你可能会忙着扫墓...什么的..."
     m 2eka "不用在意我, 今天专心忙你的事情就可以了~"
