@@ -92,8 +92,8 @@ label mentalcheckup_greeting:
         menu:
             m "嗯,我想问问你感觉怎样了[player]?"
             "我现在不想谈这个...":
-                m 1dkc "{W=1}哦...{nw}"
-                m "{W=1}好吧...{nw}"
+                m 1dkc "{w=1}哦...{nw}"
+                m "{w=1}好吧...{nw}"
                 m 1euc "嗯,只需要记住,我真的想对你最好,[player]."
                 return
             "我感觉好点了,[m_name]":
@@ -116,7 +116,7 @@ label mentalcheckup_greeting:
                     return
             "...":
                 m 1dkc "..."
-                m 3eua "好吧,那就跳过这个继续吧,[player]...{W=0.3}{nw}"
+                m 3eua "好吧,那就跳过这个继续吧,[player]...{w=0.3}{nw}"
                 return
 
     else:
