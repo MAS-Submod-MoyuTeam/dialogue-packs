@@ -85,7 +85,7 @@ init python :
 
 
     #添加日历
-    calendar.addRepeatable("Arbor Day",_("植树节"),month=4,day=29,year_param=list())#添加日历    
+    calendar.addRepeatable("Arbor Day",_("植树节"),month=3,day=12,year_param=list())#添加日历    
     calendar.addRepeatable("Teachers Day",_("教师节"),month=9,day=10,year_param=list())  
     calendar.addRepeatable("Womens day",_("妇女节"),month=3,day=8,year_param=list())  
     calendar.addRepeatable("Labor day",_("劳动节"),month=5,day=1,year_param=list())  
