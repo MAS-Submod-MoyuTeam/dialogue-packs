@@ -109,6 +109,36 @@ init python:
         except Exception as e:
             mas_submod_utils.submod_log.error("获取云端文件列表失败：{}".format(e))
             return []
+    def deleteAllCloudFiles():
+        try:
+            ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        except Exception as e:
+            mas_submod_utils.submod_log.error("连接云端服务器失败：{}".format(e))
+            return False
+
+        try:
+            # 获取当前UUID的base64编码
+            current_uuid_base64 = encodeBase64(str(persistent._CloudBackupUUID))
+
+            # 获取FTP服务器上的所有文件
+            file_list = ftp.nlst()
+
+            # 筛选出以当前UUID base64编码开头的文件
+            matching_files = [f for f in file_list if f.startswith(current_uuid_base64)]
+
+            # 删除匹配的文件
+            for file in matching_files:
+                try:
+                    ftp.delete(file)
+                    mas_submod_utils.submod_log.info("已删除云端文件：{}".format(file))
+                except Exception as e:
+                    mas_submod_utils.submod_log.error("删除云端文件{}失败：{}".format(file, e))
+
+            ftp.quit()
+            return True
+        except Exception as e:
+            mas_submod_utils.submod_log.error("获取或删除云端文件列表失败：{}".format(e))
+            return False
 
     #上传存档文件
     def uploadSave():
@@ -142,7 +172,7 @@ init python:
         try:
             ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
         except Exception as e:
-            renpy.show_screen("dp_message","下载存档时出现了问题.{}".format(e),Hide("dp_message"))
+            renpy.show_screen("dp_message", message="下载存档时出现了问题.{}".format(e), ok_action=Hide("dp_message"))
             mas_submod_utils.submod_log.error("云端存档下载失败：{}".format(e))
         if not renpy.android:
             dataDir = renpy.config.basedir + "/characters"
@@ -151,10 +181,10 @@ init python:
         try:
             downloadfile(ftp, fname, dataDir + "/persistent")
         except Exception as e:
-            renpy.show_screen("dp_message","下载存档时出现了问题.{}".format(e),Hide("dp_message"))
+            renpy.show_screen("dp_message", message="下载存档时出现了问题.{}".format(e), ok_action=Hide("dp_message"))
             mas_submod_utils.submod_log.error("云端存档下载失败：{}".format(e))
         ftp.quit()
-        renpy.show_screen("dp_message","存档已保存至[renpy.config.basedir]/character",Hide("dp_message"))
+        renpy.show_screen("dp_message", message="存档已保存至[renpy.config.basedir]/character", ok_action=Hide("dp_message"))
         return True
     
     def getCloudSaveTime(afile):
@@ -183,7 +213,7 @@ init python:
         try:
             ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
         except Exception as e:
-            renpy.show_screen("dp_message","下载存档时出现了问题.{}".format(e),Hide("dp_message"))
+            renpy.show_screen("dp_message", message="下载存档时出现了问题.{}".format(e), ok_action=Hide("dp_message"))
             mas_submod_utils.submod_log.error("云端存档下载失败：{}".format(e))
         if not renpy.android:
             dataDir = renpy.config.basedir + "/characters"
@@ -192,10 +222,10 @@ init python:
         try:
             downloadfile(ftp, fname, dataDir + "/persistent")
         except Exception as e:
-            renpy.show_screen("dp_message","下载存档时出现了问题.{}".format(e),Hide("dp_message"))
+            renpy.show_screen("dp_message", message="下载存档时出现了问题.{}".format(e), ok_action=Hide("dp_message"))
             mas_submod_utils.submod_log.error("云端存档下载失败：{}".format(e))
         ftp.quit()
-        renpy.show_screen("dp_message","存档已保存至[renpy.config.basedir]/character",Hide("dp_message"))
+        renpy.show_screen("dp_message", message="存档已保存至[renpy.config.basedir]/character", ok_action=Hide("dp_message"))
         return True
 
         renpy.hide_screen("save_input")
@@ -205,12 +235,13 @@ init python:
             if len(store.newuuid) < 32:
                 renpy.notify("uuid的长度不正确")
                 raise("UUID的长度不正确")
+            deleteAllCloudFiles()
             store.newuuid = uuid.UUID(store.newuuid)
             persistent._CloudBackupUUID = str(store.newuuid)
-            renpy.show_screen("dp_message","UUID设置成功",Hide("dp_message"))
+            renpy.show_screen("dp_message", message="UUID设置成功", ok_action=Hide("dp_message"))
         except Exception as e:
             mas_submod_utils.submod_log.info("UUID设置失败:" + str(e))
-            renpy.show_screen("dp_message","UUID设置失败，请检查log以获取详细信息.",Hide("dp_message"))
+            renpy.show_screen("dp_message", message="UUID设置失败，请检查log以获取详细信息.", ok_action=Hide("dp_message"))
         renpy.hide_screen("uuid_save_input")
 
 
@@ -380,13 +411,13 @@ screen uuid_save_input(message, ok_action):
 init 990 python:
     def CheckNameChanged():
         if nameChanged():
-            for i in range(0, 3):
-                delSave(i)
+            deleteAllCloudFiles()
             setName()
             uploadSave()
             mas_submod_utils.submod_log.info("检测到名称修改，删除原先所有存档")
 
     store.mas_submod_utils.registerFunction('ch30_loop', CheckNameChanged)
+
 
 
 label monika_changename_dpov:
