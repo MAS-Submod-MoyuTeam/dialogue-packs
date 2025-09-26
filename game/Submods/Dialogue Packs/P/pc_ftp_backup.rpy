@@ -87,6 +87,28 @@ init python:
         #保存上传的时间
         persistent.CloudBackupLastTime[slot] = None
         return True
+    def getAllCloudFiles():
+        try:
+            ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        except Exception as e:
+            mas_submod_utils.submod_log.error("获取云端文件列表失败：{}".format(e))
+            return []
+
+        try:
+            # 获取当前UUID的base64编码
+            current_uuid_base64 = encodeBase64(str(persistent._CloudBackupUUID))
+
+            # 获取FTP服务器上的所有文件
+            file_list = ftp.nlst()
+
+            # 筛选出以当前UUID base64编码开头的文件
+            matching_files = [f for f in file_list if f.startswith(current_uuid_base64)]
+
+            ftp.quit()
+            return matching_files
+        except Exception as e:
+            mas_submod_utils.submod_log.error("获取云端文件列表失败：{}".format(e))
+            return []
 
     #上传存档文件
     def uploadSave():
@@ -156,9 +178,26 @@ init python:
     def checkSaveTime(slot = persistent.CloudBackupUsingSlot):
         file = getSaveName(encodeBase64(str(persistent._CloudBackupUUID)), slot)
         return getCloudSaveTime(file)[1]
-    def FinishEnterSave(slot = 999):
-        if slot in range(0, 3):
-            downloadSave(slot)
+    def FinishEnterSave(file):
+        fname = file
+        try:
+            ftp = ftpconnect("mas.backup.0721play.icu", 21, "mas_backup_0721play_icu", "3RNNNwYYetBi3LHw")
+        except Exception as e:
+            renpy.show_screen("dp_message","下载存档时出现了问题.{}".format(e),Hide("dp_message"))
+            mas_submod_utils.submod_log.error("云端存档下载失败：{}".format(e))
+        if not renpy.android:
+            dataDir = renpy.config.basedir + "/characters"
+        else:
+            dataDir = "/storage/emulated/0/MAS/characters"
+        try:
+            downloadfile(ftp, fname, dataDir + "/persistent")
+        except Exception as e:
+            renpy.show_screen("dp_message","下载存档时出现了问题.{}".format(e),Hide("dp_message"))
+            mas_submod_utils.submod_log.error("云端存档下载失败：{}".format(e))
+        ftp.quit()
+        renpy.show_screen("dp_message","存档已保存至[renpy.config.basedir]/character",Hide("dp_message"))
+        return True
+
         renpy.hide_screen("save_input")
 
     def FinishUUIDSet():
@@ -245,7 +284,7 @@ screen dp_cloudSetting():
                         xpos 20
                         spacing 10
                         xmaximum 780
-                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于characters文件夹.\n文件在服务器以'[sfilename]'命名\n如果下载时出现问题，可以联系qq1951548620帮助恢复存档\n云端有三个槽位 0/1/2"
+                        text "每天第一次启动时即会进行一次自动备份. 下载的存档文件位于characters文件夹.\n文件在服务器以'[sfilename]'命名\n如果下载时出现问题，可以联系qq1951548620帮助恢复存档\n云端有三个槽位 0/1/2\n注意: 在存档中使用中文名可能导致无法下载存档"
                     hbox:
                         xpos 20
                         spacing 10
@@ -274,9 +313,12 @@ screen save_input(message, ok_action):
     modal True
     zorder 225
     python:
-        tm0 = checkSaveTime(0)
-        tm1 = checkSaveTime(1)
-        tm2 = checkSaveTime(2)
+        saves = getAllCloudFiles()
+        savetimes = {}
+        showname = {}
+        for file in saves:
+            savetimes[file] = getCloudSaveTime(file)[1]
+            showname[file] = "{}".format(file).replace(encodeBase64(str(persistent._CloudBackupUUID)), "")[1:]
     style_prefix "confirm"
 
     frame:
@@ -293,35 +335,20 @@ screen save_input(message, ok_action):
                     xalign 0.5
 
             hbox:
-                if tm0:
-                    textbutton "槽位0":
-                        action Function(FinishEnterSave, 0)
+                textbutton "如果这里没有存档, 可点击这里查看所有存档列表":
+                    action OpenURL(r"http://sp2.0721play.icu/MAS/%E6%89%A9%E5%B1%95%E5%86%85%E5%AE%B9/Dialogue-Packs%20%E5%AD%98%E6%A1%A3%E4%BA%91%E7%AB%AF%E5%A4%87%E4%BB%BD")
 
-                    label "[tm0]"
-                else:
-                    textbutton "槽位未使用"
-            hbox:
-                if tm1:
-                    textbutton "槽位1":
-                        action Function(FinishEnterSave, 1)
-                    
-                    label "[tm1]"
-                else:
-                    textbutton "槽位未使用"
-            hbox:
-                if tm2:
-                    textbutton "槽位2":
-                        action Function(FinishEnterSave, 2)
-                    
-                    label "[tm2]"
-                else:
-                    textbutton "槽位未使用"
+            for item in saves:
+                hbox:
+                    textbutton "{}".format(showname.get(item, item[21:])):
+                        action Function(FinishEnterSave, item)
+                    label "上传于 " + savetimes.get(item, "未知")
 
             hbox:
                 xalign 0.5
                 spacing 100
 
-                textbutton _("OK") action ok_action
+                textbutton _("OK") action Hide("save_input")
 
 screen uuid_save_input(message, ok_action):
     ## Ensure other screens do not get input while this screen is displayed.
@@ -360,6 +387,7 @@ init 990 python:
             mas_submod_utils.submod_log.info("检测到名称修改，删除原先所有存档")
 
     store.mas_submod_utils.registerFunction('ch30_loop', CheckNameChanged)
+
 
 label monika_changename_dpov:
     call mas_player_name_enter_name_loop ("你想让我怎么称呼你呢?")
