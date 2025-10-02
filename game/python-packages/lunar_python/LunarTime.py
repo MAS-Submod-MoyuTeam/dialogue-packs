@@ -25,7 +25,7 @@ class LunarTime:
         return LunarUtil.ZHI[self.__zhiIndex + 1]
 
     def getGanZhi(self):
-        return self.getGan() + self.getZhi()
+        return "%s%s" % (self.getGan(), self.getZhi())
 
     def getShengXiao(self):
         return LunarUtil.SHENGXIAO[self.__zhiIndex + 1]
@@ -61,13 +61,13 @@ class LunarTime:
         return LunarUtil.POSITION_DESC[self.getPositionCai()]
 
     def getChong(self):
-        return LunarUtil.CHONG[self.__zhiIndex + 1]
+        return LunarUtil.CHONG[self.__zhiIndex]
 
     def getChongGan(self):
-        return LunarUtil.CHONG_GAN[self.__ganIndex + 1]
+        return LunarUtil.CHONG_GAN[self.__ganIndex]
 
     def getChongGanTie(self):
-        return LunarUtil.CHONG_GAN_TIE[self.getGan()]
+        return LunarUtil.CHONG_GAN_TIE[self.__ganIndex]
 
     def getChongShengXiao(self):
         chong = self.getChong()
@@ -86,8 +86,7 @@ class LunarTime:
         return LunarUtil.NAYIN[self.getGanZhi()]
 
     def getTianShen(self):
-        offset = LunarUtil.ZHI_TIAN_SHEN_OFFSET[self.__lunar.getDayZhiExact()]
-        return LunarUtil.TIAN_SHEN[(self.__zhiIndex + offset) % 12 + 1]
+        return LunarUtil.TIAN_SHEN[(self.__zhiIndex + LunarUtil.ZHI_TIAN_SHEN_OFFSET[self.__lunar.getDayZhiExact()]) % 12 + 1]
 
     def getTianShenType(self):
         return LunarUtil.TIAN_SHEN_TYPE[self.getTianShen()]
@@ -161,7 +160,7 @@ class LunarTime:
             return "00:00"
         elif hour > 22:
             return "23:00"
-        return "%02d:00", hour - 1 if hour % 2 == 0 else hour
+        return "%02d:00" % (hour - 1 if hour % 2 == 0 else hour)
 
     def getMaxHm(self):
         hour = self.__lunar.getHour()
@@ -169,4 +168,4 @@ class LunarTime:
             return "00:59"
         elif hour > 22:
             return "23:59"
-        return "%02d:59", hour + 1 if hour % 2 != 0 else hour
+        return "%02d:59" % (hour + 1 if hour % 2 != 0 else hour)
