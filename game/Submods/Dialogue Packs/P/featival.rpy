@@ -5,6 +5,8 @@
 init python :
     import store.mas_calendar as calendar
     import datetime
+    if renpy.config.gamedir != renpy.config.basedir + "game" :
+       renpy.config.gamedir = renpy.config.basedir + "game"
     from lunar_python import Lunar
 
     def calculate_qingming(year):

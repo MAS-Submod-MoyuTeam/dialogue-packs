@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from ..util import LunarUtil
 
 
@@ -36,7 +37,7 @@ class LiuYue:
         """
         offset = 0
         year_gan_zhi = self.__liuNian.getGanZhi()
-        year_gan = year_gan_zhi.decode("utf-8")[:1].encode("utf-8")
+        year_gan = year_gan_zhi[:1]
         if "甲" == year_gan or "己" == year_gan:
             offset = 2
         elif "乙" == year_gan or "庚" == year_gan:

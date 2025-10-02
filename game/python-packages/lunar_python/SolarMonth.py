@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from . import Solar
+from . import Solar, SolarWeek
 from .util import SolarUtil
 
 
@@ -18,7 +18,7 @@ class SolarMonth:
         return SolarMonth(date.year, date.month)
 
     @staticmethod
-    def fromYm(year, month):
+    def fromYm(year: int, month: int):
         return SolarMonth(year, month)
 
     def getYear(self):
@@ -48,26 +48,38 @@ class SolarMonth:
             days.append(d.next(i))
         return days
 
+    def getWeeks(self, start):
+        """
+        获取本月的阳历日期列表
+        :param start: 星期几作为一周的开始，1234560分别代表星期一至星期天
+        :return: 阳历日期列表
+        """
+        weeks = []
+        week = SolarWeek.fromYmd(self.__year, self.__month, 1, start)
+        while True:
+            weeks.append(week)
+            week = week.next(1, False)
+            first_day = week.getFirstDay()
+            if first_day.getYear() > self.__year or first_day.getMonth() > self.__month:
+                break
+        return weeks
+
     def next(self, months):
         """
         获取往后推几个月的阳历月，如果要往前推，则月数用负数
         :param months: 月数
         :return: 阳历月
         """
-        year = self.__year
-        month = self.__month
-        if months == 0:
-            return SolarMonth.fromYm(year, month)
-        n = abs(months)
-        for i in range(1, n + 1):
-            if months < 0:
-                month -= 1
-                if month < 1:
-                    month = 12
-                    year -= 1
-            else:
-                month += 1
-                if month > 12:
-                    month = 1
-                    year += 1
-        return SolarMonth.fromYm(year, month)
+        n = 1
+        if months < 0:
+            n = -1
+        m = abs(months)
+        y = self.__year + int(m / 12) * n
+        m = self.__month + m % 12 * n
+        if m > 12:
+            m -= 12
+            y += 1
+        elif m < 1:
+            m += 12
+            y -= 1
+        return SolarMonth.fromYm(y, m)
