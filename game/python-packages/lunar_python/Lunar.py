@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-from . import Solar, NineStar, EightChar, JieQi, ShuJiu, Fu, LunarTime
+from datetime import timedelta
+
+from . import ExactDate, Solar, NineStar, EightChar, JieQi, ShuJiu, Fu, LunarTime
 from .util import LunarUtil, SolarUtil
 
 
@@ -10,7 +12,7 @@ class Lunar:
     JIE_QI = ("冬至", "小寒", "大寒", "立春", "雨水", "惊蛰", "春分", "清明", "谷雨", "立夏", "小满", "芒种", "夏至", "小暑", "大暑", "立秋", "处暑", "白露", "秋分", "寒露", "霜降", "立冬", "小雪", "大雪")
     JIE_QI_IN_USE = ("DA_XUE", "冬至", "小寒", "大寒", "立春", "雨水", "惊蛰", "春分", "清明", "谷雨", "立夏", "小满", "芒种", "夏至", "小暑", "大暑", "立秋", "处暑", "白露", "秋分", "寒露", "霜降", "立冬", "小雪", "大雪", "DONG_ZHI", "XIAO_HAN", "DA_HAN", "LI_CHUN", "YU_SHUI", "JING_ZHE")
 
-    def __init__(self, lunar_year: int, lunar_month: int, lunar_day: int, hour: int, minute: int, second: int):
+    def __init__(self, lunar_year, lunar_month, lunar_day, hour, minute, second):
         from . import LunarYear
         y = LunarYear.fromYear(lunar_year)
         m = y.getMonth(lunar_month)
@@ -32,8 +34,6 @@ class Lunar:
         self.__eightChar = None
         noon = Solar.fromJulianDay(m.getFirstJulianDay() + lunar_day - 1)
         self.__solar = Solar.fromYmdHms(noon.getYear(), noon.getMonth(), noon.getDay(), hour, minute, second)
-        if noon.getYear() != lunar_year:
-            y = LunarYear.fromYear(noon.getYear())
         self.__compute(y)
 
     def __compute(self, y):
@@ -189,17 +189,19 @@ class Lunar:
 
     @staticmethod
     def fromDate(date):
-        return Lunar.fromSolar(Solar.fromDate(date))
-
-    @staticmethod
-    def fromSolar(solar):
         from . import LunarYear
         year = 0
         month = 0
         day = 0
-        ly = LunarYear.fromYear(solar.getYear())
+        solar = Solar.fromDate(date)
+        c = ExactDate.fromYmd(solar.getYear(), solar.getMonth(), solar.getDay())
+        y = solar.getYear()
+        ly = LunarYear.fromYear(y)
         for m in ly.getMonths():
-            days = solar.subtract(Solar.fromJulianDay(m.getFirstJulianDay()))
+            # 初一
+            first_day = Solar.fromJulianDay(m.getFirstJulianDay())
+            first_day = ExactDate.fromYmd(first_day.getYear(), first_day.getMonth(), first_day.getDay())
+            days = (c - first_day).days
             if days < m.getDayCount():
                 year = m.getYear()
                 month = m.getMonth()
@@ -215,9 +217,6 @@ class Lunar:
 
     def getDay(self):
         return self.__day
-
-    def getHour(self):
-        return self.__hour
 
     def getMinute(self):
         return self.__minute
@@ -247,13 +246,13 @@ class Lunar:
         return LunarUtil.ZHI[self.__yearZhiIndexExact + 1]
 
     def getYearInGanZhi(self):
-        return "%s%s" % (self.getYearGan(), self.getYearZhi())
+        return self.getYearGan() + self.getYearZhi()
 
     def getYearInGanZhiByLiChun(self):
-        return "%s%s" % (self.getYearGanByLiChun(), self.getYearZhiByLiChun())
+        return self.getYearGanByLiChun() + self.getYearZhiByLiChun()
 
     def getYearInGanZhiExact(self):
-        return "%s%s" % (self.getYearGanExact(), self.getYearZhiExact())
+        return self.getYearGanExact() + self.getYearZhiExact()
 
     def getMonthGan(self):
         return LunarUtil.GAN[self.__monthGanIndex + 1]
@@ -268,10 +267,10 @@ class Lunar:
         return LunarUtil.ZHI[self.__monthZhiIndexExact + 1]
 
     def getMonthInGanZhi(self):
-        return "%s%s" % (self.getMonthGan(), self.getMonthZhi())
+        return self.getMonthGan() + self.getMonthZhi()
 
     def getMonthInGanZhiExact(self):
-        return "%s%s" % (self.getMonthGanExact(), self.getMonthZhiExact())
+        return self.getMonthGanExact() + self.getMonthZhiExact()
 
     def getDayGan(self):
         return LunarUtil.GAN[self.__dayGanIndex + 1]
@@ -292,13 +291,13 @@ class Lunar:
         return LunarUtil.ZHI[self.__dayZhiIndexExact2 + 1]
 
     def getDayInGanZhi(self):
-        return "%s%s" % (self.getDayGan(), self.getDayZhi())
+        return self.getDayGan() + self.getDayZhi()
 
     def getDayInGanZhiExact(self):
-        return "%s%s" % (self.getDayGanExact(), self.getDayZhiExact())
+        return self.getDayGanExact() + self.getDayZhiExact()
 
     def getDayInGanZhiExact2(self):
-        return "%s%s" % (self.getDayGanExact2(), self.getDayZhiExact2())
+        return self.getDayGanExact2() + self.getDayZhiExact2()
 
     def getTimeGan(self):
         return LunarUtil.GAN[self.__timeGanIndex + 1]
@@ -307,7 +306,7 @@ class Lunar:
         return LunarUtil.ZHI[self.__timeZhiIndex + 1]
 
     def getTimeInGanZhi(self):
-        return "%s%s" % (self.getTimeGan(), self.getTimeZhi())
+        return self.getTimeGan() + self.getTimeZhi()
 
     def getYearShengXiao(self):
         return LunarUtil.SHENGXIAO[self.__yearZhiIndex + 1]
@@ -410,75 +409,6 @@ class Lunar:
     def getDayPositionCaiDesc(self):
         return LunarUtil.POSITION_DESC[self.getDayPositionCai()]
 
-    def getYearPositionTaiSui(self, sect=2):
-        if 1 == sect:
-            year_zhi_index = self.__yearZhiIndex
-        elif 3 == sect:
-            year_zhi_index = self.__yearZhiIndexExact
-        else:
-            year_zhi_index = self.__yearZhiIndexByLiChun
-        return LunarUtil.POSITION_TAI_SUI_YEAR[year_zhi_index]
-
-    def getYearPositionTaiSuiDesc(self, sect=2):
-        return LunarUtil.POSITION_DESC[self.getYearPositionTaiSui(sect)]
-
-    def __getMonthPositionTaiSui(self, month_zhi_index, month_gan_index):
-        m = month_zhi_index - LunarUtil.BASE_MONTH_ZHI_INDEX
-        if m < 0:
-            m += 12
-        m = m % 4
-        if 0 == m:
-            p = "艮"
-        elif 2 == m:
-            p = "坤"
-        elif 3 == m:
-            p = "巽"
-        else:
-            p = LunarUtil.POSITION_GAN[month_gan_index]
-        return p
-
-    def getMonthPositionTaiSui(self, sect=2):
-        if 3 == sect:
-            month_zhi_index = self.__monthZhiIndexExact
-            month_gan_index = self.__monthGanIndexExact
-        else:
-            month_zhi_index = self.__monthZhiIndex
-            month_gan_index = self.__monthGanIndex
-        return self.__getMonthPositionTaiSui(month_zhi_index, month_gan_index)
-
-    def getMonthPositionTaiSuiDesc(self, sect=2):
-        return LunarUtil.POSITION_DESC[self.getMonthPositionTaiSui(sect)]
-
-    def __getDayPositionTaiSui(self, day_in_gan_zhi, year_zhi_index):
-        if day_in_gan_zhi in "甲子,乙丑,丙寅,丁卯,戊辰,己巳":
-            p = "震"
-        elif day_in_gan_zhi in "丙子,丁丑,戊寅,己卯,庚辰,辛巳":
-            p = "离"
-        elif day_in_gan_zhi in "戊子,己丑,庚寅,辛卯,壬辰,癸巳":
-            p = "中"
-        elif day_in_gan_zhi in "庚子,辛丑,壬寅,癸卯,甲辰,乙巳":
-            p = "兑"
-        elif day_in_gan_zhi in "壬子,癸丑,甲寅,乙卯,丙辰,丁巳":
-            p = "坎"
-        else:
-            p = LunarUtil.POSITION_TAI_SUI_YEAR[year_zhi_index]
-        return p
-
-    def getDayPositionTaiSui(self, sect=2):
-        if 1 == sect:
-            day_in_gan_zhi = self.getDayInGanZhi()
-            year_zhi_index = self.__yearZhiIndex
-        elif 3 == sect:
-            day_in_gan_zhi = self.getDayInGanZhi()
-            year_zhi_index = self.__yearZhiIndexExact
-        else:
-            day_in_gan_zhi = self.getDayInGanZhiExact2()
-            year_zhi_index = self.__yearZhiIndexByLiChun
-        return self.__getDayPositionTaiSui(day_in_gan_zhi, year_zhi_index)
-
-    def getDayPositionTaiSuiDesc(self, sect=2):
-        return LunarUtil.POSITION_DESC[self.getDayPositionTaiSui(sect)]
-
     def getTimePositionXi(self):
         return LunarUtil.POSITION_XI[self.__timeGanIndex + 1]
 
@@ -513,28 +443,28 @@ class Lunar:
         return self.getDayChong()
 
     def getDayChong(self):
-        return LunarUtil.CHONG[self.__dayZhiIndex]
+        return LunarUtil.CHONG[self.__dayZhiIndex + 1]
 
     def getTimeChong(self):
-        return LunarUtil.CHONG[self.__timeZhiIndex]
+        return LunarUtil.CHONG[self.__timeZhiIndex + 1]
 
     def getChongGan(self):
         return self.getDayChongGan()
 
     def getDayChongGan(self):
-        return LunarUtil.CHONG_GAN[self.__dayGanIndex]
+        return LunarUtil.CHONG_GAN[self.__dayGanIndex + 1]
 
     def getTimeChongGan(self):
-        return LunarUtil.CHONG_GAN[self.__timeGanIndex]
+        return LunarUtil.CHONG_GAN[self.__timeGanIndex + 1]
 
     def getChongGanTie(self):
         return self.getDayChongGanTie()
 
     def getDayChongGanTie(self):
-        return LunarUtil.CHONG_GAN_TIE[self.__dayGanIndex]
+        return LunarUtil.CHONG_GAN_TIE[self.getDayGan()]
 
     def getTimeChongGanTie(self):
-        return LunarUtil.CHONG_GAN_TIE[self.__timeGanIndex]
+        return LunarUtil.CHONG_GAN_TIE[self.getTimeGan()]
 
     def getChongShengXiao(self):
         return self.getDayChongShengXiao()
@@ -606,20 +536,24 @@ class Lunar:
         return jq
 
     def getJie(self):
-        for i in range(0, len(Lunar.JIE_QI_IN_USE), 2):
-            key = Lunar.JIE_QI_IN_USE[i]
+        jie = ""
+        for i in range(1, len(Lunar.JIE_QI), 2):
+            key = Lunar.JIE_QI[i]
             d = self.__jieQi[key]
             if d.getYear() == self.__solar.getYear() and d.getMonth() == self.__solar.getMonth() and d.getDay() == self.__solar.getDay():
-                return self.__convertJieQi(key)
-        return ""
+                jie = key
+                break
+        return Lunar.__convertJieQi(jie)
 
     def getQi(self):
-        for i in range(1, len(Lunar.JIE_QI_IN_USE), 2):
-            key = Lunar.JIE_QI_IN_USE[i]
+        qi = ""
+        for i in range(0, len(Lunar.JIE_QI), 2):
+            key = Lunar.JIE_QI[i]
             d = self.__jieQi[key]
             if d.getYear() == self.__solar.getYear() and d.getMonth() == self.__solar.getMonth() and d.getDay() == self.__solar.getDay():
-                return self.__convertJieQi(key)
-        return ""
+                qi = key
+                break
+        return Lunar.__convertJieQi(qi)
 
     def getWeek(self):
         return self.__weekIndex
@@ -664,23 +598,8 @@ class Lunar:
             fs = LunarUtil.OTHER_FESTIVAL[md]
             for f in fs:
                 arr.append(f)
-        solar_ymd = self.__solar.toYmd()
-        if solar_ymd == self.__jieQi["清明"].next(-1).toYmd():
+        if self.__solar.toYmd() == self.__jieQi["清明"].next(-1).toYmd():
             arr.append("寒食节")
-
-        jq = self.__jieQi["立春"]
-        offset = 4 - jq.getLunar().getDayGanIndex()
-        if offset < 0:
-            offset += 10
-        if solar_ymd == jq.next(offset + 40).toYmd():
-            arr.append("春社")
-
-        jq = self.__jieQi["立秋"]
-        offset = 4 - jq.getLunar().getDayGanIndex()
-        if offset < 0:
-            offset += 10
-        if solar_ymd == jq.next(offset + 40).toYmd():
-            arr.append("秋社")
         return arr
 
     def getEightChar(self):
@@ -727,10 +646,12 @@ class Lunar:
         return LunarUtil.ZHI_XING[offset + 1]
 
     def getDayTianShen(self):
-        return LunarUtil.TIAN_SHEN[(self.__dayZhiIndex + LunarUtil.ZHI_TIAN_SHEN_OFFSET[self.getMonthZhi()]) % 12 + 1]
+        offset = LunarUtil.ZHI_TIAN_SHEN_OFFSET[self.getMonthZhi()]
+        return LunarUtil.TIAN_SHEN[(self.__dayZhiIndex + offset) % 12 + 1]
 
     def getTimeTianShen(self):
-        return LunarUtil.TIAN_SHEN[(self.__timeZhiIndex + LunarUtil.ZHI_TIAN_SHEN_OFFSET[self.getDayZhiExact()]) % 12 + 1]
+        offset = LunarUtil.ZHI_TIAN_SHEN_OFFSET[self.getDayZhiExact()]
+        return LunarUtil.TIAN_SHEN[(self.__timeZhiIndex + offset) % 12 + 1]
 
     def getDayTianShenType(self):
         return LunarUtil.TIAN_SHEN_TYPE[self.getDayTianShen()]
@@ -753,27 +674,19 @@ class Lunar:
             return ""
         return LunarUtil.POSITION_TAI_MONTH[m - 1]
 
-    def getDayYi(self, sect=1):
+    def getDayYi(self):
         """
         获取每日宜
         :return: 宜
         """
-        if 2 == sect:
-            month_gan_zhi = self.getMonthInGanZhiExact()
-        else:
-            month_gan_zhi = self.getMonthInGanZhi()
-        return LunarUtil.getDayYi(month_gan_zhi, self.getDayInGanZhi())
+        return LunarUtil.getDayYi(self.getMonthInGanZhiExact(), self.getDayInGanZhi())
 
-    def getDayJi(self, sect=1):
+    def getDayJi(self):
         """
         获取每日忌
         :return: 忌
         """
-        if 2 == sect:
-            month_gan_zhi = self.getMonthInGanZhiExact()
-        else:
-            month_gan_zhi = self.getMonthInGanZhi()
-        return LunarUtil.getDayJi(month_gan_zhi, self.getDayInGanZhi())
+        return LunarUtil.getDayJi(self.getMonthInGanZhiExact(), self.getDayInGanZhi())
 
     def getTimeYi(self):
         """
@@ -810,101 +723,77 @@ class Lunar:
         """
         return LunarUtil.YUE_XIANG[self.__day]
 
-    def __getYearNineStar(self, year_in_gan_zhi):
-        index_exact = LunarUtil.getJiaZiIndex(year_in_gan_zhi) + 1
-        index = LunarUtil.getJiaZiIndex(self.getYearInGanZhi()) + 1
-        year_offset = index_exact - index
-        if year_offset > 1:
-            year_offset -= 60
-        elif year_offset < -1:
-            year_offset += 60
-        yuan = int((self.__year + year_offset + 2696) / 60) % 3
-        offset = (62 + yuan * 3 - index_exact) % 9
-        if 0 == offset:
-            offset = 9
-        return NineStar.fromIndex(offset - 1)
+    def getYearNineStar(self):
+        index = -(self.__year - 1900) % 9
+        if index < 0:
+            index += 9
+        return NineStar.fromIndex(index)
 
-    def getYearNineStar(self, sect=2):
-        if 1 == sect:
-            year_in_gan_zhi = self.getYearInGanZhi()
-        elif 3 == sect:
-            year_in_gan_zhi = self.getYearInGanZhiExact()
-        else:
-            year_in_gan_zhi = self.getYearInGanZhiByLiChun()
-        return self.__getYearNineStar(year_in_gan_zhi)
-
-    @staticmethod
-    def __getMonthNineStar(year_zhi_index, month_zhi_index):
-        index = year_zhi_index % 3
-        n = 27 - index * 3
-        if month_zhi_index < LunarUtil.BASE_MONTH_ZHI_INDEX:
-            n -= 3
-        offset = (n - month_zhi_index) % 9
-        return NineStar.fromIndex(offset)
-
-    def getMonthNineStar(self, sect=2):
-        if 1 == sect:
-            year_zhi_index = self.__yearZhiIndex
-            month_zhi_index = self.__monthZhiIndex
-        elif 3 == sect:
-            year_zhi_index = self.__yearZhiIndexExact
-            month_zhi_index = self.__monthZhiIndexExact
-        else:
-            year_zhi_index = self.__yearZhiIndexByLiChun
-            month_zhi_index = self.__monthZhiIndex
-        return self.__getMonthNineStar(year_zhi_index, month_zhi_index)
+    def getMonthNineStar(self):
+        start = 2
+        year_zhi = self.getYearZhi()
+        if year_zhi in "子午卯酉":
+            start = 8
+        elif year_zhi in "辰戌丑未":
+            start = 5
+        month_index = self.__monthZhiIndex - 2
+        if month_index < 0:
+            month_index += 12
+        index = start - month_index - 1
+        while index < 0:
+            index += 9
+        return NineStar.fromIndex(index)
 
     def getDayNineStar(self):
         solar_ymd = self.__solar.toYmd()
-        dong_zhi = self.__jieQi["冬至"]
-        dong_zhi2 = self.__jieQi["DONG_ZHI"]
-        xia_zhi = self.__jieQi["夏至"]
+        yu_shui = self.__jieQi["雨水"].toYmd()
+        gu_yu = self.__jieQi["谷雨"].toYmd()
+        xia_zhi = self.__jieQi["夏至"].toYmd()
+        chu_shu = self.__jieQi["处暑"].toYmd()
+        shuang_jiang = self.__jieQi["霜降"].toYmd()
 
-        dong_zhi_index = LunarUtil.getJiaZiIndex(dong_zhi.getLunar().getDayInGanZhi())
-        dong_zhi_index2 = LunarUtil.getJiaZiIndex(dong_zhi2.getLunar().getDayInGanZhi())
-        xia_zhi_index = LunarUtil.getJiaZiIndex(xia_zhi.getLunar().getDayInGanZhi())
+        start = 6
+        asc = False
+        if self.__jieQi["冬至"].toYmd() <= solar_ymd < yu_shui:
+            asc = True
+            start = 1
+        elif yu_shui <= solar_ymd < gu_yu:
+            asc = True
+            start = 7
+        elif gu_yu <= solar_ymd < xia_zhi:
+            asc = True
+            start = 4
+        elif xia_zhi <= solar_ymd < chu_shu:
+            start = 9
+        elif chu_shu <= solar_ymd < shuang_jiang:
+            start = 3
+        gan_zhi_index = LunarUtil.getJiaZiIndex(self.getDayInGanZhi()) % 9
+        index = start + gan_zhi_index - 1 if asc else start - gan_zhi_index - 1
 
-        if dong_zhi_index > 29:
-            solar_shun_bai = dong_zhi.next(60 - dong_zhi_index)
-        else:
-            solar_shun_bai = dong_zhi.next(-dong_zhi_index)
-        solar_shun_bai_ymd = solar_shun_bai.toYmd()
-        if dong_zhi_index2 > 29:
-            solar_shun_bai2 = dong_zhi2.next(60 - dong_zhi_index2)
-        else:
-            solar_shun_bai2 = dong_zhi2.next(-dong_zhi_index2)
-        solar_shun_bai_ymd2 = solar_shun_bai2.toYmd()
-        if xia_zhi_index > 29:
-            solar_ni_zi = xia_zhi.next(60 - xia_zhi_index)
-        else:
-            solar_ni_zi = xia_zhi.next(-xia_zhi_index)
-        solar_ni_zi_ymd = solar_ni_zi.toYmd()
-        offset = 0
-        if solar_shun_bai_ymd <= solar_ymd < solar_ni_zi_ymd:
-            offset = self.__solar.subtract(solar_shun_bai) % 9
-        elif solar_ni_zi_ymd <= solar_ymd < solar_shun_bai_ymd2:
-            offset = 8 - (self.__solar.subtract(solar_ni_zi) % 9)
-        elif solar_ymd >= solar_shun_bai_ymd2:
-            offset = self.__solar.subtract(solar_shun_bai2) % 9
-        elif solar_ymd < solar_shun_bai_ymd:
-            offset = (8 + solar_shun_bai.subtract(self.__solar)) % 9
-        return NineStar.fromIndex(offset)
+        if index > 8:
+            index -= 9
+        if index < 0:
+            index += 9
+        return NineStar.fromIndex(index)
 
     def getTimeNineStar(self):
         solar_ymd = self.__solar.toYmd()
         asc = False
-        if self.__jieQi["冬至"].toYmd() <= solar_ymd < self.__jieQi["夏至"].toYmd():
+        if self.__jieQi["冬至"] <= solar_ymd < self.__jieQi["夏至"]:
             asc = True
-        elif solar_ymd >= self.__jieQi["DONG_ZHI"].toYmd():
-            asc = True
-        start = 6 if asc else 2
+        start = 7 if asc else 3
         day_zhi = self.getDayZhi()
         if day_zhi in "子午卯酉":
-            start = 0 if asc else 8
+            start = 1 if asc else 9
         elif day_zhi in "辰戌丑未":
-            start = 3 if asc else 5
-        index = start + self.__timeZhiIndex if asc else start + 9 - self.__timeZhiIndex
-        return NineStar.fromIndex(index % 9)
+            start = 4 if asc else 6
+        index = start + self.__timeZhiIndex - 1 if asc else start - self.__timeZhiIndex - 1
+
+        if index > 8:
+            index -= 9
+        if index < 0:
+            index += 9
+        return NineStar.fromIndex(index)
 
     def getJieQiTable(self):
         return self.__jieQi
@@ -966,72 +855,65 @@ class Lunar:
     def getYearZhiIndexExact(self):
         return self.__yearZhiIndexExact
 
-    def getNextJie(self, whole_day=False):
+    def getNextJie(self):
         """
         获取下一节（顺推的第一个节）
-        :param whole_day: 是否按天计
         :return: 节气
         """
         conditions = []
-        for i in range(0, int(len(Lunar.JIE_QI_IN_USE) / 2)):
+        for i in range(0, len(Lunar.JIE_QI_IN_USE) / 2):
             conditions.append(Lunar.JIE_QI_IN_USE[i * 2])
-        return self.__getNearJieQi(True, conditions, whole_day)
+        return self.__getNearJieQi(True, conditions)
 
-    def getPrevJie(self, whole_day=False):
+    def getPrevJie(self):
         """
         获取上一节（逆推的第一个节）
-        :param whole_day: 是否按天计
         :return: 节气
         """
         conditions = []
-        for i in range(0, int(len(Lunar.JIE_QI_IN_USE) / 2)):
+        for i in range(0, len(Lunar.JIE_QI_IN_USE) / 2):
             conditions.append(Lunar.JIE_QI_IN_USE[i * 2])
-        return self.__getNearJieQi(False, conditions, whole_day)
+        return self.__getNearJieQi(False, conditions)
 
-    def getNextQi(self, whole_day=False):
+    def getNextQi(self):
         """
         获取下一气令（顺推的第一个气令）
-        :param whole_day: 是否按天计
         :return: 节气
         """
         conditions = []
-        for i in range(0, int(len(Lunar.JIE_QI_IN_USE) / 2)):
+        for i in range(0, len(Lunar.JIE_QI_IN_USE) / 2):
             conditions.append(Lunar.JIE_QI_IN_USE[i * 2 + 1])
-        return self.__getNearJieQi(True, conditions, whole_day)
+        return self.__getNearJieQi(True, conditions)
 
-    def getPrevQi(self, whole_day=False):
+    def getPrevQi(self):
         """
         获取上一气令（逆推的第一个气令）
-        :param whole_day: 是否按天计
         :return: 节气
         """
         conditions = []
-        for i in range(0, int(len(Lunar.JIE_QI_IN_USE) / 2)):
+        for i in range(0, len(Lunar.JIE_QI_IN_USE) / 2):
             conditions.append(Lunar.JIE_QI_IN_USE[i * 2 + 1])
-        return self.__getNearJieQi(False, conditions, whole_day)
+        return self.__getNearJieQi(False, conditions)
 
-    def getNextJieQi(self, whole_day=False):
+    def getNextJieQi(self):
         """
         获取下一节气（顺推的第一个节气）
-        :param whole_day: 是否按天计
         :return: 节气
         """
-        return self.__getNearJieQi(True, None, whole_day)
+        return self.__getNearJieQi(True, None)
 
-    def getPrevJieQi(self, whole_day=False):
+    def getPrevJieQi(self):
         """
         获取上一节气（逆推的第一个节气）
-        :param whole_day: 是否按天计
         :return: 节气
         """
-        return self.__getNearJieQi(False, None, whole_day)
+        return self.__getNearJieQi(False, None)
 
-    def __getNearJieQi(self, forward, conditions, whole_day):
+    def __getNearJieQi(self, forward, conditions):
         """
         获取最近的节气，如果未找到匹配的，返回null
         :param forward: 是否顺推，true为顺推，false为逆推
         :param conditions: 过滤条件，如果设置过滤条件，仅返回匹配该名称的
-        :param whole_day: 是否按天计
         :return: 节气
         """
         name = None
@@ -1041,35 +923,26 @@ class Lunar:
             for cond in conditions:
                 filters.add(cond)
         is_filter = len(filters) > 0
-        today = self.__solar.toYmd() if whole_day else self.__solar.toYmdHms()
-        for key in self.JIE_QI_IN_USE:
+        today = self.__solar.toYmdHms()
+        for key in self.__jieQi:
             jq = self.__convertJieQi(key)
-            if is_filter and not filters.__contains__(jq):
-                continue
-            solar = self.__jieQi[key]
-            day = solar.toYmd() if whole_day else solar.toYmdHms()
-            if forward:
-                if day <= today:
+            if is_filter:
+                if not filters.__contains__(jq):
                     continue
-                if near is None:
+            solar = self.__jieQi[key]
+            day = solar.toYmdHms()
+            if forward:
+                if day < today:
+                    continue
+                if near is None or day < near.toYmdHms():
                     name = jq
                     near = solar
-                else:
-                    near_day = near.toYmd() if whole_day else near.toYmdHms()
-                    if day < near_day:
-                        name = jq
-                        near = solar
             else:
                 if day > today:
                     continue
-                if near is None:
+                if near is None or day > near.toYmdHms():
                     name = jq
                     near = solar
-                else:
-                    near_day = near.toYmd() if whole_day else near.toYmdHms()
-                    if day > near_day:
-                        name = jq
-                        near = solar
         if near is None:
             return None
         return JieQi(name, near)
@@ -1079,46 +952,37 @@ class Lunar:
         获取节气名称，如果无节气，返回空字符串
         :return: 节气名称
         """
-        for key in self.__jieQi:
-            d = self.__jieQi[key]
+        name = ""
+        for jq in self.__jieQi:
+            d = self.__jieQi[jq]
             if d.getYear() == self.__solar.getYear() and d.getMonth() == self.__solar.getMonth() and d.getDay() == self.__solar.getDay():
-                return self.__convertJieQi(key)
-        return ""
+                name = jq
+                break
+        return self.__convertJieQi(name)
 
     def getCurrentJieQi(self):
         """
         获取当天节气对象，如果无节气，返回None
         :return: 节气对象
         """
-        for key in self.__jieQi:
-            d = self.__jieQi[key]
-            if d.getYear() == self.__solar.getYear() and d.getMonth() == self.__solar.getMonth() and d.getDay() == self.__solar.getDay():
-                return JieQi(self.__convertJieQi(key), self.__solar)
-        return None
+        name = self.getJieQi()
+        return JieQi(name, self.__solar) if name.length() > 0 else None
 
     def getCurrentJie(self):
         """
         获取当天节令对象，如果无节令，返回None
         :return: 节气对象
         """
-        for i in range(0, len(Lunar.JIE_QI_IN_USE), 2):
-            key = Lunar.JIE_QI_IN_USE[i]
-            d = self.__jieQi[key]
-            if d.getYear() == self.__solar.getYear() and d.getMonth() == self.__solar.getMonth() and d.getDay() == self.__solar.getDay():
-                return JieQi(self.__convertJieQi(key), d)
-        return None
+        name = self.getJie()
+        return JieQi(name, self.__solar) if name.length() > 0 else None
 
     def getCurrentQi(self):
         """
         获取当天气令对象，如果无气令，返回None
         :return: 节气对象
         """
-        for i in range(1, len(Lunar.JIE_QI_IN_USE), 2):
-            key = Lunar.JIE_QI_IN_USE[i]
-            d = self.__jieQi[key]
-            if d.getYear() == self.__solar.getYear() and d.getMonth() == self.__solar.getMonth() and d.getDay() == self.__solar.getDay():
-                return JieQi(self.__convertJieQi(key), d)
-        return None
+        name = self.getQi()
+        return JieQi(name, self.__solar) if name.length() > 0 else None
 
     def next(self, days):
         """
@@ -1292,51 +1156,54 @@ class Lunar:
         获取数九
         :return: 数九，如果不是数九天，返回None
         """
-        current = Solar.fromYmd(self.__solar.getYear(), self.__solar.getMonth(), self.__solar.getDay())
+        current_calendar = ExactDate.fromYmd(self.__solar.getYear(), self.__solar.getMonth(), self.__solar.getDay())
         start = self.__jieQi["DONG_ZHI"]
-        start = Solar.fromYmd(start.getYear(), start.getMonth(), start.getDay())
-        if current.isBefore(start):
+        start_calendar = ExactDate.fromYmd(start.getYear(), start.getMonth(), start.getDay())
+        if current_calendar < start_calendar:
             start = self.__jieQi["冬至"]
-            start = Solar.fromYmd(start.getYear(), start.getMonth(), start.getDay())
-        end = Solar.fromYmd(start.getYear(), start.getMonth(), start.getDay()).next(81)
-        if current.isBefore(start) or not current.isBefore(end):
+            start_calendar = ExactDate.fromYmd(start.getYear(), start.getMonth(), start.getDay())
+        end_calendar = start_calendar + timedelta(days=81)
+        if current_calendar < start_calendar or current_calendar >= end_calendar:
             return None
-        days = current.subtract(start)
-        return ShuJiu(LunarUtil.NUMBER[int(days / 9) + 1] + "九", days % 9 + 1)
+        days = (current_calendar - start_calendar).days
+        return ShuJiu(LunarUtil.NUMBER[days / 9 + 1] + "九", days % 9 + 1)
 
     def getFu(self):
         """
         获取三伏
         :return: 三伏，如果不是伏天，返回None
         """
-        current = Solar.fromYmd(self.__solar.getYear(), self.__solar.getMonth(), self.__solar.getDay())
+        current_calendar = ExactDate.fromYmd(self.__solar.getYear(), self.__solar.getMonth(), self.__solar.getDay())
         xia_zhi = self.__jieQi["夏至"]
         li_qiu = self.__jieQi["立秋"]
-        start = Solar.fromYmd(xia_zhi.getYear(), xia_zhi.getMonth(), xia_zhi.getDay())
+        start_calendar = ExactDate.fromYmd(xia_zhi.getYear(), xia_zhi.getMonth(), xia_zhi.getDay())
         add = 6 - xia_zhi.getLunar().getDayGanIndex()
         if add < 0:
             add += 10
         add += 20
-        start = start.next(add)
-        if current.isBefore(start):
+        start_calendar = start_calendar + timedelta(days=add)
+        if current_calendar < start_calendar:
             return None
-        days = current.subtract(start)
+        days = (current_calendar - start_calendar).days
         if days < 10:
             return Fu("初伏", days + 1)
-        start = start.next(10)
-        days = current.subtract(start)
+        start_calendar = start_calendar + timedelta(days=10)
+        days = (current_calendar - start_calendar).days
         if days < 10:
             return Fu("中伏", days + 1)
-        start = start.next(10)
-        days = current.subtract(start)
-        li_qiu_solar = Solar.fromYmd(li_qiu.getYear(), li_qiu.getMonth(), li_qiu.getDay())
-        if li_qiu_solar.isAfter(start):
+        start_calendar = start_calendar + timedelta(days=10)
+        days = (current_calendar - start_calendar).days
+        li_qiu_calendar = ExactDate.fromYmd(li_qiu.getYear(), li_qiu.getMonth(), li_qiu.getDay())
+        if li_qiu_calendar <= start_calendar:
+            if days < 10:
+                return Fu("末伏", days + 1)
+        else:
             if days < 10:
                 return Fu("中伏", days + 11)
-            start = start.next(10)
-            days = current.subtract(start)
-        if days < 10:
-            return Fu("末伏", days + 1)
+            start_calendar = start_calendar + timedelta(days=10)
+            days = (current_calendar - start_calendar).days
+            if days < 10:
+                return Fu("末伏", days + 1)
         return None
 
     def getLiuYao(self):
@@ -1351,24 +1218,18 @@ class Lunar:
         获取物候
         :return: 物候
         """
-        jie_qi = self.getPrevJieQi(True)
+        jie_qi = self.getPrevJieQi()
+        name = jie_qi.getName()
         offset = 0
         for i in range(0, len(Lunar.JIE_QI)):
-            if jie_qi.getName() == Lunar.JIE_QI[i]:
+            if name == Lunar.JIE_QI[i]:
                 offset = i
                 break
-        index = int(self.__solar.subtract(jie_qi.getSolar()) / 5)
-        if index > 2:
-            index = 2
-        return LunarUtil.WU_HOU[(offset * 3 + index) % len(LunarUtil.WU_HOU)]
-
-    def getHou(self):
-        jie_qi = self.getPrevJieQi(True)
-        size = len(LunarUtil.HOU) - 1
-        offset = int(self.__solar.subtract(jie_qi.getSolar()) / 5)
-        if offset > size:
-            offset = size
-        return "%s %s" % (jie_qi.getName(), LunarUtil.HOU[offset])
+        current_calendar = ExactDate.fromYmd(self.__solar.getYear(), self.__solar.getMonth(), self.__solar.getDay())
+        start_solar = jie_qi.getSolar()
+        start_calendar = ExactDate.fromYmd(start_solar.getYear(), start_solar.getMonth(), start_solar.getDay())
+        days = (current_calendar - start_calendar).days
+        return LunarUtil.WU_HOU[(offset * 3 + int(days / 5)) % len(LunarUtil.WU_HOU)]
 
     def getDayLu(self):
         """
