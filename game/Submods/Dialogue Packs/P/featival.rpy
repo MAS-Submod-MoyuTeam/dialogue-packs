@@ -391,7 +391,7 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_duanwu",
+            eventlabel="festival_zhongqiu",
             prompt="中秋",
             category=["节日"],
             action=EV_ACT_PUSH,
