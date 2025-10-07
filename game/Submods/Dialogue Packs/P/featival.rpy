@@ -5,9 +5,6 @@
 init python :
     import store.mas_calendar as calendar
     import datetime
-    if renpy.android:
-      if os.path.exists(u"/storage/emulated/0/MAS/bypass_filetransfer"):
-        renpy.config.gamedir = renpy.config.basedir + "game"
     from lunar_python import Lunar
 
     def calculate_qingming(year):
