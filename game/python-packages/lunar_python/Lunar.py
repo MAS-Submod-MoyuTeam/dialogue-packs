@@ -68,12 +68,18 @@ class Lunar:
     
     def getJieQiDate(self, name):
         import json  # Python 2.7 内置
-        name = name.decode('utf-8') if isinstance(name, str) else name
+        import sys
+
+        if sys.version_info[0] == 2:
+             name = name.decode('utf-8') if isinstance(name, str) else name
+        else:
+             name = name.decode('utf-8') if isinstance(name, bytes) else name
         for key in self.JIE_QI_IN_USE:
             converted = self.__convertJieQi(key)
             converted = json.loads('"%s"' % converted)  # 把 "\u6e05\u660e" 转成 u"清明"
             if converted == name:
                 return self.__jieQi.get(key)
+        return None
 
     def __computeYear(self):
         # 以正月初一开始

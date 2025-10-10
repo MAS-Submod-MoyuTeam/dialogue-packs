@@ -16,8 +16,7 @@ init python :
     lny2 = lnewyear2.getSolar()
     yuanxiaod = Lunar.fromYmd(datetime.date.today().year,1,15)#元宵
     yuanxiao = yuanxiaod.getSolar()
-    qingmingd = Lunar.fromYmd(datetime.date.today().year, 1, 1).getJieQiDate(u"清明")#清明
-    qingming = qingmingd.getSolar()
+    qingming = Lunar.fromYmd(datetime.date.today().year, 1, 1).getJieQiDate(u"清明")#清明
     duanwud = Lunar.fromYmd(datetime.date.today().year,5,5)#端午
     duanwu = duanwud.getSolar()
     zhongqd = Lunar.fromYmd(datetime.date.today().year,8,15)#中秋
