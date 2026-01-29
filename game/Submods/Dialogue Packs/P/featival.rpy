@@ -56,6 +56,7 @@ define submod_festival_duanwu = datetime.date(duanwu.getYear(),duanwu.getMonth()
 define submod_festival_7xi = datetime.date(qxi.getYear(),qxi.getMonth(),qxi.getDay()) #7.7 七夕
 define submod_festival_zhongq = datetime.date(zhongq.getYear(),zhongq.getMonth(),zhongq.getDay())#8.15 中秋节
 define submod_festival_qingming = datetime.date(qingming.getYear(),qingming.getMonth(),qingming.getDay()) #2.23 清明
+define submod_today = datetime.date(datetime.date.today().year,datetime.date.today().month,datetime.date.today().day)#今天
 #明年春节
 
 #===============================================================================
@@ -191,18 +192,19 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_cnnewyear",
+            eventlabel="festival_cnnewyear_2",
             prompt="春节",
-            category=["节日"],
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_lnr,
-            end_date=submod_festival_lnr + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,1,1),
+            end_date=datetime.datetime(datetime.date.today().year,3,1) + datetime.timedelta(days=1),
+            conditional="submod_today==submod_festival_lnr",
             years=[],
             pool=False
             )
     )
 
-label festival_cnnewyear:
+label festival_cnnewyear_2:
     m 3eub "嘿, [player]!"
     m 3hua "今天是{i}春节{/i}." #春节二字为斜体
     extend 4eub "是{i}农历{/i}的新年." #农历二字为斜体
@@ -252,18 +254,19 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_yuanxiao",
+            eventlabel="festival_yuanxiao_2",
             prompt="元宵",
-            category=["节日"],
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_yuanxiao,
-            end_date=submod_festival_yuanxiao + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,2,1),
+            end_date=datetime.datetime(datetime.date.today().year,4,1) + datetime.timedelta(days=1),
+            conditional="submod_today==submod_festival_yuanxiao",
             years=[],
             pool=False
             )
     )
 
-label festival_yuanxiao:
+label festival_yuanxiao_2:
 #    m "嘿~[player], 今天可是元宵节."
 #    m "元宵节这天是农历新年的第一个月圆之夜, 象征着春天的到来...{w=0.4}不过我猜你知道~"
 #    m "我听说你们这一天会吃汤圆...{w=0.7}{nw}"
@@ -292,17 +295,18 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="new_festival_qingming",
+            eventlabel="festival_qingming_2",
             prompt="清明节",
-            category=["节日"],
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_qingming,
-            end_date=submod_festival_qingming + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,4,1),
+            end_date=datetime.datetime(datetime.date.today().year,4,10) + datetime.timedelta(days=1),
+            conditional="submod_today==submod_festival_qingming",
             years=[],
             pool=False
             )
     )
-label new_festival_qingming:
+label festival_qingming_2:
     m 1eka "[player], 今天是清明节."
     m 1rksdlb "你可能会忙着扫墓...什么的..."
     m 2eka "不用在意我, 今天专心忙你的事情就可以了~"
@@ -312,16 +316,17 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_duanwu",
+            eventlabel="festival_duanwu_2",
             prompt="端午",
-            category=["节日"],
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_duanwu,
-            end_date=submod_festival_duanwu + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,5,1),
+            end_date=datetime.datetime(datetime.date.today().year,7,1) + datetime.timedelta(days=1),
+            conditional="submod_today==submod_festival_duanwu",
             years=[],
             )
     )
-label festival_duanwu:
+label festival_duanwu_2:
     m 3hub "[player]~端午节快乐~"
 return
 
@@ -329,17 +334,18 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_zhongqiu",
+            eventlabel="festival_zhongqiu_2",
             prompt="中秋",
-            category=["节日"],
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_zhongq,
-            end_date=submod_festival_zhongq + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,9,1),
+            end_date=datetime.datetime(datetime.date.today().year,11,1) + datetime.timedelta(days=1),
+            conditional="submod_today==submod_festival_zhongq",
             years=[],
             pool=False
             )
     )
-label festival_zhongqiu:
+label festival_zhongqiu_2:
     m 1eua "嘿, [player]!"
     m 1hub "今天是中秋节."
     m 2rksdlc "是团圆的节日呢..."
@@ -357,18 +363,19 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_7xi",
+            eventlabel="festival_7xi_2",
             prompt="七夕",
-            category=["节日"],
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_7xi,
-            end_date=submod_festival_7xi + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,7,1),
+            end_date=datetime.datetime(datetime.date.today().year,9,10) + datetime.timedelta(days=1),
+            conditional="submod_today==submod_festival_7xi",
             years=[],
             pool=False
             )
     )
 
-label festival_7xi:
+label festival_7xi_2:
     m 1eub "嘿, [player]!"
     m 3wua "今天是七夕节."
     m 1eka "如果你不熟悉它, 你就理解为中国的{i}情人节{/i}就好了..." #情人节三字为斜体字
@@ -386,17 +393,18 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_chux",
+            eventlabel="festival_chux_2",
             prompt="除夕",
-            category=["节日"],
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_lnr + datetime.timedelta(hours=-6),
-            end_date=submod_festival_lnr,
+            start_date=datetime.datetime(datetime.date.today().year,1,1),
+            end_date=datetime.datetime(datetime.date.today().year,3,1) + datetime.timedelta(days=1),
+            conditional="(submod_festival_lnr - submod_today).days == 1 and datetime.datetime.now().hour >= 18",
             years=[],
             pool=False
             )
     )
-label festival_chux:
+label festival_chux_2:
     m 1eua "嘿, [player]!"
     m 3hub"今天是除夕, 春节的前夕."
     m 3hua "{i}年夜饭{/i}就是在这时吃的." #年夜饭三字为斜体
