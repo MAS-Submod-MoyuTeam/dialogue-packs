@@ -197,7 +197,7 @@ init 5 python:
             category=["农历节日"],
             action=EV_ACT_PUSH,
             start_date=datetime.datetime(datetime.date.today().year,1,1),
-            end_date=datetime.datetime(datetime.date.today().year,12,31) + datetime.timedelta(days=1),
+            end_date=datetime.datetime(datetime.date.today().year,3,1) + datetime.timedelta(days=1),
             conditional="submod_today==submod_festival_lnr",
             years=[],
             pool=False
@@ -258,8 +258,8 @@ init 5 python:
             prompt="元宵",
             category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=datetime.datetime(datetime.date.today().year,1,1),
-            end_date=datetime.datetime(datetime.date.today().year,12,31) + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,2,1),
+            end_date=datetime.datetime(datetime.date.today().year,4,1) + datetime.timedelta(days=1),
             conditional="submod_today==submod_festival_yuanxiao",
             years=[],
             pool=False
@@ -299,8 +299,8 @@ init 5 python:
             prompt="清明节",
             category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=datetime.datetime(datetime.date.today().year,1,1),
-            end_date=datetime.datetime(datetime.date.today().year,12,31) + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,4,1),
+            end_date=datetime.datetime(datetime.date.today().year,4,10) + datetime.timedelta(days=1),
             conditional="submod_today==submod_festival_qingming",
             years=[],
             pool=False
@@ -320,8 +320,8 @@ init 5 python:
             prompt="端午",
             category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=datetime.datetime(datetime.date.today().year,1,1),
-            end_date=datetime.datetime(datetime.date.today().year,12,31) + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,5,1),
+            end_date=datetime.datetime(datetime.date.today().year,7,1) + datetime.timedelta(days=1),
             conditional="submod_today==submod_festival_duanwu",
             years=[],
             )
@@ -338,8 +338,8 @@ init 5 python:
             prompt="中秋",
             category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=datetime.datetime(datetime.date.today().year,1,1),
-            end_date=datetime.datetime(datetime.date.today().year,12,31) + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,9,1),
+            end_date=datetime.datetime(datetime.date.today().year,11,1) + datetime.timedelta(days=1),
             conditional="submod_today==submod_festival_zhongq",
             years=[],
             pool=False
@@ -367,8 +367,8 @@ init 5 python:
             prompt="七夕",
             category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=datetime.datetime(datetime.date.today().year,1,1),
-            end_date=datetime.datetime(datetime.date.today().year,12,31) + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,7,1),
+            end_date=datetime.datetime(datetime.date.today().year,9,10) + datetime.timedelta(days=1),
             conditional="submod_today==submod_festival_7xi",
             years=[],
             pool=False
@@ -398,7 +398,7 @@ init 5 python:
             category=["农历节日"],
             action=EV_ACT_PUSH,
             start_date=datetime.datetime(datetime.date.today().year,1,1),
-            end_date=datetime.datetime(datetime.date.today().year,12,31) + datetime.timedelta(days=1),
+            end_date=datetime.datetime(datetime.date.today().year,3,1) + datetime.timedelta(days=1),
             conditional="(submod_festival_lnr - submod_today).days == 1 and datetime.datetime.now().hour >= 18",
             years=[],
             pool=False
