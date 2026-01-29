@@ -399,7 +399,7 @@ init 5 python:
             action=EV_ACT_PUSH,
             start_date=datetime.datetime(datetime.date.today().year,1,1),
             end_date=datetime.datetime(datetime.date.today().year,12,31) + datetime.timedelta(days=1),
-            conditional="submod_today < submod_festival_lnr and datetime.datetime.now().hour >= 18",
+            conditional="(submod_festival_lnr - submod_today).days == 1 and datetime.datetime.now().hour >= 18",
             years=[],
             pool=False
             )
