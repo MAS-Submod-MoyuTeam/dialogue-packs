@@ -40,11 +40,11 @@ label fucking_thursday1:
     m 1eub "嘿, [player]!"
     m 1efb "今天是疯狂星期四!来和我一起吃小汉堡!"
     m 1hksdrb "啊哈哈...肯X基什么的没有给我广告费啦...只是随口一说."
-    if store.mas_submod_utils.isSubmodInstalled("Auto Outfit Change"):
-        m 1eua "不过我或许能在今天为你做点什么..."
-        m 1eua "等我一下..."
-        #换上带有DATE的衣服 
-        call f4_change_clothes
+    # if store.mas_submod_utils.isSubmodInstalled("Auto Outfit Change"):
+    #     m 1eua "不过我或许能在今天为你做点什么..."
+    #     m 1eua "等我一下..."
+    #     #换上带有DATE的衣服 
+    #     call f4_change_clothes
     m 1eua "总之，我们今天干什么？"
     python:
         mas_setEVLPropValues(
