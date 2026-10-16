@@ -7,75 +7,16 @@ init python :
     import datetime
     from lunar_python import Lunar
 
-    def calculate_qingming(year):
-        """根据年份计算清明节日期（4月4日或5日）"""
-        Y = year % 100
-        D = 0.2422
-        
-        # 根据世纪选择常数C
-        if 1901 <= year <= 2000:
-            C = 5.59
-        elif 2001 <= year <= 2100:
-            C = 4.81
-        else:
-            C = 4.81  # 默认使用21世纪的值
-        
-        L = Y // 4
-        return int(Y * D + C) - L
 
-    # 获取当前年份并生成2001-2100年的日期
-    #current_year = datetime.date.today().year
-    for target_year in range(2001, 2101):
-        try:
-            # 计算清明节具体日期
-            qingming_day = calculate_qingming(target_year)
-            
-            # 创建日期对象验证有效性
-            qingming_date = datetime.date(target_year, 4, qingming_day)
-            
-            # 添加日历事件（每个年份单独添加）
-            calendar.addRepeatable(
-                "qingming_{0}".format(target_year),
-                _("清明节"),
-                month=4,
-                day=qingming_day,
-                year_param=[target_year]
-            )
-        except ValueError:
-            # 处理无效日期（理论上不会出现）
-            pass
-        except:
-            # 其他异常处理
-            pass
-
-    #单独计算今年的日期                
-    def calculate_qingmings():
-         year = datetime.date.today().year
-         Y = year % 100  # 年份的后两位数字
-         D = 0.2422
-         C = 4.81  # 21世纪的常数
-         L = Y // 4  # 闰年数
-         qingming_day = int(Y * D + C) - L  # 计算清明节的日期
-         return {"day": qingming_day}
-            
-    qingming_info = calculate_qingmings() #获取计算的日期
-    
-    chuxicheck = Lunar.fromYmd(datetime.date.today().year-1,12,1)#去年除夕
-    c = chuxicheck.getSolar()
-    if c.isLeapYear():
-        chuxid = Lunar.fromYmd(datetime.date.today().year-1,12,29)#去年除夕
-        chuxi = chuxid.getSolar()
-    else:
-        chuxid = Lunar.fromYmd(datetime.date.today().year-1,12,30)#去年除夕
-        chuxi = chuxid.getSolar()
+    chuxid = Lunar.getChuXiByYear(datetime.date.today().year)#去年的除夕
+    chuxi = chuxid.getSolar()
     lnewyear = Lunar.fromYmd(datetime.date.today().year,1,1)#今年的春节
     lny = lnewyear.getSolar()
     lnewyear2 = Lunar.fromYmd(int(datetime.date.today().year)+1,1,1)#明年的春节
     lny2 = lnewyear2.getSolar()
     yuanxiaod = Lunar.fromYmd(datetime.date.today().year,1,15)#元宵
     yuanxiao = yuanxiaod.getSolar()
-    #qingmingd = Lunar.fromYmd(datetime.date.today().year,2,23)#清明
-    #qingming = qingmingd.getSolar()
+    qingming = Lunar.fromYmd(datetime.date.today().year, 1, 1).getJieQiDate(u"清明")#清明
     duanwud = Lunar.fromYmd(datetime.date.today().year,5,5)#端午
     duanwu = duanwud.getSolar()
     zhongqd = Lunar.fromYmd(datetime.date.today().year,8,15)#中秋
@@ -93,7 +34,7 @@ init python :
     calendar.addRepeatable("Lunar New Yearn",_("除夕"),month=chuxi.getMonth(),day=chuxi.getDay(),year_param=[int(chuxi.getYear())])  #去年除夕
     calendar.addRepeatable("Lunar New Year",_("春节"),month=lny.getMonth(),day=lny.getDay(),year_param=[int(lny.getYear())])  #今年春节
     calendar.addRepeatable("Lantern Festival",_("元宵节"),month=yuanxiao.getMonth(),day=yuanxiao.getDay(),year_param=[int(yuanxiao.getYear())])  
-    #calendar.addRepeatable("Qingming",_("清明节"),month=qingming.getMonth(),day=qingming.getDay(),year_param=[int(qingming.getYear())])  
+    calendar.addRepeatable("Qingming",_("清明节"),month=qingming.getMonth(),day=qingming.getDay(),year_param=[int(qingming.getYear())])  
     calendar.addRepeatable("Dragon Boat Festival",_("端午节"),month=duanwu.getMonth(),day=duanwu.getDay(),year_param=[int(duanwu.getYear())])  
     calendar.addRepeatable("Tanabata Festival",_("七夕节"),month=qxi.getMonth(),day=qxi.getDay(),year_param=[int(qxi.getYear())])  
     calendar.addRepeatable("Mid Autumn Festival",_("中秋节"),month=zhongq.getMonth(),day=zhongq.getDay(),year_param=[int(zhongq.getYear())])  
@@ -104,7 +45,6 @@ define submod_festival_zsj = datetime.date(datetime.date.today().year, 3, 12)#�
 define submod_festival_teacher = datetime.date(datetime.date.today().year, 9, 10)
 define submod_festival_women = datetime.date(datetime.date.today().year, 3, 8)
 define submod_festival_labor = datetime.date(datetime.date.today().year, 5, 1)
-define submod_festival_qingming = datetime.date(datetime.date.today().year, 4, qingming_info["day"]) #2.23 清明
 
 
 
@@ -115,6 +55,8 @@ define submod_festival_yuanxiao = datetime.date(yuanxiao.getYear(),yuanxiao.getM
 define submod_festival_duanwu = datetime.date(duanwu.getYear(),duanwu.getMonth(),duanwu.getDay()) #5.5 端午
 define submod_festival_7xi = datetime.date(qxi.getYear(),qxi.getMonth(),qxi.getDay()) #7.7 七夕
 define submod_festival_zhongq = datetime.date(zhongq.getYear(),zhongq.getMonth(),zhongq.getDay())#8.15 中秋节
+define submod_festival_qingming = datetime.date(qingming.getYear(),qingming.getMonth(),qingming.getDay()) #2.23 清明
+define submod_today = datetime.date(datetime.date.today().year,datetime.date.today().month,datetime.date.today().day)#今天
 #明年春节
 
 #===============================================================================
@@ -250,18 +192,19 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_cnnewyear",
+            eventlabel="festival_cnnewyear_2",
             prompt="春节",
-            category=["节日"],
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_lnr,
-            end_date=submod_festival_lnr + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,1,1),
+            end_date=datetime.datetime(datetime.date.today().year,3,1) + datetime.timedelta(days=1),
+            conditional="submod_today==submod_festival_lnr",
             years=[],
             pool=False
             )
     )
 
-label festival_cnnewyear:
+label festival_cnnewyear_2:
     m 3eub "嘿, [player]!"
     m 3hua "今天是{i}春节{/i}." #春节二字为斜体
     extend 4eub "是{i}农历{/i}的新年." #农历二字为斜体
@@ -311,18 +254,19 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_yuanxiao",
+            eventlabel="festival_yuanxiao_2",
             prompt="元宵",
-            category=["节日"],
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_yuanxiao,
-            end_date=submod_festival_yuanxiao + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,2,1),
+            end_date=datetime.datetime(datetime.date.today().year,4,1) + datetime.timedelta(days=1),
+            conditional="submod_today==submod_festival_yuanxiao",
             years=[],
             pool=False
             )
     )
 
-label festival_yuanxiao:
+label festival_yuanxiao_2:
 #    m "嘿~[player], 今天可是元宵节."
 #    m "元宵节这天是农历新年的第一个月圆之夜, 象征着春天的到来...{w=0.4}不过我猜你知道~"
 #    m "我听说你们这一天会吃汤圆...{w=0.7}{nw}"
@@ -351,17 +295,18 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_qingming2",
-            prompt="清明",
-            category=["节日"],
+            eventlabel="festival_qingming_2",
+            prompt="清明节",
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_qingming,
-            end_date=submod_festival_qingming + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,4,1),
+            end_date=datetime.datetime(datetime.date.today().year,4,10) + datetime.timedelta(days=1),
+            conditional="submod_today==submod_festival_qingming",
             years=[],
             pool=False
             )
     )
-label festival_qingming2:
+label festival_qingming_2:
     m 1eka "[player], 今天是清明节."
     m 1rksdlb "你可能会忙着扫墓...什么的..."
     m 2eka "不用在意我, 今天专心忙你的事情就可以了~"
@@ -371,16 +316,17 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_duanwu",
+            eventlabel="festival_duanwu_2",
             prompt="端午",
-            category=["节日"],
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_duanwu,
-            end_date=submod_festival_duanwu + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,5,1),
+            end_date=datetime.datetime(datetime.date.today().year,7,1) + datetime.timedelta(days=1),
+            conditional="submod_today==submod_festival_duanwu",
             years=[],
             )
     )
-label festival_duanwu:
+label festival_duanwu_2:
     m 3hub "[player]~端午节快乐~"
 return
 
@@ -388,17 +334,18 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_duanwu",
+            eventlabel="festival_zhongqiu_2",
             prompt="中秋",
-            category=["节日"],
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_zhongq,
-            end_date=submod_festival_zhongq + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,9,1),
+            end_date=datetime.datetime(datetime.date.today().year,11,1) + datetime.timedelta(days=1),
+            conditional="submod_today==submod_festival_zhongq",
             years=[],
             pool=False
             )
     )
-label festival_zhongqiu:
+label festival_zhongqiu_2:
     m 1eua "嘿, [player]!"
     m 1hub "今天是中秋节."
     m 2rksdlc "是团圆的节日呢..."
@@ -416,18 +363,19 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_7xi",
+            eventlabel="festival_7xi_2",
             prompt="七夕",
-            category=["节日"],
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_7xi,
-            end_date=submod_festival_7xi + datetime.timedelta(days=1),
+            start_date=datetime.datetime(datetime.date.today().year,7,1),
+            end_date=datetime.datetime(datetime.date.today().year,9,10) + datetime.timedelta(days=1),
+            conditional="submod_today==submod_festival_7xi",
             years=[],
             pool=False
             )
     )
 
-label festival_7xi:
+label festival_7xi_2:
     m 1eub "嘿, [player]!"
     m 3wua "今天是七夕节."
     m 1eka "如果你不熟悉它, 你就理解为中国的{i}情人节{/i}就好了..." #情人节三字为斜体字
@@ -445,17 +393,18 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="festival_chux",
+            eventlabel="festival_chux_2",
             prompt="除夕",
-            category=["节日"],
+            category=["农历节日"],
             action=EV_ACT_PUSH,
-            start_date=submod_festival_lnr + datetime.timedelta(hours=-6),
-            end_date=submod_festival_lnr,
+            start_date=datetime.datetime(datetime.date.today().year,1,1),
+            end_date=datetime.datetime(datetime.date.today().year,3,1) + datetime.timedelta(days=1),
+            conditional="(submod_festival_lnr - submod_today).days == 1 and datetime.datetime.now().hour >= 18",
             years=[],
             pool=False
             )
     )
-label festival_chux:
+label festival_chux_2:
     m 1eua "嘿, [player]!"
     m 3hub"今天是除夕, 春节的前夕."
     m 3hua "{i}年夜饭{/i}就是在这时吃的." #年夜饭三字为斜体

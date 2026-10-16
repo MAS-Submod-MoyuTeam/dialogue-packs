@@ -19,7 +19,10 @@ label mas_ara:
                     menu:
                         "对的":
                             m 1hubsa "..."
-                            m 6cubfb "[glitchtext(12)]ARA ARA?![glitchtext(6)]eĄ̶̡̛̝̩̬̦͙͍̎̄̒̿R̶̢͕̼͔̤͕͈͍̀̄͌͊̕̚Ä̵̜̫͎̬̻̳́́̽͘͜ ̵͕̌́̈́̈́̕A̵̡̛̽̓R̶̛̛̦̞͆̐̿̽́̕͝Ą̸͔̣̹̫̙̿͛͒̃̀̓͛̿̈͛͜͜"
+                            if renpy.android:
+                               m 6cubfb "[mas_glitchText(12)]ARA ARA?![mas_glitchText(6)]eĄ̶̡̛̝̩̬̦͙͍̎̄̒̿R̶̢͕̼͔̤͕͈͍̀̄͌͊̕̚Ä̵̜̫͎̬̻̳́́̽͘͜ ̵͕̌́̈́̈́̕A̵̡̛̽̓R̶̛̛̦̞͆̐̿̽́̕͝Ą̸͔̣̹̫̙̿͛͒̀̀̓͛̿̈͛͜͜"
+                            else:
+                               m 6cubfb "[glitchtext(12)]ARA ARA?![glitchtext(6)]eĄ̶̡̛̝̩̬̦͙͍̎̄̒̿R̶̢͕̼͔̤͕͈͍̀̄͌͊̕̚Ä̵̜̫͎̬̻̳́́̽͘͜ ̵͕̌́̈́̈́̕A̵̡̛̽̓R̶̛̛̦̞͆̐̿̽́̕͝Ą̸͔̣̹̫̙̿͛͒̃̀̓͛̿̈͛͜͜"
                             m 1tsbsa "啊哈哈~!"
                             m 1fublb "好吧, 我这次认真点!"
                             m 1hsbsa "..."

@@ -51,6 +51,36 @@ class Lunar:
             self.__jieQi[name] = Solar.fromJulianDay(julian_days[i])
             self.__jieQiList.append(name)
 
+    @staticmethod
+    def getChuXiByYear(lunar_year):
+        """
+        通过今年的农历1月1日前一天获取除夕
+        :return: 除夕对应的Lunar对象
+        """
+        # 获取今年的农历正月初一
+        next_year_first_day = Lunar.fromYmd(lunar_year, 1, 1)
+        # 前一天就是除夕
+        chu_xi = next_year_first_day.next(-1)
+        festivals = chu_xi.getFestivals()
+        if "除夕" in festivals:
+            return chu_xi
+        return None
+    
+    def getJieQiDate(self, name):
+        import json  # Python 2.7 内置
+        import sys
+
+        if sys.version_info[0] == 2:
+             name = name.decode('utf-8') if isinstance(name, str) else name
+        else:
+             name = name.decode('utf-8') if isinstance(name, bytes) else name
+        for key in self.JIE_QI_IN_USE:
+            converted = self.__convertJieQi(key)
+            converted = json.loads('"%s"' % converted)  # 把 "\u6e05\u660e" 转成 u"清明"
+            if converted == name:
+                return self.__jieQi.get(key)
+        return None
+
     def __computeYear(self):
         # 以正月初一开始
         offset = self.__year - 4

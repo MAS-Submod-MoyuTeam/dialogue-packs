@@ -271,7 +271,7 @@ label monika_leave_2nd:
     stop sound
     pause 0.5
     m "没什么的话...请{b}不要{/b}点这个按钮{w=2}"
-    m "{size+=7}绝对不要点！{/size}"
+    m "{size=+7}绝对不要点！{/size}"
     return
 
 label monika_leave_3rd:
