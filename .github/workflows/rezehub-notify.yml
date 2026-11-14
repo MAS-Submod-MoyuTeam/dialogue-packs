@@ -16,6 +16,12 @@ on:
     # `published` fires only when a release actually goes out. `created` would
     # also fire for drafts, which have no downloadable assets yet.
     types: [published]
+  # Run the job by hand from the Actions tab to re-send a notification whose
+  # first attempt failed (redirect, DNS, outage) or to refresh the mod page
+  # after editing this file. A manual run carries the branch name instead of a
+  # release tag as the version, which the hub ignores: the owner/repo pair is
+  # the whole signal.
+  workflow_dispatch:
 
 # Nothing is written back to this repository.
 permissions: {}
@@ -40,4 +46,4 @@ jobs:
             --retry 3 --retry-delay 5 --retry-all-errors \
             -H 'Content-Type: application/json' \
             --data "{\"owner\":\"${GITHUB_REPOSITORY%/*}\",\"repo\":\"${GITHUB_REPOSITORY#*/}\",\"version\":\"${GITHUB_REF_NAME}\",\"rules\":${REZEHUB_RULES}}" \
-            "http://rezehub.0721play.icu/api/v1/github-release-notify"
+            "https://rezehub.0721play.icu/api/v1/github-release-notify"
